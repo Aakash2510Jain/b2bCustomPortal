@@ -1,0 +1,37 @@
+<apex:page standardController="Sample_Request__c" extensions="SearchSampleRequests" showHeader="true" sidebar="true">        
+           <apex:form >              
+             <table>
+                <apex:pageBlock >
+                   <apex:outputText > <font size="2" color="blue" >Search Samples</font></apex:outputText>
+                   <tr>
+                   <td><b> Search (By LeadId) : </b></td>
+                   <td><apex:inputtext value="{!text}"/></td>
+                   </tr><br/>
+                   <tr>
+                   <td colspan='2'>
+                   <apex:commandButton action="{!AppSearch}" value="Search"/>
+                   </td>
+                   </tr>
+                   </apex:pageBlock>
+                   </table><br></br><br></br>
+                   <apex:pageBlock >
+               <apex:pageBlockSection columns="1" title="Results">
+             <table>
+                    <tr align="center">
+                   <td align="center">                 
+                   <apex:pageBlockTable value="{!AppSearchData}" var="DS" title="Available Samples" width="100%">                 
+                      <apex:column headerValue="Sample Name"><a href="https://ap1.salesforce.com/{!DS.Id}" target="_Blank">{!DS.name}</a></apex:column>                      
+                      <apex:column value="{!DS.Sample_ID__c}"/>
+                      <apex:column value="{!DS.Sample_Type__c }"/>
+                      <apex:column value="{!DS.OwnerId}"/>
+                      <apex:column value="{!DS.LeadID__c}"/>
+                      <apex:column value="{!DS.Division__c}"/>
+                      
+                    </apex:pageBlockTable>
+                    </td>
+                    </tr>
+                   </table>                   
+                </apex:pageBlockSection>   
+            </apex:pageBlock> 
+          </apex:form>         
+         </apex:page>

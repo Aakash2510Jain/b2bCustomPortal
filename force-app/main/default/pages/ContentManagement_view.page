@@ -1,0 +1,65 @@
+<apex:page controller="ManageSite_view" >
+	<p>
+	<apex:form >
+		<table >
+			<tr>
+				<td>
+				<img src="https://c.ap1.content.force.com/servlet/servlet.ImageServer?id=015900000016lW9&oid=00D90000000iMeY&lastMod=1358927469000" style="height:30px;width:30px"></img>
+				</td>
+				<td style="vertical-align:middle">
+				<apex:commandLink action="{!cmsSiteSetupTab}" value="{!$Label.Manage_CMSSiteSetup}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<img src="https://c.ap1.content.force.com/servlet/servlet.ImageServer?id=015900000016lW9&oid=00D90000000iMeY&lastMod=1358927469000" style="height:30px;width:30px"/>
+				</td>
+				<td style="vertical-align:middle">
+				<apex:commandLink action="{!cmsProfileTab}" value="{!$Label.Manage_CMSProfile}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<img src="https://c.ap1.content.force.com/servlet/servlet.ImageServer?id=015900000016lW9&oid=00D90000000iMeY&lastMod=1358927469000" style="height:30px;width:30px"/>
+				</td>
+				<td style="vertical-align:middle">
+				<apex:commandLink action="{!pageTab}" value="{!$Label.Manage_Pages}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<img src="https://c.ap1.content.force.com/servlet/servlet.ImageServer?id=015900000016lW9&oid=00D90000000iMeY&lastMod=1358927469000" style="height:30px;width:30px"/>
+				</td>
+				<td style="vertical-align:middle">
+				<apex:commandLink action="{!menuTab}" value="{!$Label.Manage_Menus}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<img src="https://c.ap1.content.force.com/servlet/servlet.ImageServer?id=015900000016lW9&oid=00D90000000iMeY&lastMod=1358927469000" style="height:30px;width:30px"/>
+				</td>
+				<td style="vertical-align:middle">
+				<apex:commandLink action="{!blockTab}" value="{!$Label.Manage_Blocks}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<img src="https://c.ap1.content.force.com/servlet/servlet.ImageServer?id=015900000016lW9&oid=00D90000000iMeY&lastMod=1358927469000" style="height:30px;width:30px"/>
+				</td>
+				<td style="vertical-align:middle">
+				<apex:commandLink action="{!menuComponentTab}" value="{!$Label.Manage_Menu_Components}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<img src="https://c.ap1.content.force.com/servlet/servlet.ImageServer?id=015900000016lW9&oid=00D90000000iMeY&lastMod=1358927469000" style="height:30px;width:30px"/>
+				</td>
+				<td style="vertical-align:middle">
+				<apex:commandLink action="{!sessionTab}" value="{!$Label.Manage_Sessions}" />
+				</td>
+			</tr>
+		</table>
+		
+    </apex:form>
+    </p>
+</apex:page>

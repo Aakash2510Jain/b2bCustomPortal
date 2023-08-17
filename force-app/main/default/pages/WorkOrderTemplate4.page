@@ -1,0 +1,296 @@
+<apex:page showHeader="false" standardController="opportunity" extensions="AttachmentController">
+<apex:form >
+  <head>
+<style>
+
+table{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+font-weight:bold;
+}
+p{
+    color:#aaa;
+}
+font{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:1em;
+font-weight:Normal;
+}
+
+.size{
+width:90%;
+}
+</style>
+<script>
+function preview(){
+pwindow=window.open("/apex/PdfAttachmenttemplate4?id={!Opportunity.Id}", "Preview", "width=500", height="500");
+pwindow.focus(); 
+}
+</script>
+<script>
+  editor.on('instanceReady', function(event) {
+    event.editor.resize(0, 400); //leave first parameter as 0 to affect only height.
+  });
+</script>
+<style>
+  .cke_contents {
+    height: 200px !important;
+  }
+</style>
+ </head>
+ <body>
+ <br></br>
+ <apex:pageMessages id="errorMessage" ></apex:pageMessages>
+ <div class="size">
+    <table width="100%" cellpadding="0" align="center"   cellspacing="0" border="0"><tr><td align="center"  >
+<apex:commandButton value="Create PDF & Attach" action="{!pdfAttachment}"/>&nbsp;<input type="button" value="Preview PDF" onclick="preview()"/></td>
+</tr></table>
+<br> </br>
+  <table width="60%" border="0"><tr><td valign="top" width="50%" align="center">
+  <apex:image value="{!$Resource.B2BDataPartners}" rendered="{!Opportunity.Brand_Name__c == 'B2B Data Partners'}"/>
+   <apex:image value="{!$Resource.InfoDataHouse}" rendered="{!Opportunity.Brand_Name__c == 'Info Data House'}"/>
+     <apex:image value="{!$Resource.HealthCareDatagroup}" rendered="{!Opportunity.Brand_Name__c == 'Health Care Data Group'}"/>
+     <apex:image value="{!$Resource.Lake_Group}" rendered="{!Opportunity.Brand_Name__c == 'Lake Group'}"/>
+      <apex:image value="{!$Resource.ITDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'IT Data Group'}"/>
+     <apex:image value="{!$Resource.B2BListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B Lists'}"/>
+     <apex:image value="{!$Resource.StrategicOutSourcingServices}" rendered="{!Opportunity.Brand_Name__c == 'Strategic OutSourcing Services'}"/>
+     <apex:image value="{!$Resource.B2BListWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B List'}"/>
+     <apex:image value="{!$Resource.BrigadeBig}" rendered="{!Opportunity.Brand_Name__c == 'Brigade Big'}"/>
+     <apex:image value="{!$Resource.Data2Directory}" rendered="{!Opportunity.Brand_Name__c == 'Data 2 Directory'}"/>
+     <apex:image value="{!$Resource.DirectHealthcareLeads}" rendered="{!Opportunity.Brand_Name__c == 'Direct Healthcare Leads'}"/>
+     <apex:image value="{!$Resource.EuropeanLists}" rendered="{!Opportunity.Brand_Name__c == 'European Lists'}"/>
+     <apex:image value="{!$Resource.EmailDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'Email Data Group'}"/>
+     <apex:image value="{!$Resource.GlobalHealthCare}" rendered="{!Opportunity.Brand_Name__c == 'Global Health Care'}"/>
+     <apex:image value="{!$Resource.GlobalBusinessArchives}" rendered="{!Opportunity.Brand_Name__c == 'Global Business Archives'}"/>
+     <apex:image value="{!$Resource.GlobalITUsersInc}" rendered="{!Opportunity.Brand_Name__c == 'Global IT Users Inc'}"/>
+     <apex:image value="{!$Resource.MarketingBase}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Base'}"/>
+     <apex:image value="{!$Resource.MarketingColors}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Colors'}"/>
+     <apex:image value="{!$Resource.MarketingDrips}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Drips'}"/>
+     <apex:image value="{!$Resource.MarketingForces}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Forces'}"/>
+     <apex:image value="{!$Resource.MediaSellersOnline}" rendered="{!Opportunity.Brand_Name__c == 'Media Sellers Online'}"/>
+     <apex:image value="{!$Resource.OnlineLeadsInc}" rendered="{!Opportunity.Brand_Name__c == 'Online Leads Inc'}"/>
+     <apex:image value="{!$Resource.PioneerMarketers}" rendered="{!Opportunity.Brand_Name__c == 'Pioneer Marketers'}"/>
+     <apex:image value="{!$Resource.PrepackagedLists}" rendered="{!Opportunity.Brand_Name__c == 'Prepackaged Lists'}"/>
+     <apex:image value="{!$Resource.ProcureDataInc}" rendered="{!Opportunity.Brand_Name__c == 'Procure Data Inc'}"/>
+     <apex:image value="{!$Resource.PublishingForces}" rendered="{!Opportunity.Brand_Name__c == 'Publishing Forces'}"/>
+     <apex:image value="{!$Resource.ROIMarketingCenter}" rendered="{!Opportunity.Brand_Name__c == 'ROI Marketing Center'}"/>
+     <apex:image value="{!$Resource.TechnologyUserLists}" rendered="{!Opportunity.Brand_Name__c == 'Technology User Lists'}"/>
+     <apex:image value="{!$Resource.WebmailingLists}" rendered="{!Opportunity.Brand_Name__c == 'Webmailing Lists'}"/>
+     <apex:image value="{!$Resource.XpressListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'Xpress Lists Web'}"/>
+     <apex:image value="{!$Resource.EZonemarketers}" rendered="{!Opportunity.Brand_Name__c == 'EZonemarketers'}"/>
+ </td></tr></table>
+ <br/>
+    <table width="700px" cellpadding="0" align="center"   cellspacing="0" border="0" style="border-top: none">
+    <tr>
+        <td>
+            <table width="100%" cellpadding="1" cellspacing="1" border="0" style="border-top: none">
+                <tr>
+                    <td width="16%" style="font-size:13px"><b>Order Number:</b>
+                    <apex:repeat var="p" value="{!Opportunity}">
+    
+    
+        <apex:repeat var="c" value="{!p.Contracts__r}">
+            <apex:inputText value="{!c.ContractNumber}"/>
+        </apex:repeat>
+   
+</apex:repeat>
+                  </td>
+                    <td width="16%" >&nbsp;</td>
+                    <td width="16%" style="font-size:13px"><b>Insertion order for:</b></td>
+                    <td width="26%" >&nbsp;</td>
+                    <td width="16%" style="font-size:13px"><b>TIN:</b>13-4176938</td>
+                    <td width="16%" >&nbsp;</td>
+                </tr>
+            </table>
+        </td>
+      </tr>
+      <tr>
+        <td><!--- 02-->
+            <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none">
+                <tr style="border-bottom: none" bgcolor="#B2B2B2" height="50px">
+                    <td align="left" bgcolor="#B2B2B2"  height="30px">Vendor Contact Details</td>
+                    <td align="left" bgcolor="#B2B2B2"   height="30px">Client Contact Details</td>
+                </tr>
+             <tr> 
+               
+        <td valign='top'>
+           
+         
+           <!-- <apex:panelGroup rendered="{!Opportunity.Vendor_Contact_Detail__c==''}">         
+                                <apex:outputField value="{!Opportunity.Owner.Street}"/><br/>
+                                <apex:outputField value="{!Opportunity.Owner.City}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Owner.State}"/><br/>
+                                <apex:outputField value="{!Opportunity.Owner.Country}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Owner.Postalcode}"/><br/><br/>                                                 
+                                  </apex:panelGroup>             
+        <apex:panelGroup rendered="{!Opportunity.Vendor_Contact_Detail__c!=''}"> --> 
+        <b>Name:</b><apex:inputField value="{!Opportunity.Vendor_Name__c}"/><br/>
+        <b>Position:</b><apex:inputField value="{!Opportunity.Title_Authorization__c}"/><br/>
+           <apex:outputField value="{!Opportunity.Brand_Name__c}"/><br/>  
+      <!-- <apex:inputField value="{!Opportunity.Vendor_Contact_Detail__c}"/><br/>-->
+          <b> Address:</b><br/> <apex:inputField value="{!Opportunity.Owner.Street}"/><br/>
+                                <apex:inputField value="{!Opportunity.Owner.City}"/><br/>
+                                 <apex:inputField value="{!Opportunity.Owner.State}"/><br/>
+                                <apex:inputField value="{!Opportunity.Owner.Country}"/><br/>
+                                 <apex:inputField value="{!Opportunity.Owner.Postalcode}"/><br/>
+                                <b>Phone:</b>  <apex:inputField value="{!Opportunity.Owner.Phone}"/><br/>
+                                <b>Email:</b>   <apex:inputField value="{!Opportunity.Owner.Email}"/><br/>
+                                 
+        <!--  </apex:panelGroup> --></td>
+         
+         <td > 
+          <apex:panelGroup rendered="{!Opportunity.Client_Address_Entry__c==''}">
+                    <b> Name:</b> <apex:inputText value="{!Opportunity.Client_Name__r.name}"/><br/> 
+                    <b> Position: </b> <apex:inputText value="{!Opportunity.Client_Title__c}" /><br/><br/>
+                      <b>Address:</b><br/><apex:inputField value="{!Opportunity.Client_Name__r.MailingStreet}"/><br/>
+                                 <apex:inputField value="{!Opportunity.Client_Name__r.MailingCity}"/><br/>
+                                 <apex:inputField value="{!Opportunity.Client_Name__r.MailingState}"/><br/>
+                                 <apex:inputField value="{!Opportunity.Client_Name__r.MailingPostalCode}"/><br/>
+                                 <apex:inputField value="{!Opportunity.Client_Name__r.MailingCountry}"/><br/><br/>
+                       <b>Phone:</b> <apex:inputText value="{!Opportunity.Client_Phone__c}"/><br/>  
+                       <b>Email:</b><apex:inputText value="{!Opportunity.Client_Email__c}" /><br/>                 
+                      <b>Website: </b><apex:inputText value="{!Opportunity.Website__c}"/> 
+                    </apex:panelGroup>  
+                    
+                  <apex:panelGroup rendered="{!Opportunity.Client_Address_Entry__c!=''}">
+                    <apex:inputText value="{!Opportunity.Client_Address_Entry__c}"/>
+                    </apex:panelGroup>
+                  
+                    </td>                     
+    </tr>
+    </table>
+    
+    </td>
+      </tr>
+      
+      <tr><!--- 03-->
+        <td>
+        <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+            <tr>
+        <td align="left" width="70%" bgcolor="#B2B2B2" height="30px">Service Details: Please check the option you are interested in: </td>
+        <td align="left" width="30%" bgcolor="#B2B2B2" height="30px">Total Investment</td>
+    </tr>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details1__c!=''}">
+    <tr>
+        <td  width="70%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><apex:inputField value="{!Opportunity.Service_Details1__c}"/></td><td  width="30%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><apex:inputField value="{!Opportunity.Investment1__c}"/></td>
+    </tr>
+    </apex:panelGroup>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details_2__c!=''}">
+    <tr>
+        <td  width="70%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><apex:inputField value="{!Opportunity.Service_Details_2__c}"/></td><td  width="30%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><apex:inputField value="{!Opportunity.Investment2__c}"/></td> 
+    </tr>
+    </apex:panelGroup>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details_3__c!=''}">
+    <tr>
+        <td  width="70%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><apex:inputField value="{!Opportunity.Service_Details_3__c}"/></td><td  width="30%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><apex:inputField value="{!Opportunity.Investment3__c}"/></td> 
+    </tr>
+    </apex:panelGroup>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details_4__c!=''}">
+    <tr>
+        <td  width="70%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><apex:inputField value="{!Opportunity.Service_Details_4__c}"/></td><td  width="30%" style="border-bottom:0px;border-top:0px;border-right:1px"><apex:inputField value="{!Opportunity.Investment4__c}"/></td> 
+    </tr>
+    </apex:panelGroup>
+    
+   
+        <tr>
+        <td  width="70%" style="border-bottom:0px;border-top:0px;border-right:1px" ><b>List type:</b><apex:inputField value="{!Opportunity.Primary_Service_Name__c}"/></td><td  width="30%" style="border-bottom:0px;border-top:0px;border-left:1px solid Gray"></td> </tr>
+       <tr>
+        <td  width="70%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><b>Industry:</b><apex:inputField value="{!Opportunity.Industry__c}"/></td><td  width="30%" style="border-bottom:0px;border-top:0px;border-left:1px solid Gray"></td> </tr> 
+         <tr>
+        <td  width="70%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><b>Employee size:</b><apex:inputField value="{!Opportunity.No_Of_Employees__c}"/></td><td  width="30%" style="border-bottom:0px;border-top:0px;border-left:1px solid Gray"></td> </tr>
+    <tr>
+    <td width="70%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><b>Total Number of records:</b><apex:inputField value="{!Opportunity.Number_Of_Records__c}"/></td><td  width="30%" style="border-bottom:0px;border-top:0px;border-left:1px solid Gray"><apex:inputField value="{!Opportunity.Total_Investment__c}"/></td></tr> 
+    </table>
+          
+        </td>
+      </tr>
+      <apex:panelgroup rendered="{!Opportunity.Annu_Maint_Contract__c== True}">
+    <table border="0" width="100%" height="100%">
+    <tr>
+        <td align="left" bgcolor="#B2B2B2" colspan="2">Annual Maintenance contract (AMC)</td>        
+    </tr>
+
+    <apex:panelgroup rendered="{!Opportunity.AMC__c == NULL}">
+    <tr><td style="border-top:0px;border-bottom:0px;font-size:13px;" > <b>“Annual Maintenance contract (AMC) with Quarterly data updates” for an extra 30% will help improve quality of the
+     database and {!Opportunity.Brand_Name__c} will keep the data updated and delivery every quarter with a refreshed and verified email 
+    addresses*.</b><b style="font-size:13px;color:red"> Per Gartner, Contact Data goes bad over 5% to 7% every month which means over 84% of any data investment  
+   could be useless without a Data  AMC that provides regular updates.</b><b style="font-size:13px">All Projects with AMC are Email Verified prior to each  
+    Delivery and come with 80% accuracy guarantee on all other data fields.</b></td></tr>
+    
+        <tr><td style="border-top:0px;border-bottom:0px;font-size:13px;color:blue;"> (*3 updates will be provide across 12 months for the data delivered with this purchase. AMC for any other data purchased will be </td></tr>
+        <tr><td style="border-top:0px;border-bottom:0px;font-size:13px;color:blue;"> charged separately)</td></tr>  
+    </apex:panelgroup>
+     <apex:panelgroup rendered="{!Opportunity.AMC__c != NULL}">
+    <tr>
+     <td style="border-bottom:0px" ><apex:inputField value="{!Opportunity.AMC__c}"/></td></tr>  
+    </apex:panelgroup>
+    </table>
+  </apex:panelgroup>
+
+    <br/>
+             <tr ><!--- 04-->
+        <td>
+        <table width="700px"  cellpadding="0" cellspacing="0" border="1" >
+                <tr bgcolor="#B2B2B2" >
+                    <td align="left" width="100px" bgcolor="#B2B2B2" height="30px">Terms and Conditions:</td>
+                </tr >
+                <tr height="100px">
+                <td height="200px" width="100px">&nbsp;<apex:inputField value="{!Opportunity.Terms_And_Conditions__c}"/></td>
+                </tr>
+               
+        </table>
+      </td>
+      </tr>
+    
+       <tr><!--- 05-->
+        <td>
+        <table width="100%" cellpadding="4" cellspacing="0" border="1" >
+                <tr bgcolor="#B2B2B2"  height="30px">                 
+                    <td align="left" bgcolor="#B2B2B2">Authorization:&nbsp; <apex:outputField value="{!Opportunity.Brand_Name__c}"/> </td>
+                   <td align="left" bgcolor="#B2B2B2">Authorization:</td>
+                </tr>
+                <tr >
+                <td align="left" width="50%"><b>Name :</b><apex:inputField value="{!Opportunity.Vendor_Name__c}"/></td> 
+                  <td align="left" width="50%"><b>Name :</b><apex:inputText value="{!Opportunity.Client_Name__r.name}"/></td> 
+                    
+                
+                </tr>
+                <tr>
+                  <td align="left" width="50%"><b>Title :</b><apex:inputField value="{!Opportunity.Title_Authorization__c}"/></td> 
+                  <td align="left" width="50%"><b>Title :</b><apex:inputText value="{!Opportunity.Client_Title__c}"/></td>
+                  
+                  
+                </tr>
+                <tr height="300px">
+                <td align="left" width="20%"><b>Signature :</b><apex:inputField value="{!Opportunity.Name__r.Signature__c}" styleClass="cke_contents"/></td>
+               <td align="left" width="50%"><b>Signature :</b><apex:inputField value="{!Opportunity.Signature__c}" styleClass="cke_contents"/></td>
+                   
+                   
+                </tr>
+                <tr>
+                <td align="left" width="50%"><b>Date :</b><apex:outputText value="{0,date, dd'/'MM'/'yyyy}"><apex:param value="{!opportunity.current_date__c}"/></apex:outputText> </td>
+                   <td align="left" width="50%"><b>Date :</b><apex:inputField value="{!Opportunity.Deal_Approved_Date__c}"/></td>
+                    
+                 
+                </tr>
+        </table>
+        </td>
+      </tr> 
+    
+      
+      <tr height="200px" valign="bottom">
+      
+          <td>
+        <p align="center"><u><b>Please sign this Insertion Order and fax to:  &nbsp;<apex:outputField value="{!Opportunity.Fax__c}"/></b></u></p>
+        <p> <b>Note:</b>
+        <font>Your success is our top priority. Our objective is to provide you with the best quality data to achieve your marketing objectives. Our data quality process is thorough. Lists are updated weekly , and we use Postal-approved address standardization software and the USPS’ National Change of Address (NCOA) to identify changes. Lists are also double- verified against multiple sources as an additional integrity check. Given the nature of email even a perfect veritied email list could get 18% to 40% bounces based on the content of the email, the type of servers being used, Spam blocks and the domain you are sending emails from. We guarantee 80+% Email Deliverability with our Custom Built Lists. Should the hard bounce rate be over 20%,the warranty will be limited to provision of additional records only for these hard bounces.</font></p>
+      </td>
+     
+      </tr>
+    
+      </table>  
+      </div>
+      
+ </body>
+ </apex:form>
+</apex:page>

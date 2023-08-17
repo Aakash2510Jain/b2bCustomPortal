@@ -1,0 +1,230 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" controller="B2BPartnerPortal_CTRL">
+    
+    <aura:attribute name="CompleteOppTaskList" type="List"/>
+    <aura:attribute name="CompleteLeadTaskList" type="List"/>
+    <aura:attribute name="PartnerId" type="string"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doinit }"/>
+    <aura:attribute name="NodatalistAvailable" type="boolean" default="false"/>
+    <aura:attribute name="NoOppListAvailable" type="boolean" default="false"/>
+    <aura:attribute name="NodatalistAvailableforOpp" type="boolean" default="false"/>
+    <aura:attribute name="showdropdown" type="boolean" default="false"/>
+    <aura:attribute name="isLeadSelected" type="boolean" default="true"/>
+    <aura:attribute name="isOppSelected" type="boolean" default="false"/>
+    <aura:attribute name="isLeadDateError" type="boolean" default="false"/>
+    <aura:attribute name="isOppDateError" type="boolean" default="false"/>
+    <aura:attribute name="leadStatusList" type="List"/>
+    <aura:attribute name="oppStageList" type="List"/>
+    <aura:attribute name="leadStatus" type="string"/>
+    <aura:attribute name="oppStage" type="string"/>
+    <aura:attribute name="startDate" type="String"/>
+    <aura:attribute name="endDate" type="String"/>
+    <aura:attribute name="startDateOpp" type="String"/>
+    <aura:attribute name="endDateOpp" type="String"/>
+    <aura:attribute name="isDateEnabled" type="Boolean" default="false" />
+    
+      <div class="scrollable-container1" >
+        <div class=" scrollable-content1">
+            <lightning:layout>
+                <lightning:layoutItem class="e" size="12"   >
+                    <!--div class="slds-grid slds-gutters" >
+                        <p class="  slds-p-left_medium slds-m-right_xx-large  slds-p-left_xx-large" style="    margin-right: -8%;  font-size:20px;"><b   >Lead</b></p> 
+                        <div class="slds-col slds-m-right_xx-large   slds-m-top_medium "  style="background-color:#d1cbf7 ;padding:40px;text-align:center;border-radius: 10px;  box-shadow: 5px 10px #b6b4b8;">
+                            <div class=" scrollable-container">
+                                <aura:if isTrue="{!v.NodatalistAvailable}">
+                                    <img src="{!$Resource.NoTaskImage}" style="width:80%;height:80%;" />
+                                </aura:if>
+                                <div class=" scrollable-content">
+                                    <aura:iteration items="{!v.CompleteLeadTaskList}" var="leadfollowup"> 
+                                        <div class="slds-align_absolute-left"  style="background-color:white;padding:10px;  border-left: 5px solid #9E7BFF; color:black; text-align:left; border-radius: 5px; height:100%;width:100%; margin-top:5px;  float:center;">
+                                            Lead : {!leadfollowup.Who.Name }   <br/>
+                                            Subject : {!leadfollowup.Subject }  <br/>
+                                            Date :  {!leadfollowup.ActivityDate }  <br/>
+                                            Time:{!leadfollowup.ReminderDateTime }
+                                        </div> <br/>
+                                    </aura:iteration> 
+                                </div>
+                            </div>
+                        </div>
+                        <p class="  slds-p-left_medium" style="    margin-right: -15%;  font-size:20px;"><b class=""  >Opportunity</b></p> 
+                        <div class="slds-col slds-m-right_xx-large   slds-m-top_medium"  style="background-color:#c8d6e8 ;padding:40px;  text-align:center;border-radius: 10px;  box-shadow: 5px 10px #b6b4b8;">
+                            
+                            <div class=" scrollable-container">
+                                <aura:if isTrue="{!v.NodatalistAvailableforOpp}">
+                                    <img src="{!$Resource.NoTaskImage}" style="width:80%;height:80%;" />
+                                </aura:if>
+                                <div class=" scrollable-content">
+                                    <aura:iteration items="{!v.CompleteOppTaskList}" var="opp">
+                                        <div class="slds-align_absolute-left"  style="background-color:white;padding:10px;  border-left: 5px solid  #3d7dd1; color:black; text-align:left; border-radius: 5px; height:100%;width:100%; margin-top:7px;  float:center;">
+                                            Lead : {!opp.What.Name }   <br/>
+                                            Subject : {!opp.Subject }  <br/>
+                                            Date :  {!opp.ActivityDate }  <br/>
+                                            Time:12:00 PM
+                                        </div> <br/>
+                                    </aura:iteration>
+                                    
+                                </div> 
+                            </div>               
+                        </div>
+                    </div-->  
+
+
+     <div >
+        <!--img  src="{!$Resource.filterLines}" title="Show Filter"  style="width:26px; height:28px; margin-right: 12px; margin-top: 10px; position:absolute; left: 95%; top: 16%;" onclick="{!c.showFilterMenu}"></img-->  
+    <br/>
+   
+     </div>               
+              
+    <div class ="leadSelected" style="width: 92%; border-bottom: 0.50px #C1C1C1 solid; justify-content: flex-start; align-items: flex-start; gap: 32px; display: inline-flex">
+        <div style="flex-direction: column; justify-content: flex-start; align-items: center; gap: 0px; display: inline-flex">
+            <div class = "selectLead selectLeadActive" aura:id = "selectLead" onclick = "{!c.selectLeadTab}" style="text-align: center; font-size: 16px; font-family: Nunito Sans; font-weight: 600; text-transform: capitalize; word-wrap: break-word">Leads</div>
+            <aura:if isTrue="{!v.isLeadSelected}">
+                <div style="align-self: stretch; height: 4px; background: #5B59FC"></div>
+            </aura:if>
+        </div>
+        <div style="flex-direction: column; justify-content: flex-start; align-items: center; gap: 0px; display: inline-flex">
+            <div class="selectOpp" aura:id="selectOpp" onclick = "{!c.selectOppTab}" style="text-align: center; font-size: 16px; font-family: Nunito Sans; font-weight: 600; text-transform: capitalize; word-wrap: break-word">Opportunity</div>
+            <aura:if isTrue="{!v.isOppSelected}">
+                <div style="align-self: stretch; height: 4px; background: #5B59FC"></div>
+            </aura:if>
+        </div>
+        <div style="flex-direction: column; justify-content: flex-start; align-items: center; gap: 0px; display: inline-flex">
+     <img  src="{!$Resource.filterLines}" title="Show Filter"  style="width:26px; height:28px; margin-right: 12px; margin-top: 10px; position:absolute; left: 95%; top: 16%;" onclick="{!c.showFilterMenu}"></img>  
+      </div>
+     <aura:if isTrue="{!v.showdropdown}">
+        <div  class="DateDiv slds-align_absolute-right slds-m-left_xx-large" style="position: absolute;Z-index:1;  top: 9.5rem;float:right;">
+            <lightning:card class = "card1 slds-text-align_center" >
+                <div class="slds-grid slds-p-horizontal_x-small ">
+                    <aura:if isTrue = "{!v.isLeadSelected}">
+                        <div align="center" class="slds-col slds-p-right_xx-small " style="width:10%;">
+                            <lightning:select value = "{!v.leadStatus}" name = "statusPickList" label = "Lead Status">
+                                <option text = "All" value = "All"/>
+                                <aura:iteration items = "{!v.leadStatusList}" var = "val">
+                                    <option text="{!val}" value="{!val}"/>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </aura:if>  
+                    <aura:if isTrue = "{!v.isOppSelected}">
+                        <div align="center" class="slds-col slds-p-right_xx-small " style="width:10%;">
+                            <lightning:select value = "{!v.oppStage}" name = "stagePickList" label = "Opportunity Stage">
+                                <option text = "All" value = "All"/>
+                                <aura:iteration items = "{!v.oppStageList}" var = "val">
+                                    <option text="{!val}" value="{!val}"/>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </aura:if>
+                </div>
+                    <br/>
+                    <hr/>
+                <aura:if isTrue = "{!v.isLeadSelected}">
+                    <div class="slds-grid slds-p-horizontal_x-small ">
+                    <div class="slds-col slds-p-right_xx-small " style="width:10%; display:block;">
+                        <p>Start Date</p>
+                        <lightning:input class = "startDate" onchange = "{!c.validateStartDate}"  style="color:black;"  type="Date"   aura:id="StartDateField"   value="{!v.startDate}" displayDatePicker="true" format="mm/dd/yyyy" placeholder="mm/dd/yyyy"  />
+                        <p aura:id="startDateErrorMsg" class="errorMessagInactive">Please select valid start date</p>
+                    </div>
+                    <div class="slds-col slds-p-right_xx-small " style="width:10%;display:block;">
+                        <p>End Date</p>
+                        <lightning:input class = "endDate" onchange = "{!c.validateEndDate}"  disabled="{!not(v.isDateEnabled)}" style="color:black;"  type="Date"  aura:id="EndDateField"  value="{!v.endDate}" displayDatePicker="true" format="mm/dd/yyyy" placeholder="mm/dd/yyyy"/>
+                        <p aura:id="endDateErrorMsg" class="errorMessagInactive">Please select valid end date</p>
+                    </div>
+                </div>
+                </aura:if>
+                <aura:if isTrue = "{!v.isOppSelected}">
+                    <div class="slds-grid slds-p-horizontal_x-small ">
+                    <div class="slds-col slds-p-right_xx-small " style="width:10%; display:block;">
+                        <p>Start Date</p>
+                        <lightning:input class = "startDate" onchange = "{!c.validateOppStartDate}"  style="color:black;"  type="Date"   aura:id="StartDateFieldOpp"  value="{!v.startDateOpp}" displayDatePicker="true" format="mm/dd/yyyy" placeholder="mm/dd/yyyy"  />
+                        <p aura:id="startDateOppErrorMsg" class="errorMessagInactive">Please select valid start date</p>
+                    </div>
+                    <div class="slds-col slds-p-right_xx-small " style="width:10%;display:block;">
+                        <p>End Date</p>
+                        <lightning:input class = "endDate" onchange = "{!c.validateOppEndDate}"  style="color:black;"  type="Date"  disabled="{!not(v.isDateEnabled)}"  aura:id="EndDateFieldOpp"  value="{!v.endDateOpp}" displayDatePicker="true" format="mm/dd/yyyy" placeholder="mm/dd/yyyy"/>
+                        <p aura:id="endDateOppErrorMsg" class="errorMessagInactive">Please select valid end date</p>
+                    </div>
+                </div>
+                </aura:if>
+                
+                <div class="slds-text-align_center" style="margin-top:6%;">
+                    <aura:if isTrue = "{!v.isLeadSelected}">
+                    <lightning:button variant="neutral" class="custom-button1 " label="Apply Filter" title="filter"   onclick="{!c.getNewLeadTaskRecords}" disabled="{!v.isLeadDateError}"/>
+                    </aura:if>
+                    <aura:if isTrue = "{!v.isOppSelected}">
+                    <lightning:button variant="neutral" class="custom-button1 " label="Apply Filter" title="filter"   onclick="{!c.getNewOppTaskRecords}" disabled="{!v.isOppDateError}"/>
+                    </aura:if>
+                </div>
+            </lightning:card>
+        </div>
+    </aura:if>
+    </div>
+    
+ 
+    
+    <aura:if isTrue="{!and(v.isLeadSelected, v.NodatalistAvailable)}">                
+        <br/>
+        <span class="slds-m-right_xx-large ">
+            <div class="slds-col slds-m -top_small"  style="background-color:#d1cbf7 ;padding:px;text-align:center;border-radius: 10px;  box-shadow: 5px 10px #b6b4b8;">
+                <div class=" scrollable-container">
+                    <center><img src="{!$Resource.NoTaskImage}" style="width:38%;height:80%;" /></center>
+                </div>
+            </div>   
+        </span>
+    </aura:if>
+    <aura:if isTrue ="{!and(v.isLeadSelected, !v.NodatalistAvailable)}">
+        <br/>
+        <div class="slds-grid slds-gutters slds-wrap">
+            <aura:iteration items="{!v.CompleteLeadTaskList}" var = "leadTaskRec">
+                <div class="slds-col slds-size_6-of-12 slds-p-around_x-small">
+                    <div style="width: 100%; height: 100%; padding-left: 28px; padding-right: 28px; padding-top: 16px; padding-bottom: 16px; background: #F1F0F0; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08); border-radius: 4px; overflow: hidden; border-left: 3px #8C61FF solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
+                        <div style="color: #8C61FF; font-size: 16px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">Lead: {!leadTaskRec.leadName}</div>
+                        <div style="justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+                            <div><span style="color: black; font-size: 14px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">Subject: </span><span style="color: black; font-size: 14px; font-family: Montserrat; font-weight: 500; word-wrap: break-word"> {!leadTaskRec.Subject}</span></div>
+                            <div><span style="color: black; font-size: 14px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">Date: </span><span style="color: black; font-size: 14px; font-family: Montserrat; font-weight: 500; word-wrap: break-word">  <lightning:formattedDateTime value="{!leadTaskRec.CreatedDate}" timeZone="UTC"  disabled="true"/></span></div>
+                            <div><span style="color: black; font-size: 14px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">Time:</span><span style="color: black; font-size: 14px; font-family: Montserrat; font-weight: 500; word-wrap: break-word"> {!leadTaskRec.datetime} </span></div>
+                        </div>
+                    </div>
+                </div>
+            </aura:iteration>
+        </div>
+        
+    </aura:if>
+    
+    
+    
+    <aura:if isTrue="{!and(v.isOppSelected, v.NodatalistAvailableforOpp)}">        
+        <br/>
+        <span class="slds-m-right_xx-large ">
+            <div class="slds-col slds-m -top_small"  style="background-color:#e2defc ;padding:px;text-align:center;border-radius: 10px;  box-shadow: 5px 10px #b6b4b8;">
+                <div class=" scrollable-container">
+                    <center><img src="{!$Resource.NoTaskImage}" style="width:38%;height:80%;" /></center>
+                </div>
+            </div>   
+        </span>
+        
+    </aura:if>  
+    
+    <aura:if isTrue ="{!and(v.isOppSelected, !v.NodatalistAvailableforOpp)}">
+        <br/>
+        <div class="slds-grid slds-gutters slds-wrap">
+            <aura:iteration items="{!v.CompleteOppTaskList}" var = "oppTaskRec">
+                <div class="slds-col slds-size_6-of-12 slds-p-around_x-small">
+                    <div style="width: 100%; height: 100%; padding-left: 28px; padding-right: 28px; padding-top: 16px; padding-bottom: 16px; background: #F1F0F0; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08); border-radius: 4px; overflow: hidden; border-left: 3px #8C61FF solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
+                        <div style="color: #8C61FF; font-size: 16px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">Opportunity: {!oppTaskRec.OppName}</div>
+                        <div style="justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+                            <div><span style="color: black; font-size: 14px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">Subject: </span><span style="color: black; font-size: 14px; font-family: Montserrat; font-weight: 500; word-wrap: break-word"> {!oppTaskRec.Subject}</span></div>
+                            <div><span style="color: black; font-size: 14px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">Date: </span><span style="color: black; font-size: 14px; font-family: Montserrat; font-weight: 500; word-wrap: break-word"> <lightning:formattedDateTime value="{!oppTaskRec.CreatedDate}" timeZone="UTC"  disabled="true"/></span></div>
+                            <div><span style="color: black; font-size: 14px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">Time:</span><span style="color: black; font-size: 14px; font-family: Montserrat; font-weight: 500; word-wrap: break-word">{!oppTaskRec.datetime} </span></div>
+                        </div>
+                    </div>
+                </div>
+            </aura:iteration>
+        </div>
+        
+    </aura:if>
+</lightning:layoutItem>
+</lightning:layout>
+</div>
+</div>
+</aura:component>

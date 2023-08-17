@@ -1,0 +1,11 @@
+.THIS.headerTop {
+    background: linear-gradient(90.51deg, #CCCAFF 0%, #DABEFF 100%);
+    border-radius: 8px;
+    height: 100px;
+}
+.THIS {
+    background :white; 
+}
+.THIS .tabset{
+    margin-top :2%;
+}

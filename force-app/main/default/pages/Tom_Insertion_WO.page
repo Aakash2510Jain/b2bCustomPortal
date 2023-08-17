@@ -1,0 +1,411 @@
+<apex:page standardController="Opportunity" showHeader="false" sidebar="false" extensions="GenerateOrdersController" renderAs="{!valuetoset}">
+<c:dynawhitecomponent type="header" > 
+  <div align="left" class="innerDiv"> <apex:image value="{!$Resource.EmailData_header}" /></div>
+ </c:dynawhitecomponent>
+ 
+
+            <p >&nbsp;</p>
+            <p >&nbsp;</p>
+            <p >&nbsp;</p>
+            
+            <p  align="center" style='text-align:center'><b style='mso-bidi-font-weight:
+            normal'><span style='font-size:24.0pt;mso-bidi-font-size:12.0pt;color:gray'>Best-of-Breed
+            Online Marketing Solutions</span></b></p>
+            
+            
+            <p >&nbsp;</p>
+            
+            <p align="center" style='margin-top:0in;margin-right:1.0in;
+            margin-bottom:0in;margin-left:63.0pt;margin-bottom:.0001pt;text-align:center'><b
+            style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;font-family:
+            Arial,sans-serif'>Insertion Order</span></b></p><br></br>
+    
+            <p align="center" style='margin-top:0in;margin-right:1.0in;
+            margin-bottom:0in;margin-left:63.0pt;margin-bottom:.0001pt;text-align:center'><span style='font-size:12.0pt;font-family:
+            Arial,sans-serif'>FOR</span></p><br/>
+            <table border="0" width="700"><tr><td align="center" style=" padding: 0in 35.4pt 0in 120.4pt;">
+            <apex:outputfield value="{!Opportunity.Client_Logo__c}" /> </td>     
+            </tr></table>
+            <p align="center" style='margin-top:0in;margin-right:1.0in;
+            margin-bottom:0in;margin-left:63.0pt;margin-bottom:.0001pt;text-align:center'><span style='font-size:12.0pt;font-family:
+            Arial,sans-serif'>BY</span></p><br/>
+            <table width="100%" border="0"><tr><td  align="center">
+  <apex:image value="{!$Resource.EmailDataGroup}" width="60%"/>
+  
+ </td></tr></table>
+    <apex:form style="background-image:url('{!$Resource.EmailData_WaterDrop}');" >                  
+            <br></br><br></br><br></br><br></br><br></br>
+    
+            <table  border="1"  width="100%" align="center" cellspacing="0" cellpadding="0">
+             <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+                height:136.75pt'>
+              <td width="336" >
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:"Book Antiqua","serif";
+              mso-bidi-font-family:Arial;color:black'>&nbsp;&nbsp;Attn:</span></b>
+              </td>
+              <td width="342" >
+              <p>
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>Submitted by:&nbsp;&nbsp;&nbsp; <apex:outputField value="{!Opportunity.Owner.name}" /></span></b><br></br>
+              
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'><apex:outputField value="{!Opportunity.Owner.title}" /></span></b>
+              </p>
+              <p>
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'><apex:outputField value="{!Opportunity.Brand_Name__c}" /></span></b></p>
+              <p> 
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>Phone : <apex:outputText value="{!Opportunity.owner.Phone}"/>&nbsp;(Direct)</span></b><br/>
+              
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>Email : <a href="mailto:tom.avery@edgmails.com"><apex:outputText value="{!Opportunity.owner.email}"/>&nbsp;</a><BR/>
+              </span></b>
+              
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>Web: <a href="http://www.emaildatagroup.net/">www.emaildatagroup.net</a></span></b></p>
+              
+              </td>
+             </tr>
+            </table>
+</apex:form>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<apex:form style="background-image:url('{!$Resource.EmailData_WaterDrop}');" >      
+        <table border="1" cellspacing="0" cellpadding="0" width="100%" >
+         <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:17.5pt'>
+          <td width="70%" colspan="4" style='border:solid windowtext 1.0pt;
+          mso-border-alt:solid windowtext .5pt;background:#E0E0E0;padding:0in 5.4pt 0in 5.4pt;
+          height:17.5pt'>
+        
+          <b><span style='font-size:10.0pt;
+          font-family:"Book Antiqua","serif";mso-bidi-font-family:Arial;color:black;
+          mso-bidi-font-style:italic'>Service Details </span></b>
+          </td>
+        
+          <td width="30%" style='border:solid windowtext 1.0pt;border-left:
+          none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+          background:#E0E0E0;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+          <b><span
+          style='font-size:10.0pt;font-family:"Book Antiqua","serif";mso-bidi-font-family:
+          Arial;color:black;mso-bidi-font-style:italic'>Investment</span></b>
+          </td>
+         </tr>
+         
+          <apex:panelGroup rendered="{!Opportunity.Service_Details1__c!=''}">
+     <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:17.5pt'>
+          <td width="70%" colspan="4" style='border:solid windowtext 1.0pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+          height:17.5pt'><apex:outputField value="{!Opportunity.Service_Details1__c}"/></td><td width="30%"  style='border:solid windowtext 1.0pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+          height:17.5pt'><apex:outputField value="{!Opportunity.Investment1__c}"/></td>
+    </tr>
+    </apex:panelGroup>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details_2__c!=''}">
+     <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:17.5pt'>
+          <td width="70%" colspan="4" style='border:solid windowtext 1.0pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+          height:17.5pt'><apex:outputField value="{!Opportunity.Service_Details_2__c}"/></td><td width="30%" style='border:solid windowtext 1.0pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+          height:17.5pt'><apex:outputField value="{!Opportunity.Investment2__c}"/></td> 
+    </tr>
+    </apex:panelGroup>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details_3__c!=''}">
+     <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:17.5pt'>
+          <td width="70%" colspan="4" style='border:solid windowtext 1.0pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+          height:17.5pt'><apex:outputField value="{!Opportunity.Service_Details_3__c}"/></td><td width="30%" style='border:solid windowtext 1.0pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+          height:17.5pt'><apex:outputField value="{!Opportunity.Investment3__c}"/></td> 
+    </tr>
+    </apex:panelGroup>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details_4__c!=''}">
+     <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:17.5pt'>
+          <td width="70%" colspan="4" style='border:solid windowtext 1.0pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+          height:17.5pt'><apex:outputField value="{!Opportunity.Service_Details_4__c}"/></td><td width="30%" style='border:solid windowtext 1.0pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+          height:17.5pt'><apex:outputField value="{!Opportunity.Investment4__c}"/></td> 
+    </tr>
+    </apex:panelGroup>
+     <apex:panelGroup rendered="{!Opportunity.Total_Investment__c!=null}">
+     <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:17.5pt'>
+          <td width="70%" colspan="4" style='border:solid windowtext 1.0pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+          height:17.5pt'><b>Total Investment</b></td><td width="30%" style='border:solid windowtext 1.0pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+          height:17.5pt'><b><apex:outputField value="{!Opportunity.Total_Investment__c}"/></b></td> 
+    </tr>
+    </apex:panelGroup>
+         <tr style='mso-yfti-irow:3;height:24.25pt'>
+          <td width="708" colspan="5" style='width:531.0pt;border:solid windowtext 1.0pt;
+          border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+          padding:0in 5.4pt 0in 5.4pt;height:24.25pt'>
+        <b style='mso-bidi-font-weight:normal'><span
+          style='font-size:10.0pt;font-family:"Book Antiqua","serif";color:black'>&nbsp;</span></b>
+        <b style='mso-bidi-font-weight:normal'><u><span
+          style='font-size:10.0pt;font-family:"Book Antiqua","serif"'>Payment Terms:</span></u></b>
+        <b style='mso-bidi-font-weight:normal'><span
+          style='font-size:10.0pt;font-family:"Book Antiqua","serif";color:black'>&nbsp;</span></b>
+        <b
+          style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;font-family:
+          "Book Antiqua","serif";mso-bidi-font-family:Arial'><apex:outputField value="{!Opportunity.Payment_Terms__c}"/></span></b>
+        <b
+          style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;font-family:
+          "Book Antiqua","serif";mso-bidi-font-family:Arial'>&nbsp;</span></b>
+          </td>
+         </tr>
+         <tr style='mso-yfti-irow:4;height:17.5pt'>
+          <td width="708" colspan="5" style='width:531.0pt;border:solid windowtext 1.0pt;
+          border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+          background:#E0E0E0;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+        <b style='mso-bidi-font-weight:normal'><span
+          style='font-size:10.0pt;font-family:"Book Antiqua","serif";mso-bidi-font-family:
+          Arial;color:red'>Service Offering details:</span></b>
+          </td>
+         </tr>
+         <tr style='mso-yfti-irow:5;height:107.5pt'>
+          <td width="708" colspan="5" style='width:531.0pt;border:solid windowtext 1.0pt;
+          border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+          padding:0in 5.4pt 0in 5.4pt;height:107.5pt'>
+         <b style='mso-bidi-font-weight:normal'><span
+               style='font-family:"Book Antiqua","serif";mso-bidi-font-family:
+               Arial'><apex:outputField value="{!Opportunity.Terms__c}"/></span></b>
+          
+          </td>
+         </tr>
+        <!--  <tr>
+          <td colspan="5" > <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: 24.2pt">
+                    <td width="744"
+                        style='width:531.0pt;border:solid windowtext 1.0pt;
+          border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+          background:#E0E0E0;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+       
+                    <b><span style="color:red;">PAYMENT
+                    DETAILS</span></b><b
+                        style="mso-bidi-font-weight: normal"><span
+                        style="line-height: 110%;"></span></b></td>
+                </tr>
+                <tr style="mso-yfti-irow: 1; mso-yfti-lastrow: yes; height: 68.55pt">
+                    <td width="744" valign="top"
+                        style="font-size: 11pt; width: 558.25pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 68.55pt">
+                    <p align="left"><span style="color: #333399"> <b><apex:outputField value="{!Opportunity.Brand_Name__c}" /> - B2B Division</b><br />
+                    <b style="mso-bidi-font-weight: normal"><u><apex:outputText value="{!modeOfPay}" /></u></b>: <br />
+                    <apex:repeat value="{!wireDetaials1}" var="w"
+                        rendered="{!if(modeOfPay='Wire Payment1','true','fasle')}">
+                        <apex:outputText value="{!w}" />
+                        <br />
+                    </apex:repeat> <apex:repeat value="{!wireDetaials2}" var="w"
+                        rendered="{!if(modeOfPay='Wire Payment2','true','fasle')}">
+                        <apex:outputText value="{!w}" />
+                        <br />
+                    </apex:repeat> <apex:repeat value="{!checkDetails}" var="w"
+                        rendered="{!if(modeOfPay='Check Payment','true','fasle')}">
+                        <apex:outputText value="{!w}" />
+                        <br />
+                    </apex:repeat>                     <apex:outputpanel rendered="{!if(modeOfPay='Wire Payment/Check Payment','true','fasle')}">
+                        <b>Wire Details:</b>
+                        
+                        <apex:repeat value="{!wireDetaials1}" var="w"
+                            rendered="{!if(Opportunity.Wire_Payment__c==true,'true','fasle')}">
+                            <apex:outputText value="{!w}" />
+                            <br />
+                        </apex:repeat><br/>
+                        <b><apex:outputLabel value="WirePayment2" rendered="{!if(Opportunity.Wire_Payment_Type2__c==true,'true','fasle')}"/></b>
+                           <br/>
+                        <apex:repeat value="{!wireDetaials2}" var="w"
+                            rendered="{!if(Opportunity.Wire_Payment_Type2__c==true,'true','fasle')}">
+                            <apex:outputText value="{!w}" />
+                            <br />
+                        </apex:repeat>
+                        <br />
+                        <br />
+                        <b>Check Details:</b>
+                        <apex:repeat value="{!checkDetails}" var="w"
+                            rendered="{!if(Opportunity.Check_payment__c==true,'true','fasle')}">
+                            <apex:outputText value="{!w}" />
+                            <br />
+                        </apex:repeat>
+                       
+                    </apex:outputpanel> </span></p>
+
+                    </td>
+                </tr>
+            </table>
+            </td></tr>-->
+
+         <tr style='mso-yfti-irow:6;height:17.5pt'>
+          <td width="308" colspan="2" style='width:230.7pt;border:solid windowtext 1.0pt;
+          border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+          background:#E0E0E0;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+        <b style='mso-bidi-font-weight:normal'><span
+          style='font-size:10.0pt;font-family:"Book Antiqua","serif";mso-bidi-font-family:
+          Arial;color:red'>Authorization: Email Data Group</span></b>
+          </td>
+          <td width="400" colspan="3" style='width:300.3pt;border-top:none;border-left:
+          none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+          mso-border-alt:solid windowtext .5pt;background:#E0E0E0;padding:0in 5.4pt 0in 5.4pt;
+          height:17.5pt'>
+        <b style='mso-bidi-font-weight:normal'><span
+          style='font-size:10.0pt;font-family:"Book Antiqua","serif";mso-bidi-font-family:
+          Arial;color:red'>&nbsp;For&nbsp;<apex:outputfield value="{!Opportunity.Account.Name}"/></span></b>
+          </td>
+         </tr>
+         <tr style='mso-yfti-irow:7;height:21.1pt'>
+          <td width="96" style='width:1.0in;border:solid windowtext 1.0pt;border-top:
+          none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+          padding:0in 5.4pt 0in 5.4pt;height:21.1pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:#333300'>Print Name:</span></b>
+          </td>
+          <td width="212" style='width:158.7pt;border-top:none;border-left:none;
+          border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:21.1pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:navy'><apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c!=''}">
+                                        <apex:outputfield value="{!Opportunity.Workorder_Owner_Name__c}" />
+                                    </apex:panelGroup> <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c==''}">
+                                        <apex:outputText value="{!Opportunity.owner.name}" />
+                                    </apex:panelGroup></span></b>
+          </td>
+          <td width="108" style='width:81.0pt;border-top:none;border-left:none;
+          border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:21.1pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:#333300'>Print Name:</span></b>
+          </td>
+          <td width="292" colspan="2" style='width:219.3pt;border-top:none;border-left:
+          none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:21.1pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:#333399'><apex:outputText value="{!Opportunity.Client_Name__r.name}" /></span></b>
+          </td>
+         </tr>
+         <tr style='mso-yfti-irow:8;height:17.5pt'>
+          <td width="96" style='width:1.0in;border:solid windowtext 1.0pt;border-top:
+          none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+          padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:#333300'>Title:</span></b>
+          </td>
+          <td width="212" style='width:158.7pt;border-top:none;border-left:none;
+          border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:navy'><span
+          style='text-transform:uppercase'></span><apex:outputField value="{!Opportunity.Title__c}" /></span></b>
+          </td>
+          <td width="108" style='width:81.0pt;border-top:none;border-left:none;
+          border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:#333300'>Title:</span></b>
+          </td>
+          <td width="292" colspan="2" style='width:219.3pt;border-top:none;border-left:
+          none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:#333399'><apex:outputField value="{!Opportunity.Client_Title__c}" /></span></b>
+          </td>
+         </tr>
+         <tr style='mso-yfti-irow:9;height:17.5pt'>
+          <td width="96" style='width:1.0in;border:solid windowtext 1.0pt;border-top:
+          none;mso-border-top-alt:solid windowtext .5pt;border-bottom:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+          padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:#333300'>Date:</span></b>
+          </td>
+          <td width="212" style='width:158.7pt;border-left:none;
+          border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:navy'><apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                                                        <apex:param value="{!opportunity.current_date__c}" />
+                                                    </apex:outputText></span></b>
+          </td>
+          <td width="108" style='width:81.0pt;border-top:none;border-left:none;
+          border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;
+          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:#333300'>Date:</span></b>
+          </td>
+          <td width="292" colspan="2" style='width:219.3pt;border-top:none;border-left:
+          none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:17.5pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:navy'></span></b>
+          </td>
+         </tr>        
+      <tr style='mso-yfti-irow:10;mso-yfti-lastrow:yes;height:64.75pt'>
+          <td width="96" style='width:1.0in;border:solid windowtext 1.0pt;
+          mso-border-top-alt:solid windowtext 1pt;mso-border-alt:solid windowtext .5pt;
+          padding:0in 5.4pt 0in 5.4pt;height:64.75pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:#333300'>Signature:</span></b>
+          </td>
+          <td width="212" style='width:158.7pt;border-top:none;border-left:none;
+          border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:74.75pt'>
+          <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:#333399'><apex:outputText value="{!Opportunity.Signauture1__c}" escape="false"/></span></b>
+          </td>
+          <td width="108" style='width:81.0pt;border-top:none;border-left:none;
+          border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:64.75pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:#333300'>Signature:</span></b>
+          </td>
+          <td width="292" colspan="2" style='width:219.3pt;border-top:none;border-left:
+          none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+          mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:74.75pt'>
+        <b style='mso-bidi-font-weight:
+          normal'><span style='font-size:10.0pt;font-family:"Book Antiqua","serif";
+          mso-bidi-font-family:Arial;color:#333399'>&nbsp;</span></b>
+          </td>
+         </tr> 
+        </table>
+        <br/><br/>
+        <p align="center" ><b
+        style='mso-bidi-font-weight:normal'><u><span style='font-size:14.0pt;
+        font-family:"Book Antiqua","serif";mso-bidi-font-family:Arial'>Please scan the
+        approved copy and send to <a href="mailto:tom.avery@edgmails.com">tom.avery@edgmails.com</a></span></u></b></p>
+</apex:form>
+</apex:page>

@@ -1,0 +1,79 @@
+.THIS{
+    background-color:white;
+}
+
+.THIS .headerTop {
+    background: linear-gradient(90.51deg, #CCCAFF 0%, #DABEFF 100%);
+    border-radius: 8px;
+    height: 100vh;
+    position: fixed;
+    
+}
+.THIS .NewButton1{
+    position:relative;
+    left:1120%;
+    
+}
+
+.THIS .custom-button{
+    background-color:#9E7BFF;
+    color:white;
+    
+}
+.THIS .custom-button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);  
+    color:white;
+    font-weight : bold ;
+}
+.THIS .custom-button1{
+    background-color:transparent;
+    color:black;
+    border: 2px solid #9E7BFF;
+    
+}
+.THIS .custom-button1:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);  
+    color:black;
+    font-weight : bold ;
+}
+.THIS .back-button{
+    background-color:#CBCBCB;
+    color:black;
+}
+.THIS .scrollable-container1 {
+    
+    /*  Enable vertical scrolling */
+    /*  height:1500px;Set the desired height of the scrollable container */
+     height: 88vh; /*  height:1500px;Set the desired height of the scrollable container */
+    border:  ; /* Add a border for visibility */
+    padding: 10px; /* Optional: Add padding for spacing */
+   
+}
+
+
+.THIS .scrollable-content1 {
+    
+    /* Add any desired styles for the content inside the scrollable container */
+}
+.THIS .scrollable-container1::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+.THIS .scrollable-container1::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.THIS .scrollable-container1::-webkit-scrollbar-track {
+    background: transparent;
+}
+.THIS.leadRecord{
+    padding-right: 1rem;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    
+}

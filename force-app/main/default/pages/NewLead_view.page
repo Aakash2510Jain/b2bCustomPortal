@@ -1,0 +1,494 @@
+<apex:page standardController="Lead" extensions="SOSLeadClashProcess" tabStyle="LEAD" lightningStylesheets="true"> 
+
+<script>
+    function validateForm(){
+        
+        var firstName=document.getElementById('j_id0:j_id3:j_id30:j_id31:j_id44:j_id46');
+        var errorlog=document.getElementById('j_id0:j_id3:errormessage');
+        if (firstName.value==null ||  firstName.value==""){
+            //alert("firstName must be filled out");
+            errorlog.innerHTML = '<center><b><font color="red">Error: Invalid Data.<br/>First Name must be filled out</font></b></center>';
+            firstName.style.background ='#F6CCCC';
+            firstName.focus;
+            return false;
+        }       
+            
+        var lastName=document.getElementById('j_id0:j_id3:j_id30:j_id31:j_id50:j_id52');
+        if (lastName.value==null ||  lastName.value==""){
+            //alert("lastName must be filled out");
+            errorlog.innerHTML = '<center><b><font color="red">Error: Invalid Data.<br/>lastName must be filled out</font></b></center>';
+            lastName.style.background ='#F6CCCC';
+            return false;
+        }       
+    
+        var email=document.getElementById('j_id0:j_id3:j_id30:j_id31:j_id59:j_id61');
+        //if (email.value==null ||  email.value==""){
+                //errorlog.innerHTML = '<center><b><font color="red">Error: Invalid Data.<br/>Email must be filled out</font></b></center>';
+           var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+           if (!filter.test(email.value)) {
+                //alert('Please provide a valid email address');
+                errorlog.innerHTML = '<center><b><font color="red">Error: Invalid Data.<br/>Please provide a valid email address</font></b></center>';
+                email.style.background ='#F6CCCC';
+                email.focus;
+           return false;
+            }
+        
+            //alert("Email must be filled out");
+            //errorlog.innerHTML = '<center><b><font color="red">Error: Invalid Data.<br/>Email must be filled out</font></b></center>';
+            //email.style.background ='#F6CCCC';
+            //return false;
+        //} 
+            var Company=document.getElementById('j_id0:j_id3:j_id30:j_id31:j_id62:j_id63');
+           // alert("company");
+        if (Company.value==null ||  Company.value==""){
+            //alert("Company must be filled out");
+            errorlog.innerHTML = '<center><b><font color="red">Error: Invalid Data.<br/>Company must be filled out</font></b></center>';
+            Company.style.background ='#F6CCCC';
+            return false;
+        }   
+            var Linkedin=document.getElementById('j_id0:j_id3:j_id30:j_id31:j_id80:j_id82');
+        if (Linkedin.value==null || Linkedin.value==""){
+            //alert("Linkedin must be filled out");
+            errorlog.innerHTML = '<center><b><font color="red">Error: Invalid Data.<br/>Linked in URL must be filled out</font></b></center>';
+            Linkedin.style.background ='#F6CCCC';
+            return false;
+        }   
+            var  source=document.getElementById('j_id0:j_id3:j_id30:j_id31:j_id86:j_id88');
+        if ( source.value==null || source.value==""){
+            //alert(" Lead Source must be filled out");
+            errorlog.innerHTML = '<center><b><font color="red">Error: Invalid Data.<br/>Lead Source must be filled out</font></b></center>';
+            source.style.background ='#F6CCCC';
+            return false;
+        }       
+    
+        var City=document.getElementById('j_id0:j_id3:j_id30:j_id95:j_id100:j_id102');
+        if (City.value==null || City.value==""){
+            //alert(" City must be filled out");
+            errorlog.innerHTML = '<center><b><font color="red">Error: Invalid Data.<br/>City must be filled out</font></b></center>';
+            City.style.background ='#F6CCCC';
+            return false;
+        }   
+        var  country=document.getElementById('j_id0:j_id3:j_id30:j_id95:j_id112:j_id114');
+        if ( country.value==null || country.value==""){
+            //alert(" Country must be filled out");
+            errorlog.innerHTML = '<center><b><font color="red">Error: Invalid Data.<br/>Country must be filled out</font></b></center>';
+            country.style.background ='#F6CCCC';
+            return false;
+        }   
+         var  division=document.getElementById('j_id0:j_id3:j_id30:j_id103:j_id104:j_id106');
+        if (division.value==null ||division.value==""){
+            //alert(" Country must be filled out");
+            errorlog.innerHTML = '<center><b><font color="red">Error: Invalid Data.<br/> Division must be filled out</font></b></center>';
+            division.style.background ='#F6CCCC';
+            return false;
+        }
+        var  subdivision=document.getElementById('j_id0:j_id3:j_id30:j_id115:j_id122:j_id124');
+        if (subdivision.value==null ||subdivision.value==""){
+            //alert(" Country must be filled out");
+            errorlog.innerHTML = '<center><b><font color="red">Error: Invalid Data.<br/> Sub Division Name must be filled out</font></b></center>';
+            subdivision.style.background ='#F6CCCC';
+            return false;
+        }    
+        
+        var  primaryservicename=document.getElementById('j_id0:j_id3:j_id30:j_id115:j_id128:j_id130');
+        if (primaryservicename.value==null ||primaryservicename.value==""){
+            //alert(" Country must be filled out");
+            errorlog.innerHTML = '<center><b><font color="red">Error: Invalid Data.<br/>Primary Service Name must be filled out</font></b></center>';
+            primaryservicename.style.background ='#F6CCCC';
+            return false;
+        }               
+        
+    }
+</script>
+ <apex:sectionHeader title="Lead Edit" subtitle="New Lead" />
+<apex:form onsubmit="return validateForm()">
+  <apex:pageMessages id="errormessage" />
+  <apex:pageBlock title="Lead Edit" tabStyle="Lead">
+      <apex:pageBlockSection title="Lead Information">
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Lead Id"/>
+            <apex:inputField value="{!leadRecord.Id}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Is Lead Inactive"/>
+            <apex:inputField value="{!leadRecord.Is_Lead_Inactive__c}"/>
+          </apex:pageBlockSectionItem> 
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Owner"/>
+            <apex:outputText value="{!$User.FirstName} {!$User.LastName}"/>
+          </apex:pageBlockSectionItem>  
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Phone"/>
+            <apex:inputField value="{!leadRecord.Phone}"/>
+         </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+            <apex:outputLabel value="First Name"/>
+            <apex:inputField value="{!leadRecord.FirstName}" required="true"/>
+          </apex:pageBlockSectionItem>  
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Mobile"/>
+            <apex:inputField value="{!leadRecord.MobilePhone}"/>
+          </apex:pageBlockSectionItem>  
+           <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Last Name"/>
+            <apex:inputField value="{!leadRecord.LastName}"/>
+          </apex:pageBlockSectionItem>  
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Fax"/>
+            <apex:inputField value="{!leadRecord.Fax}"/>
+          </apex:pageBlockSectionItem> 
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Title"/>
+            <apex:inputField value="{!leadRecord.Title}"/>
+          </apex:pageBlockSectionItem> 
+            <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Designation"/>
+             <apex:inputField value="{!leadRecord.Designation__c}"/>            
+         </apex:pageBlockSectionItem> 
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Email"/>
+            <apex:inputField value="{!leadRecord.Email}" required="true"/>
+          </apex:pageBlockSectionItem> 
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Company"/>
+            <apex:inputField value="{!leadRecord.Company}" required="true"/> 
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+             <apex:outputLabel value="SkypeId"/>
+             <apex:inputField value="{!leadRecord.Skype_Id__c}"/>
+           </apex:pageBlockSectionItem>  
+          <apex:pageBlockSectionItem >
+         <!--   <apex:outputLabel value="Email Warnings"/>
+            <apex:inputField value="{!leadRecord.Email_warnings__c}"/> -->
+          </apex:pageBlockSectionItem> 
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Primary Job function"/>
+            <apex:inputField value="{!leadRecord.Primary_Job_function__c}"/>
+          </apex:pageBlockSectionItem>  
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Champions Website"/>
+            <apex:inputField value="{!leadRecord.Website}" />
+          </apex:pageBlockSectionItem> 
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Client Website Address"/>
+            <apex:inputField value="{!leadRecord.Client_Website_Address__c}" />
+          </apex:pageBlockSectionItem> 
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="LinkedIn URL"/>
+            <apex:inputField value="{!leadRecord.LinkedIn_URL__c}" required="true"/>
+          </apex:pageBlockSectionItem>  
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Company LinkedIn URL"/>
+            <apex:inputField value="{!leadRecord.Company_LinkedIn_URL__c}"/>
+          </apex:pageBlockSectionItem>  
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Lead Source"/>
+            <apex:inputField value="{!leadRecord.LeadSource}" required="true"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Lead Status"/>
+            <apex:inputField value="{!leadRecord.Status}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Lead Generator Name"/>
+            <apex:inputField value="{!leadRecord.Lead_Generator_Name__c}"/>
+          </apex:pageBlockSectionItem>  
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="ADAMS Reference Key"/>
+            <apex:inputField value="{!leadRecord.ADAMS_Reference_Key__c}"/>
+          </apex:pageBlockSectionItem>  
+          <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Joint Call Member"/>
+             <apex:inputField value="{!leadRecord.Joint_Call_Member__c}"/>
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Joint Call Member assign Date"/>
+             <apex:inputField value="{!leadRecord.Joint_Call_Member_assign_Date__c}"/>
+              </apex:pageBlockSectionItem>
+       </apex:pageBlockSection>
+         <apex:pageBlockSection title="News Letter Information"> 
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="NewsLetter Lead Buckets"/>
+            <apex:inputField value="{!leadRecord.NewsLetter_Lead_Buckets__c}"/>
+          </apex:pageBlockSectionItem>  
+          <apex:pageBlockSectionItem >
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Date"/>
+            <apex:inputField value="{!leadRecord.Date__c}" />
+          </apex:pageBlockSectionItem> 
+          <apex:pageBlockSectionItem >
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+           <apex:outputLabel value="Channel"/>
+           <apex:inputField value="{!leadRecord.Channel__c}"/>
+          </apex:pageBlockSectionItem> 
+          <apex:pageBlockSectionItem >
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+           <apex:outputLabel value="Subscribe Newsletter "/>
+           <apex:inputField value="{!leadRecord.Subscribed_to_Newsletter__c}" />
+           </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem >
+           <apex:outputLabel value="Unsubscribed"/>
+           <apex:inputField value="{!leadRecord.Unsubscribed__c}" />
+           
+          </apex:pageBlockSectionItem>         
+          </apex:pageBlockSection>
+           <apex:pageBlockSection title="Address Information"> 
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Street"/>
+            <apex:inputField value="{!leadRecord.Street }"/>
+          </apex:pageBlockSectionItem>  
+          <apex:pageBlockSectionItem >
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="City"/>
+            <apex:inputField value="{!leadRecord.City}" required="true"/>
+          </apex:pageBlockSectionItem> 
+          <apex:pageBlockSectionItem >
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+           <apex:outputLabel value="State/Province"/>
+           <apex:inputField value="{!leadRecord.State }"/>
+          </apex:pageBlockSectionItem> 
+          <apex:pageBlockSectionItem >
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+           <apex:outputLabel value="Zip/Postal Code "/>
+           <apex:inputField value="{!leadRecord.PostalCode }" />
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+          </apex:pageBlockSectionItem> 
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Country"/>
+            <apex:inputField value="{!leadRecord.Country}" required="true"/>
+          </apex:pageBlockSectionItem> 
+          </apex:pageBlockSection>
+          <apex:pageBlockSection title="Additional Information">
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Division"/>
+             <apex:inputField value="{!leadRecord.Division_Name__c}" required="true"/>
+           </apex:pageBlockSectionItem>  
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Industry"/>
+             <apex:inputField value="{!leadRecord.Industry}"/>
+           </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Sub Division Name"/>
+             <apex:inputField value="{!leadRecord.Sub_Division_Name__c}" required="true"/>
+           </apex:pageBlockSectionItem>  
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="No.of Employees"/>
+             <apex:inputField value="{!leadRecord.NumberOfEmployees}"/>
+           </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Primary Service Name"/>
+             <apex:inputField value="{!leadRecord.Primary_Service_Name__c}" required="true"/>
+           </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Secondary Service"/>
+             <apex:inputField value="{!leadRecord.Secondary_Service__c}" required="false"/>
+           </apex:pageBlockSectionItem>  
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Annual Revenue"/>
+             <apex:inputField value="{!leadRecord.AnnualRevenue}"/>
+           </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="ICP Demo Given On"/>
+             <apex:inputField value="{!leadRecord.Demo_Given_On__c}"/>
+           </apex:pageBlockSectionItem>  
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Budget"/>
+             <apex:inputField value="{!leadRecord.Budget__c}"/>
+           </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="CRM used by Lead"/>
+             <apex:inputField value="{!leadRecord.CRM_Used__c}" />
+           </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Time Frame"/>
+             <apex:inputField value="{!leadRecord.Time_Frame__c}"/>
+           </apex:pageBlockSectionItem>  
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Rating"/>
+             <apex:inputField value="{!leadRecord.Rating}"/>
+           </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Reason Lost"/>
+             <apex:inputField value="{!leadRecord.Reason_Lost__c}"/> 
+           </apex:pageBlockSectionItem>  
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Specify - Lead Lost (Other)"/>
+             <apex:inputField value="{!leadRecord.Reason_For_Unqualified_or_Lost__c}"/>   
+           </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        
+          <apex:pageBlockSection title="Valuable Information">
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Department"/>
+             <apex:inputField value="{!leadRecord.Department__c}" />
+           </apex:pageBlockSectionItem>  
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Employee Range"/>
+             <apex:inputField value="{!leadRecord.Employee_Range__c}"/>
+           </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Revenue Range"/>
+             <apex:inputField value="{!leadRecord.Revenue_Range__c}"/>
+           </apex:pageBlockSectionItem>   
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Geography"/>
+             <apex:inputField value="{!leadRecord.Geography__c}" />
+           </apex:pageBlockSectionItem>  
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Level"/>
+             <apex:inputField value="{!leadRecord.Level__c}"/>
+           </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Multiple Services"/>
+             <apex:inputField value="{!leadRecord.Multiple_services__c}" />
+           </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="No. of Counts"/>
+             <apex:inputField value="{!leadRecord.No_of_counts__c}"/>
+           </apex:pageBlockSectionItem>  
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Past Purchases"/>
+             <apex:inputField value="{!leadRecord.Past_Purchases__c}"/>
+           </apex:pageBlockSectionItem>   
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="SIC Code"/>
+             <apex:inputField value="{!leadRecord.SIC_code__c}"/>
+           </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Zip/Postal Code"/>
+             <apex:inputField value="{!leadRecord.Zip_Postal_Code__c}" />
+           </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection title="Additional Customer Information">
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Relevant Partners1"/>
+             <apex:inputField value="{!leadRecord.Relevant_Partners1__c}"/>
+           </apex:pageBlockSectionItem>  
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Relevant Partners2"/>
+             <apex:inputField value="{!leadRecord.Relevant_Partners2__c}"/>
+           </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Top Customers1"/>
+             <apex:inputField value="{!leadRecord.Top_Customers1__c}"/>
+           </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+           <apex:outputLabel value="Top Customers2"/>
+             <apex:inputField value="{!leadRecord.Top_Customers2__c}"/>
+             </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Hotel Name"/>
+             <apex:inputField value="{!leadRecord.Hotel_Name__c}"/>
+              </apex:pageBlockSectionItem>    
+           <apex:pageBlockSectionItem >
+           <apex:outputLabel value="Gender"/>
+             <apex:inputField value="{!leadRecord.Gender__c}"/>
+              </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+           <apex:outputLabel value="Age"/>
+             <apex:inputField value="{!leadRecord.Age__c}"/>
+              </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+           <apex:outputLabel value="Total Person"/>
+             <apex:inputField value="{!leadRecord.Total_Person__c}"/>
+              </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+           <apex:outputLabel value="Accomodation Type"/>
+             <apex:inputField value="{!leadRecord.Accomodation_Type__c}"/>
+              </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+           <apex:outputLabel value="Tour Date"/>
+             <apex:inputField value="{!leadRecord.Tour_Date__c}"/>
+              </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+           <apex:outputLabel value="Package Type"/>
+             <apex:inputField value="{!leadRecord.Package_Type__c}"/>
+              </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Customer Request"/>
+             <apex:inputField value="{!leadRecord.Customer_Request__c}"/>
+              </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Add.ons"/>
+             <apex:inputField value="{!leadRecord.Add_ons__c}"/>
+              </apex:pageBlockSectionItem> 
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Other Locations/Branches"/>
+             <apex:inputField value="{!leadRecord.Other_Locations_Branches__c}"/>
+           </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Twitter URL"/>
+             <apex:inputField value="{!leadRecord.Twitter_URL__c}"/>
+           </apex:pageBlockSectionItem>
+           
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="LinkedIn Photo URL"/>
+             <apex:inputField value="{!leadRecord.LinkedIn_Photo_URL__c}"/>
+           </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Purpose of buying this List"/>
+             <apex:inputField value="{!leadRecord.Purpose_of_buying_this_List__c}"/>
+           </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Customer Products and Services"/>
+             <apex:inputField value="{!leadRecord.Customer_Products_and_Services__c}"/>
+           </apex:pageBlockSectionItem>
+           </apex:pageBlockSection>
+        <apex:pageBlockSection title="Description Information" columns="1">
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Comments"/>
+             <apex:inputField value="{!leadRecord.Comments__c}" styleClass="width:150px;height:50px"/>
+           </apex:pageBlockSectionItem>  
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Description"/>
+             <apex:inputField value="{!leadRecord.Description}"/>   
+           </apex:pageBlockSectionItem>
+         </apex:pageBlockSection>
+    <!--      <apex:pageBlockSection title="System Information">
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Lead Created Date"/>
+             <apex:inputField value="{!leadRecord.Lead_Created_Date__c}" />
+           </apex:pageBlockSectionItem>  
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Lead Number"/>
+             <apex:inputField value="{!leadRecord.Lead_Number__c}"/>     
+           </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+         <apex:pageBlockSection title="Lead Assignment Section">
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Team Uploaded By"/>
+             <apex:inputField value="{!leadRecord.Team_Identification__c}"/>
+           </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Uploaded By"/>
+             <apex:inputField value="{!leadRecord.Leadgen_Owner__c}"/>
+           </apex:pageBlockSectionItem>  
+         <!--   <apex:pageBlockSectionItem >
+             <apex:outputLabel value="SFDC Team (Internal purpose only)"/>
+             <apex:inputField value="{!leadRecord.Users__c}" />
+           </apex:pageBlockSectionItem>  
+            <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Lead Assigned To"/>
+             <apex:inputField value="{!leadRecord.Lead_AssignedTo__c}" required="true"/> 
+           </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem >
+             <apex:outputLabel value="User EmailId  "/>
+             <apex:inputField value="{!leadRecord.User_EmailId__c}"/>
+           </apex:pageBlockSectionItem>  
+             <input id="theHiddenInput" type="hidden" name="theHiddenInput" />
+        </apex:pageBlockSection> -->
+        <apex:pageBlockButtons >
+             <apex:commandButton value="Save" action="{!save}"  />
+             <input type="button" value="Cancel" class="btn" onClick="parent.location='/00Q/o'"  style="saveAction"  />          
+       </apex:pageBlockButtons>
+   </apex:pageBlock>
+ </apex:form>
+</apex:page>

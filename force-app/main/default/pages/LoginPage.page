@@ -1,0 +1,109 @@
+<apex:page sidebar="false" showheader="false" standardStylesheets="false">
+    <apex:form >
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>Untitled Document</title>
+            <style>
+                body {
+                font-family: Arial;
+                color: white;
+                }
+                
+                .container {
+                height: 100%;
+                width: 100%;
+                position: fixed;
+                z-index: 1;
+                }
+                
+                .headline-container {
+                width: 80%;
+                margin: 0 auto;
+                float: none;
+                text-align: center;
+                color: red;
+                margin-bottom: -30px;
+                
+                }
+                
+                .description{
+                color: black;
+                font-size: 14px;
+                padding: 10px 20px 0px 10px;
+                text-align: justify;
+                }
+                
+                .column {
+                float: left;
+                width: 20%;
+                padding: 0px 20px 10px 10px;
+                }
+                
+                /* Clearfix (clear floats) */
+                .row::after {
+                content: "";
+                clear: both;
+                display: table;
+                }
+            </style>
+            
+        </head>
+        
+        <body>
+            <!-- Begin Page Content -->
+            <div class="container">
+                <div class="row">
+                    <div class="headline-container" >
+                        <h3>Our Businesses</h3>
+                    </div>
+                    <div class="description" >
+                        <p>Champion InfoMetrics offers result driven marketing services that generate consistent returns when aligned with the core business functions. It aligns people, processes and data solutions to maximize results that enhance business performance and profitability. We understand the nature of your business and the complimenting marketing solutions that can unleash the potential of global growth opportunities.</p>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <img class="img-fluid mx-auto d-block" src="https://www.championinfometrics.com/images/ico/b-01.png"  width="150" height="80" alt="slide 1"/>
+                        </div>
+                        <div class="column">
+                            <img class="img-fluid mx-auto d-block" src="https://www.championinfometrics.com/images/ico/b-02.png"  width="150" height="80" alt="slide 1"/>
+                        </div>
+                        <div class="column">
+                            <img class="img-fluid mx-auto d-block" src="https://www.championinfometrics.com/images/ico/b-03.png"  width="150" height="80" alt="slide 1"/>
+                        </div>
+                        <div class="column">
+                            <img class="img-fluid mx-auto d-block" src="https://www.championinfometrics.com/images/ico/b-09.png"  width="150" height="80" alt="slide 1"/>
+                        </div>
+                        <div class="column">
+                            <img class="img-fluid mx-auto d-block" src="https://www.championinfometrics.com/images/ico/b-010.png"  width="150" height="80" alt="slide 1"/>
+                        </div>
+                        <div class="column">
+                            <img class="img-fluid mx-auto d-block" src="https://www.championinfometrics.com/images/ico/b-011.png"  width="150" height="80" alt="slide 1"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="headline-container" >
+                        <h3>Our Products</h3>
+                    </div>
+                    <div class="description" >
+                        <p>Our products are designed to improve marketing processes, workflows, scoring; analysis, leads tracking, marketing measurement and business ROI. We use custom process management platforms that can be adapted to suit niche industry segments. We cater to a wide range of industries globally. The following are some specialized products we offer.</p>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <img class="img-fluid mx-auto d-block" src="https://www.championinfometrics.com/images/ico/b-04.png"  width="150" height="80" alt="slide 1"/>
+                        </div>
+                        <div class="column">
+                            <img class="img-fluid mx-auto d-block" src="https://www.championinfometrics.com/images/ico/b-05.png"  width="150" height="80" alt="slide 1"/>
+                        </div>
+                        <div class="column">
+                            <img class="img-fluid mx-auto d-block" src="https://www.championinfometrics.com/images/ico/b-07.png"  width="150" height="80" alt="slide 1"/>
+                        </div>
+                        <div class="column">
+                            <img class="img-fluid mx-auto d-block" src="https://www.championinfometrics.com/images/ico/b-08.png"  width="150" height="80" alt="slide 1"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Page Content -->
+        </body>
+    </apex:form>
+</apex:page>

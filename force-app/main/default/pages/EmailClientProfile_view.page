@@ -1,0 +1,46 @@
+<apex:page standardController="Lead" extensions="DocumentEmailController" recordSetVar="lead" >      
+  <apex:form id="myform">
+    <apex:pageMessages />
+   <apex:pageBlock title="Send an Email" id="block1">
+      <apex:pageBlockButtons location="Both">
+        <apex:commandButton action="{!sendDoc}" value="Send" />
+        <apex:commandButton action="{!Cancel}" value="Back to Leads"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection columns="1" id="bsection1">
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="To :" for="email"/>
+          <apex:inputText value="{!email}" id="email" style="width: 500px; height: 20px" disabled="true"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputtext value="Cc :"/>
+            <apex:inputtext value="{!emailCc}" style="width: 500px; height: 20px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputtext value="Bcc :"/>
+            <apex:inputtext value="{!emailBcc}" style="width: 500px; height: 20px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="bItem">
+            <apex:outputtext value="Subject :"/>
+            <apex:inputtext value="{!Subject}" id="subject"  style="width: 500px; height: 20px" />
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Document" for="document:" />
+            <apex:selectList value="{!documentId}" id="document" size="1" style="width: 500px; height: 20px">
+                 <apex:selectOptions value="{!Documents}" />
+            </apex:selectList>
+        </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Template" for="Template :"/>
+            <apex:selectList value="{!templateId}" id="templateId" size="1">
+                 <apex:selectOptions value="{!Template}"/>
+                 <apex:actionSupport event="onchange" action="{!templateAssign}" rerender="emailBody"  />                  
+            </apex:selectList>
+        </apex:pageBlockSectionItem> 
+        <apex:pageBlockSectionItem >
+            <apex:outputtext value="Body :"/>
+            <apex:InputTextarea id="emailBody" value="{!emailBody}" style="width: 500px; height: 500px"></apex:InputTextarea>
+        </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>     
+   </apex:pageBlock> 
+  </apex:form>
+</apex:page>

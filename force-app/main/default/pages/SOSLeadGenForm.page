@@ -1,0 +1,509 @@
+<apex:page controller="SOSLeadGenForm" showHeader="false" action="{!init}"
+	sidebar="false">
+	<script>
+        function emailCopy() {
+            document.getElementById('j_id0:j_id2:email').value = document.getElementById('dummyEmail').value;
+        }
+        
+        var temp = false;  
+        var submit = false;
+        var check = false;
+     
+     function setSubmit(ele) {
+        alert('setSubmit');
+            if(ele == 'check') {
+                check = true;
+            }   
+            else {
+                check = false;
+            }
+            submit = true;
+            temp = true;
+        }
+        
+        function unsetSubmit() {
+            submit = false;
+        }
+        var donotVal = false;
+       function setValue(){
+       	donotVal = true;
+       }
+       function validateForm()
+        {
+        var teamuploadedby = document.getElementById('j_id0:j_id2:Team1');
+        if(teamuploadedby.value == null || teamuploadedby.value == ""){
+            alert("Please specify the Team Name on the Top");
+                teamuploadedby.style.background ='#F6CCCC';
+                return false;  
+        }
+        var team = document.getElementById('j_id0:j_id2:Team1');
+        var domain = document.getElementById('j_id0:j_id2:domainname');
+         if((team.value=='Sales Manager Gary Mayers' || team.value=='Jeff Anderson' || team.value=='Raymond Phillips' 
+                || team.value=='Manager Robin Smith' || team.value=='Manager Steve Sujith' || team.value=='Manager Roger Smith' || team.value=='Alex' 
+                || team.value=='Michelle'  || team.value=='Marshal Sequira' || team.value=='Max Tyler' 
+                || team.value=='Sam Green' || team.value=='Sean Fischer'||team.value=='Social Media' || team.value=='MPO') && (domain.value == null || domain.value == "")){
+                        
+                alert("Domain must be filled out,as your team is "+team.value);
+                domain.style.background ='#F6CCCC';
+                return false;
+                }
+        
+        var company=document.getElementById('j_id0:j_id2:company');
+        if ((company.value==null ||  company.value=="") && !donotVal){
+            alert("Company must be filled out");
+            company.style.background ='#F6CCCC';
+            return false;
+        }
+        
+        var email=document.getElementById('j_id0:j_id2:email');
+        if (email.value==null || email.value==""){
+          alert("Email must be filled out");
+          email.style.background ='#F6CCCC';
+          return false;
+          //onsubmit="return decideAndSubmit();"
+        }
+            
+        var x=document.getElementById('j_id0:j_id2:firstName');
+        if (x.value==null || x.value==""){
+          alert("First name must be filled out");
+          x.style.background ='#F6CCCC';
+          return false;
+          //onsubmit="return decideAndSubmit();"
+        }
+        
+        var lastName = document.getElementById('j_id0:j_id2:lastName');                 
+        if (lastName.value==null || lastName.value==""){
+            alert("Last name must be filled out");
+             lastName.style.background ='#F6CCCC';
+            return false;
+        }
+            
+              
+        
+        var primarySerName=document.getElementById('j_id0:j_id2:PrimarySer');
+        if ((primarySerName.value==null || primarySerName.value=="")  && !donotVal){
+          alert("Please select PrimaryServiceInterestedIn value"); 
+         primarySerName.style.background ='#F6CCCC';
+          return false;
+          //onsubmit="return decideAndSubmit();"
+        }
+        
+        var industry=document.getElementById('j_id0:j_id2:Indus');
+        if ((industry.value==null || industry.value=="")  && !donotVal){
+          alert("Please select Industry value"); 
+         industry.style.background ='#F6CCCC';
+          return false;
+          //onsubmit="return decideAndSubmit();"
+        }
+        
+        var source=document.getElementById('j_id0:j_id2:Source');
+        if (source.value==null || source.value==""){
+          alert("Please select Source value");
+          source.style.background ='#F6CCCC';
+          return false;
+          //onsubmit="return decideAndSubmit();"
+        }
+        var country=document.getElementById('j_id0:j_id2:Country');
+        if (country.value==null || country.value==""){
+          alert("Country must be filled out");
+          country.style.background ='#F6CCCC';
+          return false;
+          //onsubmit="return decideAndSubmit();"
+        }
+        var state=document.getElementById('j_id0:j_id2:State');
+        if (state.value==null || state.value==""){
+          alert("State must be filled out");
+          state.style.background ='#F6CCCC';
+          return false;
+          //onsubmit="return decideAndSubmit();"
+        }
+        var Linkedin=document.getElementById('j_id0:j_id2:LinkedURL');
+        if (Linkedin.value==null || Linkedin.value==""){
+          alert("Linkedin url must be filled out");
+          Linkedin.style.background ='#F6CCCC';
+          return false;
+          //onsubmit="return decideAndSubmit();"
+        }
+        
+        var sourcedomain = document.getElementById('j_id0:j_id2:SubDomain');
+        if((domain.value != null || domain.value != '')&& (sourcedomain.value == null ||sourcedomain.value=='')){
+            alert("Sub Domain Name must be filled out");
+                sourcedomain.style.background ='#F6CCCC';
+                return false;    
+        }
+        var leadAssigned = document.getElementById('j_id0:j_id2:LeadAss');
+        if((domain.value != null || domain.value != '')&& (leadAssigned.value == null ||leadAssigned.value=='')){
+            alert("Lead Assigned To must be filled out");
+                leadAssigned.style.background ='#F6CCCC';
+                return false;    
+        }       
+        
+    }
+       
+       
+    </script>
+	<apex:form onsubmit="return validateForm()"
+		style="background-color:white;">
+		<table border="1" rules="rows" bordercolor='#178AB4' width="90%"
+			align="center" cellpadding="0" cellspacing="0" bgcolor="#E7E5E6">
+			<tr>
+				<td>
+				<table border="0" rules="rows" bordercolor='#178AB4' width="90%"
+					align="center" cellpadding="0" cellspacing="0" bgcolor="#E7E5E6">
+					<tr>
+						<td align="left" valign="bottom"><font
+							style="font-size: 14Pt">Lead Creation Form For Team :</font> <!--<font
+                            style="font-size: 14Pt;font-weight:bold; color: #F30;">  {!strUse}</font>
+                            --> <apex:selectList id="Team1"
+							value="{!leadRecord.Team_Identification__c}" multiselect="false"
+							size="1">
+							<apex:selectOptions value="{!Teamlist}" />
+						</apex:selectList> <!--<apex:inputField id="TeamPickList" value="{!leadRecord.Team_Identification__c}"  />
+                            --></td>
+
+						<td align="left" valign="bottom"><font
+							style="font-size: 14Pt"> Welcome :</font> <font
+							style="font-size: 12Pt; font-weight: bold; color: #F30;">
+						{!FinalUName1}</font></td>
+
+						<td align="right"><img
+							src="http://www.championsgroup.in/images/logo.jpg"></img></td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td><apex:pageMessages id="errormessage" /></td>
+			</tr>
+		</table>
+
+		<!-- <table border="1" rules="rows" bordercolor='#EBEBEB' width="90%" align="center" cellpadding="0" cellspacing="0" bgcolor="WHITE">
+         <tr>
+            <td  bgcolor="178AB4"  BORDERCOLOR="D3649F" colspan="4" style="font-size:10Pt"><font color="WHITE"><b>Email Verification</b></font></td>
+        </tr>
+        <tr>
+            <td align="right" >&nbsp;&nbsp;Company :</td>
+            <td><apex:inputField value="{!leadRecord.Company}" required="true"/></td>
+            <td align="right"> Email :</td>
+            <td><INPUT id="dummyEmail" type="text" size="40" onchange="emailCopy();"/> <apex:inputHidden id="email" value="{!leadRecord.Email}"/></td>
+        </tr>    
+        <tr>
+            <td align="right" >First Name :</td>
+            <td><apex:inputField value="{!leadRecord.FirstName}"/></td>
+            <td align="right" > Last Name :</td>
+            <td><apex:inputField value="{!leadRecord.LastName}" required="true"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="4"><apex:commandButton value="check" action="{!checkemail}" onclick="setSubmit(value)"  
+                        style="width:80px;height:25Px;font-size:10Pt"/></td>
+        </tr>
+     </table>-->
+
+
+		<table border="1" rules="rows" bordercolor='#EBEBEB' width="90%"
+			align="center" cellpadding="0" cellspacing="0" bgcolor="WHITE">
+			<tr>
+				<!--<td colspan="4">&nbsp;</td>
+                -->
+				<!--<td align="right" colspan="3"><apex:commandLink action="{!showPopup}" value="Change Password" id="changepassword" /></td>
+				<td align="Center" colspan="4"><apex:commandLink action="{!Logout}" value="Logout" id="theCommandLink" /></td>
+			--></tr>
+			<tr>
+				<td bgcolor="178AB4" colspan="4"><font color="White"
+					style="font-size: 10Pt"><b>Lead Information</b></font></td>
+
+			</tr>
+			<tr>
+				<td colspan="4"><font color="red" style="font-size: 8Pt">
+				* Fields are Mandatory</font></td>
+			</tr>
+			<!--<tr><td colspan="4" style="visibility:hidden;">&nbsp;&nbsp; Change Lead Form: <apex:inputField id="TeamPickList" value="{!leadRecord.Team_Identification__c}"  /></td></tr>
+            -->
+			<tr>
+				<td align="right">&nbsp;&nbsp;<font color="red">*</font>Company
+				:</td>
+				<td><apex:inputText id="company"
+					title="No Special Character allowed except dot(.)"
+					value="{!leadRecord.Company}" /></td>
+				<!-- required="true" -->
+				<td align="right"><font color="red">*</font>Email :</td>
+				<td><!--<INPUT id="dummyEmail" type="text" size="40"
+                    onchange="emailCopy();" /> --> <apex:inputText id="email" title="Enter the email format as xyz@abc.com"
+					value="{!leadRecord.Email}" /></td>
+			</tr>
+			<tr>
+				<td align="right"><font color="red">*</font>First Name :</td>
+				<td><apex:inputText title="No Special Character / Number allowed" id="firstName"
+					value="{!leadRecord.FirstName}" /></td>
+				<td align="right"><font color="red">*</font>Last Name :</td>
+				<td><apex:inputText id="lastName"
+					title="No Special Characters/Numbers allowed"
+					value="{!leadRecord.LastName}" /></td>
+			</tr>
+			<tr>
+				<td align="right">Domain Name :</td>
+				<td><!-- <apex:actionFunction action="{!ValidDomain}"
+						name="setDomain" status="setting domain values...." immediate="true" /> onchange="setDomain()"-->
+				<apex:actionRegion >
+					<apex:selectList id="domainname" value="{!domainname}"
+						multiselect="false" size="1">
+						<apex:selectOptions value="{!Domainlist}" />
+						<apex:actionSupport event="onchange" action="{!ValidDomain}"
+							status="..." immediate="false" />
+					</apex:selectList>
+				</apex:actionRegion></td>
+
+
+				<td colspan="2" style="visibility: hidden;"><apex:inputField value="{!leadRecord.Division_Name__c}" /></td>
+
+
+				<!--<td align="right"><font color="red">*</font>User Name</td>
+                <td><apex:inputfield value="{!leadRecord.Users__c}" /></td>
+            -->
+			</tr>
+
+			<!--<tr>
+           		<td align="right" width='23%'> Domain Name :</td>
+                <td>&nbsp;<apex:inputField value="{!leadRecord.Division_Name__c}" /></td>
+            	<td colspan="2" style="visibility:hidden;">
+            	<apex:inputField value="{!leadRecord.Team_Identification__c}" /> </td>
+                                
+            </tr>-->
+
+			<tr>
+				<td align="right" width='23%'>Sub Domain Name :</td>
+				<td>&nbsp;<apex:inputField id="SubDomain" value="{!leadRecord.Sub_Division_Name__c}" /></td>
+				<td align="right">Lead Assigned To :</td>
+				<td><apex:inputField id="LeadAss" value="{!leadRecord.Lead_AssignedTo__c}" /></td>
+			</tr>
+
+
+			<!--<tr>
+                                     
+   				<apex:outputPanel id="picklists">
+                <td align="right" width='23%'>Sub Domain Name :</td>
+                <td>&nbsp;<apex:selectList id="sub"
+					value="{!leadRecord.Sub_Division_Name__c}" multiselect="false" size="1">
+					<apex:selectOptions value="{!SubTeamList}" />
+					</apex:selectList></td>
+					
+                <td align="right">Lead Assigned To :</td>
+                <td><apex:selectList id="Lat"
+					value="{!leadRecord.Lead_AssignedTo__c}" multiselect="false" size="1">
+					<apex:selectOptions value="{!LeadAssToList}" />
+					</apex:selectList></td>
+					
+					 </apex:outputPanel>
+				
+            </tr>-->
+
+
+			<tr>
+				<td align="right"><font color="red">*</font> Primary Service
+				Interested in :</td>
+				<td><apex:inputField id="PrimarySer" value="{!leadRecord.Primary_Service_Name__c}" /></td>
+				<!-- required="true" -->
+				<td align="right">Contact's Job Title :</td>
+				<td><apex:inputText id="LeadTitle" title="No Special Characters/Numbers allowed"
+					value="{!leadRecord.Title}" /></td>
+			</tr>
+			<tr>
+				<td align="right"><font color="red">*</font> Industry :</td>
+				<td><apex:inputField id="Indus" value="{!leadRecord.Industry}" /></td>
+				<!-- required="true" -->
+				<td align="right">TimeLine :</td>
+				<td><apex:inputField value="{!leadRecord.Time_Frame__c}" /></td>
+			</tr>
+			<tr>
+				<td align="right">Budget :</td>
+				<td><apex:inputField value="{!leadRecord.Budget__c}" /></td>
+				<td align="right">Website :</td>
+				<td><apex:inputtext title="No speacial characters allowed except(.,-)"
+					value="{!leadRecord.Website}" /></td>
+			</tr>
+			<tr>
+				<td align="right"><font color="red">*</font> Source :</td>
+				<td><apex:inputField id="Source" value="{!leadRecord.LeadSource}" /></td>
+				<td align="right">Phone :</td>
+				<td><apex:inputtext title="No special characters allowed"
+					value="{!leadRecord.Phone}" /></td>
+			</tr>
+			<tr>
+				<td align="right">Street :</td>
+				<td><apex:inputField value="{!leadRecord.Street}" /></td>
+				<td align="right">Mobile:</td>
+				<td><apex:inputField value="{!leadRecord.MobilePhone}" /></td>
+			</tr>
+			<tr>
+				<td align="right"><font color="red">*</font> Country :</td>
+				<td><apex:inputField id="Country" value="{!leadRecord.Country}" /></td>
+				<td align="right">Fax :</td>
+				<td><apex:inputField value="{!leadRecord.Fax}" /></td>
+			</tr>
+			<tr>
+				<td align="right"><font color="red">*</font> State :</td>
+				<td><apex:inputField id="State" value="{!leadRecord.State}" /></td>
+				<td align="right">Marketing Lead Rating:</td>
+				<td><apex:inputField value="{!leadRecord.Rating}" /><b>(1
+				Low to 5 High)</b></td>
+			</tr>
+			<tr>
+				<td align="right" width='23%'>Voice Mail (1) :</td>
+				<td>&nbsp;<apex:inputFile value="{!Att1.body}"
+					filename="{!Att1.name}" size="25" /></td>
+				<td align="right" width='23%'>Voice Mail (2) :</td>
+				<td>&nbsp;<apex:inputFile value="{!Att2.body}"
+					filename="{!Att2.name}" size="25" /></td>
+			</tr>
+			<tr>
+				<td align="right" width='23%'>Voice Mail (3) :</td>
+				<td>&nbsp;<apex:inputFile value="{!Att3.body}"
+					filename="{!Att3.name}" size="25" /></td>
+				<td align="right" width='23%'>Voice Mail (4) :</td>
+				<td>&nbsp;<apex:inputFile value="{!Att4.body}"
+					filename="{!Att4.name}" size="25" /></td>
+			</tr>
+			<tr>
+				<td align="right" width='23%'>Voice Mail (5) :</td>
+				<td>&nbsp;<apex:inputFile value="{!Att5.body}"
+					filename="{!Att5.name}" size="25" /></td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+
+			<!-- New Enhancement code starts -->
+			<tr>
+				<td bgcolor="178AB4" colspan="4"><font color="White"
+					style="font-size: 10Pt"><b>Additional Lead Information</b></font></td>
+			</tr>
+			<tr>
+				<td align="right" width='23%'>Relevant Partners 1):</td>
+				<td><apex:inputField value="{!leadRecord.Relevant_Partners1__c}" /></td>
+				<td align="right" width='15%'>Top Customers 1):</td>
+				<td><apex:inputField value="{!leadRecord.Top_Customers1__c}" /></td>
+			</tr>
+			<tr>
+				<td align="right" width='23%'>Relevant Partners 2):</td>
+				<td><apex:inputField value="{!leadRecord.Relevant_Partners2__c}" /></td>
+				<td align="right" width='15%'>Top Customers 2):</td>
+				<td><apex:inputField value="{!leadRecord.Top_Customers2__c}" /></td>
+			</tr>
+			<tr>
+				<td align="right" width='23%' type="text" size="80">Other
+				Locations/Branches :</td>
+				<td><apex:inputField value="{!leadRecord.Other_Locations_Branches__c}" /></td>
+				<td align="right" width='23%'>Customer Products and Services :</td>
+				<td><apex:inputField value="{!leadRecord.Customer_Products_and_Services__c}" /></td>
+			</tr>
+			<tr>
+				<td align="right">Twitter URL :</td>
+				<td><apex:inputField value="{!leadRecord.Twitter_URL__c}"
+					style="width:250px" /></td>
+				<td align="right">CRM Used By Lead :</td>
+				<td><apex:inputField value="{!leadRecord.CRM_Used__c}" /></td>
+			</tr>
+			<tr>
+				<td align="right"><font color="red">*</font> LinkedIn URL :</td>
+				<td><apex:inputField id="LinkedURL" value="{!leadRecord.LinkedIn_URL__c}"
+					style="width:250px" /></td>
+				<td align="right">LinkedIn Photo URL :</td>
+				<td><apex:inputField value="{!leadRecord.LinkedIn_Photo_URL__c}" style="width:250px" /></td>
+			</tr>
+			<tr>
+				<td align="right" width='23%'>Purpose of buying this List :</td>
+				<td><apex:inputField value="{!leadRecord.Purpose_of_buying_this_List__c}" /></td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+
+			<!-- New Enchancement code ENDs here -->
+
+			<tr>
+				<td align="right" valign="top">Comments (Max 32,000 Characters)
+				:</td>
+				<td colspan="3"><apex:inputField value="{!leadRecord.Comments__c}" /></td>
+			</tr>
+			<tr>
+				<td colspan="4">
+				<hr color="#EBEBEB" />
+				</td>
+			</tr>
+
+
+			<tr>
+				<td colspan="4" align="center"><apex:commandButton value="Submit Lead" action="{!save}" /> <apex:inputHidden id="team" value="{!strUse}" /></td>
+
+			</tr>
+		</table>
+	</apex:form>
+
+
+	<!--<apex:form >
+		<apex:outputPanel id="tstpopup">
+			<apex:outputPanel styleClass="popupBackground" layout="block"
+				rendered="{!displayPopUp}" />
+			<apex:outputPanel styleClass="custPopup" layout="block"
+				rendered="{!displayPopUp}">
+				<table border="0" cellpadding="2" cellspacing="2">
+					<tr>
+						<td colspan="2"><font style="font-size: 13px; color: #e0e;">Change
+						Password:</font></td>
+					</tr>
+					<tr>
+						<td style="font-size: 12px; color: #000;">Enter Old
+						Password*:</td>
+						<td><apex:inputText id="oldPass" value="{!oldPass}" /></td>
+					</tr>
+					<tr>
+						<td style="font-size: 12px; color: #000;">Enter New
+						Password*:</td>
+						<td><apex:inputText id="newPass" value="{!NewPass}" /></td>
+					</tr>
+					<tr>
+						<td style="font-size: 12px; color: #000;">ReEnter New
+						Password*:</td>
+						<td><apex:inputText id="newPass1" value="{!NewPass1}" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><apex:commandButton value="Submit"
+							action="{!closePopup}" /></td>
+					</tr>
+
+				</table>
+			</apex:outputPanel>
+		</apex:outputPanel>
+
+	</apex:form>
+
+	--><style type="text/css">
+.custPopup {
+	background-color: white;
+	border-width: 2px;
+	border-style: solid;
+	z-index: 9999;
+	left: 50%;
+	padding: 10px;
+	position: absolute;
+	/* These are the 3 css properties you will need to change so the popup 
+            displays in the center of the screen. First set the width. Then set 
+            margin-left to negative half of what the width is. You can add 
+            the height property for a fixed size pop up if you want.*/
+	width: 500px;
+	margin-left: -250px;
+	top: 100px;
+}
+
+.popupBackground {
+	background-color: black;
+	opacity: 0.60;
+	filter: alpha(opacity =     60);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 9998;
+}
+</style>
+</apex:page>

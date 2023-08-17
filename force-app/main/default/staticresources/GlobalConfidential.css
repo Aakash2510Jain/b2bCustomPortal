@@ -1,0 +1,9 @@
+@page {
+ /* Landscape orientation */
+ size:landscape;
+
+ /* Put page numbers in the top right corner of each
+ page in the pdf document. */
+ @bottom-right {
+ content:" BTOB Global Confidential";
+ }

@@ -1,0 +1,114 @@
+<apex:page showHeader="false" sidebar="false">
+
+<apex:tabPanel >
+<apex:tab label="Total Leads For This Month">
+<apex:outputLink value="https://ap1.salesforce.com/home/home.jsp" ><b><h6>HOME</h6></b></apex:outputLink> 
+  <script type="text/javascript">  
+    function renderReportFrame(myIframe, reportId, hideHeader, hideTitle, hideProgressIndicator, hideFilters, hideTagbar) {  
+        if (myIframe != null) {  
+            myIframe = myIframe.childNodes[0];  
+            if (myIframe != null) {  
+                myIframe.onload = function() {  
+                bPageTitle  
+                    var phHeader = this.contentWindow.document.getElementById("phHeader");  
+
+                    var tabNavigation = this.contentWindow.document.getElementById("tabNavigation");  
+
+                    var section_header = this.contentWindow.document.getElementById("section_header");  
+
+                    var progressIndicator = null;  
+
+                    var progressIndicatorList = this.contentWindow.document.getElementsByClassName("progressIndicator");  
+
+                    if (progressIndicatorList!=null) progressIndicator = progressIndicatorList[0];  
+
+                    var bFilterReport = null;  
+
+                    var bFilterReportList = this.contentWindow.document.getElementsByClassName("bFilterReport");  
+
+                    if (bFilterReportList!=null) bFilterReport = bFilterReportList[0];  
+
+                    var bPageTitle = null;  
+
+                    var bPageTitleList = this.contentWindow.document.getElementsByClassName("bPageTitle");  
+
+                    if (bPageTitleList!=null) bPageTitle = bPageTitleList[0];  
+
+                    if (hideHeader!=null && hideHeader==true) {  
+
+                        phHeader.style.cssText = "display: none;";  
+
+                        tabNavigation.style.cssText = "display: none;";  
+
+                    }  
+
+                    if (hideTitle!=null && hideTitle==true) {  
+
+                        bPageTitle.style.cssText = "display: none;";  
+
+                    }  
+
+                    if (hideProgressIndicator!=null && hideProgressIndicator==true) {  
+
+                        progressIndicator.style.cssText = "display: none;";  
+
+                    }  
+
+                    if (hideFilters!=null && hideFilters==true) {  
+
+                        bFilterReport.style.cssText = "display: none;";  
+
+                    }  
+
+                    if (hideTagbar!=null && hideTagbar==true) {  
+
+                        section_header.style.cssText = "display: none;";  
+
+                    }  
+
+    
+
+                };  
+
+            myIframe.src = "/" + reportId + "?isdtp=nv";  
+
+            }  
+
+        }  
+
+    }  
+
+  </script>  
+
+    <table width="100%">
+<tr><td width="50%">
+  <apex:outputPanel id="theReportPanel5" layout="block">  
+
+    <apex:iframe id="theReportFrame5" scrolling="true" />  
+
+  </apex:outputPanel>  
+
+    
+
+  <script type="text/javascript">  
+
+      renderReportFrame(document.getElementById("{!$Component.theReportPanel5}"), "00O90000002ZHbX", true, true, true, true, true, true);  
+
+  </script>
+  </td>
+  <td width="50%">
+  <apex:outputPanel id="theReportPanel6" layout="block">  
+
+    <apex:iframe id="theReportFrame6" scrolling="true" />  
+
+  </apex:outputPanel>  
+
+  <script type="text/javascript">  
+
+      renderReportFrame(document.getElementById("{!$Component.theReportPanel6}"), "00O90000002ZL4X", true, true, true, true, true, true);  
+
+  </script>
+  </td></tr></table>
+  </apex:tab>
+  </apex:tabPanel>
+</apex:page>

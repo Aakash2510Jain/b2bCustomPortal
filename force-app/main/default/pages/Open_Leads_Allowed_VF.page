@@ -1,0 +1,18 @@
+<apex:page controller="openleads_allowed_ctrl" showHeader="false" sidebar="false">
+ <apex:form >
+    <table border='0' align="center" width='90%'>
+    <tr>     
+    <td width='20%'> </td>
+    <td width='60%'>
+    <table><tr><td>Number of Open Leads allowed for the users</td>             
+               <td><apex:inputField value="{!u.Open_Leads_Allowed__c}"/></td></tr>      
+               <tr><td>Number of Open Opportunities allowed for the users</td>              
+               <td><apex:inputField value="{!u.Open_Opportunities_Allowed__c}"/></td> </tr>
+               <tr><td>Number of Days since Lead Creation</td>               
+               <td><apex:inputField value="{!u.No_of_days_since_Lead_Created__c}"/></td> </tr>
+               <tr><td colspan="4" align="center"><apex:commandButton value="Submit" action="{!save}"/></td></tr>                    
+               </table></td>
+    <td width='20%'></td></tr></table> 
+    <apex:pageMessages escape="false"/>
+ </apex:form>  
+    </apex:page>

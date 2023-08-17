@@ -1,0 +1,7 @@
+<apex:page lightningStylesheets="true" sidebar="true" showHeader="true">
+  <apex:form >
+  
+ <center><apex:commandLink value="Click here for Project Analysis" action="http://www.projectcentral.us/SalesForce/ProjectAnalysisForSFUsers.aspx" target="_blank"/>
+ </center>
+</apex:form>
+</apex:page>

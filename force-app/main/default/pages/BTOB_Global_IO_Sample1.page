@@ -1,0 +1,285 @@
+<apex:page standardController="Opportunity" showHeader="false"
+    sidebar="false"  extensions="GenerateOrdersController" renderAs="{!valuetoset}">
+ 
+
+<!--
+<style>
+.borderTab{
+        border-left:solid #000000 0.0pt;
+        border-top:solid #000000 1.0pt;
+        border-bottom:solid  #000000 0.0pt;
+        border-right:solid  #000000 0.0pt;
+    }
+</style>
+-->
+<body style="font-family:Calibri; font-size:11.0pt">
+  <table width="700px" cellpadding="2" cellspacing="2" height="1024px" border="1" align="center" valign="top">
+  <tr height="5%" >
+    <td style="border-left:solid #000000 0.0pt;
+        border-top:solid #000000 0.0pt;
+        border-bottom:solid  #000000 0.0pt;
+        border-right:solid  #000000 0.0pt;"><apex:image value="{!$Resource.BTOB}"/> </td>
+  </tr>
+  <tr valign="top">
+    <td style="border-left:solid #000000 0.0pt;
+        border-top:solid #000000 0.0pt;
+        border-bottom:solid  #000000 0.0pt;
+        border-right:solid  #000000 0.0pt;">
+        <br/>
+                <table width="90%" cellpadding="0" cellspacing="0" border="0" align="center" valign="top" >
+                <tr>
+                    <td align="center" style="font-weight:bold;font-size:14px">Insertion Order</td>
+                </tr>
+                <tr><td><b> ______________________________________________________________________________________
+                   </b></td> 
+                </tr>
+                <tr height="50px" valign="top">
+                    <td> 
+                        <table width="100%" height="100%" cellpadding="4" cellspacing="4" border="0" align="center" class="borderTab" >
+                        <tr height="50px" >
+                           
+                            <td ><b> To: </b>
+                            &nbsp;<apex:outputField value="{!opportunity.client_name__r.name}"/>
+                            &nbsp;<apex:outputField value="{!opportunity.client_name__r.mailingStreet}"/>
+                            &nbsp;<apex:outputField value="{!opportunity.client_name__r.mailingCity}"/>
+                            &nbsp;<apex:outputField value="{!opportunity.client_name__r.mailingState}"/>
+                            &nbsp;<apex:outputField value="{!opportunity.client_name__r.mailingCountry}"/><br/></td>
+                        </tr>
+                        <tr >
+                            <td  style="font-weight:bold">Job No:&nbsp;<apex:outputField value="{!opportunity.Reference_Number__c}"/></td>
+                           
+                        </tr>
+                        
+                        </table>
+                       
+                    </td>
+                </tr>
+                 <tr><td><b> ______________________________________________________________________________________
+                   </b></td> 
+                </tr>
+                <tr>
+                    <td >
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" valign="top" class="borderTab">
+                        <tr height="70px" valign="top">
+                            <td style="font-weight:bold"><br/><u>Project Details </u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">    
+                                <table width="100%" cellpadding="0" cellspacing="0" border="1" align="left"  >
+                                <tr  align="center">
+                                    <td width="20" style="font-weight:Bold">Quantity</td>
+                                    <td width="60%" style="font-weight:Bold">Description</td>
+                                    <td width="20%" style="font-weight:bold">Unit Price</td>
+                                </tr>
+                               
+                                <apex:repeat value="{!opportunity.opportunityLineItems}" var="op">
+                                <tr height="20px">
+                                <td  align="center">
+                                 <apex:outputText value="{0, number, ###,##0}">
+                                        <apex:param value="{!OP.Quantity}" />
+                                    </apex:outputText> </td>
+        
+                                 <td align="center" style="padding:0pt 5.4pt 0pt 5.4pt;">
+                                 <apex:outputField value="{!OP.PricebookEntry.Product2.Legal_Name__c}"/>
+                                 </td>
+                               <td align="center" >
+                                 $<apex:outputText value="{!OP.TotalPrice}"/> 
+                              </td>
+                                    
+                                </tr>
+                                 </apex:repeat>
+                                
+                                </table>    
+                            </td>
+                        </tr>
+                           <tr align="right">
+                   <td width="70%" style="border: solid  1.0pt;border-top:none; mso-border-top-alt: solid  .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid  .5pt; padding: 0in 5.4pt 0in 5.4pt;"><b>Payment Terms:</b></td>
+                 
+                 <td width="30%" colspan="2" style="border-top:none;border: solid  1.0pt;mso-border-top-alt: solid  .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid  .5pt; padding: 0in 5.4pt 0in 5.4pt;">
+                 <apex:outputField value="{!Opportunity.Payment_Terms__c}" /></td>
+                 </tr>
+                        <tr>
+                            <td><span>So in total we are looking at 4,523 contacts. </span></td>
+                        </tr>
+                        <tr>
+                            <td  colspan="5">    
+                            
+                                    <table  width="100%" cellpadding="0" cellspacing="0" border="1" align="center" height="80px">
+                                    <tr align="center"  style="font-weight:bold;">
+                                        <td height="40px" >License/Product</td>
+                                         <td height="40px" >Counts</td>
+                                         <td height="40px" >List cost</td>
+                                         <td height="40px">ADMC </td>
+                                        <td height="40px" >Total Investment</td>
+                                    </tr>
+                                    <tr>
+                                        <td height="40px" >&nbsp;<apex:outputField value="{!opportunity.Primary_Service_Name__c}"/></td>
+                                       <td height="40px" >&nbsp;</td>
+                                       <td height="40px" >&nbsp;</td>
+        
+                                         <td height="40px">&nbsp;<apex:outputField value="{!Opportunity.AMC__c}"/></td> 
+                                        
+                                       <td height="40px" >&nbsp;<apex:outputField value="{!Opportunity.Total_Investment__c}"/></td>
+                                    </tr>
+                                    </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <p align="Left">
+                            ADMC/Annual Data Management Commitment:<br/>
+                            Receive a fresh set of verified data in every 90 days in next 12 Months<br/>
+                            Receive 16% New/unique contacts annually  
+
+                            </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <table width="100%" cellpadding="0" cellspacing="0" border="1">
+                                <tr >
+                                  <td height="40px"> <span style="padding:0in 5.4pt 0in 5.4pt;font-weight:bold"> BTOB Global </span></td>
+                                    <td> <span style="padding:0in 5.4pt 0in 5.4pt;font-weight:bold"><apex:outputField value="{!Opportunity.account.name}" /></span></td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td height="40px"> <span style="padding:0in 5.4pt 0in 5.4pt;font-weight:bold">Print Name :
+                                    <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c!=''}">    
+                                      <apex:outputfield value="{!Opportunity.Workorder_Owner_Name__c}"/>
+                                    </apex:panelGroup>
+                                    <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c==''}">    
+                                      <apex:outputText value="{!Opportunity.owner.name}"/> 
+                                    </apex:panelGroup>
+                                    </span> </td>
+                                    <td > <span style="padding:0in 5.4pt 0in 5.4pt;font-weight:bold">Print Name :<apex:outputText value="{!Opportunity.Client_Name__r.Name}" /></span></td>
+                                </tr>
+                                <tr >
+                                    <td height="40px"> <span style="padding:0in 5.4pt 0in 5.4pt;font-weight:bold">Title :<apex:outputField value="{!Opportunity.Title__c}" /></span> </td>
+                                    <td > <span style="padding:0in 5.4pt 0in 5.4pt;font-weight:bold">Title :<apex:outputText value="{!Opportunity.Client_Title__c}" /></span></td>
+                                </tr>
+                                <tr >
+                                    <td  height="60px"> <span style="padding:0in 5.4pt 0in 5.4pt;font-weight:bold">Signature :</span></td>
+                                    <td> <span style="padding:0in 5.4pt 0in 5.4pt;font-weight:bold">Signature :<apex:outputField value="{!Opportunity.Signauture1__c}" /></span></td>
+                                </tr>
+                                </table>                                                
+                            </td>
+                        </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                </table>
+    </td>
+ 
+  </tr>
+   
+  <tr>
+    <td align="right" style="border-left:solid #000000 0.0pt;
+        border-top:solid #000000 0.0pt;
+        border-bottom:solid  #000000 0.0pt;
+        border-right:solid  #000000 0.0pt;"><apex:image value="{!$Resource.Marshal}"/></td>
+    </tr>
+   
+  </table>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+   <table width="700px" cellpadding="2" cellspacing="2" height="842px" border="1" align="center" valign="top">
+  <tr height="5%">
+    <td style="border-left:solid #000000 0.0pt;
+        border-top:solid #000000 0.0pt;
+        border-bottom:solid  #000000 0.0pt;
+        border-right:solid  #000000 0.0pt;"><apex:image value="{!$Resource.BTOB}"/> </td>
+  </tr>
+  <tr valign="top">
+    <td style="border-left:solid #000000 0.0pt;
+        border-top:solid #000000 0.0pt;
+        border-bottom:solid  #000000 0.0pt;
+        border-right:solid  #000000 0.0pt;">
+                <table width="90%" cellpadding="0" cellspacing="0" border="0" align="center" valign="top" >
+                <tr height="150px" valign="top" >
+                    <td> 
+
+                        <p align="justify" style="font-weight:bold">                         
+                        Data Guarantee Terms and Conditions:</p>
+
+                        <p align="justify">                         
+                        <b>Guarantee:</b> <apex:outputField value="{!Opportunity.account.name}" /> can expect 88% deliverability on emails and 95%+ accuracy on all other data fields provided by BTOB Global. “We guarantee 100% replacement on hard bounce else will be issued with credit”.</p>
+                        <p align="justify">                         
+                        All information is 100% email-Verified and verified again prior to delivery to ensure accuracy.</p>
+                        <p align="justify">                         
+                        <b>License Terms:</b> <apex:outputField value="{!Opportunity.account.name}" /> will have unlimited usage license on the Emails and all other information upon BTOB Global.</p>
+                        <p align="justify">                         
+                        There are no restrictions on the usage of Emails, phone or any other information provided by BTOB Global.
+                        However, BTOB Global provides verified opt-in Email addresses and multiple usages of these Emails are up to the discretion of the buyer.</p>
+                        <p align="justify">                         
+                        <b>Data Delivery:</b> BTOB Global will deliver the database to <apex:outputField value="{!Opportunity.account.name}" /> within 3-5 business days from the date receipt of the payment.</p>
+                        <p align="justify">                         
+                       <b> Payment mode:</b> You can pay us by Check or have the payment wired. Please find the payment details given below.. </p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" valign="top" style="font-size: 12px;border:solid black .5pt;" >
+                        <tr style="background:#088A85" align="center">
+                            <td height="40px" style="color:#FFFFFF;font-weight:bold">Wire Payment</td>
+                                <td style="color:#FFFFFF;font-weight:bold">Check Payment</td>
+                        </tr>
+                        <tr>
+                        
+                           <td style="padding:0in 5.4pt 0in 5.4pt;font-size:10pt;font-family:Calibri">
+              <br/> <b><apex:outputField value="{!Opportunity.Brand_Name__c}"/></b>
+           <br/>
+           
+           <apex:repeat value="{!wireDetaials1}" var="w" rendered="{!if(modeOfPay='Wire Payment1','true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat>
+            
+           <apex:repeat value="{!wireDetaials2}" var="w" rendered="{!if(modeOfPay='Wire Payment2','true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat> 
+            
+             <apex:outputpanel rendered="{!if(modeOfPay='Wire Payment/Check Payment','true','fasle')}">
+              <b>Wire Details:</b><br/>
+              <apex:repeat value="{!wireDetaials1}" var="w" rendered="{!if(Opportunity.Wire_Payment__c==true,'true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat>
+            <br/>
+            <b><apex:outputLabel value="WirePayment2" rendered="{!if(Opportunity.Wire_Payment_Type2__c==true,'true','fasle')}"/></b>
+                           <br/>
+            <apex:repeat value="{!wireDetaials2}" var="w" rendered="{!if(Opportunity.Wire_Payment_Type2__c==true,'true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat> <br/><br/>
+             </apex:outputpanel>
+            </td>
+            <td style="padding:0in 5.4pt 0in 5.4pt;border-left:solid black .5pt;font-size:10pt;font-family:Calibri">
+     
+            <apex:repeat value="{!checkDetails}" var="w" rendered="{!if(modeOfPay='Check Payment','true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat>
+            <apex:outputpanel rendered="{!if(modeOfPay='Wire Payment/Check Payment','true','fasle')}">
+             <b>Check Details:</b><br/>
+            <apex:repeat value="{!checkDetails}" var="w" rendered="{!if(Opportunity.Check_payment__c==true,'true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat>  
+             </apex:outputpanel>
+           
+            </td>
+                        </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+    </td>
+  </tr>
+  <tr>
+    <td align="right" style="border-left:solid #000000 0.0pt;
+        border-top:solid #000000 0.0pt;
+        border-bottom:solid  #000000 0.0pt;
+        border-right:solid  #000000 0.0pt;"><apex:image value="{!$Resource.Marshal}"/></td>
+</tr>
+  </table>
+
+ </body>
+
+
+</apex:page>

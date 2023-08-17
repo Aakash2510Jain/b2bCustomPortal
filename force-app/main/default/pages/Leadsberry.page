@@ -1,0 +1,5 @@
+<apex:page standardController="Lead">
+ <apex:outputPanel layout="block" id="detail">
+<apex:iframe src="http://leadsberry.com/ExternalSurvey/SFNurturing?userid={!Lead.OwnerId}&emailId={!Lead.Email}"  height="490px" width="100%" />
+</apex:outputPanel>
+</apex:page>

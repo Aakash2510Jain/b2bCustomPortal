@@ -1,0 +1,83 @@
+<apex:page controller="PageBlock_controller" tabStyle="PageBlock__c" id="blockPage" >
+    <apex:includeScript value="{!URLFOR($Resource.ckeditor,'ckeditor/ckeditor.js')}"/>
+    <apex:form id="Block_form">
+    <apex:actionFunction name="changeBlockType1" action="{!changeBlockType}" />
+    <!--<script>
+    function setName()
+        {
+            if(document.getElementById('{!$Component.Block_form.block1.pageBlockSection.Name}').value ==''){
+                document.getElementById('{!$Component.Block_form.block1.pageBlockSection.Name}').value = '.';
+                }
+        }
+    </script>  -->
+    <apex:pageBlock title="{!$Label.Block_Edit}" mode="edit" id="block1">
+        <apex:pageMessages id="error"/>
+        <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="{!$Label.Save}" onclick="javascript: return confirm('Are you sure?');"/>
+                <apex:commandButton action="{!saveAndNew}" value="{!$Label.Save_New}" onclick="javascript: return confirm('Are you sure?');"/>
+                <apex:commandButton action="{!cancel}" value="{!$Label.Cancel}" immediate="true"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="{!$Label.Information}" id="pageBlockSection">
+            <apex:inputField value="{!block.Name}" id="Name" required="true"/>
+            <apex:outputText value="" />
+            <apex:inputField value="{!block.Name__c}" id="Name__c" required="true"/>
+            <apex:inputField value="{!block.Active__c}" id="Active__c" />
+            <apex:inputField value="{!block.Page__c}" id="Page__c" />
+            <apex:inputField value="{!block.Authentication_Required__c}" id="Authentication_Required__c" />
+            <apex:inputField value="{!block.Height__c}" id="Height__c" rendered="{!if(showHideExistingBlock==true,false,true)}"/>
+            <apex:inputField value="{!block.Layout_Placement__c}" id="Layout_Placement" required="true"/>
+            <apex:inputField value="{!block.Width__c}" id="Width__c" rendered="{!if(showHideExistingBlock==true,false,true)}"/>
+            <apex:inputField value="{!block.CSSStyle__c}" id="CSSStyle__c" rendered="{!if(showHideExistingBlock==true,false,true)}"/>
+            <apex:inputField value="{!block.DisplayOrder__c}" id="DisplayOrder__c" required="true"/>
+            <apex:outputText value="" rendered="{!if(showHideExistingBlock==true,false,true)}"/>
+            <!--<apex:inputField value="{!block.Type__c}" id="Type__c"  onChange="javascript:setName();changeBlockType1();"/>  -->
+            <apex:inputField value="{!block.Type__c}" id="Type__c"  onChange="javascript:changeBlockType1();"/>
+            <apex:inputField value="{!block.IFrame_URL__c}" id="IFrame_URL__c" rendered="{!if((showHideFlash == true || showHideIFRAME == true),true,false)}"/>
+            <apex:inputField value="{!block.Parent_Window_Parameters__c}" id="Parent_Window_Parameters__c" rendered="{!if(showHideIFRAME == true || showHideAutoHeightIFRAME == true,true,false)}"/>
+            <apex:inputField value="{!block.Flash_Play__c}" id="Flash_Play__c" rendered="{!showHideFlash}"/>
+            <apex:inputField value="{!block.Flash_Loop__c}" id="Flash_Loop__c" rendered="{!showHideFlash}"/>
+            <apex:inputField value="{!block.FlashVars__c}" id="FlashVars__c" rendered="{!showHideFlash}"/>
+            <!--<apex:inputField value="{!block.Module_Name__c}" id="Module_Name__c" />-->
+            <apex:pageBlockSectionItem rendered="{!showHideMODULE}">
+                <apex:outputLabel for="Module" title="{!$Label.Visualforce_Page_Name}" value="{!$Label.Module_Name}"></apex:outputLabel>
+                <apex:selectList value="{!moduleName}" id="Module" size="1" title="{!$Label.Visualforce_Page_Name}">
+                    <apex:selectOptions value="{!moduleItems}"/>
+                </apex:selectList>      
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="{!showHideMenuComponent}">
+                <apex:outputLabel title="{!$Label.Menu_Component_Name}" for="MenuComponent" >{!$Label.Menu_Component_Name}</apex:outputLabel>
+                <apex:selectList value="{!menuComponentName}" id="MenuComponent" size="1" title="{!$Label.Menu_Component_Name}">
+                    <apex:selectOptions value="{!items}"/>
+                </apex:selectList>      
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="{!showHideExistingBlock}">
+                <apex:outputLabel for="ExistingBlock" >{!$Label.Existing_Block_Name}</apex:outputLabel>
+                <apex:selectList value="{!existingBlockName}" id="ExistingBlock" size="1">
+                    <apex:selectOptions value="{!existingBlockItems}"/>
+                </apex:selectList>      
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="{!$Label.Content}" columns="1" rendered="{!showHideContent}">
+            <!--<apex:inputField value="{!block.Content__c}" id="Content__c" />  -->
+            <textarea class="ckeditor" cols="80" id="editor1" name="editor1" rows="10">
+                {!block.Content__c}
+            </textarea>
+        </apex:pageBlockSection>  
+        <apex:pageBlockSection title="{!$Label.Text_Content}" columns="1" rendered="{!showHideTextContent}">
+            <!-- <apex:inputField value="{!block.Content_Text__c}" id="Content_Text__c" style="width:600px;height:300px;"/>-->
+            <textarea cols="80" id="textContent" name="textContent" rows="10">
+                {!block.Content_Text__c}
+            </textarea>
+        </apex:pageBlockSection> 
+        
+        <apex:pageBlockSection title="{!$Label.Auto_Height_Iframe_Code}" columns="1" rendered="{!showHideAutoHeightIFRAME}">
+            <!-- <apex:inputField value="{!block.Content_Text__c}" id="Content_Text__c" style="width:600px;height:300px;"/>-->
+            <textarea cols="80" id="autoHeightIframeCode" name="autoHeightIframeCode" rows="10">
+                {!block.Auto_Height_Iframe_Code__c}
+            </textarea>
+        </apex:pageBlockSection>
+    
+    </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

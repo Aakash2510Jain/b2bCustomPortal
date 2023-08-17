@@ -1,0 +1,51 @@
+<apex:page controller="Searchleadorcontactemail" lightningStylesheets="true">
+  <apex:form >              
+             <table>
+                <apex:pageBlock >
+                   <apex:outputText > <font size="4" color="blue" >Search EmailID</font></apex:outputText>
+                   <tr>
+                   <td><b><font size="2"> Search (By EmailID) : </font></b></td>
+                   <td><apex:inputtext value="{!text}"/></td>
+                   </tr><br/>
+                   <tr>
+                   <td colspan='2'>
+                   <apex:commandButton action="{!AppSearch}" value="Search"/>
+                   </td>
+                   </tr>
+                   </apex:pageBlock>
+                   </table><br></br><br></br>
+                   <apex:pageBlock >
+               <apex:pageBlockSection columns="1" title="Lead Result">
+             <table>
+                    <tr align="center">
+                   <td align="center">                 
+                   <apex:pageBlockTable value="{!AppSearchData}" var="DS" title="Leads" width="100%">                 
+                     <!-- <apex:column headerValue="Sample Name"><a href="https://ap1.salesforce.com/{!DS.Id}" target="_Blank">{!DS.name}</a></apex:column> -->                     
+                      <apex:column value="{!DS.owner.name}"/>
+                       <apex:column value="{!DS.LastActivityDate}"/>
+                         <apex:column value="{!DS.Sub_Division_Name__c}"/>
+                      <apex:column value="{!DS.Comments__c}"/>
+                    </apex:pageBlockTable>
+                    
+                    </td>
+                    </tr>
+                   </table>                   
+                </apex:pageBlockSection>   
+                     <apex:pageBlockSection columns="1" title="Contact Result">
+             <table>
+                    <tr align="center">
+                   <td align="center">                 
+                   <apex:pageBlockTable value="{!AppSearchData1}" var="DS1" title="Leads" width="100%">                 
+                     <!-- <apex:column headerValue="Sample Name"><a href="https://ap1.salesforce.com/{!DS.Id}" target="_Blank">{!DS.name}</a></apex:column> -->                     
+                      <apex:column value="{!DS1.owner.name}"/>
+                      <apex:column value="{!DS1.LastActivityDate}"/>
+              
+                      
+                    </apex:pageBlockTable>
+                    </td>
+                    </tr>
+                   </table>                   
+                </apex:pageBlockSection>   
+            </apex:pageBlock> 
+          </apex:form>
+</apex:page>

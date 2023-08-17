@@ -1,0 +1,331 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" 
+                controller="B2BPartnerPortal_CTRL" access="global" >
+    
+    <aura:attribute name="EditLeadRec" type="Lead" default="{}" />
+    <aura:attribute name="NewLead" type="Lead" default="{'sobjectType': 'Lead'}" />
+    <aura:attribute name="ShowNewEditLeadComp" type="boolean" default="false"/>
+    <aura:attribute name="ShowNewLead" type="boolean" default="false"/>
+    <aura:attribute name="ShowEditLead" type="boolean" default="false"/>
+    <aura:attribute name="LeadStatusPickVal" type="List"/>
+    <aura:attribute name="LeadSourcePickVal" type="List"/>
+    <aura:attribute name="LeadCompleteList" type="List"/>
+    <aura:attribute name="LeadTimeZonePicklist" type="List"/>
+    <aura:attribute name="reTurnCompleteLeadlist" type="List"/>
+    <aura:attribute name="CompleteLdList" type="Lead[]" />
+    <aura:attribute name="PartnerId" type="String"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    <aura:attribute name="showPopup" type="Boolean" default="false" />
+    
+    <aura:registerEvent name="sampleCmpEvent" type="c:AuraMessageEvent" />
+    <!--aura:registerEvent name="AppEvent" type="c:AuraMessageAppEvent"/-->
+    <aura:attribute name="showlead" type="boolean" />
+    
+    <aura:handler name="init" value="{!this }" action="{!c.doInit }" />
+    <aura:if isTrue="{!v.ShowNewEditLeadComp}">
+        
+        <!-- Modal/Popup Box starts here-->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box Header Starts here-->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.closeModel }"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate" style="float:left;"><b>New Lead</b></h2>
+                </header>
+                <!--Modal/Popup Box Body Starts here-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    
+                    <aura:if isTrue="{!v.ShowNewLead}">
+                        
+                        <h3  style="color:#9E7BFF;"><b>Enter Information</b></h3>
+                        
+                        <lightning:layout multipleRows="True">
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text" label="First Name"  value="{!v.NewLead.FirstName}" />
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text"  label="Last Name" required="true" value="{!v.NewLead.LastName}" />
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text" label="Email" value="{!v.NewLead.Email}" />
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text"  label="Phone" value="{!v.NewLead.Phone}" />
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text" label="Company" required="true" value="{!v.NewLead.Company}" />
+                                
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text" label="Website" value="{!v.NewLead.Website}" />
+                                
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text" label="Company Recent Blogs"   required="true" value="{!v.NewLead.Company_Recent_Blogs__c}" />
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text" label="Webinar Links"   required="true" value="{!v.NewLead.Webinar_Links__c}" />
+                            </lightning:layoutItem>
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text" label="Events"   required="true" value="{!v.NewLead.Events__c}" />
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:select label="Client Time Zone" required="true"   name="status" value="{!v.NewLead.Client_Time_Zone__c}">
+                                    <option value="{!null}">Please select</option>
+                                    <aura:iteration items="{!v.LeadTimeZonePicklist}" var="status">
+                                        <option value="{!status.value}" selected="{!status.value == v.NewLead.Client_Time_Zone__c}">{!status.label}</option>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:select label="Lead Status" name="status" value="{!v.NewLead.Status}">
+                                    <option value="{!null}">Please select</option>
+                                    <aura:iteration items="{!v.LeadStatusPickVal}" var="status">
+                                        <option value="{!status.value}" selected="{!status.value == v.NewLead.Status}">{!status.label}</option>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:select label="Lead Source"  name="status" value="{!v.NewLead.LeadSource}">
+                                    <option value="{!null}">Please select</option>
+                                    <aura:iteration items="{!v.LeadSourcePickVal}" var="status">
+                                        <option value="{!status.value}" selected="{!status.value == v.NewLead.LeadSource}">{!status.label}</option>
+                                    </aura:iteration>
+                                </lightning:select>
+                                <!-- lightning:input type="text" variant="label-hidden" label="" value="{!v.NewLead.LeadSource}" / -->
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:inputAddress
+                                                        addressLabel="Address"
+                                                        streetLabel="Street"
+                                                        cityLabel="City"
+                                                        countryLabel="Country"
+                                                        provinceLabel="Province/State"
+                                                        postalCodeLabel="PostalCode"
+                                                        street="{!v.NewLead.street }"
+                                                        city="{!v.NewLead.City__c }"
+                                                        province="{!v.NewLead.province }"
+                                                        country="{!v.NewLead.country }"
+                                                        postalCode="{!v.NewLead.postalCode }"
+                                                        
+                                                        /><!--  countryOptions="{! v.countryOptions }"
+                                                        provinceOptions="{! v.provinceOptions }"-->
+                                
+                            </lightning:layoutItem>
+                            
+                        </lightning:layout>
+                    </aura:if>
+                    <aura:if isTrue="{!v.ShowEditLead}">
+                        
+                        
+                        <lightning:layout multipleRows="True">
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text"  label="First Name" value="{!v.EditLeadRec.FirstName}" />
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text" label="Last Name"  value="{!v.EditLeadRec.LastName}" />
+                            </lightning:layoutItem>
+                            
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text"  label="Email" value="{!v.EditLeadRec.Email}" />
+                            </lightning:layoutItem>
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text"  label="Phone" value="{!v.EditLeadRec.Phone}" />
+                            </lightning:layoutItem>
+                            
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text" label="Company"  value="{!v.EditLeadRec.Company}" />
+                                
+                            </lightning:layoutItem>
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text" label="Website" value="{!v.EditLeadRec.Website}" />
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text" label="Company Recent Blogs"   required="true" value="{!v.EditLeadRec.Company_Recent_Blogs__c}" />
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text" label="Webinar Links"   required="true" value="{!v.EditLeadRec.Webinar_Links__c}" />
+                            </lightning:layoutItem>
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:input type="text" label="Events__c"   required="true" value="{!v.EditLeadRec.Events__c}" />
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:select label="Lead Status" name="status" value="{!v.EditLeadRec.Status}">
+                                    <option value="{!null}">Please select</option>
+                                    <aura:iteration items="{!v.LeadStatusPickVal}" var="status">
+                                        <option value="{!status.value}" selected="{!status.value == v.EditLeadRec.Status}">{!status.label}</option>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:select label="Lead Source"  name="status" value="{!v.EditLeadRec.LeadSource}">
+                                    <option value="{!null}">Please select</option>
+                                    <aura:iteration items="{!v.LeadSourcePickVal}" var="status">
+                                        <option value="{!status.value}" selected="{!status.value == v.EditLeadRec.LeadSource}">{!status.label}</option>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </lightning:layoutItem>
+                            
+                            
+                            
+                            <lightning:layoutItem class="e" size="6" padding="around-medium">
+                                <lightning:inputAddress
+                                                        addressLabel="Address"
+                                                        streetLabel="Street"
+                                                        cityLabel="City"
+                                                        countryLabel="Country"
+                                                        provinceLabel="Province/State"
+                                                        postalCodeLabel="PostalCode"
+                                                        street="{! v.EditLeadRec.street }"
+                                                        city="{! v.EditLeadRec.city }"
+                                                        province="{! v.EditLeadRec.province }"
+                                                        country="{! v.EditLeadRec.country }"
+                                                        postalCode="{! v.EditLeadRec.postalCode }"
+                                                        countryOptions="{! v.countryOptions }"
+                                                        provinceOptions="{! v.provinceOptions }"
+                                                        onchange="{! c.updateProvinces }"
+                                                        />
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                        
+                    </aura:if> 
+                </div>
+                <aura:if isTrue="{!v.showSpinner}">
+                    <div class="demo-only" style="height:6rem">
+                        <div class="slds-spinner_container">
+                            <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                                <span class="slds-assistive-text">Loading</span>
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                            </div>
+                        </div>
+                    </div>    
+                </aura:if>
+                <!--    <aura:if isTrue="{!v.showPopup}">
+                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                             aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container">
+                            <header class="slds-modal__header">
+                                <lightning:buttonIcon iconName="utility:close" onclick="{! c.closeModel1}" alternativeText="close"
+                                                      variant="bare-inverse" class="slds-modal__close" />
+                                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                                    Notes
+                                </h2>
+                            </header>
+                            <div class="slds-modal__content slds-p-around_medium" style="text-align: center; height:200px"
+                                 id="modal-content-id-1">
+                                <p><b>
+                                    Please Fill Required Fields
+                                    </b>
+                                </p>
+                            </div>
+                             
+                        </div>
+                        <footer class="slds-modal__footer" style="background:gray;">
+                    <div class="slds-align_absolute-center">
+                        
+                            <button title="Cancel" style="width:150px" class="cancelsaveButton1" onclick="{!c.closeModel }">Cancel</button>
+                        
+                            </div>
+                        </footer>
+                    </section>
+                </aura:if>-->
+                
+                <!--Modal/Popup Box Footer Starts here-->
+                <footer class="slds-modal__footer" style="background:white;">
+                    <aura:if isTrue="{!v.showPopup}">
+                       <!-- <section aria-describedby="dialog-body-id-30" aria-labelledby="dialog-heading-id-1" class="slds-popover slds-popover_error slds-nubbin_bottom-left"   role="dialog">
+                            <header class="slds-popover__header">
+                                <div class="slds-media slds-media_center slds-has-flexi-truncate ">
+                                    <div class="slds-media__figure">
+                                        <span class="slds-icon_container slds-icon-utility-error">
+                                            
+                                        </span>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-truncate slds-text-heading_medium" id="dialog-heading-id-1" title="We hit a snag.">Error</h2>
+                                    </div>
+                                </div>
+                            </header>
+                            <div class="slds-popover__body" id="dialog-body-id-110">
+                                <ul class="slds-list_dotted">
+                                    <li>Please First Fill required Fields </li>
+                                </ul>
+                            </div>
+                        </section> -->
+                        
+                        
+                        <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                            <span class="slds-assistive-text">error</span>
+                            <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed">
+                                <lightning:icon iconName="utility:error" alternativeText="Error" size="small" class="slds-icon-text-error" />
+                                
+                            </span>
+                            <h2>Please First Fill required Fields
+                                
+                            </h2>
+                            <div class="slds-notify__close">
+                                <button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close">
+                                    
+                                    <span class="slds-assistive-text">Close</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                         
+                        
+                    </aura:if>
+                    <br/>
+                    
+                    <div class="slds-align_absolute-center">
+                        <aura:if isTrue="{!v.showPopup}">
+                            
+                        </aura:if> 
+                        <div>
+                            <button title="Cancel" style="width:150px" class="cancelsaveButton" onclick="{!c.closeModel }">Cancel</button>
+                        </div>
+                        <aura:if isTrue="{!v.ShowEditLead}">
+                            <div style="margin-left:4px;">
+                                <button title="Edit" style="width:150px;background:#6592FD;" class="saveButton" onclick="{!c.submitEditLeadDetails }">Save</button>
+                            </div>
+                        </aura:if>
+                        
+                        <aura:if isTrue="{!v.ShowNewLead}">
+                            <div  style="margin-left:2px;">
+                                <button data-name="Save and New" title="Save and New" style="width:150px;background:#6592FD;" aura:id="saveAndNewBtn" class="saveButton" onclick="{! c.submitNewDetails }">Save and New</button>
+                            </div>
+                            <div  style="margin-left:2px;">
+                                <button  data-name="New" title="Save" style="width:150px;background:#6592FD; " aura:id="NewBtn" class="saveButton" onclick="{! c.submitNewDetails }">Save</button>
+                            </div>
+                        </aura:if>
+                    </div>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+    
+</aura:component>

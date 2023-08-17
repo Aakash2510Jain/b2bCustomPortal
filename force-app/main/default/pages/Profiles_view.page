@@ -1,0 +1,66 @@
+<apex:page standardController="SiteProfile__c" extensions="SiteProfile_extension" >
+    <apex:form >
+    <apex:actionFunction name="approvalPage1" action="{!approvalPage}" reRender="pageBlock" />
+   <apex:pageBlock title="{!$Label.CMSProfile_Edit}" mode="edit" id="pageBlock">
+        <apex:pageMessages id="error"/>
+        <apex:pageBlockButtons >
+                <apex:commandButton action="{!save1}" value="{!$Label.Save}" onclick="return checkValidation()"/>
+                <apex:commandButton action="{!saveAndNew1}" value="{!$Label.Save_New}" onclick="return checkValidation()"/>
+                <apex:commandButton action="{!cancel}" value="{!$Label.Cancel}"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection id="pageBlockSection">
+        
+        
+         <apex:inputField value="{!SiteProfile__c.Name}" id="Name" required="true"/>
+            <apex:inputField value="{!SiteProfile__c.Name__c}" id="Name__c" required="true"/>
+            <apex:inputField value="{!SiteProfile__c.CMSCss__c}" id="CMSCss__c"/>
+
+            <apex:inputField value="{!SiteProfile__c.Profile_Account__c}" id="Profile_Account__c" required="true"/>
+            <apex:inputField value="{!SiteProfile__c.Default_Home_Page__c}" id="Default_Home_Page__c" required="true"/>
+
+            <apex:inputField value="{!SiteProfile__c.User_Record_Type__c}" id="User_Record_Type__c" rendered="false"/>
+            <apex:pageBlockSectionItem rendered="{!showHideRecordType}">
+                <apex:outputLabel title="{!$Label.User_Record_Type}" for="UserRecordType" >{!$Label.User_Record_Type}</apex:outputLabel>
+                <apex:selectList value="{!recordType}" id="UserRecordType" size="1" title="{!$Label.User_Record_Type}" required="true">
+                    <apex:selectOptions value="{!items}"/>
+                </apex:selectList>
+            </apex:pageBlockSectionItem>  
+            <apex:inputField value="{!SiteProfile__c.User_Registration__c}" id="User_Registration__c"/>
+            <apex:inputField value="{!SiteProfile__c.Portal_Enabled__c}" id="Portal_Enabled__c"/>
+            <apex:inputField value="{!SiteProfile__c.Need_Registration_Approval__c}" id="Need_Registration_Approval__c" onchange="approvalPage1()"/>
+            <apex:outputLabel ></apex:outputLabel>
+            <apex:inputField value="{!SiteProfile__c.Force_com_Authorization_and_Registration__c}" id="Force_com_Authorization_and_Registration" />
+
+            <apex:inputField value="{!SiteProfile__c.Approval_Message_Page__c}" id="Approval_Message_Page__c" rendered="{!approvalMessagePage}"/>
+            <apex:inputField value="{!SiteProfile__c.Profile_Manager__c}" id="Profile_Manager__c" required="true"/> 
+            
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+    </apex:form>
+    <script>
+            function checkRecordType(){
+                //alert(document.getElementById('j_id0:j_id1:j_id2:j_id7:j_id8:UserRecordType1'));
+                if(document.getElementById('j_id0:j_id1:j_id2:j_id7:j_id8:UserRecordType')!=null && document.getElementById('j_id0:j_id1:j_id2:j_id7:j_id8:UserRecordType').value=='None'){
+                    alert('{!$Label.Please_select}');
+                    return false;
+
+                }
+                else {
+                    return true;
+                }
+            }
+            function checkValidation(){
+                if(document.getElementById('j_id0:j_id1:j_id3:pageBlockSection:Need_Registration_Approval__c').checked){
+                    //alert('checked');
+                    if(document.getElementById('j_id0:j_id1:j_id3:pageBlockSection:Approval_Message_Page__c').value == ''){
+                        alert('{!$Label.You_can_not}');
+                        return false;
+                    }
+
+                }
+                return true;
+                //return false;
+            }
+
+    </script>
+</apex:page>

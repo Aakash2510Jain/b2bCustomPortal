@@ -1,0 +1,33 @@
+.THIS.checkboxInput {
+    color:blue !important;
+    float:left important;
+}
+
+.THIS.checkbox>lightning:input{
+    color:blue;
+    
+}
+.THIS .custom-button{
+    background-color:#9E7BFF;
+    color:black;
+    
+ }
+.THIS .custom-button:hover{
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);  
+    color:white;
+    font-weight : bold ;
+}
+.THIS .cancel-button{
+  background-color:transparent; 
+    color:black;
+}
+.THIS .cancel-button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);  
+    color:white;
+    font-weight : bold ;
+     background-color:red;
+}
+.THIS.slds-spinner_container {  
+  z-index: 10000;
+  position: fixed;   
+}

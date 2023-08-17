@@ -1,0 +1,89 @@
+.THIS.over {
+     overflow-y: auto;
+
+}
+.THIS .scrollable-container {
+    overflow-y: auto;
+      /* Enable vertical scrolling */
+    height: 70vh; /* Set the desired height of the scrollable container */
+    border:  ; /* Add a border for visibility */
+    padding: 10px; /* Optional: Add padding for spacing */
+}
+
+.THIS .scrollable-container1 {
+    
+      /* overflow-y: auto; Enable vertical scrolling */
+      height: 8ovh; /*  height:1500px;Set the desired height of the scrollable container */
+    border:  ; /* Add a border for visibility */
+    padding: 10px; /* Optional: Add padding for spacing */
+}
+
+.THIS .scrollable-content {
+     
+    /* Add any desired styles for the content inside the scrollable container */
+}
+.THIS .scrollable-container::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+.THIS .scrollable-container::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.THIS .scrollable-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+.THIS .slds-align_absolute-center{
+    z-index: -1;
+}
+.THIS .sidenav {
+   position: fixed; 
+}
+
+.THIS .selectLead {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.THIS .selectLeadActive {
+    color: #5B59FC;
+}
+
+.THIS .selectOpp {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.THIS .selectOppActive {
+    color: #5B59FC;
+}
+
+.THIS .custom-button1{
+    background-color:#8C61FF;
+    color:white;
+    border: 2px solid #9E7BFF;
+    
+}
+
+.THIS .DateError{
+    border:thin solid red;
+    
+}
+
+.THIS .errorMessageActive{
+    color: red;
+    display: block;
+    visibility:visible;
+    
+}
+.THIS .errorMessagInactive{
+    color: red;
+    visibility:hidden;
+}

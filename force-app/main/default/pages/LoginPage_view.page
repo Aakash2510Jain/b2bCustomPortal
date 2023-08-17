@@ -1,0 +1,147 @@
+<apex:page controller="LoginBlock" standardstylesheets="false" showHeader="false" sideBar="true" setup="false" 
+title="{!$Label.site.login}" language="{!selectLanguage}">
+
+<style>
+/*
+table
+{
+border:1px solid #a1a1a1;
+padding:4px 40px; 
+border-radius:25px;
+}
+td
+{
+border:1px solid #a1a1a1;
+padding:4px 10px; 
+background:#FFFFFF;
+width:30px;
+border-radius:10px;
+}*/
+body{background-color:#7F8C8D;}
+h1{color:orange;
+text-align:center;
+}
+p
+{
+font-family:"verdana";
+font-size:14px;
+font-color:#000;
+}
+b
+{
+font-family:"verdana";
+font-size:12px;
+font-color:red;
+}
+.Mylinks
+{
+    color:#000000s;
+}
+a:link {color:#000; text-decoration: none;}   
+a:visited {color:#000;text-decoration: none;}
+a:hover {color:#000;text-decoration: none;}  
+a:active {color:#000;text-decoration: none;} 
+a, u {text-decoration: none;}
+
+body {
+    overflow:hidden;
+}
+h1 {
+    text-shadow: 2px 2px red;
+}
+.logos { position: relative; top: 0; left: 0; }
+ .logo { position: absolute; top: 0px; left: 1070px; }
+</style>
+<!--
+    <apex:outputPanel styleClass="left-section1 container " layout="block">
+        <apex:outputPanel styleClass="page-title" layout="block">
+            <h1><center>{!$Label.Login}</center></h1>
+    </apex:outputPanel>-->
+    <body>
+    <div style="position: relative; left: 0; top: 0;">
+      <img src="https://c.ap4.visual.force.com/resource/1469230114000/Champions_logo" class="logos" height="80px" width="150px" />
+      <center> <h1> Welcome Champion </h1> </center>
+         <img src="https://c.ap4.visual.force.com/resource/1469230114000/metricFox_Logo" class="logo" height="80px" width="150px" />
+<!-- < marquee scrollamount="10" direction="left" behavior="scroll">
+              <h1>   "The purpose of a business is to create a customer.... !" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               "The lead generation process starts by 'finding' out where your target market lives on the web !" </h1>
+              </marquee> -->
+       </div>
+        <apex:form id="Form1">
+         <body bgcolor="#414141"> 
+           <table align="center" width="1000" bgcolor="#7F8C8D" cellpadding="4" cellspacing="4" border="0" height="500"  >
+                <tr valign="middle">
+                <td> 
+                <table align="center"  bgcolor="#FFFFFF" cellpadding="4" cellspacing="4" border="0" width="35%"  style="border-radius:10px;" >
+               <tr height="5%">
+                    <td Colspan="2"><h3>Login Portal</h3> </td> 
+                  
+                </tr>
+                <tr >
+                    <td><p align="right"><apex:outputLabel for="cmsUserName" value="{!$Label.User_Name}" styleClass="field-label" /></p></td> 
+                    <td><apex:inputText id="cmsUserName" value="{!username}" styleClass="field-text"/></td>
+                </tr>
+                <tr>
+                    <td><p align="right"><apex:outputLabel for="cmsPassword" value="{!$Label.Password}" styleClass="field-label" /></p></td>
+                    <td><apex:inputSecret id="cmsPassword" value="{!password}" styleClass="field-text" /></td>
+                </tr>
+                <tr>
+                <!--<td>
+                        <apex:outputLink value="/apex/SiteView" styleClass="MyLinks">
+                            <apex:param name="page" value="CMSForgotPassword" />
+                            <apex:param name="jobSite" value="{!$CurrentPage.parameters.jobSite}" />
+                            <apex:param name="p" value="{!$CurrentPage.parameters.p}" />
+                                <p>{!$Label.Forgot_Password}</p>
+                        </apex:outputLink>
+                        </td><td >                  
+                        <apex:outputLink value="/apex/SiteView" styleClass="MyLinks">
+                            <apex:param name="page" value="CMSSiteRegister" />
+                            <apex:param name="jobSite" value="{!$CurrentPage.parameters.jobSite}" />
+                            <apex:param name="p" value="{!$CurrentPage.parameters.p}" />
+                           <apex:param name="startUrl" value="{!if($CurrentPage.parameters.startUrl==null,'',$CurrentPage.parameters.startUrl)}" />
+                               <p align="right"> {!$Label.New_User}</p>
+                        </apex:outputLink>
+                    </td>  -->
+                 </tr>   
+                <tr>
+                    <td colspan="2" align="right">
+                        <apex:outputPanel layout="block" styleClass="uname" id="Section">
+                            <div class="form-submit1">                               
+                                <apex:commandButton value="{!$Label.Login}" action="{!login}" title="{!$Label.Login}" id="login" onclick="return userNamePasswordValidation(this)" />
+                                
+                            </div>
+                        </apex:outputPanel>
+                    </td> 
+                </tr>
+            </table>
+            </td> 
+                </tr>
+               
+            </table> 
+            </body> 
+        </apex:form>
+    
+<script>
+    function userNamePasswordValidation(loginButton){
+        var loginButtonId = loginButton.id;
+        var loginButtonIdList = loginButtonId.split(':');
+        buttonName = 'Section:';
+        var buttonName = loginButtonIdList[loginButtonIdList.length-1];
+        var baseId = loginButtonId.replace(buttonName,'');
+        if((document.getElementById(baseId+'cmsUserName').value).length==0){
+            alert('{!$Label.UserName_can_not}');
+            return false;
+        }
+        else if((document.getElementById(baseId+'cmsPassword').value).length==0){
+            alert('{!$Label.Password_can_not_be_blank}');
+            return false;
+        }
+        else{
+         return true;
+        }
+    }
+    //var strSessionValue = '<%=Session["someValue"].ToString();%>'
+    //alert(strSessionValue);
+   </script>
+   </body>
+</apex:page>

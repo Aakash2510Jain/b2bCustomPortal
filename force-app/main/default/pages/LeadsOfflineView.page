@@ -1,0 +1,40 @@
+<apex:page standardController="Lead" showHeader="true" tabStyle="Lead">
+ <script>
+  var d = document,w=window ;
+  var ivCon = {
+  getC : function ( cn ) {
+        var r = d.cookie.match ( '(^|;) ?' + cn + '=([^;]*)(;|$)' );
+        if ( r ) return ( unescape ( r[2] ) ); else return null;
+    },
+    cVal : null,
+    load : function(){
+        var dH = "CALC_ERROR";
+        var frameH = (w.innerHeight)?w.innerHeight:(d.documentElement.clientHeight)?d.documentElement.clientHeight:dH;
+        try { w.frameElement.style.height = "400px"; frameH = "400"; } catch (e) {/*suppress*/}
+        //d.getElementById('crmUID').value=ivCon.cVal;
+        //d.getElementById('crm_size').value=frameH;
+        d.forms['icp_leadview'].submit();
+    },
+    defaultActions : function(){
+          this.cVal=ivCon.getC('sid_Client');
+          if (w.addEventListener){ 
+            w.addEventListener("load", this.load , false);
+            }else if (w.attachEvent){
+            var evt = w.attachEvent("onload", this.load );
+            }else {w.onload = this.load ;}
+     }
+   };
+  (function(){ivCon.defaultActions();})();  
+  </script>
+  <center><h1> Loading..... </h1></center>
+   <!-- <iframe id="iv_account_connector" src="#"  height="200px"> </iframe>-->
+  <form id="icp_leadview" name="icp_leadview"  action="http://localhost:8367/InfoChekPoint-V3/icpsf/leadvarify.aspx"  
+                  method="post">
+      <input type="hidden" name="Type" id="Type" value="Lead" />
+       <input type="hidden" name="OrgID" id="OrgID" value="{!$Organization.Id}" />
+       <input type="hidden" name="SessionID" id="SessionID" value="{!$Api.Session_ID}" /> 
+       <input type="hidden" name="SFUrl" id="SFUrl" value="{!$Api.Partner_Server_URL_250}" /> 
+       <input type="hidden" name="SFID" id="SFID" value="{!Lead.Id}" />            
+  </form>
+  
+</apex:page>

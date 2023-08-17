@@ -1,0 +1,9 @@
+<apex:page controller="SiteSetup_controller">
+<apex:form >
+    <apex:pageBlock title="{!$Label.CMS_Site_Setup}" mode="edit" id="pageBlock">
+        <apex:pageMessages />
+        <apex:commandButton id="SetupButton" action="{!setSiteSetupForContact}"
+                rerender="pageBlock" value="Setup" />
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,4 @@
+<apex:page sidebar="false">
+Date: <input id="date" type="date"/> <input id="time" type="time"/> 
+
+</apex:page>

@@ -1,0 +1,8 @@
+<apex:page controller="SOSLeadFormCtrl_Manager_Robin_Smith" showHeader="false" sidebar="false">
+     <apex:form >
+         <div align="center">
+         <h1>Lead uploaded succesfully</H1>
+         </div>
+         <apex:actionPoller action="{!leadSucess}" interval="5"/>
+     </apex:form>
+</apex:page>

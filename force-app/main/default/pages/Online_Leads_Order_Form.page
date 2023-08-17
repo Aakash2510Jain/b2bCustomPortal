@@ -1,0 +1,443 @@
+<apex:page standardController="Opportunity" showHeader="false"
+    sidebar="false" extensions="GenerateOrdersController"
+    renderAs="{!valuetoset}">
+    <c:dynawhitecomponent type="header" > 
+      <table width="100%">
+      <tr>
+          <td align="left"> 
+           <apex:image value="{!$Resource.OnlineLeads}" /> </td>
+          <td align="right" style="color:#394F71;">
+            WorkOrder Date:<apex:outputText value="{0,date, MM'/'dd'/'yyyy}">
+                    <apex:param value="{!today()}" />
+                </apex:outputText><br/>
+                Reference number: <apex:outputText value="{!opportunity.Reference_Number__c}"/>
+          </td>
+      </tr>       
+        </table> 
+     </c:dynawhitecomponent>
+    <c:dynawhitecomponent type="footer">
+    <hr sytle="color:gray;"/>
+        <div>
+        <table width="100%" style="color: Gray; ">
+            
+             <tr>
+                <td width="25">ONLINELEADS </td>
+                <td width="25">Confidential</td>
+                <td width="25">Page <span class="pagenumber"></span></td>
+                <td width="25"><apex:outputText value="{0,date, MM'/'dd'/'yyyy}">
+                    <apex:param value="{!today()}" />
+                </apex:outputText></td>
+            </tr>
+        </table>
+        </div>
+      </c:dynawhitecomponent>
+    <div>
+    <br/>
+    <table border="1" cellspacing="0" cellpadding="0" width="700">
+        <tr>
+            <td width="45%" align="center" 
+                style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; background: #0F243E; padding: 0in 5.75pt 0in 5.75pt; height: 31.15pt">
+            <b><span style="mso-bidi-font-size: 10.0pt; color: white">Submitted
+            to: <apex:outputField value="{!Opportunity.account.name}" /></span></b>
+            </td>
+            <td width="5%" rowspan="6" 
+                style=" border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.75pt 0in 5.75pt; height: 31.15pt">
+            </td>
+            <td width="50%" align="center"
+                style=" border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #0F243E; padding: 0in 5.75pt 0in 5.75pt; height: 31.15pt">
+            <b><span style="mso-bidi-font-size: 10.0pt; color: white">Submitted
+            by: ONLINELEADS</span></b>
+            </td>
+        </tr>
+        <tr>
+            <td width="30%" 
+                style="border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.75pt 0in 5.75pt; height: 16.35pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Contact</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Client_Name__r.name}" />
+            </span> <span style="font-size: 10.0pt; font-family: Calibri"> </span></td>
+            <td width="70%"
+                style="border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.75pt 0in 5.75pt; height: 16.35pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Contact</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Vendor_Name__c}" />
+            </span> <span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">
+            </span></td>
+        </tr>
+        <tr>
+            <td width="456" 
+                style="width: 266.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.75pt 0in 5.75pt; height: 22.6pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Title</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Client_Title__c}" />
+            </span></td>
+            
+            <td width="354"
+                style="width: 4.0in; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.75pt 0in 5.75pt; height: 22.6pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Title</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Title__c}" />
+            </span><span
+                style="font-size: 10.0pt; font-family: Calibri; mso-no-proof: yes">
+            </span> <span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">
+            </span></td>
+        </tr>
+        <tr>
+            <td width="456" 
+                style="width: 266.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.75pt 0in 5.75pt; height: 17.65pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Company</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.account.name}" /></span>
+            <span style="font-size: 10.0pt; font-family: Calibri; color: #002060">
+            </span></td>
+            
+            <td width="354"
+                style="width: 4.0in; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.75pt 0in 5.75pt; height: 17.65pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Company:
+            </span></b><apex:outputField value="{!Opportunity.Brand_Name__c}" /><span style="font-size: 10.0pt; font-family: Calibri; color: #002060">
+            </span></td>
+        </tr>
+        <tr>
+            <td width="456" 
+                style="width: 266.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.75pt 0in 5.75pt; height: 22.15pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Email</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputText value="{!Opportunity.Client_Email__c}"/></span>
+            <span style="font-size: 10.0pt; font-family: Calibri; color: #002060"></span>
+            </td>
+            
+            <td width="354"
+                style="width: 4.0in; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.75pt 0in 5.75pt; height: 22.15pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Email</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Vendor_Email__c}" />
+            </span> <span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">
+            </span></td>
+        </tr>
+        <tr style="mso-yfti-irow: 5; page-break-inside: avoid; height: .2in">
+            <td width="456" 
+                style="width: 266.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.75pt 0in 5.75pt; height: .2in">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Phone</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Client_Phone__c}" />
+            </span><span style="font-size: 10.0pt; font-family: Calibri; color: #002060">
+            </span></td>
+            
+            <td width="354"
+                style="width: 4.0in; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.75pt 0in 5.75pt; height: .2in">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Phone</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Vendor_Moblie_Number__c}" />
+            </span><span style="font-size: 10.0pt; font-family: Calibri; color: #4A25A7">
+            </span></td>
+        </tr>
+        </table>
+        <table border="1" cellspacing="0" cellpadding="0" width="700">
+        <tr>
+            <td colspan="5" align="center"
+                style=" border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #0F243E; padding: 0in 5.4pt 0in 5.4pt; height: 24.85pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: white">SERVICE
+            DESCRIPTION </span></b>
+            </td>
+        </tr>
+        <tr>
+            <td width="30%" 
+                style="border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 26.65pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Service</span></b>
+            </td>
+            <td width="70%" colspan="4"
+                style=" border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 26.65pt">
+            <span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060; mso-ansi-language: EN-GB">Custom
+            Built List</span><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #CC0000">
+            </span></td>
+        </tr>
+        <tr>
+
+            <td width="30%"
+                style="border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 26.65pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Solution
+            identified by OLL</span></b>
+            </td>
+            <td width="70%" colspan="4"
+                style=" border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 26.65pt">
+            <span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060; mso-ansi-language: EN-GB">Custom
+            Built List </span></td>
+        </tr>
+        </table>
+        <table border="1" cellspacing="0" cellpadding="0"  width="700">
+        <tr>
+
+            <td width="757" colspan="6"
+                style="width: 567.95pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 80.0pt">
+
+            <table border="1" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="40%" valign="top" 
+                        style=" border: solid black 1.0pt; mso-border-alt: solid black .5pt; background: #17365D; padding: 0in 5.4pt 0in 5.4pt; height: 22.0pt">
+                    <span
+                        style="font-size: 11.0pt; font-family: Calibri; color: white; mso-ansi-language: EN-GB">Criteria</span>
+                    </td>
+                    <td width="20%" valign="top" colspan="6"
+                        style=" border: solid black 1.0pt; border-left: none; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; background: #17365D; padding: 0in 5.4pt 0in 5.4pt; height: 22.0pt">
+                    <span
+                        style="font-size: 11.0pt; font-family: Calibri; color: white; mso-ansi-language: EN-GB">No.
+                    of records</span></td>
+                    <td width="40%" valign="top" colspan="6" 
+                        style=" border: solid black 1.0pt; border-left: none; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; background: #17365D; padding: 0in 5.4pt 0in 5.4pt; height: 22.0pt">
+                    <span
+                        style="font-size: 11.0pt; font-family: Calibri; color: white; mso-ansi-language: EN-GB">Investment
+                    </span></td>
+                </tr>
+                
+               <tr>
+                    <td width="330" 
+                        style="border: solid black 1.0pt; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 53.65pt">
+
+                    <span
+                        style="font-size: 10.0pt; font-family: Calibri; color: #002060">
+                    </span><span
+                        style="font-size: 10.0pt; font-family: Calibri; color: #002060; mso-ansi-language: EN-GB"><apex:outputField value="{!Opportunity.Data_criteria__c}" /></span>
+                    </td>
+                    <td width="174" colspan="6"
+                        style=" border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 53.65pt">
+                    <span
+                        style="font-size: 10.0pt; font-family: Calibri; color: #002060"><apex:outputField value="{!Opportunity.Number_Of_Records__c}" /></span>
+                    </td>
+                    <td width="234" colspan="6"
+                        style=" border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 53.65pt">
+                    <span
+                        style="font-size: 10.0pt; font-family: Calibri; color: #002060"><apex:outputField value="{!Opportunity.Total_Investment__c}" /></span>
+                    </td>
+                </tr>
+
+            </table>
+
+            </td>
+        </tr>
+        <tr>
+
+            <td width="757" colspan="4" align="center"
+                style="width: 567.95pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #0F243E; padding: 0in 5.4pt 0in 5.4pt; height: 26.65pt">
+            <b><span style="font-family: Calibri; color: white">Payment details
+            will be sent by our accounts department on authorizing this Order</span></b>
+            </td>
+        </tr>
+        <tr>
+
+            <td width="757" colspan="4"
+                style="width: 567.95pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 76.15pt">
+            <span
+                style="font-size:font-family: Calibri; color: #002060;">The
+            above-mentioned criteria and investment are to our satisfaction and
+            we hereby authorize ONLINELEADS to work on the project as specified.</span>
+            </td>
+        </tr>
+        <tr>
+
+            <td width="355" colspan="2" align="center"
+                style="width: 266.45pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #0F243E; padding: 0in 5.4pt 0in 5.4pt; height: 26.65pt">
+            <b><span
+                style="mso-bidi-font-size: 10.0pt; font-family: Calibri;color: white">
+            :Authorization</span></b>
+            </td>
+            <td width="402" colspan="2" align="center"
+                style="width: 301.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #0F243E; padding: 0in 5.4pt 0in 5.4pt; height: 26.65pt">
+            <b><span
+                style="mso-bidi-font-size: 10.0pt; font-family: Calibri;color: white">ONLINELEADS:
+            Authorization</span></b>
+            </td>
+        </tr>
+        <tr>
+
+            <td width="355" colspan="2"
+                style="width: 266.45pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 19.75pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Contact</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Client_Name__r.name}" />
+            </span></td>
+            <td width="402" colspan="2"
+                style="width: 301.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 19.75pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Contact</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060"><apex:outputField value="{!Opportunity.Vendor_Name__c}" />
+            </span></td>
+        </tr>
+        <tr>
+
+            <td width="355" colspan="2"
+                style="width: 266.45pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 22.9pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Title</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Client_Title__c}" /></span><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060"></span>
+            </td>
+            <td width="402" colspan="2"
+                style="width: 301.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 22.9pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Title</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Title__c}" /></span></td>
+        </tr>
+        <tr>
+
+            <td width="355" colspan="2"
+                style="width: 266.45pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 23.35pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Date</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:
+            </span></td>
+            <td width="402" colspan="2"
+                style="width: 301.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 23.35pt">
+            <b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Date</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:
+            </span> <span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060"><apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                                                                                    <apex:param value="{!opportunity.current_date__c}" />
+                                                                                 </apex:outputText></span></td>
+        </tr>
+        <tr>
+
+            <td width="355" colspan="2" valign="top"
+                style="width: 266.45pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 83.35pt">
+
+
+
+
+            <p><b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Signature</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:</span></p>
+            </td>
+            <td width="402" colspan="2"
+                style="width: 301.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 83.35pt">
+
+
+            <p><b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">Signature</span></b><span
+                style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Signauture1__c}" /></span></p>
+            </td>
+        </tr>
+        <tr>
+
+            <td width="757" colspan="4"
+                style="width: 567.95pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 46.0pt">
+            <p>&nbsp;</p>
+            </td>
+        </tr>
+        <br></br>
+        <br></br><p>&nbsp;</p>
+        <br></br><p>&nbsp;</p>
+        <table cellpadding="0" cellspacing="0" width="100%" border="2">
+            <tr style="font-size:10pt;">
+                <td>
+                <div>
+
+                <p class="MsoNormal"><span
+                    style="font-size: 10.0pt; font-family: Arial, sans-serif; color: #002060">THIS
+                AGREEMENT is made and entered into this 10<sup>th</sup> day of
+                January, 2013, by and between ONLINELEADS and the &nbsp;<apex:outputField value="{!Opportunity.account.name}"/>.</span></p>
+
+                <p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><u><span
+                    style="font-size: 10.0pt; font-family: Arial, sans-serif; color: #002060">AGREEMENT</span></u></b><span
+                    style="font-size: 10.0pt; font-family: Arial, sans-serif; color: #002060">:
+                </span></p>
+                <apex:outputField value="{!Opportunity.Terms__c}"/>
+                </div>
+                </td>
+            </tr>
+
+        </table>
+
+        <table border="1">
+            <tr>
+
+                <td width="355" colspan="2" align="center"
+                    style="width: 266.45pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #0F243E; padding: 0in 5.4pt 0in 5.4pt; height: 26.65pt">
+                <b><span
+                    style="mso-bidi-font-size: 10.0pt; font-family: Calibri;color: white">
+                :Authorization</span></b>
+                </td>
+                <td width="402" align="center"
+                    style="width: 301.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #0F243E; padding: 0in 5.4pt 0in 5.4pt; height: 26.65pt">
+                <b><span
+                    style="mso-bidi-font-size: 10.0pt; font-family: Calibri;color: white">ONLINELEADS:
+                Authorization</span></b>
+                </td>
+            </tr>
+            <tr>
+
+                <td width="355" colspan="2"
+                    style="width: 266.45pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 19.75pt">
+                <b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">Contact</span></b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Client_Name__r.name}" />
+                </span></td>
+                <td width="402" colspan="2"
+                    style="width: 301.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 19.75pt">
+                <b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">Contact</span></b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Vendor_Name__c}" />
+                </span></td>
+            </tr>
+            <tr>
+
+                <td width="355" colspan="2"
+                    style="width: 266.45pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 22.9pt">
+                <b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">Title</span></b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Client_Title__c}" /></span><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060"></span>
+                </td>
+                <td width="402" colspan="2"
+                    style="width: 301.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 22.9pt">
+                <b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">Title</span></b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Title__c}" /></span></td>
+            </tr>
+            <tr>
+
+                <td width="355" colspan="2"
+                    style="width: 266.45pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 23.35pt">
+                <b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">Date</span></b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">:
+                </span></td>
+                <td width="402" colspan="2"
+                    style="width: 301.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 23.35pt">
+                <b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">Date</span></b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">:
+                </span> <span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060"><apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                                                                                        <apex:param value="{!opportunity.current_date__c}" />
+                                                                                     </apex:outputText></span></td>
+            </tr>
+            <tr>
+
+                <td width="355" colspan="2" valign="top"
+                    style="width: 266.45pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 83.35pt">
+                <p><b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">Signature</span></b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">:</span></p>
+                </td>
+                <td width="402" colspan="2"
+                    style="width: 301.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 60.35pt">
+                <p><b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">Signature</span></b><span
+                    style="font-size: 10.0pt; font-family: Calibri; color: #002060">:<apex:outputField value="{!Opportunity.Signauture1__c}" /></span></p>
+                </td>
+            </tr>
+        </table>
+    </table>
+    </div>
+
+</apex:page>

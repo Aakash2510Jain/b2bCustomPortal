@@ -1,0 +1,75 @@
+
+/* lightbox and overlay */
+.b-overlay { display:none; height:100%; bottom:0; left:0; position:fixed; right:0; top:0; opacity:0.35; background:#000000; z-index:10000; filter:alpha(opacity=35);}
+
+.b-lightbox { display:none; width:600px; margin-left:-300px; left:50%; top:20%; position:fixed; z-index:10001; text-align:left; background:#fff; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;}	
+	
+	.b-lightbox .b-title-bar { position:relative; padding:9px 14px; background:#ececee url('../i/lightbox-grad-bg.png') 0 0 repeat-x; -moz-border-radius-topleft:3px; -webkit-border-top-left-radius:3px; border-top-left-radius:3px;	-moz-border-radius-topright:3px; -webkit-border-top-right-radius:3px; border-top-right-radius:3px;}
+		.b-lightbox .b-title-bar .b-title { font-size:1.1em; font-weight:bold; width:80%; color:#000; line-height:1.2;}
+		.b-lightbox .b-title-bar .b-close-btn { position:absolute; top:9px; right:14px;}
+			.b-lightbox .b-title-bar .b-close-btn a { text-indent:-9999px; display:block; height:15px; width:15px; background:url('../i/close-ico-spr.png') 100% 0 no-repeat; }
+			.b-lightbox .b-title-bar .b-close-btn a:hover { background:url('../i/close-ico-spr.png') 100% -15px no-repeat; }
+
+	.b-lightbox .b-content { padding:17px 8px 17px 18px; background:#fff url('../i/lightbox-content-grad-bg.png') 0 0 repeat-x; -moz-border-radius-bottomleft:3px; -webkit-border-bottom-left-radius:3px; border-bottom-left-radius:3px; -moz-border-radius-bottomright:3px; -webkit-border-bottom-right-radius:3px; border-bottom-right-radius:3px;}
+		.b-lightbox .b-content .b-scroller { max-height:350px; padding-right:10px; overflow-x: hidden; overflow-y: auto; //padding-right:25px;}
+		.b-lightbox .b-content.m-select-people .b-scroller {//position:relative}
+
+		.b-lightbox .b-content p { color:#000; line-height:1.5em; margin: 0 0 1em;}	
+		.b-lightbox .b-content p.b-title {color:#535353; font-weight:bold; padding:7px 8px 8px; margin-bottom:0.2em; background:#f0ebc1}
+		
+		.b-lightbox .b-content iframe { overflow:auto;}
+
+
+	.m-lightbox-inner .m-lightbox-inner-content { padding-right:10px;}
+
+		.m-lightbox-inner .m-lightbox-inner-content p { color:#000; line-height:1.5em; margin: 0 0 1em;}	
+		.m-lightbox-inner .m-lightbox-inner-content p.b-title {color:#535353; font-weight:bold; padding:7px 8px 8px; margin-bottom:0.2em; background:#f0ebc1}
+		
+
+/* select people - group */
+.m-select-people .b-search-input {position:relative}
+	.m-select-people .b-search-input img { position:absolute; top:3px; left:3px;}
+	.m-select-people .b-search-input input[type="text"] {width:200px; padding:2px 2px 3px 20px; margin-bottom:20px; border:1px solid #c3c9c9; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;}
+
+.m-select-people table {border:1px solid #ccc; border-collapse:collapse}
+	.m-select-people table td,
+	.m-select-people table th {vertical-align:top}
+	
+	.m-select-people table th {color: #000; font-size: 0.9em;  font-weight: bold; padding: 5px 2px 4px 5px; border:1px solid #ccc; border-width: 0 0 1px 1px; background:url('../i/blue-header-bg.gif') 0 100% repeat-x;}
+	.m-select-people table td.m-first { padding:4px 2px; border:1px solid #ccc; text-align:center}
+	.m-select-people table td { color: #333; padding: 4px 2px 4px 5px; border-bottom:1px solid #ccc;}
+		.m-select-people table td a { color:#0d5cab; text-decoration:none}
+		.m-select-people table td a:hover {color:#0d5cab; text-decoration:underline}
+		.m-select-people table td .b-info { position:relative; padding-left:55px; min-height:50px; //padding-left:0; //position:static; }
+			.m-select-people table td .b-info .b-img { width:47px; height:47px; position:absolute; top:0; left:0; border:1px solid #d2d6d9; //position:static; //float:left;}
+			.m-select-people table td .b-info .b-img-lock { position:absolute; top:37px; left:37px; //position:static; //float:left; //margin-left:-12px; //margin-top:37px;}
+			.m-select-people table td .b-info p { margin-bottom:1px; //padding-left:55px;}
+			.m-select-people table td .b-info p.b-name,
+			.m-select-people table td .b-info p.b-group { color:#0d5cab; font-weight:bold}
+			.m-select-people table td .b-info p.b-add {line-height:1.3em; margin-bottom:5px;}
+			.m-select-people table td .b-info p.b-member-owner {margin-bottom:0}
+				.m-select-people table td .b-info p.b-member-owner .m-members { margin-right:10px; display:inline-block}
+				.m-select-people table td .b-info p.b-member-owner .m-owner-info {}
+				.m-select-people table td .b-info p.b-name span.m-orange { color:#ffa500; font-weight:normal}
+				.m-select-people table td .m-follow { min-height:16px; display:inline-block; padding-left:20px; background:#fff url('../i/follow-ico.png') 0 0 no-repeat; }
+				.m-select-people table td .m-owner { min-height:13px; display:inline-block; padding-left:20px; background:#fff url('../i/key-ico.png') 2px 1px no-repeat; }
+				.m-select-people table td .m-following,
+				.m-select-people table td .m-member { padding-left:20px; margin-right:2px; background:#fff url('../i/following-ico.png') 0 0 no-repeat;}
+				.m-select-people table td a.m-del { display:inline-block; height:15px; width:15px; text-indent:-9999px; background:#fff url('../i/following-del-ico.png') 0 0 no-repeat;}
+				.m-select-people table td a.m-del:hover {background-position:0 -15px}
+
+/* btns */
+.b-btn { color: #4c81a3; font-size: .9em; font-weight:bold; font-family: Arial, Helvetica, sans-serif; text-decoration:none; display:inline; margin: 1px; padding: 2px 4px; border: 1px solid #b5b5b5; border-bottom-color: #7f7f7f; background: #e8e8e9 url('../i/btn_sprite.png') repeat-x right top; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; //display:inline-block;}
+.b-btn:hover { color:#666; text-decoration:none} 
+
+/* modificators */
+.m-orange { color:#ffa500; font-weight:normal}
+.m-data { color:#535353; margin-bottom:1.5em; border-top:1px solid #ebebc9;}
+.m-data th { color:#535353; font-weight:bold; padding:7px 8px 8px; background:#f0ebc1}
+.m-data td { color:#535353; padding:4px 8px 3px; border-bottom:1px solid #e0deb8}	
+.m-data .m-right { text-align:right}
+.m-data a { color:#4C81A3; text-decoration:none}
+.m-data a:hover { color:#4C81A3;}
+
+.m-faded { color:#535353}
+.m-bold { font-weight:bold}

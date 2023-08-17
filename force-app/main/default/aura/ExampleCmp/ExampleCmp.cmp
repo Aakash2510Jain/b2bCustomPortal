@@ -1,0 +1,51 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+   <lightning:layoutItem  size="2"  >
+                <div class="sidenav">
+                     <div class="slds-align_absolute-center slds-m-top_small"  style="margin-bottom:0%;"  >
+                        <img src="{!$Resource.RealStateLogo}" style="width:60px; height:60px;" />
+                    </div><br/> 
+                      <div class="   slds-p-bottom_x-small   slds-p-horizontal_medium"   >
+                            <lightning:button variant="bare"  label="Listing"  iconName="utility:company" onclick="{!c.ShowDashboard}" class="custom-button1 slds-p-left_medium "/>
+                        </div>
+                         <div class="   slds-p-bottom_x-small  slds-p-horizontal_medium "   >
+                            <lightning:button variant="bare"  label="Booking"  iconName="utility:groups" onclick="{!c.ShowLeadRecord}" class="custom-button1 slds-p-left_medium "/>
+                        </div>
+                           <div class="   slds-p-bottom_x-small slds-p-horizontal_medium "   >
+                            <lightning:button variant="bare"  label="Payments"  iconName="utility:questions_and_answers" onclick="{!c.ShowFollowUp}" class="custom-button1 slds-p-left_medium "/>
+                        </div>
+                         <div class="   slds-p-bottom_x-small  slds-p-horizontal_medium "   >
+                            <lightning:button variant="bare"  label="Site Visits"  iconName="utility:contact" onclick="{!c.ShowAccountRec}" class="custom-button1 slds-p-left_medium "/>
+                        </div>
+                         <div class="   slds-p-bottom_x-small  slds-p-horizontal_medium "   >
+                            <lightning:button variant="bare"  label="Upcoming Events"  iconName="utility:dock_panel" onclick="{!c.ShowOpportunity}" class="custom-button1 slds-p-left_medium "/>
+                        </div>
+                     <div class="   slds-p-bottom_x-small   slds-p-horizontal_medium"   >
+                            <lightning:button variant="bare"  label="Invoices"  iconName="utility:company" onclick="{!c.ShowDashboard}" class="custom-button1 slds-p-left_medium "/>
+                        </div>
+                         <div class="   slds-p-bottom_x-small  slds-p-horizontal_medium "   >
+                            <lightning:button variant="bare"  label="Tickets"  iconName="utility:groups" onclick="{!c.ShowLeadRecord}" class="custom-button1 slds-p-left_medium "/>
+                        </div>
+                           <div class="   slds-p-bottom_x-small slds-p-horizontal_medium "   >
+                            <lightning:button variant="bare"  label="Loan Calculator"  iconName="utility:questions_and_answers" onclick="{!c.ShowFollowUp}" class="custom-button1 slds-p-left_medium "/>
+                        </div>
+                         <div class="   slds-p-bottom_x-small  slds-p-horizontal_medium "   >
+                            <lightning:button variant="bare"  label="Online KYC"  iconName="utility:contact" onclick="{!c.ShowAccountRec}" class="custom-button1 slds-p-left_medium "/>
+                        </div>
+                         <div class="   slds-p-bottom_x-small  slds-p-horizontal_medium "   >
+                            <lightning:button variant="bare"  label="Documents"  iconName="utility:dock_panel" onclick="{!c.ShowOpportunity}" class="custom-button1 slds-p-left_medium "/>
+                        </div>
+                    <div class="   slds-p-bottom_x-small  slds-p-horizontal_medium "   >
+                            <lightning:button variant="bare"  label="Feedback"  iconName="utility:dock_panel" onclick="{!c.ShowOpportunity}" class="custom-button1 slds-p-left_medium "/>
+                        </div>
+                     <div class="   slds-p-bottom_x-small  slds-p-horizontal_medium "   >
+                            <lightning:button variant="bare"  label="Logout"  iconName="utility:dock_panel" onclick="{!c.ShowOpportunity}" class="custom-button1 slds-p-left_medium "/>
+                        </div>
+                        <!--   <lightning:verticalNavigationSection>
+                            <lightning:verticalNavigationItemIcon  label="Incentive" onclick="{!c.showIncentiveRec}" iconName="utility:proposition"/>
+                        </lightning:verticalNavigationSection>-->
+                  
+                   
+                </div>
+            </lightning:layoutItem>
+</aura:component>

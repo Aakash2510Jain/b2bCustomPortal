@@ -1,0 +1,1039 @@
+<apex:page standardController="Opportunity" showHeader="false"
+    sidebar="false">
+
+<link rel="File-List" href="PD_Work%20Order_files/filelist.xml"/>
+<link rel="Edit-Time-Data" href="PD_Work%20Order_files/editdata.mso"/>
+<link rel="themeData" href="PD_Work%20Order_files/themedata.thmx"/>
+<link rel="colorSchemeMapping"
+        href="PD_Work%20Order_files/colorschememapping.xml"/>
+<style>
+<!--
+@font-face {
+    font-family: Wingdings;
+    panose-1: 5 0 0 0 0 0 0 0 0 0;
+    mso-font-charset: 2;
+    mso-generic-font-family: auto;
+    mso-font-pitch: variable;
+    mso-font-signature: 0 268435456 0 0 -2147483648 0;
+}
+@font-face {
+    font-family: Wingdings;
+    panose-1: 5 0 0 0 0 0 0 0 0 0;
+    mso-font-charset: 2;
+    mso-generic-font-family: auto;
+    mso-font-pitch: variable;
+    mso-font-signature: 0 268435456 0 0 -2147483648 0;
+}
+@font-face {
+    font-family: Calibri;
+    panose-1: 2 15 5 2 2 2 4 3 2 4;
+    mso-font-charset: 0;
+    mso-generic-font-family: swiss;
+    mso-font-pitch: variable;
+    mso-font-signature: -536870145 1073786111 1 0 415 0;
+}
+@font-face {
+    font-family: Tahoma;
+    panose-1: 2 11 6 4 3 5 4 4 2 4;
+    mso-font-charset: 0;
+    mso-generic-font-family: swiss;
+    mso-font-pitch: variable;
+    mso-font-signature: -520081665 -1073717157 41 0 66047 0;
+}
+@font-face {
+    font-family: Trebuchet MS;
+    panose-1: 2 11 6 3 2 2 2 2 2 4;
+    mso-font-charset: 0;
+    mso-generic-font-family: swiss;
+    mso-font-pitch: variable;
+    mso-font-signature: 647 0 0 0 159 0;
+}
+@font-face {
+    font-family: Stencil;
+    mso-font-alt: Gabriola;
+    mso-font-charset: 0;
+    mso-generic-font-family: decorative;
+    mso-font-pitch: variable;
+    mso-font-signature: 3 0 0 0 1 0;
+}
+p.MsoNormal, li.MsoNormal, div.MsoNormal {
+    mso-style-unhide: no;
+    mso-style-qformat: yes;
+    mso-style-parent: "";
+    margin-top: 0in;
+    margin-right: 0in;
+    margin-bottom: 10.0pt;
+    margin-left: 0in;
+    line-height: 115%;
+    mso-pagination: widow-orphan;
+    font-size: 11.0pt;
+    font-family: "Calibri", sans-serif;
+    mso-ascii-font-family: Calibri;
+    mso-ascii-theme-font: minor-latin;
+    mso-fareast-font-family: Calibri;
+    mso-fareast-theme-font: minor-latin;
+    mso-hansi-font-family: Calibri;
+    mso-hansi-theme-font: minor-latin;
+    mso-bidi-font-family: Times New Roman;
+    mso-bidi-theme-font: minor-bidi;
+}
+p.MsoHeader, li.MsoHeader, div.MsoHeader {
+    mso-style-priority: 99;
+    mso-style-link: "Header Char";
+    margin: 0in;
+    margin-bottom: .0001pt;
+    mso-pagination: widow-orphan;
+    tab-stops: center 3.25in right 6.5in;
+    font-size: 11.0pt;
+    font-family: "Calibri", sans-serif;
+    mso-ascii-font-family: Calibri;
+    mso-ascii-theme-font: minor-latin;
+    mso-fareast-font-family: Calibri;
+    mso-fareast-theme-font: minor-latin;
+    mso-hansi-font-family: Calibri;
+    mso-hansi-theme-font: minor-latin;
+    mso-bidi-font-family: Times New Roman;
+    mso-bidi-theme-font: minor-bidi;
+}
+p.MsoFooter, li.MsoFooter, div.MsoFooter {
+    mso-style-noshow: yes;
+    mso-style-priority: 99;
+    mso-style-link: "Footer Char";
+    margin: 0in;
+    margin-bottom: .0001pt;
+    mso-pagination: widow-orphan;
+    tab-stops: center 3.25in right 6.5in;
+    font-size: 11.0pt;
+    font-family: "Calibri", sans-serif;
+    mso-ascii-font-family: Calibri;
+    mso-ascii-theme-font: minor-latin;
+    mso-fareast-font-family: Calibri;
+    mso-fareast-theme-font: minor-latin;
+    mso-hansi-font-family: Calibri;
+    mso-hansi-theme-font: minor-latin;
+    mso-bidi-font-family: Times New Roman;
+    mso-bidi-theme-font: minor-bidi;
+}
+a:link, span.MsoHyperlink {
+    mso-style-priority: 99;
+    color: blue;
+    mso-themecolor: hyperlink;
+    text-decoration: underline;
+    text-underline: single;
+}
+a:visited, span.MsoHyperlinkFollowed {
+    mso-style-noshow: yes;
+    mso-style-priority: 99;
+    color: purple;
+    mso-themecolor: followedhyperlink;
+    text-decoration: underline;
+    text-underline: single;
+}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate {
+    mso-style-noshow: yes;
+    mso-style-priority: 99;
+    mso-style-link: "Balloon Text Char";
+    margin: 0in;
+    margin-bottom: .0001pt;
+    mso-pagination: widow-orphan;
+    font-size: 8.0pt;
+    font-family: "Tahoma", sans-serif;
+    mso-fareast-font-family: Calibri;
+    mso-fareast-theme-font: minor-latin;
+}
+span.HeaderChar {
+    mso-style-name: "Header Char";
+    mso-style-priority: 99;
+    mso-style-unhide: no;
+    mso-style-locked: yes;
+    mso-style-link: Header;
+}
+span.FooterChar {
+    mso-style-name: "Footer Char";
+    mso-style-noshow: yes;
+    mso-style-priority: 99;
+    mso-style-unhide: no;
+    mso-style-locked: yes;
+    mso-style-link: Footer;
+}
+span.apple-converted-space {
+    mso-style-name: apple-converted-space;
+    mso-style-unhide: no;
+}
+span.BalloonTextChar {
+    mso-style-name: "Balloon Text Char";
+    mso-style-noshow: yes;
+    mso-style-priority: 99;
+    mso-style-unhide: no;
+    mso-style-locked: yes;
+    mso-style-link: "Balloon Text";
+    mso-ansi-font-size: 8.0pt;
+    mso-bidi-font-size: 8.0pt;
+    font-family: "Tahoma", sans-serif;
+    mso-ascii-font-family: Tahoma;
+    mso-hansi-font-family: Tahoma;
+    mso-bidi-font-family: Tahoma;
+}
+span.readmore {
+    mso-style-name: readmore;
+    mso-style-unhide: no;
+}
+.MsoChpDefault {
+    mso-style-type: export-only;
+    mso-default-props: yes;
+    font-family: "Calibri", sans-serif;
+    mso-ascii-font-family: Calibri;
+    mso-ascii-theme-font: minor-latin;
+    mso-fareast-font-family: Calibri;
+    mso-fareast-theme-font: minor-latin;
+    mso-hansi-font-family: Calibri;
+    mso-hansi-theme-font: minor-latin;
+    mso-bidi-font-family: Times New Roman;
+    mso-bidi-theme-font: minor-bidi;
+}
+.MsoPapDefault {
+    mso-style-type: export-only;
+    margin-bottom: 10.0pt;
+    line-height: 115%;
+}
+@page {
+    mso-footnote-separator: url("PD_Work%20Order_files/header.html") fs;
+    mso-footnote-continuation-separator: url("PD_Work%20Order_files/header.html") fcs;
+    mso-endnote-separator: url("PD_Work%20Order_files/header.html") es;
+    mso-endnote-continuation-separator: url("PD_Work%20Order_files/header.html") ecs;
+}
+@page WordSection1 {
+    size: 11.0in 17.0in;
+    margin: 1.0in 1.0in 1.0in 1.0in;
+    mso-header-margin: .5in;
+    mso-footer-margin: .5in;
+    mso-header: url("PD_Work%20Order_files/header.html") h1;
+    mso-footer: url("PD_Work%20Order_files/header.html") f1;
+    mso-paper-source: 0;
+}
+div.WordSection1 {
+    page: WordSection1;
+}
+-->
+</style>
+
+<body lang="EN-US" link="blue" vlink="purple"
+        style="tab-interval: .5in">
+<div class="WordSection1">
+  <p class="MsoHeader">
+  <span
+        style="mso-ignore: vglayout; position: absolute; z-index: 251660288; margin-left: 616px; margin-top: 14px; width: 270px; height: 67px">
+  <table cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="270" height="67" style="vertical-align: top"><span
+                style="position: absolute; mso-ignore: vglayout; z-index: 251660288">
+        <table cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+            <td><div  style="padding:3.6pt 7.2pt 3.6pt 7.2pt"
+                        class="shape">
+                <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;
+                        line-height:normal"><b><span style="font-size:10.0pt;font-family:Trebuchet MS,sans-serif;
+                        mso-bidi-font-family:Arial;color:black;background:white">Phone:</span></b><span
+                        class="apple-converted-space"><span style="font-size:10.0pt;font-family:Trebuchet MS,sans-serif;
+                        mso-bidi-font-family:Arial;color:black;background:white">&nbsp;</span></span><span
+                        style="font-size:10.0pt;font-family:Trebuchet MS,sans-serif">800-381-1464</span></p>
+                <p class="MsoNormal"
+                        style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><b><span
+                        style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-bidi-font-family: Arial; color: black; background: white">Email
+                  id:</span></b><span class="apple-converted-space"><span
+                        style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-bidi-font-family: Arial; color: black; background: white">&nbsp;</span></span><a
+                        href="mailto:info@procuredata.com"><span
+                        style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif">info@procuredata.com</span></a><span
+                        style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif"><span
+                        style="mso-spacerun: yes">   </span></span></p>
+                <p class="MsoNormal"
+                        style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><b
+                        style="mso-bidi-font-weight: normal"><span
+                        style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif">Website:</span></b><span
+                        style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif"> www.procuredata.com</span></p>
+              </div></td>
+          </tr>
+        </table>
+        </span></td>
+    </tr>
+  </table>
+  </span><span style="mso-spacerun: yes"> </span><span
+        style="mso-spacerun: yes">                 </span>
+  </p>
+  <p class="MsoHeader" align="left" style="text-align: center"><b><span
+        style="font-size: 28.0pt; font-family: Stencil; mso-fareast-font-family: Stencil; mso-bidi-font-family: Stencil; color: #0070C0">WORK
+    ORDER</span></b></p>
+  <table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0"
+        width="963"
+        style="width: 722.05pt; margin-center: -26.1pt; border-collapse: collapse; mso-yfti-tbllook: 1184; mso-padding-alt: 0in 5.4pt 0in 5.4pt">
+    <tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: 18.2pt">
+      <td width="234"    valign="bottom"
+                style="width: 175.35pt; border-top: solid #4F81BD 1.0pt; mso-border-top-themecolor: accent1; border-left: solid #4F81BD 1.0pt; mso-border-left-themecolor: accent1; border-bottom: none; border-right: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"></td>
+      <td width="136"   valign="bottom"
+                style="width: 101.7pt; border: none; border-top: solid #4F81BD 1.0pt; mso-border-top-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"></td>
+      <td width="214"    valign="bottom"
+                style="width: 160.45pt; border: none; border-top: solid #4F81BD 1.0pt; mso-border-top-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"></td>
+      <td width="47"   valign="bottom"
+                style="width: 35.0pt; border: none; border-top: solid #4F81BD 1.0pt; mso-border-top-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"></td>
+      <td width="132"    valign="bottom"
+                style="width: 99.0pt; border: none; border-top: solid #4F81BD 1.0pt; mso-border-top-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"></td>
+      <td width="102"   valign="bottom"
+                style="width: 76.8pt; border: none; border-top: solid #4F81BD 1.0pt; mso-border-top-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal" align="right"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: right; line-height: normal"><b><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">W.O.
+          # : </span></b></p></td>
+      <td width="98"   valign="bottom"
+                style="width: 73.75pt; border-top: #4F81BD; mso-border-top-themecolor: accent1; border-left: silver; border-bottom: silver; border-right: #4F81BD; mso-border-right-themecolor: accent1; border-style: solid; border-width: 1.0pt; mso-border-top-alt: #4F81BD; mso-border-top-themecolor: accent1; mso-border-left-alt: silver; mso-border-bottom-alt: silver; mso-border-right-alt: #4F81BD; mso-border-right-themecolor: accent1; mso-border-style-alt: solid; mso-border-width-alt: .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal" align="center"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal"><b><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">[123456] </span></b></p></td>
+    </tr>
+   <tr style="mso-yfti-irow: 1; height: 18.2pt">
+      <td width="234"    valign="bottom"
+                style="width: 175.35pt; border: none; border-left: solid #4F81BD 1.0pt; mso-border-left-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">Company
+          Name: </span></p></td>
+      <td width="136"   valign="bottom"
+                style="width: 101.7pt; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"></td>
+      <td width="214"    valign="bottom"
+                style="width: 160.45pt; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"></td>
+      <td width="47"   valign="bottom"
+                style="width: 35.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"></td>
+      <td width="132"    valign="bottom"
+                style="width: 99.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"></td>
+      <td width="102"   valign="bottom"
+                style="width: 76.8pt; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal" align="right"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: right; line-height: normal"><b><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">W.O.
+          Date : </span></b></p></td>
+      <td width="98"   valign="bottom"
+                style="width: 73.75pt; border-top: none; border-left: solid silver 1.0pt; border-bottom: solid silver 1.0pt; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-left-alt: solid silver .5pt; mso-border-bottom-alt: solid silver .5pt; mso-border-right-alt: solid #4F81BD .5pt; mso-border-right-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal" align="center"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal"><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">31/12/2013 </span></p></td>
+    </tr>
+<tr style="mso-yfti-irow: 2; height: 16.65pt">
+      <td width="234"   colspan="2" valign="bottom"
+                style="width: 175.35pt; border: none; border-left: solid #4F81BD 1.0pt; mso-border-left-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">Company
+          Address: </span></p></td>
+      <td width="136"   valign="bottom"
+                style="width: 101.7pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"></td>
+      <td width="214"   colspan="2" valign="bottom"
+                style="width: 160.45pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"></td>
+      <td width="47"   valign="bottom"
+                style="width: 35.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"></td>
+      <td width="132"   colspan="2" valign="bottom"
+                style="width: 99.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"></td>
+      <td width="102"   valign="bottom"
+                style="width: 76.8pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"></td>
+      <td width="98"   valign="bottom"
+                style="width: 73.75pt; border: none; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-right-alt: solid #4F81BD .5pt; mso-border-right-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"></td>
+    </tr>
+    <tr style="mso-yfti-irow: 3; height: 16.65pt">
+      <td width="234"   colspan="2" valign="bottom"
+                style="width: 175.35pt; border: none; border-left: solid #4F81BD 1.0pt; mso-border-left-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">Phone: </span></p></td>
+      <td width="136"   valign="bottom"
+                style="width: 101.7pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"></td>
+      <td width="214"   colspan="2" valign="bottom"
+                style="width: 160.45pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"></td>
+      <td width="47"   valign="bottom"
+                style="width: 35.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"></td>
+      <td width="132"   colspan="2" valign="bottom"
+                style="width: 99.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"><p class="MsoNormal" align="right"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: right; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">Requested
+          By : </span></p></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border: solid silver 1.0pt; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-alt: solid silver .5pt; mso-border-right-alt: solid #4F81BD .5pt; mso-border-right-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">[Customer
+          Name] </span></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 4; height: 16.65pt">
+      <td width="369"   colspan="3" valign="bottom"
+                style="width: 277.05pt; border: none; border-left: solid #4F81BD 1.0pt; mso-border-left-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">Email: </span></p></td>
+      <td width="214"   colspan="2" valign="bottom"
+                style="width: 160.45pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"></td>
+      <td width="47"   valign="bottom"
+                style="width: 35.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"></td>
+      <td width="132"   colspan="2" valign="bottom"
+                style="width: 99.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"><p class="MsoNormal" align="right"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: right; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">Customer
+          Title : </span></p></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border-top: none; border-left: solid silver 1.0pt; border-bottom: solid silver 1.0pt; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; mso-border-right-alt: solid #4F81BD .5pt; mso-border-right-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">[abc1] </span></p></td>
+    </tr>
+     <tr style="mso-yfti-irow: 5; height: 16.65pt">
+      <td width="369"   colspan="3" valign="bottom"
+                style="width: 277.05pt; border: none; border-left: solid #4F81BD 1.0pt; mso-border-left-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">Website:</span><span
+                style="color: #0070C0"> </span><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman"> </span></p></td>
+      <td width="214"   colspan="2" valign="bottom"
+                style="width: 160.45pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"></td>
+      <td width="47"   valign="bottom"
+                style="width: 35.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"></td>
+      <td width="132"   colspan="2" valign="bottom"
+                style="width: 99.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"><p class="MsoNormal" align="right"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: right; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">Department
+          : </span></p></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border-top: none; border-left: solid silver 1.0pt; border-bottom: solid silver 1.0pt; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; mso-border-right-alt: solid #4F81BD .5pt; mso-border-right-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 16.65pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">&nbsp; </span></p></td>
+    </tr> 
+    <tr style="mso-yfti-irow: 6; height: 15.15pt">
+      <td width="234"   colspan="2" valign="bottom"
+                style="width: 175.35pt; border: none; border-left: solid #4F81BD 1.0pt; mso-border-left-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt"></td>
+      <td width="136"   valign="bottom"
+                style="width: 101.7pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt"></td>
+      <td width="214"   colspan="2" valign="bottom"
+                style="width: 160.45pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt"></td>
+      <td width="47"   valign="bottom"
+                style="width: 35.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt"></td>
+      <td width="132"   colspan="2" valign="bottom"
+                style="width: 99.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt"></td>
+      <td width="102"   valign="bottom"
+                style="width: 76.8pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt"></td>
+      <td width="98"   valign="bottom"
+                style="width: 73.75pt; border: none; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-right-alt: solid #4F81BD .5pt; mso-border-right-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt"></td>
+    </tr>
+   <tr style="mso-yfti-irow: 7; height: 15.15pt">
+      <td width="583"   colspan="5" valign="bottom"
+                style="width: 437.5pt; border-top: none; border-left: solid #4F81BD 1.0pt; mso-border-left-themecolor: accent1; border-bottom: solid windowtext 1.0pt; border-right: none; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-bottom-alt: solid windowtext .5pt; background: #0070C0; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><b><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; color: white">SERVICES </span></b></p></td>
+      <td width="179"   colspan="3" valign="bottom"
+                style="width: 134.0pt; border: none; border-bottom: solid windowtext 1.0pt; mso-border-bottom-alt: solid windowtext .5pt; background: #0070C0; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt"></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid #4F81BD .5pt; mso-border-right-themecolor: accent1; background: #0070C0; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><b><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; color: white">BILL
+          TO </span></b></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 8; height: 60.35pt">
+      <td width="762" colspan="8" rowspan="2" valign="top"
+                style="width: 571.5pt; border: none; border-left: solid #4F81BD 1.0pt; mso-border-left-themecolor: accent1; mso-border-top-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 60.35pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman"> &nbsp; </span></p>
+        <p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">[Enter
+          general description of service or deliverable] </span></p></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border: none; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; mso-border-right-alt: solid #4F81BD .5pt; mso-border-right-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 60.35pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman"> &nbsp; </span></p>
+        <p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">Procure
+          Data </span></p>
+        <p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">Phone: </span><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif">800-381-1464</span><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman"> </span></p>
+        <p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">Email: </span><a href="mailto:info@procuredata.com"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif">info@procuredata.com</span></a><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman"> </span></p></td>
+    </tr>
+   <tr style="mso-yfti-irow: 9; height: 15.15pt">
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border: none; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-right-alt: solid #4F81BD .5pt; mso-border-right-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt"></td>
+    </tr>
+    <tr style="mso-yfti-irow: 10; height: 35.1pt">
+      <td width="583"   colspan="5" valign="bottom"
+                style="width: 437.5pt; border-top: none; border-left: solid #4F81BD 1.0pt; mso-border-left-themecolor: accent1; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: none; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-bottom-alt: solid #4F81BD .5pt; mso-border-bottom-themecolor: accent1; background: #666666; padding: 0in 5.4pt 0in 5.4pt; height: 35.1pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><b><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; color: white">PACKAGE
+          DETAILS (Please select the option you would be interested in) </span></b></p></td>
+      <td width="47"   valign="bottom"
+                style="width: 35.0pt; border: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-alt: solid #4F81BD .5pt; mso-border-bottom-themecolor: accent1; background: #666666; padding: 0in 5.4pt 0in 5.4pt; height: 35.1pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; color: white">&nbsp; </span></p></td>
+      <td width="132"   colspan="2" valign="bottom"
+                style="width: 99.0pt; border: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-alt: solid #4F81BD .5pt; mso-border-bottom-themecolor: accent1; background: #666666; padding: 0in 5.4pt 0in 5.4pt; height: 35.1pt"></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-bottom-alt: solid #4F81BD .5pt; mso-border-bottom-themecolor: accent1; mso-border-right-alt: solid #4F81BD .5pt; mso-border-right-themecolor: accent1; background: #666666; padding: 0in 5.4pt 0in 5.4pt; height: 35.1pt"><p class="MsoNormal" align="center"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal"><b><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; color: white">Cost
+          (US$) </span></b></p></td>
+    </tr>
+   <tr style="mso-yfti-irow: 11; height: 31.9pt">
+      <td width="762"   colspan="8" valign="bottom"
+                style="width: 571.5pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 31.9pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman"><span
+                style="mso-spacerun: yes">  </span>[Description of Deliverable /
+          Package] </span></p></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #F0F0F0; padding: 0in 5.4pt 0in 5.4pt; height: 31.9pt"><p class="MsoNormal" align="center"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">00.00 </span></p></td>
+    </tr>
+ <tr style="mso-yfti-irow: 12; height: 31.0pt">
+      <td width="762"   colspan="8" valign="bottom"
+                style="width: 571.5pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 31.0pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman"><span
+                style="mso-spacerun: yes">  </span>[Description of Deliverable /
+          Package] </span></p></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #F0F0F0; padding: 0in 5.4pt 0in 5.4pt; height: 31.0pt"><p class="MsoNormal" align="center"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">00.00 </span></p></td>
+    </tr>
+   
+   
+    <tr style="mso-yfti-irow: 13; height: 26.5pt">
+      <td width="762"   colspan="8" valign="bottom"
+                style="width: 571.5pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 26.5pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman"><span
+                style="mso-spacerun: yes">  </span>[Description of Deliverable /
+          Package] </span></p></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #F0F0F0; padding: 0in 5.4pt 0in 5.4pt; height: 26.5pt"><p class="MsoNormal" align="center"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">00.00 </span></p></td>
+    </tr>
+<tr style="mso-yfti-irow: 14; height: 31.0pt">
+      <td width="762"   colspan="8" valign="bottom"
+                style="width: 571.5pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 31.0pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman"><span
+                style="mso-spacerun: yes">  </span>[Description of Deliverable /
+          Package] </span></p></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #F0F0F0; padding: 0in 5.4pt 0in 5.4pt; height: 31.0pt"><p class="MsoNormal" align="center"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">00.00 </span></p></td>
+    </tr>
+    
+    <tr style="mso-yfti-irow: 15; height: 15.15pt">
+      <td width="630"   colspan="6" valign="bottom"
+                style="width: 472.5pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; color: white">[42] </span></p>
+        <p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">&nbsp; </span></p></td>
+      <td width="132"   colspan="2" valign="bottom"
+                style="width: 99.0pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #BFBFBF; mso-background-themecolor: background1; mso-background-themeshade: 191; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">SUBTOTAL </span></p></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border: none; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-right-alt: solid #4F81BD .5pt; mso-border-right-themecolor: accent1; background: #BFBFBF; mso-background-themecolor: background1; mso-background-themeshade: 191; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt"><p class="MsoNormal" align="center"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">$
+          0.00 </span></p></td>
+    </tr>
+
+    
+    <tr style="mso-yfti-irow: 16; height: 20.65pt">
+      <td width="630"   colspan="6" valign="bottom"
+                style="width: 472.5pt; border-top: none; border-left: solid #4F81BD 1.0pt; mso-border-left-themecolor: accent1; border-bottom: none; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-right-alt: solid #4F81BD .5pt; mso-border-right-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 20.65pt"></td>
+      <td width="132"   colspan="2" valign="bottom"
+                style="width: 99.0pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #BFBFBF; mso-background-themecolor: background1; mso-background-themeshade: 191; padding: 0in 5.4pt 0in 5.4pt; height: 20.65pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">TAX
+          RATE </span></p></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-left: none; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #BFBFBF; mso-background-themecolor: background1; mso-background-themeshade: 191; padding: 0in 5.4pt 0in 5.4pt; height: 20.65pt"><p class="MsoNormal" align="center"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">0.00% </span></p></td>
+    </tr>
+    
+    <tr style="mso-yfti-irow: 17; height: 22.0pt">
+      <td width="630"   colspan="6" valign="bottom"
+                style="width: 472.5pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 22.0pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">&nbsp; </span></p></td>
+      <td width="132"   colspan="2" valign="bottom"
+                style="width: 99.0pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #BFBFBF; mso-background-themecolor: background1; mso-background-themeshade: 191; padding: 0in 5.4pt 0in 5.4pt; height: 22.0pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">SUBTOTAL<span
+                style="color: white"> </span></span></p></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #BFBFBF; mso-background-themecolor: background1; mso-background-themeshade: 191; padding: 0in 5.4pt 0in 5.4pt; height: 22.0pt"><p class="MsoNormal" align="center"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">$
+          0.00 </span></p></td>
+    </tr>
+    
+    <tr style="mso-yfti-irow: 18; height: 20.65pt">
+      <td width="630"   colspan="6" valign="top"
+                style="width: 472.5pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 20.65pt"></td>
+      <td width="132"  colspan="2" valign="bottom"
+                style="width: 99.0pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #BFBFBF; mso-background-themecolor: background1; mso-background-themeshade: 191; padding: 0in 5.4pt 0in 5.4pt; height: 20.65pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><b><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">TOTAL </span></b></p></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #BFBFBF; mso-background-themecolor: background1; mso-background-themeshade: 191; padding: 0in 5.4pt 0in 5.4pt; height: 20.65pt"><p class="MsoNormal" align="center"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal"><b><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">$
+          0.00 </span></b></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 19; height: .5in">
+      <td width="762"   colspan="8" valign="bottom"
+                style="width: 571.5pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #595959; mso-background-themecolor: text1; mso-background-themetint: 166; padding: 0in 5.4pt 0in 5.4pt; height: .5in"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><b
+                style="mso-bidi-font-weight: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; color: white; mso-themecolor: background1">PAYMENT
+          DETAILS </span></b></p></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #595959; mso-background-themecolor: text1; mso-background-themetint: 166; padding: 0in 5.4pt 0in 5.4pt; height: .5in"><p class="MsoNormal" align="center"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; color: white; mso-themecolor: background1">MAILING
+          ADDRESS </span></p></td>
+    </tr>
+    
+     <tr style="mso-yfti-irow: 20; height: .5in">
+      <td width="762"   colspan="8" valign="bottom"
+                style="width: 571.5pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: .5in"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; tab-stops: 27.25pt"><span
+                style="font-size: 10.0pt; line-height: 115%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman"> &nbsp; </span></p>
+        <p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%; tab-stops: 27.25pt"><span
+                style="font-size: 10.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman"><span
+                style="mso-spacerun: yes">  </span>Check number:
+          __________________________________________________ </span></p>
+        <p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%; tab-stops: 27.25pt"><span
+                style="font-size: 10.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman"><span
+                style="mso-spacerun: yes">  </span>Wire transfer tracking number:
+          _____________________________________ </span></p></td>
+      <td width="201"   colspan="2" valign="bottom"
+                style="width: 150.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: .5in"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">Payable
+          to: </span></p>
+        <p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">[Company
+          Address] </span></p>
+        <p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman"> &nbsp; </span></p>
+        <p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 10.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman"> &nbsp; </span></p></td>
+    </tr>
+    
+     <tr style="mso-yfti-irow: 21; height: 18.2pt">
+      <td width="963"   colspan="1" valign="bottom"
+                style="width: 722.05pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #595959; mso-background-themecolor: text1; mso-background-themetint: 166; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><b><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; color: white; mso-themecolor: background1; mso-bidi-font-style: italic">Agreement </span></b></p></td>
+    </tr>
+    
+    <tr style="mso-yfti-irow: 22; height: 18.2pt">
+      <td width="510"   colspan="4" valign="bottom"
+                style="width: 382.65pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #D9D9D9; mso-background-themecolor: background1; mso-background-themeshade: 217; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><b><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-style: italic">For
+          Company Name </span></b></p></td>
+      <td width="453" colspan="6" valign="bottom"
+                style="width: 339.4pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #D9D9D9; mso-background-themecolor: background1; mso-background-themeshade: 217; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><b><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-style: italic">For
+          Procure Data </span></b></p></td>
+    </tr>
+    
+    <tr style="mso-yfti-irow: 23; height: 18.2pt">
+      <td width="156"   valign="bottom"
+                style="width: 117.0pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Name </span></p></td>
+      <td width="354" colspan="3" valign="bottom"
+                style="width: 265.65pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><i><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+      <td width="132" colspan="3" valign="bottom"
+                style="width: 98.85pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Name </span></p></td>
+      <td width="321" colspan="3" valign="bottom"
+                style="width: 240.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><i><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 24; height: 18.2pt">
+      <td width="156"   valign="bottom"
+                style="width: 117.0pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Title </span></p></td>
+      <td width="354" colspan="3" valign="bottom"
+                style="width: 265.65pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><i><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+      <td width="132" colspan="3" valign="bottom"
+                style="width: 98.85pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Title </span></p></td>
+      <td width="321" colspan="3" valign="bottom"
+                style="width: 240.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><i><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 25; height: 18.2pt">
+      <td width="156"   valign="bottom"
+                style="width: 117.0pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Email </span></p></td>
+      <td width="354" colspan="3" valign="bottom"
+                style="width: 265.65pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><i><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+      <td width="132" colspan="3" valign="bottom"
+                style="width: 98.85pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Email </span></p></td>
+      <td width="321" colspan="3" valign="bottom"
+                style="width: 240.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><i><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 26; height: 18.2pt">
+      <td width="156"   valign="bottom"
+                style="width: 117.0pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Phone </span></p></td>
+      <td width="354" colspan="3" valign="bottom"
+                style="width: 265.65pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><i><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+      <td width="132" colspan="3" valign="bottom"
+                style="width: 98.85pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Phone </span></p></td>
+      <td width="321" colspan="3" valign="bottom"
+                style="width: 240.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><i><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 27; height: 18.2pt">
+      <td width="156"   valign="bottom"
+                style="width: 117.0pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Date </span></p></td>
+      <td width="354" colspan="3" valign="bottom"
+                style="width: 265.65pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><i><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+      <td width="132" colspan="3" valign="bottom"
+                style="width: 98.85pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Date </span></p></td>
+      <td width="321" colspan="3" valign="bottom"
+                style="width: 240.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><i><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 28; mso-yfti-lastrow: yes; height: 18.2pt">
+      <td width="156"  valign="bottom"
+                style="width: 117.0pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Signature </span></p></td>
+      <td width="354" colspan="3" valign="bottom"
+                style="width: 265.65pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><i><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+      <td width="132" colspan="3" valign="bottom"
+                style="width: 98.85pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Signature </span></p></td>
+      <td width="321" colspan="3" valign="bottom"
+                style="width: 240.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: 150%"><i><span
+                style="font-size: 12.0pt; line-height: 150%; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+    </tr>
+    <tr>
+      <td width="156" style="border: none"></td>
+      <td width="78" style="border: none"></td>
+      <td width="136" style="border: none"></td>
+      <td width="141" style="border: none"></td>
+      <td width="73" style="border: none"></td>
+      <td width="47" style="border: none"></td>
+      <td width="12" style="border: none"></td>
+      <td width="120" style="border: none"></td>
+      <td width="102" style="border: none"></td>
+      <td width="98" style="border: none"></td>
+    </tr>
+  </table>
+  <p class="MsoNormal">&nbsp; </p>
+  <p class="MsoNormal" align="center" style="text-align: center"><b><span
+        style="font-size: 12.0pt; line-height: 115%; font-family: Arial, sans-serif; color: #0070C0">Please
+    sign and fax this work order to &lt;Number&gt; </span></b></p>
+  <p class="MsoNormal" align="center" style="text-align: center"><span
+        style="color: #0070C0"> &nbsp; </span></p>
+  <p class="MsoNormal" align="center" style="text-align: center"><span
+        style="color: #0070C0"> &nbsp; </span></p>
+  <p class="MsoNormal" align="center" style="text-align: center"><span
+        style="color: #0070C0"> &nbsp; </span></p>
+  <p class="MsoNormal" align="center" style="text-align: center"><span
+        style="color: #0070C0"> &nbsp; </span></p>
+  <p class="MsoNormal" align="center" style="text-align: center"><span
+        style="color: #0070C0"> &nbsp; </span></p>
+  <p class="MsoNormal" align="center" style="text-align: center"><span
+        style="color: #0070C0"> &nbsp; </span></p>
+  <p class="MsoNormal" align="center" style="text-align: center"><span
+        style="color: #0070C0"> &nbsp; </span></p>
+  <p class="MsoNormal" align="center" style="text-align: center"><span
+        style="color: #0070C0"> &nbsp; </span></p>
+  <p class="MsoNormal" align="center" style="text-align: center"><span
+        style="color: #0070C0"> &nbsp; </span></p>
+  <p class="MsoNormal" style="line-height: normal"><span
+        style="color: #0070C0"><span style="mso-spacerun: yes">       </span></span><b style="mso-bidi-font-weight: normal"><span
+        style="font-size: 28.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: #0070C0">Data
+    Service Agreement</span></b><br></br>
+This Data Agreement (      “Agreement”) is entered into by and between
+    Procure Data, and CLIENT<b>___________. </b>The terms and conditions of
+    this Agreement shall be deemed incorporated by reference into any
+    schedule hereto or order for data referring to this Agreement (each a
+    &quot;Data /Insertion Order&quot;) identifying the target data and such
+    other additional terms and conditions as the parties may agree,
+    including pricing. All Insertion Orders together with this Data Append
+    Agreement shall be collectively known as the &quot;Agreement.&quot;</p>
+  <p class="MsoNormal"
+        style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: justify">Whereas,
+    Procure Data is engaged in the publishing, writing, manufacture,
+    distribution, reselling and licensing of proprietary databases and
+    providing related marketing services, and has the rights to do so, and
+    whereas, CLIENT desires to use such services to add data to its house
+    file on the terms and conditions set forth herein. Now, therefore, in
+    consideration of the premises set forth above and the mutual promises,
+    agreements and conditions stated herein, the parties agree as follows:</p>
+  <p class="MsoNormal"
+        style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: justify">&nbsp; </p>
+  <p class="MsoNormal" style="text-align: justify">1. <b>DESCRIPTION
+    OF SERVICE: </b>Procure Data will provide to CLIENT data records consisting
+    of all of the following data attributes: contact name, contacts title,
+    business name, phone#, fax# (wherever available), email, website
+    address, employees, revenue, SIC code, industry, street, city, state
+    and zip.</p>
+  <p class="MsoNormal" style="text-align: justify">2. <b>DATA
+    DELIVERY AND FORMAT: </b>We will provide data to the client via email
+    (Excel format) or FTP without charging any shipping costs. Data can be
+    provided on a CD or other format at an extra cost along with shipping
+    costs.</p>
+  <p class="MsoNormal" style="text-align: justify">3. <b>INITIAL
+    COMMUNICATION: </b>If the CLIENT desires we will work with CLIENT to
+    develop the email message(s), which will be sent to all email records
+    by our email campaign manager software. We will only send one email
+    message per record. The reply email will be provided to CLIENT. We will
+    also track click-troughs and provide a report at the end of the
+    campaign.</p>
+  <p class="MsoNormal" style="text-align: justify">4. <b>CONFIDENTIALITY: </b>The CLIENT records, the email addresses, the matched records and all
+    other information (collectively, the &quot;Confidential
+    Information&quot;) will remain confidential and will not be resold by
+    Procure Data or used for any other purpose.</p>
+  <p class="MsoNormal" style="text-align: justify">5. <b>PAYMENT: </b>CLIENT
+    will pay us prior to purchase of the list or provision of appending or
+    marketing services</p>
+  <p class="MsoNormal" style="text-align: justify">6. <b>LIMITED
+    LICENSE: </b>Upon purchase you will have a limited license to use the
+    information delivered to you subject to these terms and conditions. You
+    agree not to sell, sublicense, transfer or otherwise make available any
+    portion of the information to anyone outside of your business
+    organization, unless otherwise agreed prior to purchase.</p>
+  <p class="MsoNormal" style="text-align: justify">7. <b>CUSTOMER
+    RESPONSIBILITIES: </b>You agree that it is your responsibility to
+    understand and comply with all federal, state, and local laws, rules,
+    and regulations including do not call and do not fax regulations. You
+    agree to indemnify and hold Procure Data and its subsidiaries harmless
+    against all claims related, in whole or in part, to your failure to
+    comply with such laws, rules, and regulations. For the purpose of
+    resolving any dispute in any way related to your use of the
+    information, or these terms and conditions, the state and federal
+    courts located in New York shall have exclusive jurisdiction. You agree
+    that such courts represent “convenient and appropriate” forums for this
+    purpose.</p>
+  <p class="MsoNormal" style="text-align: justify">8. <b>GUARANTEE: </b>We guarantee that 80+% of the list provided with this agreement will be
+    accurate. The warranty will be limited to provision of additional
+    records. We hereby disclaim all express or implied warranties,
+    including the implied warranties of merchantability, fitness for a
+    particular purpose, correctness, quality, accuracy, completeness or
+    reliability, for any data or service provided hereunder.</p>
+  <p class="MsoNormal" style="text-align: justify">9. <b>EXCLUSIVE
+    LIMITED WARRANTY: </b>Procure Data compiles its databases from various
+    sources and where appropriate verifies the information. Procure Data
+    cannot and does not assume any liability for the correctness or
+    comprehensiveness of the information. You will have 14 days after
+    purchasing the information to inspect and notify Procure Data of any
+    operational problems or material mistakes with regards to the
+    information. If Procure Data is notified of an operational problem or
+    material mistake within 14 days from the date of your purchase then
+    Procure Data will correct the problem or, in its sole discretion,
+    provide additional records if needed relating to the materially
+    mistaken information. This warranty is a limited warranty and Procure
+    Data makes no other warranties, express or implied, including without
+    limitation, any express or implied warranties of merchantability or
+    fitness for a particular purpose. In no event shall Procure Data be
+    liable for lost profits, consequential, incidental, or special damages,
+    or other claims of a similar nature. If this limited warranty should
+    fail of its essential purpose, and in all other cases, Procure Data’
+    entire liability shall be limited to the amount actually received by
+    Procure Data on account of your purchase.</p>
+  <p class="MsoNormal" style="text-align: justify">10. <b>LIMITATION
+    OF LIABILITY: </b>In no event shall Procure Data be liable for direct,
+    indirect, special, exemplary, consequential, incidental, or punitive
+    damage or loss for any claim or cause of action related to or arising
+    out of this Agreement or the services performed hereunder. Our
+    liability at all times will be limited to the purchase price paid by
+    the client minus any delivery expenses incurred by us.</p>
+  <p class="MsoNormal" style="text-align: justify">11. <b>ENTIRE
+    AGREEMENT: </b>This is the entire agreement between the parties and hereby
+    supersedes all other agreements, negotiations, discussions or
+    promotional material related to the subject matter hereof.</p>
+  <table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0"
+        width="963"
+        style="width: 722.05pt; margin-center: -26.1pt; border-collapse: collapse; mso-yfti-tbllook: 1184; mso-padding-alt: 0in 5.4pt 0in 5.4pt">
+    <tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: 18.2pt">
+      <td width="963"  colspan="4" valign="bottom"
+                style="width: 722.05pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #595959; mso-background-themecolor: text1; mso-background-themetint: 166; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><b><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; color: white; mso-themecolor: background1; mso-bidi-font-style: italic">Agreement </span></b></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 1; height: 18.2pt">
+      <td width="510"   colspan="2" valign="bottom"
+                style="width: 382.65pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #D9D9D9; mso-background-themecolor: background1; mso-background-themeshade: 217; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><b><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-style: italic">For
+          Company Name </span></b></p></td>
+      <td width="453" colspan="2" valign="bottom"
+                style="width: 339.4pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; background: #D9D9D9; mso-background-themecolor: background1; mso-background-themeshade: 217; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><b><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-style: italic">For
+          Procure Data </span></b></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 2; height: 18.2pt">
+      <td width="156"   valign="bottom"
+                style="width: 117.0pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Name </span></p></td>
+      <td width="354" valign="bottom"
+                style="width: 265.65pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><i><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+      <td width="132" valign="bottom"
+                style="width: 98.85pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Name </span></p></td>
+      <td width="321" valign="bottom"
+                style="width: 240.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><i><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 3; height: 18.2pt">
+      <td width="156"   valign="bottom"
+                style="width: 117.0pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Title </span></p></td>
+      <td width="354" valign="bottom"
+                style="width: 265.65pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><i><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+      <td width="132" valign="bottom"
+                style="width: 98.85pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Title </span></p></td>
+      <td width="321" valign="bottom"
+                style="width: 240.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><i><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 4; height: 18.2pt">
+      <td width="156"   valign="bottom"
+                style="width: 117.0pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Email </span></p></td>
+      <td width="354" valign="bottom"
+                style="width: 265.65pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><i><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+      <td width="132" valign="bottom"
+                style="width: 98.85pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Email </span></p></td>
+      <td width="321" valign="bottom"
+                style="width: 240.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><i><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 5; height: 18.2pt">
+      <td width="156"   valign="bottom"
+                style="width: 117.0pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Phone </span></p></td>
+      <td width="354" valign="bottom"
+                style="width: 265.65pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><i><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+      <td width="132" valign="bottom"
+                style="width: 98.85pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Phone </span></p></td>
+      <td width="321" valign="bottom"
+                style="width: 240.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><i><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 6; height: 18.2pt">
+      <td width="156"   valign="bottom"
+                style="width: 117.0pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Date </span></p></td>
+      <td width="354" valign="bottom"
+                style="width: 265.65pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><i><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+      <td width="132" valign="bottom"
+                style="width: 98.85pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Date </span></p></td>
+      <td width="321" valign="bottom"
+                style="width: 240.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><i><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+    </tr>
+    <tr style="mso-yfti-irow: 7; mso-yfti-lastrow: yes; height: 18.2pt">
+      <td width="156"   valign="bottom"
+                style="width: 117.0pt; border: solid #4F81BD 1.0pt; mso-border-themecolor: accent1; border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Signature </span></p></td>
+      <td width="354" valign="bottom"
+                style="width: 265.65pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><i><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+      <td width="132" valign="bottom"
+                style="width: 98.85pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold; mso-bidi-font-style: italic">Signature </span></p></td>
+      <td width="321" valign="bottom"
+                style="width: 240.55pt; border-top: none; border-left: none; border-bottom: solid #4F81BD 1.0pt; mso-border-bottom-themecolor: accent1; border-right: solid #4F81BD 1.0pt; mso-border-right-themecolor: accent1; mso-border-top-alt: solid #4F81BD .5pt; mso-border-top-themecolor: accent1; mso-border-left-alt: solid #4F81BD .5pt; mso-border-left-themecolor: accent1; mso-border-alt: solid #4F81BD .5pt; mso-border-themecolor: accent1; padding: 0in 5.4pt 0in 5.4pt; height: 18.2pt"><p class="MsoNormal"
+                style="margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal"><i><span
+                style="font-size: 12.0pt; font-family: Trebuchet MS, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-bidi-font-weight: bold"> &nbsp; </span></i></p></td>
+    </tr>
+  </table>
+  <p class="MsoNormal" align="center"
+        style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal"><b><span
+        style="font-size: 12.0pt; font-family: Arial, sans-serif; color: #0070C0"> &nbsp; </span></b></p>
+  <p class="MsoNormal" align="center" style="text-align: center"><b><span
+        style="font-size: 12.0pt; line-height: 115%; font-family: Arial, sans-serif; color: #0070C0">Please
+    sign and fax this work order to &lt;Number&gt;</span></b></p>
+</div>
+</body>
+</apex:page>

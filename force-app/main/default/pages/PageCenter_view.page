@@ -1,0 +1,81 @@
+<apex:page controller="CenterPageRegion_controller" standardstylesheets="false" showHeader="false" sideBar="false" >
+    <apex:outputPanel styleClass="cmsContentRegion cmsContentRegionCustom cmsPrimary" layout="block" rendered="true">
+        <apex:repeat value="{!blockBeanList}" var="blockBean">
+            <div class="{!blockBean.block.CSSStyle__c} block" Style="width:{!blockBean.block.Width__c};height:{!blockBean.block.Height__c};" id="{!blockBean.block.Module_Name__c}">
+                <apex:outputText value="{!if(blockBean.block.Type__c=='Auto Height Iframe',blockBean.block.Auto_Height_Iframe_Code__c,'')}" escape="false" rendered="{!if(blockBean.block.Type__c=='Auto Height Iframe',true,false)}" id="AutoHeightIframeBlock"/> 
+                <apex:outputText value="{!if(blockBean.block.Type__c=='HTML',blockBean.block.Content__c,'')}"  escape="false" rendered="{!if(blockBean.block.Type__c=='HTML',true,false)}" id="HTMLBlock"/>
+                <apex:outputText value="{!if(blockBean.block.Type__c=='IFRAME',blockBean.block.IFrame_URL__c,'')}" escape="false" rendered="{!if(blockBean.block.Type__c=='IFRAME',true,false)}" id="IFRAMEBlock"/>
+                <apex:outputText value="{!if(blockBean.block.Type__c=='Text',blockBean.block.Content_Text__c,'')}" escape="false" rendered="{!if(blockBean.block.Type__c=='Text',true,false)}" id="TextBlock"/> 
+                
+                <apex:outputPanel id="flashArea" rendered="{!if(blockBean.block.Type__c=='Flash',true,false)}">
+                    <apex:flash src="{!blockBean.block.IFrame_URL__c}" height="{!blockBean.block.Height__c}" width="{!blockBean.block.Width__c}" play="{!blockBean.block.Flash_Play__c}" loop="{!blockBean.block.Flash_Loop__c}" flashvars="{!blockBean.block.FlashVars__c}"/>
+                </apex:outputPanel>
+                
+                <apex:outputPanel styleClass="{!blockBean.menuOverrideClass}" layout="block" id="menuComponent" rendered="{!if(blockBean.menuDisplayType!=null && (blockBean.menuDisplayType=='horizontal' || blockBean.menuDisplayType=='vertical'),true,false)}">
+                <apex:form >
+                <input type="hidden" name="Name" id="Name" value="{!$Label.Ramesh}" />
+                <ul id="{!blockBean.ulId}" class="{!blockBean.menuOverrideClass} {!if(blockBean.menuDisplayType!=null && blockBean.menuDisplayType=='horizontal','mbh','mbv')}">
+                    <apex:repeat value="{!blockBean.cmsMenuBeanList}" var="menuBean">
+                    <li id="{!blockBean.ulId}" class="{!if($CurrentPage.parameters.page==menuBean.parentMenu.Page__r.Name__c,'active','')}">
+                        <apex:outputLink value="{!menuBean.parentMenu.Link__c}" styleClass="{!if($CurrentPage.parameters.page==menuBean.parentMenu.Page__r.Name__c,'active','')}">
+                            <apex:param name="sessionId" value="{!$CurrentPage.parameters.sessionId}" />
+                            <apex:param name="page" value="{!menuBean.parentMenu.Page__r.Name__c}"/>
+                            <apex:param name="jobSite" value="{!$CurrentPage.parameters.jobSite}" />
+                            <apex:param name="p" value="{!$CurrentPage.parameters.p}" />
+                            {!menuBean.parentMenu.Name}
+                        </apex:outputLink>
+                        <apex:outputPanel rendered="{!if(menuBean.isChildMenusExist==true,true,false)}">
+                        <ul>
+                            <apex:repeat value="{!menuBean.childMenuList}" var="childMenu" >
+                                <li>
+                                    <apex:outputLink value="{!childMenu.Link__c}" styleClass="active">
+                                        <apex:param name="sessionId" value="{!$CurrentPage.parameters.sessionId}" />
+                                        <apex:param name="page" value="{!childMenu.Page__r.Name__c}"/>
+                                        <apex:param name="jobSite" value="{!$CurrentPage.parameters.jobSite}" />
+                                        <apex:param name="p" value="{!$CurrentPage.parameters.p}" />
+                                        {!childMenu.Name}
+                                    </apex:outputLink>
+                                </li>
+                            </apex:repeat>
+                        </ul>
+                        </apex:outputPanel>
+                    </li>
+                    </apex:repeat>
+                </ul>
+                </apex:form>
+                </apex:outputPanel>
+                <apex:include pageName="{!moduleName0}" id="moduleName0" rendered="{!if(moduleName0 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName1}" id="moduleName1" rendered="{!if(moduleName1 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName2}" id="moduleName2" rendered="{!if(moduleName2 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName3}" id="moduleName3" rendered="{!if(moduleName3 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName4}" id="moduleName4" rendered="{!if(moduleName4 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName5}" id="moduleName5" rendered="{!if(moduleName5 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName6}" id="moduleName6" rendered="{!if(moduleName6 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName7}" id="moduleName7" rendered="{!if(moduleName7 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName8}" id="moduleName8" rendered="{!if(moduleName8 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                
+                <apex:include pageName="{!moduleName9}" id="moduleName9" rendered="{!if(moduleName9 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName10}" id="moduleName10" rendered="{!if(moduleName10 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName11}" id="moduleName11" rendered="{!if(moduleName11 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName12}" id="moduleName12" rendered="{!if(moduleName12 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName13}" id="moduleName13" rendered="{!if(moduleName13 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName14}" id="moduleName14" rendered="{!if(moduleName14 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName15}" id="moduleName15" rendered="{!if(moduleName15 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName16}" id="moduleName16" rendered="{!if(moduleName16 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName17}" id="moduleName17" rendered="{!if(moduleName17 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName18}" id="moduleName18" rendered="{!if(moduleName18 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName19}" id="moduleName19" rendered="{!if(moduleName19 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName20}" id="moduleName20" rendered="{!if(moduleName20 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName21}" id="moduleName21" rendered="{!if(moduleName21 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName22}" id="moduleName22" rendered="{!if(moduleName22 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName23}" id="moduleName23" rendered="{!if(moduleName23 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName24}" id="moduleName24" rendered="{!if(moduleName24 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName25}" id="moduleName25" rendered="{!if(moduleName25 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName26}" id="moduleName26" rendered="{!if(moduleName26 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName27}" id="moduleName27" rendered="{!if(moduleName27 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName28}" id="moduleName28" rendered="{!if(moduleName28 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+                <apex:include pageName="{!moduleName29}" id="moduleName29" rendered="{!if(moduleName29 == blockBean.includePageName && $CurrentPage.parameters.page==blockBean.block.Page__r.Name__c,true,false)}"/>
+            </div>
+        </apex:repeat>
+    </apex:outputPanel>
+</apex:page>

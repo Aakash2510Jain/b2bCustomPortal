@@ -1,0 +1,21 @@
+<apex:page controller="ClientProfileController" tabstyle="Lead">
+    <apex:form >
+        <apex:pageBlock >
+      <!--<apex:pageBlockButtons location="top" >
+                <apex:commandButton value="Send Email" action="{!Send}" /> 
+                </apex:pageBlockButtons>  -->
+            <apex:pageblockTable value="{!l}" var="A">
+                <apex:column headerValue="Subject" value="{!A.Subject__c}"/>
+                <apex:outputLink value="{!SfInstance}/{!A.Document_ID__c}" id="theLink">View</apex:outputLink>
+                <apex:column headerValue="Document Name">
+                                <a target="_blank" href='{!SfInstance}/servlet/servlet.FileDownload?file={!A.Document_Id__c}' >{!A.Document_Name__c}</a>
+                </apex:column>
+                <apex:column headerValue="Email Sent On">
+                
+                    {!A.CreatedDate}       
+                              </apex:column>
+                              
+            </apex:pageblockTable>
+         </apex:pageBlock>
+    </apex:form>
+</apex:page>

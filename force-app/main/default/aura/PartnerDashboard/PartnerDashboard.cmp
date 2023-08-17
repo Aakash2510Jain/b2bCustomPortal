@@ -1,0 +1,575 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" controller="B2BPartnerPortal_CTRL" >
+    <aura:handler name="init" value="{!this }" action="{!c.doInit }"/> 
+    
+    <ltng:require scripts="{!join(',',$Resource.Highcharts,
+                           $Resource.highchart3d,
+                           $Resource.Highchartsexport
+                           )}" afterScriptsLoaded="{!c.afterScriptsLoaded}"/>
+    
+    <aura:attribute name="vfPiehost" type="string"  default="sales-production--customport--c.sandbox.vf.force.com"/>
+    <aura:attribute name="partnerId" type="string"/>
+    <aura:attribute name="dashboardUrl" type="string"/>
+    <aura:attribute name="TotalAnnualRevenue" type="Decimal" default="0"/>
+    <aura:attribute name="LeadCount" type="Decimal" default="0"/>
+    <aura:attribute name="LeadConversionRatio" type="Decimal" default="0"/>
+    <aura:attribute name="OppChurnRatio" type="Integer" default="0"/>
+    <aura:attribute name="perleadRevenue" type="Decimal" default="0"/>
+    <aura:attribute name="countClashLead" type="Integer" default="0"/>
+    
+    <aura:attribute name="todayListofTask" type="list"/>
+    <aura:attribute name="closedLostOpportunity" type="list"/>
+    <aura:attribute name="UnnderProposalOpportunity" type="list"/>
+    <aura:attribute name="ListofLeads" type="Lead[]"/>
+    <aura:attribute name="OverDueTaskList" type="Task[]"/>
+    <aura:attribute name="opptaskList" type="list"/>
+    <aura:attribute name="OverdurTaskData" type="boolean" default="false"/>
+    <aura:attribute name="datalistAvailable" type="boolean" default="false"/>
+    <aura:attribute name="NodatalistAvailable" type="boolean" default="false"/>
+    <aura:attribute name="NoclasLeadAvailable" type="boolean" default="false"/>
+    <aura:attribute name="NoProposallistAvailable" type="boolean" default="false"/>
+    <aura:attribute name="ProposallistAvailable" type="boolean" default="false"/>
+    <aura:attribute name="NoOpportunitylistAvailable" type="boolean" default="false"/>
+    <aura:attribute name="ClashlistAvailable" type="boolean" default="false"/>
+    <aura:attribute name="NoOverdueTask" type="boolean" default="false"/>
+    <aura:attribute name="OpportunilistAvailable" type="boolean" default="false"/>
+    <aura:attribute name="NolastWeekOpp" type="boolean" default="false"/>
+    <aura:attribute name="hidebargraphLastWeekOpp" type="boolean" default="true"/>
+    <aura:attribute name="NolastWeekPro" type="boolean" default="false"/>
+    <aura:attribute name="hidebargraphLastWeekpro" type="boolean" default="true"/>
+    <aura:attribute name="NoLeadWeek" type="boolean" default="false"/>
+    <aura:attribute name="hideDonutLeadWeek" type="boolean" default="true"/>
+    <aura:attribute name="hideDonutLeadTitle" type="boolean" default="true"/>
+    <aura:attribute name="NoOppNego" type="boolean" default="false"/>
+    <aura:attribute name="NoLeadTitle" type="boolean" default="false"/>
+    <aura:attribute name="NoLeadIndustry" type="boolean" default="false"/>
+    <aura:attribute name="hideDonutOppNego" type="boolean" default="true"/>
+    <aura:attribute name="hideDonutLeadIndustry" type="boolean" default="true"/>
+    <aura:attribute name="hideDonutLeadEmployee" type="boolean" default="true"/>
+    <aura:attribute name="hideDonutLeadRating" type="boolean" default="true"/>
+    <aura:attribute name="NoLeadCount" type="boolean" default="false"/>
+    <aura:attribute name="NoLeadEmployee" type="boolean" default="false"/>
+    <aura:attribute name="NoLeadRating" type="boolean" default="false"/>
+    <aura:attribute name="NoLeadCountry" type="boolean" default="false"/>
+    <aura:attribute name="hideDonutLeadCount" type="boolean" default="true"/>
+    <aura:attribute name="hideDonutLeadUNqualified" type="boolean" default="true"/>
+    <aura:attribute name="NoAccountCount" type="boolean" default="false"/>
+    <aura:attribute name="NoLeadUnqualified" type="boolean" default="false"/>
+    <aura:attribute name="hideDonutAccountCon" type="boolean" default="true"/>
+    <aura:attribute name="hideIndustryqualiqualified" type="boolean" default="true"/>
+    <aura:attribute name="NoLeadindustryLead" type="boolean" default="false"/> 
+    <aura:attribute name="showDopdownMenu" type="boolean" default="false"/> 
+    <aura:attribute name="showCalendarButton" type="boolean" default="true"/> 
+    <aura:attribute name="hideDonutLeadCountry" type="boolean" default="true"/> 
+    <aura:attribute name="showdropdown" type="boolean" default="false"/>
+    <aura:attribute name="isDateError" type="boolean" default="false"/>
+    <aura:attribute name="showSpinner" type="boolean" default="false" />
+    <!-- ================================ For HighchartLibrary ============================================ -->
+    
+    <aura:attribute name="chartType" type="string"/>
+    <aura:attribute name="chartTitle" type="string" default="Opportunity by StageName"/>
+    <aura:attribute name="chartSubTitle" type="string" default="Display Opportunity Count by StageName"/>
+    <aura:attribute name="xAxisCategories" type="string[]" default="['Qualification','Negotiation/Review','Closed Won','Id. Decision Makers','Proposal/Price Quote','Proposition','Prospecting','Perception Analysis','Needs Analysis']"/>
+    <aura:attribute name="yAxisParameter" type="string" default="No. of Opportunity"/>
+    <aura:attribute name="data" type="string"/>
+    
+    <!-- ================================ For UserBar ============================================ -->
+    <aura:attribute name="userRecord" type="User_Portal__c"/>
+    <aura:attribute name="showdate" type="string"/>
+    <aura:attribute name="startDate" type="date"/>
+    <aura:attribute name="endDate" type="date"/>
+    
+    <div class="scrollable-container1" >
+        <div class=" scrollable-content1">  
+            
+            
+            <lightning:layout> 
+                <lightning:layoutItem class="e" size="12" padding="around-large" >
+                    <div class="slds-grid   NameBar slds-m-horizontal_medium " >
+                        <div class="slds-grid   slds-size_10-of-12 slds-p-horizontal_small ">
+                            <div class="slds-col slds-size_6-of-12 " style=" font-size:20px;width:60%;color:white;">
+                                <h2><b>Welcome &nbsp;{!v.userRecord.First_Name__c}&nbsp;{!v.userRecord.Last_Name__c}</b>&nbsp;</h2> 
+                                <h5>Your Dashboard has some updates</h5> 
+                            </div>
+                            <div class="slds-col slds-size_4-of-12 container  slds-align_absolute-right  " style="width:42%;color:white;float:right;margin-left:200px; ">
+                                    <div class="  slds-m-left_x-large " aura:id="box1"> 
+                                        <b class="slds-m-left_xx-larg"> {!v.showdate}</b> <br/><br/> 
+                                        <aura:if isTrue="{!v.showCalendarButton}">
+                                            
+                                        <p><b>Filter By Dates</b>&nbsp;&nbsp;<img  src="{!$Resource.CalendarIcon}" title="Show Calendar" class="slds-align_absolute-right"  style="width:15px; height:15px; font-weight: bold; position:relative; left:0rem;  " onclick="{!c.showDopdownMenu}"></img> </p> 
+                                        </aura:if>
+                                    </div> 
+                            </div>
+                            <!--div class="slds-col slds-size_2-of-12  " style="width:42%;color:white;margin-top:32px;">
+                               
+                        </div-->
+                        </div>
+                        <br/>
+                       
+                        <br/>
+                        <br/>
+                    </div> 
+                </lightning:layoutItem>
+                <aura:if isTrue="{!v.showdropdown}">
+                    <div  class="" style="position:relative;z-index:3; top:7rem; left:-40%;align-self: flex-end;">
+                        <lightning:card class = "card1 DateDiv">
+                            <div class="slds-grid slds-p-horizontal_x-small ">
+                                <div class="slds-col slds-p-right_xx-small " style="width:10%;">
+                                    <p>Start Date</p>
+                                    <lightning:input  class = "startDate" onchange = "{!c.validateStartDate}" style="color:black;"  type="Date"   aura:id="StartDateField"  value="{!v.startDate}" displayDatePicker="true" format="MM/dd/yyyy" placeholder="MM/dd/yyyy"  />
+                                	<p aura:id="startDateErrorMsg" class="errorMessagInactive">Please select valid start date</p>
+                                </div>
+                                <div class="slds-col slds-p-right_xx-small " style="width:10%;">
+                                    <p>End Date</p>
+                                    <lightning:input class = "endDate" onchange = "{!c.validateEndDate}" style="color:black;"  type="Date"  aura:id="EndDateField"  value="{!v.endDate}" displayDatePicker="true" format="MM/dd/yyyy" placeholder="MM/dd/yyyy"/>
+                                	<p aura:id="endDateErrorMsg" class="errorMessagInactive">Please select valid end date</p>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-text-align_center">
+                                <lightning:button variant="neutral" class="custom-button1 " label="Apply Filter" title="filter"   onclick="{!c.getNewRecords}" disabled = "{!v.isDateError}"/>
+                            </div>
+                            
+                        </lightning:card>
+                    </div>
+                </aura:if>
+                
+            </lightning:layout>
+        <lightning:layout> 
+            <lightning:layoutItem class="e" size="12" padding="around-large" >
+                <div class="slds-grid slds-gutters slds-size_12-of-10 slds-m-left_medium  slds-m-horizontal_large" >
+                    <div class="slds-col  slds-size_2-of-12   "  style="background-color:#A0D6B4 ;padding:25px; text-align:center;border-radius: 10px;margin-rigth:10px;  box-shadow: 5px 8px #b6b4b8;">
+                        <b>Revenue</b>  
+                        <div class=" slds-align_absolute-center"  style="background-color:#4E8975;padding:10px;  color:white; text-align:center; border-radius: 5px; height:10%;width:50%; margin-top:25px;  float:center;">&#8377;{!v.TotalAnnualRevenue}</div>
+                    </div>
+                    <div class=" slds-size_2-of-12 slds-col slds-m-horizontal_xxx-small  slds-m-right_xx-small "  style="background-color:#CFECEC ;padding:25px; text-align:center;border-radius: 10px;  box-shadow: 5px 8px #b6b4b8;">
+                        <b>Leads</b> 
+                        <div class="slds-align_absolute-center"  style="background-color:#736AFF; padding:10px;  color:white; text-align:center; border-radius: 5px; height:10%;width:50%; margin-top:25px;  float:center;">{!v.LeadCount}</div>
+                    </div>
+                    <div class=" slds-size_2-of-12 slds-col slds-m-horizontal_xxx-small slds-m-right_xx-small"  style="background-color:#BDEDFF ;padding:25px; text-align:center;border-radius: 10px; box-shadow: 5px 8px #b6b4b8;">
+                        <b>Deals</b> 
+                        <div class="slds-align_absolute-center"  style="background-color:#1589FF;padding:10px;  color:white; text-align:center; border-radius: 5px; height:10%;width:50%; margin-top:25px;  float:center;">{!v.OppChurnRatio}</div>
+                    </div>
+                    <div class=" slds-size_2-of-12 slds-col slds-m-horizontal_xxx-small slds-m-right_xx-small "  style="background-color:#CCCCFF	 ;padding:25px; text-align:center;border-radius: 10px;  box-shadow: 5px 8px #b6b4b8;">
+                        <b>Conversion</b>
+                        <div class="slds-align_absolute-center"  style="background-color:#5865F2;padding:10px;  color:white; text-align:center; border-radius: 5px; height:10%;width:50%; margin-top:25px;  float:center;">{!v.LeadConversionRatio}%</div>
+                    </div>
+                    <div class=" slds-size_2-of-12 slds-col  slds-m-horizontal_xxx-small slds-m-right_xx-small  "  style="background-color:#90b5c3	 ;padding:25px; text-align:center;border-radius: 10px;  box-shadow: 5px 8px #b6b4b8;">
+                        <b>Revenue/Lead </b>
+                        <div class="slds-align_absolute-center"  style="background-color:#5865F2;padding:10px;  color:white; text-align:center; border-radius: 5px; height:10%;width:50%; margin-top:25px;  float:center;">&#8377;{!v.perleadRevenue}</div>
+                    </div>
+                    <div class="slds-col slds-size_2-of-12  "  style="background-color:#95a2e0	 ;padding:25px; text-align:center;border-radius: 10px;  box-shadow: 5px 8px #b6b4b8;">
+                        <b> Clash Leads</b>
+                        <div class="slds-align_absolute-center"  style="background-color:#5865F2;padding:10px;  color:white; text-align:center; border-radius: 5px; height:10%;width:50%; margin-top:25px;  float:center;">{!v.countClashLead}</div>
+                    </div>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+        
+        <lightning:layout>
+                <lightning:layoutItem class="e" size="12" padding="around-large" >
+                    <div class="slds-grid slds-gutters  slds-size_12-of-12  slds-p-horizontal_xx-large " >
+                        <div class="slds-col  slds-m-right_xx-large   slds-size_4-of-12"  style="background-color: #ffffff ;padding:25px; text-align:center;border-radius: 10px;margin-left:-15px;  box-shadow: 5px 8px #b6b4b8;">
+                            <b>Today's Task</b>
+                            <div class=" scrollable-container slds-p-right_x-large" >
+                                <aura:if isTrue="{!v.NoclasLeadAvailable}">
+                                    <img src="{!$Resource.NoTaskImage}" style="width:80%;height:80%;"/>
+                                </aura:if>
+                                <div class=" scrollable-content">
+                                    <aura:if isTrue="{!v.datalistAvailable}">
+                                        <aura:iteration items="{!v.todayListofTask}" var="item"> 
+                                            <div class="slds-align_absolute-left"  style="background-color:#d8c6f5; padding:10px;  color:black; text-align:left; border-radius: 5px; height:100%;width:100%; margin-top:5px;  float:center;">
+                                                Lead : {!item.leadName}     <br/>
+                                                Subject : {!item.Subject}  <br/>
+                                                Date :<lightning:formattedDateTime value="{!item.CreatedDate}" timeZone="UTC"  disabled="true"/>  Time:  {!item.datetime} <br/>
+                                            </div> <br/>
+                                        </aura:iteration> 
+                                    </aura:if> 
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="slds-size_4-of-12 "  style="background-color:#ffffff ;padding:25px; text-align:center;border-radius: 10px;margin-left: -1%;  box-shadow: 5px 8px #b6b4b8;">
+                            <b>Proposal Reminders</b>
+                            <div class=" scrollable-container">
+                                <aura:if isTrue="{!v.NoProposallistAvailable}">
+                                    <img src="{!$Resource.NoTaskImage}" style="width:80%;height:80%;" />
+                                </aura:if>
+                                <div class=" scrollable-content">
+                                    <aura:if isTrue="{!v.ProposallistAvailable}">
+                                        <aura:iteration items="{!v.UnnderProposalOpportunity}" var="opp">
+                                            <div class="slds-align_absolute-left"  style="background-color:#c6daf5;padding:10px;  color:black; text-align:left; border-radius: 5px; height:100%;width:100%; margin-top:5px;  float:center;">
+                                                Account : {!opp.accname}<br/>
+                                                Subject : {!opp.taskRec.Subject}  <br/>
+                                                Date :  Time:12:00 PM<br/>
+                                            </div><br/>
+                                        </aura:iteration>
+                                    </aura:if>
+                                </div> 
+                            </div>               
+                        </div>
+                        <div class="slds-col slds-m-right_xx-large slds-m-left_x-large slds-size_4-of-12"  style="background-color:#ffffff ;padding:25px; text-align:center;border-radius: 10px; box-shadow: 5px 8px #b6b4b8; ">
+                            <b>Deals To Be Retargeted</b>
+                            <div class=" scrollable-container">
+                                <aura:if isTrue="{!v.NoOpportunitylistAvailable}">
+                                    <img src="{!$Resource.NoTaskImage}" style="width:80%;height:80%;" />
+                                </aura:if>
+                                <div class=" scrollable-content"  >
+                                    <aura:if isTrue="{!v.OpportunilistAvailable}">
+                                        <aura:iteration items="{!v.closedLostOpportunity}" var="opp">
+                                            <div class="slds-align_absolute-left"  style="background-color:#BDEDFF;padding:10px;  color:black; text-align:left; border-radius: 5px; height:auto;width:auto; margin-top:5px;  float:center;">
+                                                Account : {!opp.Account.Name}      <br/>
+                                                Reason :  Negotiation Call  <br/>
+                                                Date :{!opp.CloseDate} <br/>
+                                            </div><br/>
+                                        </aura:iteration>
+                                    </aura:if>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    
+                </lightning:layoutItem>
+            </lightning:layout> 
+            <lightning:layout>
+                <lightning:layoutItem class="e" size="12" padding="around-large" >
+                    <div class="slds-grid slds-gutters  slds-size_12-of-12  slds-p-horizontal_xx-large " >
+                        <div class="slds-col  slds-m-right_xx-large   slds-size_4-of-12"  style="background-color: #ffffff ;padding:25px; text-align:center;border-radius: 10px;margin-left:-15px;  box-shadow: 5px 8px #b6b4b8;">
+                            <b>Clash Leads</b>
+                            <div class=" scrollable-container slds-p-right_x-large" >
+                                <aura:if isTrue="{!v.NodatalistAvailable}">
+                                    <img src="{!$Resource.NoTaskImage}" style="width:80%;height:80%;"/>
+                            </aura:if>
+                            <div class=" scrollable-content">
+                                <aura:if isTrue="{!v.ClashlistAvailable}">
+                                    <aura:iteration items="{!v.ListofLeads}" var="lead"> 
+                                        <div class="slds-align_absolute-left"  style="background-color:#d8c6f5; padding:10px;  color:black; text-align:left; border-radius: 5px; height:100%;width:100%; margin-top:5px;  float:center;">
+                                            Lead : {!lead.FirstName}  &nbsp; {!lead.LastName}&nbsp; <br/>  <b>Clash Count:{!lead.Clash_Leads__r.length}  </b>   <br/>
+                                            Company : {!lead.Company} <br/>
+                                            Industry : {!lead.Industry}
+                                            
+                                            
+                                        </div> <br/>
+                                    </aura:iteration> 
+                                </aura:if> 
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="slds-size_4-of-12 "  style="background-color:#ffffff ;padding:25px; text-align:center;border-radius: 10px;margin-left: -1%;  box-shadow: 5px 8px #b6b4b8;">
+                            <b>Over Due Task</b>
+                            <div class=" scrollable-container">
+                                <aura:if isTrue="{!v.NoOverdueTask}">
+                                    <img src="{!$Resource.NoTaskImage}" style="width:80%;height:80%;" />
+                                </aura:if>
+                                <div class=" scrollable-content">
+                                    <aura:if isTrue="{!v.OverdurTaskData}">
+                                        <aura:iteration items="{!v.OverDueTaskList}" var="task">
+                                            <div class="slds-align_absolute-left"  style="background-color:#c6daf5;padding:10px;  color:black; text-align:left; border-radius: 5px; height:100%;width:100%; margin-top:5px;  float:center;">
+                                                Lead : {!task.leadName}<br/>
+                                                Subject : {!task.Subject}  <br/>
+                                                Date : <lightning:formattedDateTime value="{!task.createdDate}" timeZone="UTC"  disabled="true"/>  Time:{!task.datetime}<br/>
+                                            </div><br/>
+                                        </aura:iteration>
+                                    </aura:if>
+                                </div> 
+                            </div>               
+                        </div>
+                        <div class="slds-col slds-m-right_xx-large slds-m-left_x-large slds-size_4-of-12"  style="background-color:#ffffff ;padding:25px; text-align:center;border-radius: 10px; box-shadow: 5px 8px #b6b4b8; ">
+                            <b>Deals To Be Retargeted</b>
+                            <div class=" scrollable-container">
+                                <aura:if isTrue="{!v.NoOpportunitylistAvailable}">
+                                    <img src="{!$Resource.NoTaskImage}" style="width:80%;height:80%;" />
+                                </aura:if>
+                                <div class=" scrollable-content"  >
+                                    <aura:if isTrue="{!v.OpportunilistAvailable}">
+                                        <aura:iteration items="{!v.closedLostOpportunity}" var="opp">
+                                            <div class="slds-align_absolute-left"  style="background-color:#BDEDFF;padding:10px;  color:black; text-align:left; border-radius: 5px; height:auto;width:auto; margin-top:5px;  float:center;">
+                                                Account : {!opp.Account.Name}      <br/>
+                                                Reason :  Negotiation Call  <br/>
+                                                Date :{!opp.CloseDate} <br/>
+                                            </div><br/>
+                                        </aura:iteration>
+                                    </aura:if>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </lightning:layoutItem>
+                    </lightning:layout>
+            <lightning:layout multipleRows="True">
+                
+                <lightning:layoutItem  size="6" padding="around-x-large" >
+                    <aura:if isTrue="{!v.hideDonutLeadWeek}">
+                        <div   class="slds-p-around_large slds-m-left_medium" aura:id="LeadCountdonutchart" style="height: 400px; border-radius: 50px;">
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.NoLeadWeek}">
+                        <div class="slds-p-around_large slds-m-left_medium"   style="height: 400px;border: transparent;">
+                            <div class="slds-text-align_center slds-p-top_x-small" style="background-color:white; float:center;"><b>Lead Stage</b></div>
+                            <img src="{!$Resource.NoBarDataImage}" style="width:100%;height:100%; background-color:white"/>
+                        </div>
+                    </aura:if>
+                    
+                </lightning:layoutItem>
+                
+                <lightning:layoutItem class="e" size="6" padding="around-x-large" >
+                    <aura:if isTrue="{!v.hideDonutOppNego}">
+                        <div   class="slds-p-around_large slds-m-right_medium" aura:id="OppByStagedonutchart" style="height: 400px; border-radius: 50px; border: transparent;"></div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.NoOppNego}">
+                        <div class="slds-p-around_large slds-m-left_medium"   style="height: 400px;border: transparent;">
+                            <div class="slds-text-align_center  slds-p-top_x-small" style="background-color:white; float:center;"><b>Opportunity Stage</b></div>  
+                            <img src="{!$Resource.NoBarDataImage}" style="width:100%;height:100%; background-color:white"/>
+                        </div>
+                    </aura:if>
+                </lightning:layoutItem>
+                
+                <lightning:layoutItem class="e" size="6" padding="around-x-large" >
+                    <aura:if isTrue="{!v.hideDonutLeadIndustry}">
+                        <div   class="slds-p-around_large slds-m-right_medium" aura:id="LeadinustryCountdonutchart" style="height: 400px; border-radius: 50px; border: transparent;"></div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.NoLeadIndustry}">
+                        <div class="slds-p-around_large slds-m-left_medium"   style="height: 400px;border: transparent;">
+                            <div class="slds-text-align_center  slds-p-top_x-small" style="background-color:white; float:center;"><b>Industry Wise Leads</b></div>  
+                            <img src="{!$Resource.NoBarDataImage}" style="width:100%;height:100%; background-color:white"/>
+                        </div>
+                    </aura:if>
+                </lightning:layoutItem>
+                 
+                <lightning:layoutItem class="e" size="6" padding="around-x-large" >
+                    <aura:if isTrue="{!v.hideDonutLeadTitle}">
+                        <div   class="slds-p-around_large slds-m-right_medium" aura:id="LeadTitleCountdonutchart" style="height: 400px; border-radius: 50px; border: transparent;"></div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.NoLeadTitle}">
+                        <div class="slds-p-around_large slds-m-left_medium"   style="height: 400px;border: transparent;">
+                            <div class="slds-text-align_center  slds-p-top_x-small" style="background-color:white; float:center;"><b>Title Wise Leads</b></div>  
+                            <img src="{!$Resource.NoBarDataImage}" style="width:100%;height:100%; background-color:white"/>
+                        </div>
+                    </aura:if>
+                </lightning:layoutItem>
+                
+
+
+                <lightning:layoutItem class="e" size="6" padding="around-x-large" >
+                    <aura:if isTrue="{!v.hideDonutLeadEmployee}">
+                        <div   class="slds-p-around_large slds-m-right_medium" aura:id="LeadEmployeeountdonutchart" style="height: 400px; border-radius: 50px; border: transparent;"></div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.NoLeadEmployee}">
+                        <div class="slds-p-around_large slds-m-left_medium"   style="height: 400px;border: transparent;">
+                            <div class="slds-text-align_center  slds-p-top_x-small" style="background-color:white; float:center;"><b>Employee Wise Leads</b></div>  
+                            <img src="{!$Resource.NoBarDataImage}" style="width:100%;height:100%; background-color:white"/>
+                        </div>
+                    </aura:if>
+                </lightning:layoutItem>  
+
+
+                <lightning:layoutItem class="e" size="6" padding="around-x-large" >
+                    <aura:if isTrue="{!v.hideDonutLeadCountry}">
+                        <div   class="slds-p-around_large slds-m-right_medium" aura:id="LeadCountryDuntdonutchart" style="height: 400px; border-radius: 50px; border: transparent;"></div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.NoLeadCountry}">
+                        <div class="slds-p-around_large slds-m-left_medium"   style="height: 400px;border: transparent;">
+                            <div class="slds-text-align_center  slds-p-top_x-small" style="background-color:white; float:center;"><b>Country Wise Leads</b></div>  
+                            <img src="{!$Resource.NoBarDataImage}" style="width:100%;height:100%; background-color:white"/>
+                        </div>
+                    </aura:if>
+                </lightning:layoutItem>
+                
+                <lightning:layoutItem class="e" size="6" padding="around-x-large" >
+                    <aura:if isTrue="{!v.hideDonutLeadRating}">
+                        <div   class="slds-p-around_large slds-m-right_medium" aura:id="LeadRatingDuntdonutchart" style="height: 400px; border-radius: 50px; border: transparent;"></div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.NoLeadRating}">
+                        <div class="slds-p-around_large slds-m-left_medium"   style="height: 400px;border: transparent;">
+                            <div class="slds-text-align_center  slds-p-top_x-small" style="background-color:white; float:center;"><b>Rating Wise Leads</b></div>  
+                            <img src="{!$Resource.NoBarDataImage}" style="width:100%;height:100%; background-color:white"/>
+                        </div>
+                    </aura:if>
+                </lightning:layoutItem>
+                
+
+                <lightning:layoutItem class="e" size="6" padding="around-x-large" >
+                    <aura:if isTrue="{!v.hideDonutLeadUNqualified}">
+                        <div   class="slds-p-around_large slds-m-right_medium" aura:id="LeadUnqualifiedDuntdonutchart" style="height: 400px; border-radius: 50px; border: transparent;"></div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.NoLeadUnqualified}">
+                        <div class="slds-p-around_large slds-m-left_medium"   style="height: 400px;border: transparent;">
+                            <div class="slds-text-align_center  slds-p-top_x-small" style="background-color:white; float:center;"><b> Unqualified Leads</b></div>  
+                            <img src="{!$Resource.NoBarDataImage}" style="width:100%;height:100%; background-color:white"/>
+                        </div>
+                    </aura:if>
+                </lightning:layoutItem>
+
+                
+                <lightning:layoutItem class="e" size="6" padding="around-x-large" >
+                    <aura:if isTrue="{!v.hideIndustryqualiqualified}">
+                        <div   class="slds-p-around_large slds-m-right_medium" aura:id="LeadIndustryDuntdonutchart" style="height: 400px; border-radius: 50px; border: transparent;"></div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.NoLeadindustryLead}">
+                        <div class="slds-p-around_large slds-m-left_medium"   style="height: 400px;border: transparent;">
+                            <div class="slds-text-align_center  slds-p-top_x-small" style="background-color:white; float:center;"><b>Most Industry Converted Lead</b></div>  
+                            <img src="{!$Resource.NoBarDataImage}" style="width:100%;height:100%; background-color:white"/>
+                        </div>
+                    </aura:if>
+                </lightning:layoutItem>
+                
+ 
+            </lightning:layout> 
+
+            <aura:if isTrue="{!v.showSpinner}">
+                <div class="demo-only" style="height:6rem">
+                    <div class="slds-spinner_container">
+                        <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                            <span class="slds-assistive-text">Loading</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </div>    
+            </aura:if>
+
+
+
+            <!-- new Dashboard -->    
+            <!--  <div class="slds-grid slds-grid_vertical" style="height:200px">
+                <div class="slds-col">
+                    <span>
+                        <div class="slds-grid   NameBar slds-m-horizontal_medium " style="  ">
+                            <div class="slds-grid slds-gutters slds-size_12-of-12 slds-p-horizontal_large  ">
+                                <div class="slds-col slds-size_8-of-12 " style=" font-size:20px;width:60%;color:white;">
+                                    <h2><b>Welcome &nbsp;{!v.userRecord.First_Name__c}&nbsp;{!v.userRecord.Last_Name__c}</b>&nbsp;!</h2> 
+                                    Your Dashboard has some updates
+                                </div>
+                                <div class="slds-col slds-size_4-of-12 slds-text-align_right" style="width:40%;color:white;margin-top:35px;">
+                                    {!v.showdate}  
+                                </div>
+                            </div>
+                        </div> 
+                    </span>
+                </div>
+                <div class="slds-col">
+                    <span>
+                        <div class="slds-grid slds-gutters slds-size_12-of-12  slds-m-left_medium" >
+                            <div class="slds-col  slds-m-right_xx-large  "  style="background-color:#A0D6B4 ;padding:25px; text-align:center;border-radius: 10px;margin-rigth:10px;">
+                                <b>Annual Return<br/> on Revenue</b>  
+                                <div class="slds-align_absolute-center"  style="background-color:#4E8975;padding:10px;  color:white; text-align:center; border-radius: 5px; height:10%;width:50%; margin-top:5px;  float:center;">&#8377;{!v.TotalAnnualRevenue}</div>
+                            </div>
+                            <div class="slds-col slds-m-right_x-large slds-m-left_x-large"  style="background-color:#CFECEC ;padding:25px; text-align:center;border-radius: 10px;">
+                                <b>Monthly Return<br/> on Revenue</b> 
+                                <div class="slds-align_absolute-center"  style="background-color:#736AFF; padding:10px;  color:white; text-align:center; border-radius: 5px; height:10%;width:50%; margin-top:5px;  float:center;">&#8377;{!v.LastMonthRevenue}</div>
+                            </div>
+                            <div class="slds-col slds-m-right_x-large slds-m-left_x-large"  style="background-color:#BDEDFF ;padding:25px; text-align:center;border-radius: 10px;">
+                                <b>Monthly Lead<br/> Conversion Ratio</b> 
+                                <div class="slds-align_absolute-center"  style="background-color:#1589FF;padding:10px;  color:white; text-align:center; border-radius: 5px; height:10%;width:50%; margin-top:5px;  float:center;">{!v.LeadConversionRatio}%</div>
+                            </div>
+                            <div class="slds-col slds-m-right_x-large slds-m-left_xx-large"  style="background-color:#CCCCFF	 ;padding:25px; text-align:center;border-radius: 10px;">
+                                <b>Monthly Churn<br/> Ratio</b>
+                                <div class="slds-align_absolute-center"  style="background-color:#5865F2;padding:10px;  color:white; text-align:center; border-radius: 5px; height:10%;width:50%; margin-top:5px;  float:center;">{!v.OppChurnRatio}%</div>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-col">
+                    <span>
+                        <div class="slds-grid slds-gutters slds-m-left_x-large" >
+                            <div class="slds-col  slds-m-right_xx-large slds-p-right_xx-large"  style="background-color: #ffffff ;padding:25px; text-align:center;border-radius: 10px;margin-left:-15px;">
+                                <b>Today's Task</b>
+                                <div class=" scrollable-container slds-p-right_x-large" >
+                                    <aura:if isTrue="{!v.NodatalistAvailable}">
+                                        <img src="{!$Resource.NoTaskImage}" style="width:80%;height:80%;"/>
+                                    </aura:if>
+                                    <div class=" scrollable-content">
+                                        <aura:if isTrue="{!v.datalistAvailable}">
+                                            <aura:iteration items="{!v.todayListofTask}" var="item"> 
+                                                <div class="slds-align_absolute-left"  style="background-color:#d8c6f5; padding:10px;  color:black; text-align:left; border-radius: 5px; height:100%;width:100%; margin-top:5px;  float:center;">
+                                                    Lead : {!item.Who.Name}     <br/>
+                                                    Subject : {!item.Subject}  <br/>
+                                                    Date : {!item.ActivityDate}  Time:12:00 PM <br/>
+                                                </div> <br/>
+                                            </aura:iteration> 
+                                        </aura:if> 
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="slds-col slds-m-right_x-large slds-m-left_x-large"  style="background-color:#ffffff ;padding:25px; text-align:center;border-radius: 10px;">
+                                <b>Proposal Reminders</b>
+                                <div class=" scrollable-container">
+                                    <aura:if isTrue="{!v.NoProposallistAvailable}">
+                                        <img src="{!$Resource.NoTaskImage}" style="width:80%;height:80%;" />
+                                    </aura:if>
+                                    <div class=" scrollable-content">
+                                        <aura:if isTrue="{!v.ProposallistAvailable}">
+                                            <aura:iteration items="{!v.UnnderProposalOpportunity}" var="opp">
+                                                <div class="slds-align_absolute-left"  style="background-color:#c6daf5;padding:10px;  color:black; text-align:left; border-radius: 5px; height:100%;width:100%; margin-top:5px;  float:center;">
+                                                    Account : {!opp.accname}<br/>
+                                                    
+                                                    Subject : {!opp.taskRec.Subject}  <br/>
+                                                    
+                                                    Date :  Time:12:00 PM<br/>
+                                                </div><br/>
+                                            </aura:iteration>
+                                        </aura:if>
+                                    </div> 
+                                </div>               
+                            </div>
+                            <div class="slds-col slds-m-right_x-large slds-m-left_x-large"  style="background-color:#ffffff ;padding:25px; text-align:center;border-radius: 10px;">
+                                <b>Deals To Be Retargeted</b>
+                                <div class=" scrollable-container">
+                                    <aura:if isTrue="{!v.NoOpportunitylistAvailable}">
+                                        <img src="{!$Resource.NoTaskImage}" style="width:80%;height:80%;" />
+                                    </aura:if>
+                                    <div class=" scrollable-content"  >
+                                        <aura:if isTrue="{!v.OpportunilistAvailable}">
+                                            <aura:iteration items="{!v.closedLostOpportunity}" var="opp">
+                                                <div class="slds-align_absolute-left"  style="background-color:#BDEDFF;padding:10px;  color:black; text-align:left; border-radius: 5px; height:auto;width:auto; margin-top:5px;  float:center;">
+                                                    Account : {!opp.Account.Name}      <br/>
+                                                    Reason :  Negotiation Call  <br/>
+                                                    Date :{!opp.CloseDate} <br/>
+                                                </div><br/>
+                                            </aura:iteration>
+                                        </aura:if>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-col">
+                    <span>
+                        <lightning:layout multipleRows="True">
+                <lightning:layoutItem  size="6" padding="around-x-large" >
+                    <div   class="slds-p-around_large slds-m-left_medium" aura:id="LeadCountdonutchart" style="height: 400px; border-radius: 50px; ">
+                    </div>
+                </lightning:layoutItem>
+                <lightning:layoutItem class="e" size="6" padding="around-x-large" >
+                    <div   class="slds-p-around_large slds-m-right_medium" aura:id="OppByStagedonutchart" style="height: 400px; border-radius: 50px; border: transparent;"></div>
+                    
+                </lightning:layoutItem>
+                <lightning:layoutItem class="e" size="6" padding="around-x-large" >
+                    <div class="slds-p-around_large slds-m-left_medium" aura:id="LastWeekOppCountBarChart" style="height: 400px;border-radius: 50px;border: transparent;"></div>
+                    
+                </lightning:layoutItem>
+                <lightning:layoutItem class="e" size="6" padding="around-x-large" >
+                    <div  class="slds-p-around_large slds-m-right_medium" aura:id="LastWeekProCountBarChart" style="height: 400px; border-radius: 10px;border: transparent;"></div>
+                </lightning:layoutItem> 	
+                <lightning:layoutItem class="e" size="6" padding="around-x-large" >
+                    <div   class="slds-p-around_large slds-m-left_medium" aura:id="LeadByCountdonutchart" style="height: 400px; border-radius: 10px;"></div>
+                    
+                </lightning:layoutItem>
+                <lightning:layoutItem class="e" size="6" padding="around-x-large" >
+                    <div  class="slds-p-around_large  slds-m-right_medium" aura:id="AccConvertedByStatedonutchart" style="height: 400px; border-radius: 10px;"></div>
+                    
+                </lightning:layoutItem>  
+            </lightning:layout>
+                        
+                    </span>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</aura:component>

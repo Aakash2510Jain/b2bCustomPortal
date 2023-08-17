@@ -1,0 +1,18 @@
+<apex:page showHeader="false" sidebar="false"  >
+    <apex:includeLightning /> 
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    <div id="LightningComponentid" />    
+    <script>
+    debugger;
+    $Lightning.use("c:PartnerWelcomeCmpApp", function() {
+        $Lightning.createComponent("c:PartnerWelcomeCmp",
+          { recordId: '{!$CurrentPage.parameters.id}',
+          hashcode : '{!$CurrentPage.parameters.hashcode}'
+          },
+          "LightningComponentid",
+          function(cmp) {
+             console.log('LWC Componenet added in VF page');
+          });
+    });
+    </script>
+</apex:page>

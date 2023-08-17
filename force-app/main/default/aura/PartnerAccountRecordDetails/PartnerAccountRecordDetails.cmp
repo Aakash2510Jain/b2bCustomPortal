@@ -1,0 +1,162 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    
+    <aura:handler name="init" value="{!this }" action="{!c.doinit }"/>
+    <aura:attribute name="AccountDetailPage" type="boolean" />
+    <aura:attribute name="SelectedAccountRec" type="Account" />
+    <aura:html tag="style">
+        .slds-modal__container { 
+        width : 60%  max-width : 80% !important; 
+        },
+        
+        .headerTop{
+        background-color: #CCCAFF !important;
+        }
+    </aura:html>
+    <div class="slds-grid slds-gutters headerTop slds-align_absolute-center slds-p-top_medium" style="Width:100%;margin-left:2px;height:15%;margin-top:1%;">
+        <div class="slds-col slds-size_1-of-1" >
+            <span>
+                <div class="j">
+                    <div class="left" style="float:left;margin-top: -8px; margin-left:5px;">
+                        <h3 style="font-size:1rem"><b>{!v.SelectedAccountRec.Name}</b></h3>
+                        <p><b>Partner No:&nbsp;&nbsp;</b>{!v.SelectedAccountRec.Partner__r.Name}</p>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    
+    <div class="slds-p-bottom_larg">
+        <lightning:tabset class="tabset">
+            <div style="margin-top: %;">
+                <lightning:tab label="Details"  >
+                    
+                    <lightning:layout multipleRows="True">
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Name
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectedAccountRec.Name}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Email
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input  type="text" variant="label-hidden" label="" value="{!v.SelectedAccountRec.Email__c}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Phone
+                            </div>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectedAccountRec.Phone}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                NumberOfEmployees
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectedAccountRec.NumberOfEmployees}" disabled="true"/>
+                        </lightning:layoutItem> 
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Partner
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectedAccountRec.Partner__r.Name}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                AccountSource	
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectedAccountRec.AccountSource}" disabled="true"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Type	
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectedAccountRec.Type}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                         <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Industry	
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectedAccountRec.Industry}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Website	
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectedAccountRec.Website}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <!--  <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Lead Source
+                            </div>
+                        </lightning:layoutItem>
+                         <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:select label="" variant="label-hidden" name="status" value="{!v.SelectecLeadRec.LeadSource}" disabled="{!v.AllowEdit}" >
+                                <option value="{!null}">Please select</option>
+                                <aura:iteration items="{!v.LeadSourcePickVal}" var="status">
+                                    <option value="{!status.value}" selected="{!status.value == v.SelectecLeadRec.LeadSource}">{!status.label}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </lightning:layoutItem>
+                         <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Industry
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:select label="" variant="label-hidden" name="status" value="{!v.SelectecLeadRec.LeadSource}" disabled="{!v.AllowEdit}" >
+                                <option value="{!null}">Please select</option>
+                                <aura:iteration items="{!v.LeadIndustryPickVal}" var="status">
+                                    <option value="{!status.value}" selected="{!status.value == v.SelectecLeadRec.LeadSource}">{!status.label}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </lightning:layoutItem>
+                          <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Owner
+                            </div>
+                         </lightning:layoutItem>
+                         <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.Owner.Name}" disabled="true"/>
+                        </lightning:layoutItem> -->
+                        
+                        
+                    </lightning:layout>
+                    
+                </lightning:tab>
+                
+            </div>
+        </lightning:tabset>
+        
+    </div>
+     
+    
+</aura:component>

@@ -1,0 +1,466 @@
+<apex:page standardController="Opportunity" showHeader="false" sidebar="false" extensions="GenerateOrdersController" renderAs="{!valuetoset}">
+<c:dynawhitecomponent type="header" > 
+  <div align="left" class="innerDiv"> <apex:image value="{!$Resource.B2BGlobal1}" width="100%" height="70px"/></div>
+ </c:dynawhitecomponent>
+<c:dynawhitecomponent type="footer">
+    <hr style="border: 3px solid #EA7B7B;"></hr>
+     <div align="center" class="innerDiv" style="color:#ffffff;background-color:#EA7B7B">
+      BtoB Global Confidential </div>
+  </c:dynawhitecomponent>
+ 
+ 
+<div align="center">
+<b><span style='font-size:52.0pt;mso-bidi-font-size:12.0pt;color:#FFCC00;'>Work Order
+    </span></b></div>
+    <body style="font-family:calibri; font-size:12.0pt">  
+           <apex:form style="background-image:url('{!$Resource.B2B_WaterMark}');" >
+           
+            <table  border="0" cellspacing="0" cellpadding="0" width="100%" >
+             <tr >
+              <td width="309" colspan="2" style='border:solid #999999 1.0pt;
+              padding:0in 5.4pt 0in 5.4pt;'>
+              
+              <b ><span
+              style=',sans-serif;mso-bidi-font-family:Arial'>Company
+              name:</span></b><apex:outputText value="{!Opportunity.account.name}"/> 
+              </td>
+              
+              <td width="237" colspan="4" style='width:177.5pt;border:solid #999999 1.0pt;
+              border-left:none;mso-border-left-alt:solid #999999 .5pt;mso-border-alt:solid #999999 .5pt;
+              padding:0in 5.4pt 0in 5.4pt;height:16.95pt'>
+              
+              <b style='mso-bidi-font-weight:normal'>Date of
+              order:</b><apex:outputText value="{0,date, dd'/'MM'/'yyyy}"><apex:param value="{!opportunity.W_O_Date__c}"/></apex:outputText>
+              </td>
+              <td width="182" style='width:136.6pt;border:solid #999999 1.0pt;border-left:
+              none;mso-border-left-alt:solid #999999 .5pt;mso-border-alt:solid #999999 .5pt;
+              padding:0in 5.4pt 0in 5.4pt;height:16.95pt'>
+              <b style='mso-bidi-font-weight:normal'>Reference
+              #: </b><apex:outputText value="{!Opportunity.Reference_Number__c}"/>
+              </td>
+             </tr>
+             <tr style='mso-yfti-irow:1;page-break-inside:avoid;height:21.4pt'>
+              <td width="309" colspan="2" style='width:232.1pt;border:solid #999999 1.0pt;
+              border-top:none;mso-border-top-alt:solid #999999 .5pt;mso-border-alt:solid #999999 .5pt;
+              padding:0in 5.4pt 0in 5.4pt;height:21.4pt'>
+              <b style='mso-bidi-font-weight:normal'>Contact
+              person:   </b><apex:outputText value="{!Opportunity.Client_Name__r.name}"/> 
+              </td>
+             
+              <td width="419" colspan="5" style='width:314.1pt;border-top:none;border-left:
+              none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:21.4pt'>
+              <b style='mso-bidi-font-weight:normal'>Contact
+              person title: </b><apex:outputText value="{!Opportunity.Client_Title__c}"/>
+              </td>
+             </tr>
+             <tr style='mso-yfti-irow:2;page-break-inside:avoid;height:19.2pt'>
+              <td width="309" colspan="2" style='width:232.1pt;border:solid #999999 1.0pt;
+              border-top:none;mso-border-top-alt:solid #999999 .5pt;mso-border-alt:solid #999999 .5pt;
+              padding:0in 5.4pt 0in 5.4pt;height:19.2pt'>
+              <b style='mso-bidi-font-weight:normal'>Email
+              address:</b><apex:outputText value="{!Opportunity.Client_Email__c}"/>
+              </td>
+              <td width="419" colspan="5" style='width:314.1pt;border-top:none;border-left:
+              none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:19.2pt'>
+              <b style='mso-bidi-font-weight:normal'>Telephone
+              number:</b><apex:outputText value="{!Opportunity.Client_Phone__c}"/>
+              </td>
+             </tr>
+             <tr align="right">
+                   <td width="70%" colspan="2" style="border: solid  1.0pt;border-top:none; mso-border-top-alt: solid  .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid  .5pt; padding: 0in 5.4pt 0in 5.4pt;"><b>Payment Terms:</b></td>
+                 
+                 <td width="30%" colspan="5" style="border: solid  1.0pt;border-top:none;mso-border-top-alt: solid  .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid  .5pt; padding: 0in 5.4pt 0in 5.4pt;">
+                 <apex:outputField value="{!Opportunity.Payment_Terms__c}" /></td>
+                 </tr>
+             <tr style='mso-yfti-irow:3;page-break-inside:avoid;height:16.95pt'>
+              <td width="455" colspan="4" style='width:341.35pt;border:solid #999999 1.0pt;
+              border-top:none;mso-border-top-alt:solid #999999 .5pt;mso-border-alt:solid #999999 .5pt;
+              background:#FFCC00;padding:0in 5.4pt 0in 5.4pt;height:16.95pt;text-align:center'>
+              <b>Package
+              Details </b>
+              </td>
+              <td width="273" colspan="3" style='width:204.85pt;border-top:none;border-left:
+              none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;background:#FFCC00;padding:0in 5.4pt 0in 5.4pt;
+              height:16.95pt;text-align:center'>
+              <b>Package
+              Investment </b>
+              </td>
+             </tr>
+             <tr style='mso-yfti-irow:4;page-break-inside:avoid;height:180.35pt'>
+              <td width="455" colspan="4" style='width:341.35pt;border-top:none;border-left:
+              solid #999999 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:solid gray 1.0pt;
+              mso-border-top-alt:solid windowtext .5pt;mso-border-top-alt:windowtext;
+              mso-border-left-alt:#999999;mso-border-bottom-alt:windowtext;mso-border-right-alt:
+              gray;mso-border-style-alt:solid;mso-border-width-alt:.5pt;padding:0in 5.4pt 0in 5.4pt;
+              height:180.35pt'>
+              &nbsp;
+              </td>
+              <td width="273" colspan="3" style='width:204.85pt;border-top:none;border-left:
+              none;border-bottom:solid windowtext 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid gray .5pt;
+              mso-border-top-alt:windowtext;mso-border-left-alt:gray;mso-border-bottom-alt:
+              windowtext;mso-border-right-alt:#999999;mso-border-style-alt:solid;
+              mso-border-width-alt:.5pt;padding:0in 5.4pt 0in 5.4pt;height:180.35pt'>
+              <b>&nbsp;</b>
+              </td>
+             </tr>
+             <tr style='mso-yfti-irow:5;page-break-inside:avoid;height:16.25pt'>
+              <td width="455" colspan="4" style='width:341.35pt;border:solid #999999 1.0pt;
+              border-top:none;mso-border-top-alt:solid #999999 .5pt;mso-border-alt:solid #999999 .5pt;
+              background:#FFCC00;padding:0in 5.4pt 0in 5.4pt;'>
+              <b style='mso-bidi-font-weight:normal'> Payment
+              Method</b>
+              </td>
+              <td width="273" colspan="3" style='width:204.85pt;border-top:none;border-left:
+             solid windowtext .5pt;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;background:#FFCC00;padding:0in 5.4pt 0in 5.4pt;'>
+              &nbsp;
+              
+              </td>
+             </tr>
+             <tr>
+               <td width="464" colspan="4" style='border-top:none;border-left:
+              solid #999999 1.0pt;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-alt:solid #999999 .5pt;
+              mso-border-right-alt:solid #999999 1.0pt;padding:0in 5.4pt 0in 5.4pt;'>
+              <br/> <b><apex:outputField value="{!Opportunity.Brand_Name__c}"/></b>
+           <br/>
+           
+           <apex:repeat value="{!wireDetaials1}" var="w" rendered="{!if(modeOfPay='Wire Payment1','true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat>
+           <apex:repeat value="{!wireDetaials2}" var="w" rendered="{!if(modeOfPay='Wire Payment2','true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat> 
+            
+             <apex:outputpanel rendered="{!if(modeOfPay='Wire Payment/Check Payment','true','fasle')}">
+              <b>Wire Details:</b><br/>
+              <apex:repeat value="{!wireDetaials1}" var="w" rendered="{!if(Opportunity.Wire_Payment__c==true,'true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat><br/>
+            <b><apex:outputLabel value="WirePayment2" rendered="{!if(Opportunity.Wire_Payment_Type2__c==true,'true','fasle')}"/></b>
+                           <br/>
+            <apex:repeat value="{!wireDetaials2}" var="w" rendered="{!if(Opportunity.Wire_Payment_Type2__c==true,'true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat> <br/><br/>
+             </apex:outputpanel>
+            </td>
+                 <td width="364" colspan="3" style='border-top:none;border-left:
+              none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid windowtext .5pt;
+              mso-border-alt:solid #999999 .5pt;mso-border-left-alt:solid windowtext .5pt;
+              padding:0in 5.4pt 0in 5.4pt;height:36.55pt'>
+     
+            <apex:repeat value="{!checkDetails}" var="w" rendered="{!if(modeOfPay='Check Payment','true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat>
+            <apex:outputpanel rendered="{!if(modeOfPay='Wire Payment/Check Payment','true','fasle')}">
+             <b>Check Details:</b><br/>
+            <apex:repeat value="{!checkDetails}" var="w" rendered="{!if(Opportunity.Check_payment__c==true,'true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat>  
+             </apex:outputpanel>
+           
+            </td>
+             </tr>
+             <tr style='mso-yfti-irow:7;page-break-inside:avoid;'>
+              <td width="728" colspan="7" align="center" style='width:546.2pt;border:solid #999999 1.0pt;
+              border-top:none;mso-border-top-alt:solid #999999 .5pt;mso-border-alt:solid #999999 .5pt;
+              background:#FFCC00;padding:0in 5.4pt 0in 5.4pt;'>
+              <b>Acceptance</b>
+              </td>  
+             </tr>
+             <tr style='mso-yfti-irow:8;page-break-inside:avoid;height:20.95pt'>
+              <td width="364" colspan="3" style='width:273.1pt;border:solid #999999 1.0pt;
+              border-top:none;mso-border-top-alt:solid #999999 .5pt;mso-border-alt:solid #999999 .5pt;
+              padding:0in 5.4pt 0in 5.4pt;height:20.95pt'>
+              <b>For </b><b style='mso-bidi-font-weight:
+              normal'>BTOB Global</b>
+              </td>
+              <td width="364" colspan="4" style='width:273.1pt;border-top:none;border-left:
+              none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:20.95pt'>
+              <b>For &nbsp; <apex:outputField value="{!opportunity.account.name}"/></b>
+              </td>
+             </tr>
+             <tr style='mso-yfti-irow:9;page-break-inside:avoid;height:21.85pt'>
+              <td width="110" style='width:82.7pt;border:solid #999999 1.0pt;border-top:none;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-alt:solid #999999 .5pt;
+              padding:0in 5.4pt 0in 5.4pt;height:21.85pt'>
+              <b>Print name</b>
+              </td>
+              <td width="254" colspan="2" style='width:190.4pt;border-top:none;border-left:
+              none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:21.85pt'>
+              <b style='mso-bidi-font-weight:normal'>
+              <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c!=''}">
+                        <apex:outputfield value="{!Opportunity.Workorder_Owner_Name__c}" />
+                    </apex:panelGroup> <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c==''}">
+                        <apex:outputText value="{!Opportunity.owner.name}" />
+                    </apex:panelGroup> 
+
+              </b>
+              </td>
+              <td width="110" colspan="2" style='width:82.7pt;border-top:none;border-left:none;
+              border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:21.85pt'>
+              <b>Print name</b>
+              </td>
+              <td width="254" colspan="2" style='width:190.4pt;border-top:none;border-left:
+              none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:21.85pt'>
+              <b style='mso-bidi-font-weight:normal'><apex:outputText value="{!Opportunity.Client_Name__r.name}"/></b>
+              </td>
+             </tr>
+             <tr style='mso-yfti-irow:10;page-break-inside:avoid;height:21.85pt'>
+              <td width="110" style='width:82.7pt;border:solid #999999 1.0pt;border-top:none;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-alt:solid #999999 .5pt;
+              padding:0in 5.4pt 0in 5.4pt;height:21.85pt'>
+              <b>Title</b>
+              </td>
+              <td width="254" colspan="2" style='width:190.4pt;border-top:none;border-left:
+              none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:21.85pt'>
+              <b style='mso-bidi-font-weight:normal'><apex:outputText value="{!Opportunity.Title__c}"/></b>
+              </td>
+              <td width="110" colspan="2" style='width:82.7pt;border-top:none;border-left:none;
+              border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:21.85pt'>
+              <b>Title</b>
+              </td>
+              <td width="254" colspan="2" style='width:190.4pt;border-top:none;border-left:
+              none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:21.85pt'>
+              <b style='mso-bidi-font-weight:normal'><apex:outputText value="{!Opportunity.Client_Title__c}"/></b>
+              </td>
+             </tr>
+             <tr style='mso-yfti-irow:11;page-break-inside:avoid;height:21.4pt'>
+              <td width="110" style='width:82.7pt;border:solid #999999 1.0pt;border-top:none;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-alt:solid #999999 .5pt;
+              padding:0in 5.4pt 0in 5.4pt;height:21.4pt'>
+              <b>Telephone</b>
+              </td>
+              <td width="254" colspan="2" style='width:190.4pt;border-top:none;border-left:
+              none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:21.4pt'>
+              <b style='mso-bidi-font-weight:normal'><apex:outputText value="{!Opportunity.Vendor_Moblie_Number__c}"/></b>
+              </td>
+              <td width="110" colspan="2" style='width:82.7pt;border-top:none;border-left:none;
+              border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:21.4pt'>
+              <b>Telephone</b>
+              </td>
+              <td width="254" colspan="2" style='width:190.4pt;border-top:none;border-left:
+              none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:21.4pt'>
+              <b style='mso-bidi-font-weight:normal'><apex:outputText value="{!Opportunity.Client_Phone__c}"/></b>
+              </td>
+             </tr>
+             <tr style='mso-yfti-irow:12;page-break-inside:avoid;height:18.75pt'>
+              <td width="110" style='width:82.7pt;border:solid #999999 1.0pt;border-top:none;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-alt:solid #999999 .5pt;
+              padding:0in 5.4pt 0in 5.4pt;height:18.75pt'>
+              <b>Date</b>
+              </td>
+              <td width="254" colspan="2" style='width:190.4pt;border-top:none;border-left:
+              none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:18.75pt'>
+              <b style='mso-bidi-font-weight:normal'>
+              <apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                     <apex:param value="{!opportunity.current_date__c}" />
+               </apex:outputText>  </b>
+              </td>
+              <td width="110" colspan="2" style='width:82.7pt;border-top:none;border-left:none;
+              border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:18.75pt'>
+              <b>Date</b>
+              </td>
+              <td width="254" colspan="2" style='width:190.4pt;border-top:none;border-left:
+              none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:18.75pt'>
+              <b style='mso-bidi-font-weight:normal'>
+              <apex:outputText /></b>
+              </td>
+             </tr>
+             <tr style='mso-yfti-irow:13;mso-yfti-lastrow:yes;page-break-inside:avoid;
+              height:28.85pt'>
+              <td width="110" valign="top" style='width:82.7pt;border:solid #999999 1.0pt;
+              border-top:none;mso-border-top-alt:solid #999999 .5pt;mso-border-alt:solid #999999 .5pt;
+              padding:0in 5.4pt 0in 5.4pt;height:28.85pt'>
+              <b>&nbsp;</b>
+              
+              <b>Signature</b>
+              </td>
+              <td width="254" colspan="2" valign="top" style='width:190.4pt;border-top:none;
+              border-left:none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:28.85pt'>
+              <b style='mso-bidi-font-weight:normal'><apex:outputText value="{!Opportunity.Signauture1__c}" escape="false"/></b>
+              </td>
+              <td width="110" colspan="2" valign="top" style='width:82.7pt;border-top:none;
+              border-left:none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:28.85pt'>
+              <b>&nbsp;</b>
+              <b>Signature</b>
+              </td>
+              <td width="254" colspan="2" valign="top" style='width:190.4pt;border-top:none;
+              border-left:none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+              mso-border-top-alt:solid #999999 .5pt;mso-border-left-alt:solid #999999 .5pt;
+              mso-border-alt:solid #999999 .5pt;padding:0in 5.4pt 0in 5.4pt;height:28.85pt'>
+              <b style='mso-bidi-font-weight:normal'>&nbsp;</b>
+              </td>
+             </tr>
+            </table>
+            
+    </apex:form>
+    <p>&nbsp;</p><br/><br/>
+    <div align="center">
+    <b><span style='font-size:24.0pt;mso-bidi-font-size:10.0pt;color:#FFCC00;'>Data Service Agreement
+    </span></b></div>
+    <apex:form style="background-image:url('{!$Resource.B2B_WaterMark}');" >
+        This
+        Data Agreement (“Agreement”) is entered into by and between <b>BTOB Global</b>, and <b>XXXXX.</b>
+        The terms and conditions of this Agreement shall be deemed incorporated by
+        reference into any schedule hereto or order for data referring to this Agreement
+        (each a &quot;Data /Insertion Order&quot;) identifying the target data and such
+        other additional terms and conditions as the parties may agree, including
+        pricing. All Insertion Orders together with this Data Append Agreement shall be
+        collectively known as the &quot;Agreement.&quot;<br/>
+        
+        <p>
+        Whereas, <b>BTOB Global</b> is engaged in the
+        publishing, writing, manufacture, distribution, reselling and licensing of
+        proprietary databases and providing related marketing services, and has the
+        rights to do so, and whereas, CLIENT desires to use such services to add data
+        to its house file on the terms and conditions set forth herein.Now, therefore, in consideration of the
+        premises set forth above and the mutual promises, agreements and conditions
+        stated herein, the parties agree as follows:<br/><br/>
+        
+       1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>DESCRIPTION OF SERVICE:</b>
+        <b>BTOB Global</b>will provide to CLIENT data records consisting of all of the following
+        data attributes: contact name, contacts’ title, Verified Email Address, Name of
+        the business, fax#, Phone #, SIC code, Street, Address, city, state and zip
+        codes, Country, URL and industry information.<br/><br/>
+        
+        2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>DATA DELIVERY AND FORMAT:</b> We will
+        provide data to the client via email (Excel format) or FTP without charging any
+        shipping costs. Data can be provided on a CD or other format at an extra cost
+        along with shipping costs.<br/><br/>
+        
+        3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>INITIAL COMMUNICATION:</b>If the CLIENT
+        desires we will work with CLIENT to develop the email message(s), which will be
+        sent to all email records by our email campaign manager software. We will only
+        send one email message per record. The reply email will be provided to CLIENT.
+        We will also track click-troughs and provide a report at the end of the
+        campaign. This is an additional service.<br/><br/>
+        
+        4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>CONFIDENTIALITY:</b>The CLIENT records, the email addresses, the matched records and all other information
+        (collectively, the &quot;Confidential Information&quot;) will remain
+        confidential and will not be resold by <b>BTOB
+        Global</b> or used for any other purpose. <br/><br/>
+        
+        5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>PAYMENT:</b>CLIENT will pay us prior to
+        purchase of the list.<br/><br/>
+        
+        <span
+        style='font-size:11.0pt;'>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>LIMITED LICENSE:</b>Upon purchase
+        you will have a limited license to use the information delivered to you subject
+        to these terms and conditions. You agree not to sell, sublicense, and transfer
+        or otherwise make available any portion of the information to anyone outside of
+        your business organization, unless otherwise agreed prior to purchase.</span><br/><br/>
+        
+        7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>CUSTOMER RESPONSIBILITIES:</b>You
+        agree that it is your responsibility to understand and comply with all federal,
+        state, and local laws, rules, and regulations including do not call and do not
+        fax regulations. You agree to indemnify and hold <b >BTOB
+        Global</b> and its subsidiaries harmless against all claims
+        related, in whole or in part, to your failure to comply with such laws, rules,
+        and regulations.For the purpose of
+        resolving any dispute in any way related to your use of the information, or these
+        terms and conditions, the state and federal courts located in New York shall
+        have exclusive jurisdiction.You agree
+        that such courts represent “convenient and appropriate” forums for this
+        purpose.<br/>
+        </p>
+        </apex:form>
+   <div style="page-break-after:always;"/>     
+   <p>&nbsp;</p>
+    <apex:form style="background-image:url('{!$Resource.B2B_WaterMark}');" >
+        8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>GUARANTEE:</b><b>WARRANTY.</b> 100% of
+        the List provided with this agreement will be accurate. The Warranty will be
+        limited to provision of additional records. We hereby disclaim all express or
+        implied warranties, including the implied warranties of merchantability,
+        fitness for a particular purpose, correctness, quality, accuracy, completeness
+        or reliability, for any data or service provided hereunder. Guarantees are as
+        follows;<br/>
+        
+        •&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mailing Address Accuracy: 92%<br/>
+        
+        •&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phone Number Accuracy: 87%<br/>
+        
+        •&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact Name Accuracy: 82%<br/>
+        
+        •&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact Title Accuracy:<span
+        style='mso-spacerun:yes'>  </span>91%<br/>
+        
+        •&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email Address hard bounce estimate: &lt;12% <br/><br/>
+        
+        9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>EXCLUSIVE LIMITED WARRANTY:</b><b
+        >BTOB Global</b>compiles its databases from various sources and where appropriate
+        verifies the information.<b>BTOB Global</b>cannot and does not assume any liability for the correctness or
+        comprehensiveness of the information. You will have 90 days after purchasing
+        the information to inspect and notify <b >BTOB
+        Global</b>of any operational problems or material mistakes
+        with regards to the information.If <b
+        >BTOB Global</b>is notified of an operational problem or material mistake within 90 days from the date of delivery of file
+        then <b >BTOB Global</b>will correct the problem or, in its sole discretion, provide additional
+        records if needed relating to the materially mistaken information. This
+        warranty is a limited warranty and <b >BTOB
+        Global</b> makes no other warranties, express or implied,
+        including without limitation, any express or implied warranties of
+        merchantability or fitness for a particular purpose. In no event shall <b
+        >BTOB Global</b>be liable for lost profits, consequential, incidental, or special
+        damages, or other claims of a similar nature. If this limited warranty should
+        fail of its essential purpose, and in all other cases, <b
+    >BTOB Global</b>entire liability shall be limited to the amount actually received by <b
+    >BTOB Global</b>on account of your purchase. <br/><br/>
+        
+        10.&nbsp; <b>LIMITATION OF LIABILITY: </b>In no
+        event shall <b >BTOB
+        Global</b> be liable for direct, indirect, special,
+        exemplary, consequential, incidental, or punitive damage or loss for any claim
+        or cause of action related to or arising out of this Agreement or the services
+        performed hereunder. Our liability at all times will be limited to the purchase
+        price paid by the client minus any delivery expenses incurred by us.<br/><br/>
+        
+        11.&nbsp; <b>ENTIRE AGREEMENT:</b>This is the
+        entire agreement between the parties and hereby supercedes all other agreements,
+        negotiations, discussions or promotional material related to the subject matter
+        hereof.<br/>
+        
+        </apex:form>
+        </body>
+        <div align="center">
+        <apex:image value="{!$Resource.B2B_Logo_Footer}" width="100%" height="100px"/></div>
+</apex:page>

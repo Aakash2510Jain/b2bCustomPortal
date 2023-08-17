@@ -1,0 +1,5 @@
+<apex:page standardController="Contact" extensions="LogUtility" action="{!LogRecord}">
+<apex:param id="RecordID" name="RecordID" value="" /> 
+<apex:param id="objectName" name="objectName" value="Contact" /> 
+    
+</apex:page>

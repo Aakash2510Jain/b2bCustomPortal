@@ -1,0 +1,85 @@
+<apex:page controller="LeadgenController" standardStylesheets="false" showHeader="false">
+
+<script> 
+ 	function validateForm()
+        {
+        var Newpassword =document.getElementById('CMSLayout1:PageCenter_view:j_id161:j_id163:0:moduleName0:j_id191:j_id193:newpswd');
+        var Confirmpassword =document.getElementById('CMSLayout1:PageCenter_view:j_id161:j_id163:0:moduleName0:j_id191:j_id193:cnfmpswd');
+        var Currentpassword = document.getElementById('CMSLayout1:PageCenter_view:j_id161:j_id163:0:moduleName0:j_id191:j_id193:oldpswd');
+       
+        if(Currentpassword.value == null || Currentpassword.value == "" || Currentpassword.value.length < 6){
+            alert("Please specify the current  password ");
+                Currentpassword.style.background ='#F6CCCC';
+                return false;  
+        }
+       
+        if ( Newpassword.value.length < 6 ){
+            alert("Your password must be at least 6 characters long.\nPlease try again.");
+            Newpassword.style.background ='#F6CCCC';
+            return false;
+        }
+       
+        if ( Newpassword.value != Confirmpassword.value){
+          alert("Your password entries did not match.\nPlease try again.");
+          Confirmpassword.style.background ='#F6CCCC';
+          return false;
+          }
+        }
+  </script>
+  
+<apex:form onsubmit="return  validateForm();">
+	<apex:stylesheet value="{!$Resource.LeadGenPortal}" />
+	<apex:pagemessages /> 
+
+	<div class="CSSTableGeneratorFrame" >
+        <table>
+    	    <TR bgcolor="#ffffff" height="30px">
+                    <TD colspan="4">Update Profile</TD>
+        	</TR>
+                <TR>
+                   <TD align="right"><apex:outputText value="Name : "/></TD>
+                   <TD align="left"><apex:outputText value="{!name}" /> </TD>
+                 </TR>
+                <TR>
+                   <TD align="right"><apex:outputText value="Division : "/></TD>
+                   <TD align="left"><apex:outputText value="{!Division}" /></TD>
+                </TR>
+                <TR>
+                   <TD align="right"><apex:outputText value="Team : "/></TD>
+                   <TD align="left"><apex:outputText value="{!Team}"/></TD>
+                </TR>
+                <TR>
+                   <TD align="right"><apex:outputText value="Email : "/></TD>
+                   <TD align="left"><apex:outputText value="{!Email}" /></TD>
+                </TR>
+                <TR>
+                   <TD align="right"><apex:outputText value="Manager : "/></TD>
+                   <TD align="left"><apex:outputText value="{!Manager}"/></TD>
+                </TR>
+                <TR>
+            	   <TD align="right"><apex:outputText value="Floor : "/></TD>
+                   <TD align="left"><apex:outputText value="{!Floor}" /></TD>
+                </TR>
+                <TR>
+                   <TD align="right"><apex:outputText value="UserName : "/></TD>
+                   <TD align="left"><apex:inputText value="{!Username}" disabled="true"/></TD>
+                </TR>
+				<TR>
+				   <TD align="right"><apex:outputText value="CurrentPassword : "/></TD>
+				   <TD align="left"><apex:inputSecret value="{!Currentpassword}" id="oldpswd"/></TD>
+				</TR>
+				<TR>
+				   <TD align="right"><apex:outputText value="New Password : "/></TD>
+				   <TD align="left"><apex:inputSecret value="{!Newpassword}" id="newpswd"/></TD>
+				</TR>
+                <TR>
+				   <TD align="right"><apex:outputText value="Confirm Password : "/></TD>
+				   <TD align="left"><apex:inputSecret value="{!confirmpassword}" id="cnfmpswd"/></TD>
+				</TR>
+                <tr>
+                    <td align="left"><apex:commandbutton action="{!saveItem}" value="Save" onclick="return userNamePasswordValidation(this)"/></td>
+                </tr>
+    	    </table> 
+	 	</div>
+    </apex:form>  
+ </apex:page>

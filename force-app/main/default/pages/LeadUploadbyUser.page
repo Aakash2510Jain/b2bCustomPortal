@@ -1,0 +1,117 @@
+<apex:page controller="LeadColumnPage" sidebar="false"
+	showHeader="false">
+	<apex:includeScript value="{!URLFOR($Resource.datepicker,'calendar.js')}" />
+	<apex:stylesheet value="{!URLFOR($Resource.datepicker,'calendar_blue.css')}" />
+	<apex:form >
+		<apex:stylesheet value="{!$Resource.LeadGenPortal}" />
+		<apex:pageMessages id="errorMessage"></apex:pageMessages>
+	
+       <table >
+			<tr align="center" BGCOLOR='#005fbf'>
+				<!-- <td align="right" width="30%" style="color:#fff;">Leads: {!UploadedByName}</td> -->
+				<td align="right" width="10%" style="color:#fff;">From Date</td>
+				<td align="left" width="20%"><apex:inputText id="fromDate"
+					size="15" value="{!fromDate}"
+					onmouseover="initialiseCalendar(this, '{!$Component.fromDate}')" />
+				<img src='{!URLFOR($Resource.datepicker,"cal.gif")}'
+					onmouseover="initialiseCalendar(this, '{!$Component.fromDate}')" />
+				</td>
+				<td align="right" width="10%" style="color:#fff;">To Date</td>
+				<td align="left" width="40%"><apex:inputText id="toDate"
+					size="15" value="{!toDate}"
+					onmouseover="initialiseCalendar(this, '{!$Component.toDate}')" /> <img
+					src='{!URLFOR($Resource.datepicker,"cal.gif")}' align='absmiddle'
+					onmouseover="initialiseCalendar(this, '{!$Component.toDate}')" /> <span
+					style="padding-left: 50px"></span><apex:panelGroup >
+					<apex:commandButton value="Go!" action="{!doSearch}"
+						rerender="block,count" status="status" />
+				</apex:panelGroup></td>
+				<td align="right" width="10%" style="color:#fff;">Total Lead Count : </td>
+				<td  align="right" width="10%" style="color:#fff;"><apex:outputtext title="Lead Count" value="{!counter}" id="count"/>
+				</td>
+			</tr>
+		</table>
+		
+		<apex:pageBlock mode="edit" id="block">
+		 	 <apex:actionStatus id="status" startText="requesting..." />
+				<div class="CSSTableGenerator" >
+					<table  id="tab"  >
+					<apex:variable var="v" value="" rendered="{!NOT(ISNULL(results))}">
+            			<tr >               
+	             			<td width="10%" >Name</td>
+		           			<td width="10%">Company</td> 
+	             			<!--<td  width="25%">Phone</td>  -->
+	             			<td  width="10%">Division Name</td>
+	             			<td  width="10%">Created Date</td>
+	             			<td  width="10%">Status</td>
+	             			<td  width="10%">Primary Service Name</td>
+	             	    	<td  width="10%">Converted</td>  
+	             			<td  width="10%">Owner Name</td>
+	             			<td  width="10%">Lead Source</td>
+	             			<td  width="10%">Lead-Id</td>
+	         			</tr>
+	         		</apex:variable>	
+         				<apex:repeat value="{!results}" var="l"  id="jlist">
+         				<tr>              
+				           <td>{!l.Name}</td>
+				           <td>{!l.Company}</td>             
+				           <td>{!l.Division_Name__c}</td>  
+				           <td><apex:outputText value="{0,date,dd-MMMM-yyyy}">
+                  				<apex:param value="{!l.CreatedDate}" />
+							</apex:outputText>
+				           </td>
+				           <td>{!l.Status}</td>
+				           <td>{!l.Primary_Service_Name__c}</td>
+				           <td>{!l.IsConverted}</td>
+				           <td>{!l.owner.name}</td>
+				           <td>{!l.LeadSource}</td>
+				           <td>{!l.LeadID__c}</td>
+				    	</tr>
+         				</apex:repeat>
+    			</table>
+			 </div>
+		</apex:pageBlock>
+	</apex:form>
+<script>
+function fnSetDateFormat(oDateFormat)
+{
+ oDateFormat['FullYear'];  //Example = 2007
+ oDateFormat['Year'];   //Example = 07
+ oDateFormat['FullMonthName']; //Example = January
+ oDateFormat['MonthName'];  //Example = Jan
+ oDateFormat['Month'];   //Example = 01
+ oDateFormat['Date'];   //Example = 01
+ oDateFormat['FullDay'];   //Example = Sunday
+ oDateFormat['Day'];    //Example = Sun
+ oDateFormat['Hours'];   //Example = 01
+ oDateFormat['Minutes'];   //Example = 01
+ oDateFormat['Seconds'];   //Example = 01
+  
+ var sDateString;
+  
+ // Use dd/mm/yyyy format
+ //sDateString = oDateFormat['Date'] +"/"+ oDateFormat['Month'] +"/"+ oDateFormat['FullYear'];
+sDateString = oDateFormat['FullYear'] +"-"+ oDateFormat['Month'] +"-"+ oDateFormat['Date']; 
+ return sDateString;
+}
+   
+     
+function initialiseCalendar(obj, eleId) 
+{
+ var element=document.getElementById(eleId);
+ var params='close=true';
+ if (null!=element)
+ {
+  if (element.value.length>0)
+  {
+   // date is formatted dd/mm/yyyy - pull out the month and year
+   var month=element.value.substr(3,2);
+   var year=element.value.substr(6,4);
+   params+=',month='+month;
+   params+=',year='+year;
+  }
+ }
+ fnInitCalendar(obj, eleId, params);
+}
+ </script>
+</apex:page>

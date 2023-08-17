@@ -1,0 +1,207 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" controller="B2BPartnerPortal_CTRL" >
+    <aura:attribute name="CompleteAccountlist" type="List"/>
+    <aura:attribute name="AccountlistToBeDisplayed" type="List"/>
+    <aura:attribute name="singleAccountRec" type="Account" default="{}" />
+    <aura:attribute name="SelectedAccountRecordId" type="string" />
+    
+    <aura:attribute name="PartnerId" type="string"/> 
+    <aura:handler name="init" value="{!this}" action="{!c.doinit }"/>
+    <aura:attribute name="showAccountPage" type="boolean" default="true"/>
+    <aura:attribute name="AccountDetailPage" type="boolean" default="false"/>
+    <!-- ======================================== For Pagination ===========================================-->
+    
+    <aura:attribute name="PaginationList" type="list"/> 
+    <aura:attribute name="selectedCount" type="integer" default="0"
+                    
+                    description="selected Records Count"/>
+    <aura:attribute name="totalRecordsCount" type="Integer"/>
+    <aura:attribute name="totalPagesCount" type="integer"/>
+    <aura:attribute name="bNoRecordsFound" type="boolean"/>
+    <aura:attribute name="showtableHead" type="boolean" default="true"/>
+    <aura:attribute name="ShowNoAccountImage" type="boolean" default="false"/>
+    <!-- ================================= New Pagination ======================= -->
+    
+    <ltng:require styles="/resource/sldsXYZ/assets/styles/salesforce-lightning-design-system-ltng.min.css"/>
+    
+    <aura:attribute name="PaginationList1" type="boolean" default="false"/>
+    <aura:attribute name="pageSize" type="Integer" default="10" />
+    <aura:attribute name="currentPage" type="Integer" default="1" />
+    <aura:attribute name="totalRecords" type="Integer" default="0" />
+    <aura:attribute name="totalPages" type="Integer" default="0" />
+    <aura:attribute name="startPage" type="Integer" default="1" />
+    <aura:attribute name="endPage" type="Integer" default="1" />
+    <aura:attribute name="pageNumbers" type="string[]" default="" />
+    
+    <aura:attribute name="filter" type="string" />
+    
+    <lightning:layout>
+        <lightning:layoutItem class="e" size="12"  padding="around-small">
+            <aura:if isTrue="{!v.showAccountPage}">
+                <div>
+                    <div class="slds-float_right" >
+                        <lightning:input name="x" value="{!v.filter}" type="search"   placeholder="Search Account by " onchange="{!c.doFilter}"/>  
+                    </div>
+                </div>
+                <br/><br/><br/>
+                
+                <div class="slds-col slds-size_6-of-12 " style="background-color:white; width:100%; margin-top:-1s%;"  >
+                    <div class=" ">
+                        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_fixed-layout slds-table_striped">
+                            <aura:if isTrue="{!v.showtableHead}">
+                                <thead>
+                                    <tr class="" style="background-color:#9E7BFF;">
+                                        <th scope="col" style="background-color:#CCCCFF;">
+                                            <strong>
+                                                <div class="slds-truncate slds-text-align_center slds-has-flexi-truncate"
+                                                     title="Name">S. No.</div>
+                                            </strong>
+                                        </th>
+                                        <th scope="col" style="background-color:#CCCCFF;">
+                                            <strong>
+                                                <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                     title="Name">Name</div>
+                                            </strong>
+                                        </th>
+                                        <th scope="col" style="background-color:#CCCCFF;">
+                                            <strong>
+                                                <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                     title="Email">Email</div>
+                                            </strong>
+                                        </th>
+                                        <th scope="col" style="background-color:#CCCCFF;">
+                                            <strong>
+                                                <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                     title="Phone">Phone</div>
+                                            </strong>
+                                        </th>
+                                        <th scope="col" style="background-color:#CCCCFF;">
+                                            <strong>
+                                                <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                     title="LeadSource">Status</div>
+                                            </strong>
+                                        </th>
+                                        <th scope="col" style="background-color:#CCCCFF;">
+                                            <strong>
+                                                <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                     title="Status">LeadSource</div>
+                                            </strong>
+                                        </th>
+                                        <th scope="col" style="background-color:#CCCCFF;">
+                                            <strong>
+                                                <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                     title="Status">Fax</div>
+                                            </strong>
+                                        </th>
+                                        <th scope="col" style="background-color:#CCCCFF;">
+                                            <strong>
+                                                <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                     title="Status">LeadSource</div>
+                                            </strong>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </aura:if>
+                            <aura:if isTrue="{!v.PaginationList1}">
+                                <tbody>
+                                    <aura:iteration items="{!v.PaginationList}" var="Account" indexVar="index">
+                                        <tr>
+                                            
+                                            <td scope="row" data-label="Name">
+                                                <div class="slds-text-align_center"  >
+                                                    <div  aura:id="selectAllId" class="slds-truncate" title="">{!index+1}</div>     
+                                                </div>
+                                            </td>
+                                            <td scope="row" data-label="Name">
+                                                <div class="slds-text-align_left slds-has-flexi-truncate">
+                                                    <a href="javascript:void(0);" onclick="{!c.navigateToAccount}"
+                                                       data-recordid="{!Account.Id}">
+                                                        <b style="color:#6592FD;">{!Account.Name}</b></a>
+                                                </div>
+                                            </td>
+                                            <td scope="row" data-label="Phone">
+                                                <div class="slds-text-align_left slds-has-flexi-truncate"
+                                                     title="{!Account.Phone}">{!Account.Email__c}</div>
+                                            </td>
+                                            <td scope="row" data-label="Email">
+                                                <div class="slds-text-align_left slds-has-flexi-truncate"
+                                                     title="{!Account.Email__c}">{!Account.Phone}</div>
+                                            </td>
+                                            <td scope="row" data-label="LeadSource">
+                                                <div class="slds-text-align_left slds-has-flexi-truncate"
+                                                     title="{!Account.LeadSource}">{!Account.AccountSource}</div>
+                                            </td>
+                                            <td scope="row" data-label="Status">
+                                                <div class="slds-text-align_left slds-has-flexi-truncate"
+                                                     title="{!Account.Status}">{!Account.Owner.Name}</div>
+                                            </td>
+                                            <td scope="row" data-label="Status">
+                                                <div class="slds-text-align_left slds-has-flexi-truncate"
+                                                     title="{!Account.Status}">{!Account.Fax}</div>
+                                            </td>
+                                            <td scope="row" data-label="Status">
+                                                <div class="slds-text-align_left slds-has-flexi-truncate"
+                                                     title="{!Account.Status}">{!Account.Owner.Name}</div>
+                                            </td>
+                                        </tr>
+                                    </aura:iteration>
+                                </tbody>
+                            </aura:if>
+                         </table>
+                        <aura:if isTrue="{!v.ShowNoAccountImage}">
+                                
+                                <div class="slds-grid slds-gutters">
+                                    <div class="slds-col slds-size_3-of-3">
+                                        <span >
+                                            <div class="slds-align_absolute-center"   style="width:300px;height250px;">
+                                                <img  src="{!$Resource.NoAccountDataImage}" style="width:300px;height:300px;"/>
+                                            </div> 
+                                            <div class="slds-text-align_center   " style="background-color:white; float:center;"><b>No Data Available</b></div>    
+                                            
+                                        </span>
+                                    </div>
+                                </div> 
+                            </aura:if>
+                     </div>
+                </div>
+                
+                <aura:if isTrue="{!v.PaginationList1}">
+                    <div class="slds-float_right slds-m-left_xx-large">
+                        
+                        <!--   <lightning:button class="slds-button"  
+                                          onclick="{!c.previousPage}" disabled="{!v.currentPage == 1}">
+                            <lightning:icon iconName="utility:back" alternativeText="Previous" />
+                        </lightning:button>-->
+                        <img  src="{!$Resource.B2BPartnerLogo + '/AssetsB2BDataPartner/arrow-narrow-left.png'}" class="slds-p-bottom_xx-small slds-m-left_xx-large" title="Previous Page"  style="width:5%; height:5%; font-weight: bold; margin-left:35%;"  onclick="{!c.previousPage}" disabled="{!v.currentPage == 1}" ></img><b class="slds-p-top_small slds-p-left_x-small">Prev</b> 
+                        
+                        <!-- Display page numbers dynamically -->
+                        <aura:iteration items="{!v.pageNumbers}" var="pageNumber">
+                            <lightning:button label="{!pageNumber}" class="slds-p-top_x-small  slds-m-horizontal_small custom-button2"
+                                              onclick="{!c.navigateToPage}">
+                            </lightning:button>
+                        </aura:iteration>
+                        
+                        <!--  <lightning:button class="slds-button slds-button_icon"
+                                          onclick="{!c.nextPage}" disabled="{!(v.currentPage == v.totalPages)}">
+                            <lightning:icon iconName="utility:forward" alternativeText="Next" />
+                        </lightning:button>-->
+                        <b class="slds-p-top_small slds-p-right_small" style="color:#9E7BFF;">Next</b><img  src="{!$Resource.B2BPartnerLogo + '/AssetsB2BDataPartner/arrow-narrow-right.png'}" title="Next Page"  style="width:5%; height:5%; font-weight: bold;"   onclick="{!c.nextPage}" disabled="{!(v.currentPage == v.totalPages)}" ></img>  
+                        
+                    </div>
+                    <!-- c:DynamicPaginationv1 data="{!v.LeadlistForPagination}" PaginatedList="{!v.PaginationList}"/ -->
+                </aura:if>
+                <!--c:DynamicPaginationv1 data="{!v.AccountlistToBeDisplayed}" PaginatedList="{!v.PaginationList}"/ -->
+                
+                
+            </aura:if>
+            <aura:if isTrue="{!v.AccountDetailPage}">
+                <b> <img  src="{!$Resource.B2BPartnerLogo + '/AssetsB2BDataPartner/arrow-narrow-left.png'}" title="Back to Account Page"  style="width:30px; height:30px; font-weight: bold;" onclick="{!c.backtoPginationpage}"></img></b>
+                <!--  <b><lightning:button class="back-button"   iconName="utility:back"  onclick="{!c.backtoPginationpage}"/></b>-->
+            </aura:if>
+            <aura:if isTrue="{!v.AccountDetailPage}">
+                <!-- b><lightning:button class="back-button"   iconName="utility:back"  onclick="{!c.backtoPginationpage}"/></b --> 
+                <c:PartnerAccountRecordDetails AccountDetailPage ="{!v.AccountDetailPage}"   SelectedAccountRec="{!v.singleAccountRec}" />
+            </aura:if>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

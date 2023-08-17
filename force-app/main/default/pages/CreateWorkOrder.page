@@ -1,0 +1,5 @@
+<apex:page standardController="Opportunity">
+
+<apex:iframe src="http://localhost:43341/MakeWorkOrders.aspx?optId={!Opportunity.Opportunity_Number__c}"  width="100%" height="500px" scrolling="true" id="theIframe"/>
+
+</apex:page>

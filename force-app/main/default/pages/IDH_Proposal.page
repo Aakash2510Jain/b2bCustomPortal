@@ -1,0 +1,932 @@
+<apex:page standardController="Opportunity" showHeader="false"
+	extensions="GenerateOrdersController" sidebar="false"
+	renderAs="{!valueToSet}">
+
+	<body lang="EN-US" link="blue" vlink="purple"
+		style="tab-interval: .5in">
+
+	<div class="WordSection1">
+	
+	<div align="center">
+      <table border="0" cellspacing="0" cellpadding="0" width="50%" >
+        <tr>
+          <td align="left" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">
+          
+	<p class="MsoNormal" style="tab-stops: 0in"><apex:image value="{!$Resource.IDH_Proposal}" /></p>
+	</td>  
+	</tr>
+      </table>
+    </div>
+    <p></p>
+	<br style="mso-ignore: vglayout" clear="ALL"></br>
+	
+	
+	
+		
+		
+	<div align="left">
+      <table border="0" cellspacing="0" cellpadding="0" width="100%" >
+        <tr>
+          <td align="right" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">
+          
+	<p class="MsoNormal" style="tab-stops: 0in"><apex:image value="{!$Resource.IDH_Proposal_Logo}" /></p>
+	</td>  
+	</tr>
+        <tr>
+          <td align="left" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">
+
+
+	
+
+	<p class="MsoNormal" style="margin-left: 2.1in; text-indent: .5in"><b
+		style="mso-bidi-font-weight: normal"><u><span
+		style="font-size: 20.0pt; mso-bidi-font-size: 14.0pt; color: red">List
+	Criteria: </span></u></b></p>
+	
+	<p class="MsoNormal"><span
+		style="font-size: 30.0pt; mso-bidi-font-size: 15.0pt"> &nbsp;&nbsp;&nbsp; </span></p>
+
+	<p class="MsoNormal" style="margin-left: 0.1in"><span
+		style="font-size: 16.0pt"><span style="mso-spacerun: yes">
+	</span><span class="SpellE"><span class="GramE">clinicalWorks</span></span>,
+	McKesson, <span class="SpellE">AllScripts</span>, Cerner, NextGen and
+	EPIC Users Lists (Physicians only) </span></p>
+	
+	<p class="MsoNormal" align="center"
+		style="margin-left: .25in; text-align: center"><span
+		style="font-size: 16.0pt"> &nbsp; </span></p>
+
+	<p class="MsoNormal" style="margin-left: 2.7in"><span
+		style="font-size: 16.0pt; mso-bidi-font-size: 14.0pt; color: windowtext"><span
+		style="mso-spacerun: yes"> </span>Geography – </span></p>
+
+	<p class="MsoNormal" style="margin-left: 2.5in; text-indent: .5in"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 16.0pt; mso-bidi-font-size: 14.0pt; color: windowtext">USA
+	</span></b></p>
+	<p class="MsoNormal" align="center" style="margin-left: 2.5in; text-align: center"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 16.0pt; mso-bidi-font-size: 14.0pt; color: windowtext">
+	&nbsp; </span></b></p>
+
+	<p class="MsoNormal" style="margin-left: 2.0in; text-indent: .5in"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 16.0pt; mso-bidi-font-size: 14.0pt; color: windowtext">Employee
+	Size - </span></b></p>
+
+	<p class="MsoNormal" style="margin-left: 3.1in"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 16.0pt; mso-bidi-font-size: 14.0pt; color: windowtext"><span
+		style="mso-spacerun: yes"> </span>1-5 </span></b></p>
+
+	<p class="MsoNormal" align="center" style="text-align: center"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 16.0pt; mso-bidi-font-size: 14.0pt; color: windowtext">
+	&nbsp; </span></b></p>
+
+	<p class="MsoNormal" style="margin-left: 2.6in"><span
+		style="font-size: 16.0pt; mso-bidi-font-size: 14.0pt; color: windowtext"><span
+		style="mso-spacerun: yes"> </span>Total Counts – </span></p>
+
+	<p class="MsoNormal" style="margin-left: 2.6in"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 16.0pt; mso-bidi-font-size: 14.0pt; color: windowtext"><span
+		style="mso-spacerun: yes"> </span>6,792 Contacts</span></b><b
+		style="mso-bidi-font-weight: normal"><u><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 14.0pt; color: red">
+	</span></u></b></p>
+	
+	</td>  
+	</tr>
+      </table>
+    </div>
+	
+
+	<p class="MsoNormal" align="center" style="text-align: center"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 12.0pt; mso-bidi-font-size: 14.0pt; color: windowtext">
+	&nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 12.0pt; mso-bidi-font-size: 14.0pt; color: windowtext">
+	&nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt"> &nbsp; </span></b></p>
+
+<!-- 
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt"> &nbsp; </span></b></p>
+
+	 -->
+	<p class="MsoNormal">&nbsp;</p>
+
+	<br style="mso-ignore: vglayout" clear="ALL"></br>
+
+	<table border="0" cellspacing="0" cellpadding="0" width="100%" >
+        <tr>
+          <td align="right" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">
+          
+	<p class="MsoNormal" style="tab-stops: 0in"><apex:image value="{!$Resource.IDH_Proposal_Logo}" /></p>
+	</td>  
+	</tr>
+    <tr>
+          <td align="left" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">
+	<p class="MsoNormal" style="margin-left: 1.7in; text-indent: .5in"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 20.0pt; mso-bidi-font-size: 10.0pt"><span
+		style="mso-spacerun: yes"> </span>Package Pricing Options </span></b></p>
+<!-- 	
+	<p class="MsoNormal" align="center" style="text-align: center"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 20.0pt; mso-bidi-font-size: 10.0pt"> &nbsp; </span></b></p>
+-->
+	
+
+	<br style="mso-ignore: vglayout" clear="ALL"></br>
+
+	<p class="Default"><b><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 12.0pt">Entire
+	List Purchase Pricing Option: </span></b></p>
+
+	<p class="Default"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 12.0pt"> &nbsp; </span></p>
+
+	<p class="Default" style="margin-bottom: 1.4pt"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 12.0pt; mso-bidi-font-weight: bold">1.<b>
+	Standard Package (6,792 contacts): </b></span><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 12.0pt">Acquire
+	entire 6,792 contacts for <b>$6,792</b>–<b>($1.00/contact) </b></span></p>
+
+	<p class="Default" style="margin-bottom: 1.4pt"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 12.0pt"> &nbsp; </span></p>
+
+	<p class="Default"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 12.0pt">2.<b>
+	Platinum Package (6,792 contacts): </b>Acquire entire 6,792 contacts for <b>$8,490-($1.25/contact)</b>
+	</span></p>
+
+	<p class="Default"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 12.0pt"> &nbsp; </span></p>
+
+	<p class="Default"><b> &nbsp; </b></p>
+
+	<p class="Default"><b>Standard Package Includes:</b> First Name,
+	Last Name, Company name, Title, Direct business email address, Physical
+	Address &amp; Technology Type.</p>
+
+	<p class="Default"><b><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 12.0pt"> &nbsp; </span></b></p>
+
+	<p class="Default"><b>Data Accuracy Guarantee</b><span
+		style="mso-bidi-font-family: Calibri">: Email data accuracy: <b
+		style="mso-bidi-font-weight: normal">85%</b> and Other data: <b>90%
+	</b></span></p>
+
+	<p class="Default"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 12.0pt"> &nbsp; </span></p>
+
+	<p class="MsoNormal"><b><span style="font-size: 12.0pt">
+	&nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b><span style="font-size: 12.0pt">Platinum
+	Package include:</span></b><span style="font-size: 12.0pt"> </span><span
+		style="font-size: 12.0pt; mso-fareast-font-family: Calibri; mso-bidi-font-family: Garamond; mso-font-kerning: 0pt">First
+	Name, Last Name, Company name, Company URL, Title, Direct business
+	email address, Physical Address, Phone Number, Fax Number, Industry,
+	SIC codes, Revenue Size, Employee size &amp; Technology Type. <span
+		style="mso-spacerun: yes"> </span></span><span style="font-size: 12.0pt">
+	</span></p>
+
+	<p class="Default"><b><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 12.0pt"> &nbsp; </span></b></p>
+
+	<p class="Default"><b>Data Accuracy Guarantee</b><span
+		style="mso-bidi-font-family: Calibri">: Email data accuracy: <b>85%</b>
+	and above and Phone: <b>90%</b> and other data: 90%</span><b> </b></p>
+
+	   </td>  
+	 </tr>
+    </table>
+
+<!-- 	<p class="Default" align="center" style="text-align: center"><b><span
+		style="mso-bidi-font-size: 11.5pt"> &nbsp; </span></b></p>
+	<p class="Default"><b><span style="mso-bidi-font-size: 11.5pt">
+	&nbsp; </span></b></p>
+
+	<p class="Default"><b><span style="mso-bidi-font-size: 11.5pt">
+	&nbsp; </span></b></p>
+
+	<p class="Default"><b><span style="mso-bidi-font-size: 11.5pt">
+	&nbsp; </span></b></p>
+ 
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 20.0pt; mso-bidi-font-size: 18.0pt; color: #C00000">
+	&nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 20.0pt; mso-bidi-font-size: 18.0pt; color: #C00000">
+	&nbsp; </span></b></p>
+-->
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%" >
+        <tr>
+          <td align="right" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">
+          
+	<p class="MsoNormal" style="tab-stops: 0in"><apex:image value="{!$Resource.IDH_Proposal_Logo}" /></p>
+	</td>  
+	</tr>
+    <tr>
+          <td align="left" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 20.0pt; mso-bidi-font-size: 18.0pt; color: #C00000">Optional:
+	</span></b><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 12.0pt"> </span></b></p>
+
+	<p class="MsoNormal" style="text-indent: 4.5pt"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 16.0pt; mso-bidi-font-size: 10.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoNormal"
+		style="margin-top: 0in; margin-right: -27.0pt; margin-bottom: 10.0pt; margin-left: 20.5pt; text-indent: -.25in; mso-list: l3 level1 lfo4"><span
+		style="font-size: 16.0pt; mso-bidi-font-size: 10.0pt; font-family: Symbol; mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol"><span
+		style="mso-list: Ignore">·<span
+		style="font: 7.0pt Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 16.0pt; mso-bidi-font-size: 10.0pt">Package
+	Pricing: List Purchase + Annual Maintenance Contract <span
+		style="mso-spacerun: yes"> </span>(<i
+		style="mso-bidi-font-style: normal">including the discount)</i> </span></b></p>
+		
+</td></tr></table>		
+
+	<table class="MsoNormalTable" border="1" cellspacing="0"
+		cellpadding="0" width="100%"
+		style="width: 100%; margin-left: -.4pt; border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-yfti-tbllook: 1184; mso-padding-alt: 0in 5.4pt 0in 5.4pt; mso-border-insideh: .5pt solid windowtext; mso-border-insidev: .5pt solid windowtext">
+		<tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: 15.95pt">
+			<td width="40%" valign="bottom"
+				style="width: 40%; border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.95pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><b
+				style="mso-bidi-font-weight: normal"><span
+				style="font-size: 14.0pt; color: red">Description </span></b></p>
+			</td>
+			<td width="20%" valign="bottom"
+				style="width: 20%; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.95pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><b
+				style="mso-bidi-font-weight: normal"><span
+				style="font-size: 14.0pt; color: red">Actual Price </span></b></p>
+			</td>
+			<td width="20%" valign="bottom"
+				style="width: 20%; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.95pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><b
+				style="mso-bidi-font-weight: normal"><span
+				style="font-size: 14.0pt; color: red">Offer Pricing </span></b></p>
+			</td>
+			<td width="20%" valign="bottom"
+				style="width: 20%; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.95pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><b
+				style="mso-bidi-font-weight: normal"><span
+				style="font-size: 14.0pt; color: red">Your Savings </span></b></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 1; height: 15.95pt">
+			<td width="40%" valign="bottom"
+				style="width: 375.0pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.95pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><span
+				style="font-size: 14.0pt; color: windowtext">6,792</span><span
+				style="color: #1F497D"><span style="mso-spacerun: yes">
+			</span></span><span style="font-size: 14.0pt">contacts with all data fields
+			(Platinum Package) </span></p>
+			</td>
+			<td width="20%" valign="bottom"
+				style="width: 121.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.95pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><span
+				style="font-size: 14.0pt">$8,490 </span></p>
+			</td>
+			<td width="20%" valign="bottom"
+				style="width: 117.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.95pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><span
+				style="font-size: 14.0pt">$8,000 </span></p>
+			</td>
+			<td width="20%" valign="bottom"
+				style="width: 153.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.95pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><span
+				style="font-size: 14.0pt">$490 </span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 2; height: 16.1pt">
+			<td width="40%" valign="bottom"
+				style="width: 375.0pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.1pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><span
+				style="font-size: 14.0pt">2 updates in a year </span></p>
+			</td>
+			<td width="20%" valign="bottom"
+				style="width: 121.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.1pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><span
+				style="font-size: 14.0pt">$2,000 </span></p>
+			</td>
+			<td width="20%" valign="bottom"
+				style="width: 117.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.1pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><span
+				style="font-size: 14.0pt">$1,000 </span></p>
+			</td>
+			<td width="20%" valign="bottom"
+				style="width: 153.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.1pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><span
+				style="font-size: 14.0pt">$1,000 </span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 3; mso-yfti-lastrow: yes; height: 15.95pt">
+			<td width="40%" valign="bottom"
+				style="width: 375.0pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.95pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><b
+				style="mso-bidi-font-weight: normal"><span
+				style="font-size: 14.0pt; color: red">Total </span></b></p>
+			</td>
+			<td width="20%" valign="bottom"
+				style="width: 121.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.95pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><b
+				style="mso-bidi-font-weight: normal"><span
+				style="font-size: 14.0pt; color: red">$10,490 </span></b></p>
+			</td>
+			<td width="20%" valign="bottom"
+				style="width: 117.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.95pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><b
+				style="mso-bidi-font-weight: normal"><span
+				style="font-size: 14.0pt; color: red">$9,000 </span></b></p>
+			</td>
+			<td width="20%" valign="bottom"
+				style="width: 153.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.95pt">
+			<p class="MsoNormal" align="center" style="text-align: center"><b
+				style="mso-bidi-font-weight: normal"><span
+				style="font-size: 14.0pt; color: red">$1,490 (Total Savings)
+			</span></b></p>
+			</td>
+		</tr>
+	</table>
+
+	<p class="MsoNormal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt"> &nbsp; </span></p>
+
+	<p class="MsoNormal" align="center" style="text-align: center"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 16.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt">Benefits of Annual Maintenance
+	Contract: </span></b></p>
+
+	<p class="MsoNormal"
+		style="margin-left: .5in; text-indent: -.25in; mso-list: l10 level1 lfo6"><span
+		style="font-size: 14.0pt; font-family: Wingdings; mso-fareast-font-family: Wingdings; mso-bidi-font-family: Wingdings"><span
+		style="mso-list: Ignore">ü<span
+		style="font: 7.0pt Times New Roman"> </span></span></span><span
+		style="font-size: 14.0pt">10% more contacts added to your
+	current list on every update </span></p>
+
+	<p class="MsoNormal"
+		style="margin-left: .5in; text-indent: -.25in; mso-list: l10 level1 lfo6"><span
+		style="font-size: 14.0pt; font-family: Wingdings; mso-fareast-font-family: Wingdings; mso-bidi-font-family: Wingdings"><span
+		style="mso-list: Ignore">ü<span
+		style="font: 7.0pt Times New Roman"> </span></span></span><span
+		style="font-size: 14.0pt">Replace bad records during the update
+	and provide fresh records </span></p>
+
+	<p class="MsoNormal"
+		style="margin-left: .5in; text-indent: -.25in; mso-list: l10 level1 lfo6"><span
+		style="font-size: 14.0pt; font-family: Wingdings; mso-fareast-font-family: Wingdings; mso-bidi-font-family: Wingdings"><span
+		style="mso-list: Ignore">ü<span
+		style="font: 7.0pt Times New Roman"> </span></span></span><span
+		style="font-size: 14.0pt">Keeps your data current and active
+	for a longer time. </span></p>
+
+	<p class="MsoNormal"
+		style="margin-left: .5in; text-indent: -.25in; mso-list: l10 level1 lfo6"><span
+		style="font-size: 14.0pt; font-family: Wingdings; mso-fareast-font-family: Wingdings; mso-bidi-font-family: Wingdings"><span
+		style="mso-list: Ignore">ü<span
+		style="font: 7.0pt Times New Roman"> </span></span></span><span
+		style="font-size: 14.0pt">Facilitate multiple time usage </span></p>
+		
+<!--  	
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 18.0pt; mso-bidi-font-size: 16.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 18.0pt; mso-bidi-font-size: 16.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 18.0pt; mso-bidi-font-size: 16.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 18.0pt; mso-bidi-font-size: 16.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 18.0pt; mso-bidi-font-size: 16.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 18.0pt; mso-bidi-font-size: 16.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 18.0pt; mso-bidi-font-size: 16.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 18.0pt; mso-bidi-font-size: 16.0pt"> &nbsp; </span></b></p>
+-->
+	<p class="MsoNormal" align="center" style="text-align: center"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 16.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoNormal" align="center" style="text-align: center"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 18.0pt; mso-bidi-font-size: 16.0pt"> &nbsp; </span></b></p>
+
+	<br style="mso-ignore: vglayout" clear="ALL"></br>
+	
+	<table border="0" cellspacing="0" cellpadding="0" width="100%" >
+        <tr>
+          <td align="right" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">
+          
+	<p class="MsoNormal" style="tab-stops: 0in"><apex:image value="{!$Resource.IDH_Proposal_Logo}" /></p>
+			</td>  
+		</tr>
+    <tr>
+       <td align="left" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">	
+
+	<p class="MsoNormal" style="margin-left: 1.5in; text-indent: .5in"><span
+		class="GramE"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 18.0pt; mso-bidi-font-size: 16.0pt">Special
+	Offer for – iPatientCare, Inc.</span></b></span><b><span
+		style="font-size: 14.0pt; color: #000066"> </span></b></p>
+
+	<p class="MsoNormal" align="center" style="text-align: center"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 18.0pt; mso-bidi-font-size: 16.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoNormal" style="margin-left: 0.5in"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 15.0pt; mso-bidi-font-size: 16.0pt; color: #C00000">Sign
+	up before 20<sup>th</sup> May, 2013 to avail the discounted price given
+	above </span></b></p>
+
+	<p class="MsoNormal"><span style="font-size: 06.0pt"> &nbsp;
+	</span></p>
+
+	
+
+	<p class="MsoNormal" align="center"
+		style="margin-right: -22.5pt; text-align: center"><b
+		style="mso-bidi-font-weight: normal"> &nbsp; </b></p>
+
+	<br style="mso-ignore: vglayout" clear="ALL"></br>
+
+	<p class="Default"><b><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 11.5pt">Entire
+	List Purchase Pricing Option:</span></b><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 11.5pt"> </span></p>
+
+	<p class="Default"><span
+		style="font-size: 18.0pt; mso-bidi-font-size: 14.0pt"> &nbsp; </span></p>
+
+	<p class="Default"><b><span style="font-size: 14.0pt">Platinum
+	Package (6,792 contacts): </span></b><span style="font-size: 14.0pt">Acquire
+	entire 6,792 contacts for <b>$8,000 </b> </span></p>
+
+	<p class="Default"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 11.5pt"> &nbsp; </span></p>
+
+	
+
+	<p class="MsoNormal"><b><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 11.5pt">Platinum
+	Package includes:</span></b><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 11.5pt"> </span><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 11.5pt; mso-fareast-font-family: Calibri; mso-bidi-font-family: Garamond; mso-font-kerning: 0pt">First
+	Name, Last Name, Company name, Company URL, Title, Direct business
+	email address, Physical Address, Phone, Fax Number, Industry, SIC
+	codes, Revenue Size, Employee size &amp; Technology Type. </span></p>
+
+	<p class="MsoNormal"><span
+		style="font-size: 16.0pt; mso-bidi-font-size: 11.5pt; mso-fareast-font-family: Calibri; mso-bidi-font-family: Garamond; mso-font-kerning: 0pt">
+	&nbsp; </span></p>
+
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 11.5pt; mso-fareast-font-family: Calibri; mso-bidi-font-family: Garamond; mso-font-kerning: 0pt">Data
+	Accuracy Guarantee</span></b><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 11.5pt; mso-fareast-font-family: Calibri; mso-bidi-font-family: Garamond; mso-font-kerning: 0pt">:
+	Email data accuracy: 85% and above, Phone: 90% and other data: 90% </span></p>
+	
+</td></tr></table>
+
+	<p class="MsoNormal"><span
+		style="font-size: 12.0pt; mso-bidi-font-size: 11.5pt"> &nbsp; </span></p>
+
+	<p class="Default"><b><span style="mso-bidi-font-size: 11.5pt">
+	&nbsp; </span></b></p>
+
+	<p class="Default"><b><span style="mso-bidi-font-size: 11.5pt">
+	&nbsp; </span></b></p>
+
+	<p class="MsoNormal"><b><span
+		style="font-size: 12.0pt; mso-bidi-font-size: 11.5pt; mso-fareast-font-family: Calibri; mso-bidi-font-family: Garamond; mso-font-kerning: 0pt">
+	&nbsp; </span></b></p>
+
+	
+
+	
+	<table border="0" cellspacing="0" cellpadding="0" width="100%" >
+        <tr>
+          <td align="right" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">
+          
+	<p class="MsoNormal" style="tab-stops: 0in"><apex:image value="{!$Resource.IDH_Proposal_Logo}" /></p>
+			</td>  
+		</tr>
+    <tr>
+       <td align="left" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">	
+	
+
+	<p class="MsoNormal" style="margin-left: 1.8in; text-indent: .5in"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 20.0pt; mso-bidi-font-size: 10.0pt">Data
+	Quality and Sources: </span></b></p>
+
+	
+
+	<br style="mso-ignore: vglayout" clear="ALL"></br>
+
+	<p class="MsoNormal"
+		style="margin-right: 27.0pt; tab-stops: 386.25pt 7.0in 513.0pt"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">Data
+	Sources:</span></b><span style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">
+	Following are the sources we use to update data available for
+	identifying businesses along with a team of over 650 dedicated data
+	management executives that update our files daily. </span></p>
+
+	<p class="MsoNormal"
+		style="margin-right: 27.0pt; tab-stops: 386.25pt 7.0in 513.0pt"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt"> &nbsp; </span></p>
+
+	
+</td></tr></table>
+
+	<table class="MsoNormalTable" border="0" cellspacing="0"
+		cellpadding="0" width="730"
+		style="width: 7.6in; margin-left: 3.6pt; border-collapse: collapse; mso-yfti-tbllook: 1184; mso-padding-alt: 0in 5.4pt 0in 5.4pt">
+		<tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: 15.45pt">
+			<td width="403" valign="bottom"
+				style="width: 301.9pt; border: solid windowtext 1.0pt; mso-border-top-alt: 1.0pt; mso-border-left-alt: 1.0pt; mso-border-bottom-alt: .5pt; mso-border-right-alt: .5pt; mso-border-color-alt: windowtext; mso-border-style-alt: solid; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.45pt">
+			<p class="MsoNormal"><span
+				style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">9,000+
+			Telephone and Web Directories </span></p>
+			</td>
+			<td width="327" valign="bottom"
+				style="width: 245.3pt; border: solid windowtext 1.0pt; border-left: none; mso-border-top-alt: solid windowtext 1.0pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext 1.0pt; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.45pt">
+			<p class="MsoNormal"><span
+				style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">Governmental
+			records and filings </span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 1; height: 16.2pt">
+			<td width="403" valign="bottom"
+				style="width: 301.9pt; border: solid windowtext 1.0pt; border-top: none; mso-border-left-alt: solid windowtext 1.0pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.2pt">
+			<p class="MsoNormal"><span
+				style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">Annual
+			Reports, SEC Filings </span></p>
+			</td>
+			<td width="327" valign="bottom"
+				style="width: 245.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.2pt">
+			<p class="MsoNormal"><span
+				style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">Public
+			Record Information </span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 2; height: 15.45pt">
+			<td width="403" valign="bottom"
+				style="width: 301.9pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext 1.0pt; mso-border-top-alt: 1.0pt; mso-border-left-alt: 1.0pt; mso-border-bottom-alt: .5pt; mso-border-right-alt: .5pt; mso-border-color-alt: windowtext; mso-border-style-alt: solid; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.45pt">
+			<p class="MsoNormal"><span
+				style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">Email
+			Campaigns with offers </span></p>
+			</td>
+			<td width="327" valign="bottom"
+				style="width: 245.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext 1.0pt; mso-border-left-alt: solid windowtext 1.0pt; mso-border-top-alt: 1.0pt; mso-border-left-alt: 1.0pt; mso-border-bottom-alt: .5pt; mso-border-right-alt: .5pt; mso-border-color-alt: windowtext; mso-border-style-alt: solid; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.45pt">
+			<p class="MsoNormal"><span
+				style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">Nationwide
+			utility transaction reports </span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 3; height: 16.2pt">
+			<td width="403" valign="bottom"
+				style="width: 301.9pt; border: solid windowtext 1.0pt; border-top: none; mso-border-left-alt: solid windowtext 1.0pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.2pt">
+			<p class="MsoNormal"><span
+				style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">Free
+			Magazines/Newspaper Subscription Offers </span></p>
+			</td>
+			<td width="327" valign="bottom"
+				style="width: 245.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.2pt">
+			<p class="MsoNormal"><span
+				style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">Phone
+			surveys with every business </span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 4; height: 15.45pt">
+			<td width="403" valign="bottom"
+				style="width: 301.9pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext 1.0pt; mso-border-top-alt: 1.0pt; mso-border-left-alt: 1.0pt; mso-border-bottom-alt: .5pt; mso-border-right-alt: .5pt; mso-border-color-alt: windowtext; mso-border-style-alt: solid; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.45pt">
+			<p class="MsoNormal"><span
+				style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">LinkedIn
+			Web Based Profiles and offers </span></p>
+			</td>
+			<td width="327" valign="bottom"
+				style="width: 245.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext 1.0pt; mso-border-left-alt: solid windowtext 1.0pt; mso-border-top-alt: 1.0pt; mso-border-left-alt: 1.0pt; mso-border-bottom-alt: .5pt; mso-border-right-alt: .5pt; mso-border-color-alt: windowtext; mso-border-style-alt: solid; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.45pt">
+			<p class="MsoNormal"><span
+				style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">Web
+			Based Registrations /Offers </span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 5; height: 16.2pt">
+			<td width="403" valign="bottom"
+				style="width: 301.9pt; border: solid windowtext 1.0pt; border-top: none; mso-border-left-alt: solid windowtext 1.0pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.2pt">
+			<p class="MsoNormal"><span
+				style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">Tradeshow
+			Attendee Lists </span></p>
+			</td>
+			<td width="327" valign="bottom"
+				style="width: 245.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-bottom-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt; height: 16.2pt">
+			<p class="MsoNormal"><span
+				style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">B2B
+			Directory Partnerships </span></p>
+			</td>
+		</tr>
+		<tr style="mso-yfti-irow: 6; mso-yfti-lastrow: yes; height: 15.45pt">
+			<td width="403" valign="bottom"
+				style="width: 301.9pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext 1.0pt; mso-border-top-alt: 1.0pt; mso-border-left-alt: 1.0pt; mso-border-bottom-alt: .5pt; mso-border-right-alt: .5pt; mso-border-color-alt: windowtext; mso-border-style-alt: solid; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.45pt">
+			<p class="MsoNormal"><span
+				style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">Postal
+			Service Information (NCOA) </span></p>
+			</td>
+			<td width="327" valign="bottom"
+				style="width: 245.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext 1.0pt; mso-border-left-alt: solid windowtext 1.0pt; mso-border-top-alt: 1.0pt; mso-border-left-alt: 1.0pt; mso-border-bottom-alt: .5pt; mso-border-right-alt: .5pt; mso-border-color-alt: windowtext; mso-border-style-alt: solid; background: #DBE5F1; padding: 0in 5.4pt 0in 5.4pt; height: 15.45pt">
+			<p class="MsoNormal"><span
+				style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">Business
+			magazine subscription Offers </span></p>
+			</td>
+		</tr>
+	</table>
+	
+	
+	
+	
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 20.0pt; mso-bidi-font-size: 10.0pt"> &nbsp; </span></b></p>
+	
+	
+	
+<table border="0" cellspacing="0" cellpadding="0" width="100%" >
+        <tr>
+          <td align="right" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">
+          
+	<p class="MsoNormal" style="tab-stops: 0in"><apex:image value="{!$Resource.IDH_Proposal_Img}" /></p>
+			</td>  
+		</tr>
+   </table>	
+	
+
+	
+
+	
+	
+
+	
+
+	
+	<table border="0" cellspacing="0" cellpadding="0" width="100%" >
+        <tr>
+          <td align="right" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">
+          
+	<p class="MsoNormal" style="tab-stops: 0in"><apex:image value="{!$Resource.IDH_Proposal_Logo}" /></p>
+			</td>  
+		</tr>
+    <tr>
+       <td align="left" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">	
+	
+
+	<p class="MsoNormal" style="tab-stops: 386.25pt"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">Validation,
+	verification, and quality assurance&nbsp;processes: </span></b></p>
+
+	<p class="MsoNormal" style="tab-stops: 386.25pt"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt"> &nbsp; </span></b></p>
+
+	<p class="MsoListParagraphCxSpFirst"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; text-indent: -.25in; line-height: 115%; mso-list: l8 level1 lfo2"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%; font-family: Symbol; mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol"><span
+		style="mso-list: Ignore">·<span
+		style="font: 7.0pt Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">We
+	update every data field that are collected and stored in our master
+	data file via SMTP check, DNS Look up, NCOA, Tele updates etc. </span></p>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; text-indent: -.25in; line-height: 115%; mso-list: l8 level1 lfo2"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%; font-family: Symbol; mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol"><span
+		style="mso-list: Ignore">·<span
+		style="font: 7.0pt Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">Depending
+	on the data source, we use website registration, permission pass, tele
+	campaign etc. to get Consent before using, selling, renting or
+	licensing the data </span></p>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; text-indent: -.25in; line-height: 115%; mso-list: l8 level1 lfo2"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%; font-family: Symbol; mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol"><span
+		style="mso-list: Ignore">·<span
+		style="font: 7.0pt Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">We
+	verify all the data provided &amp; ensure we got their emails and
+	contact details verified again by our telemarketing team. </span></p>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; text-indent: -.25in; line-height: 115%; mso-list: l8 level1 lfo2"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%; font-family: Symbol; mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol"><span
+		style="mso-list: Ignore">·<span
+		style="font: 7.0pt Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">Social
+	Media Profiles like LINKEDIN, MYSPACE, TWITTER, FACEBOOK etc. profile
+	updates are also matched to our existing master Database. We now have
+	over 10.8 million contacts in our master database file with Social
+	Media Links &amp; personal profiles of Business Executives among the
+	32+ million master database </span></p>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; line-height: 115%"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">
+	&nbsp; </span></p>
+
+	
+
+	
+	<p class="MsoNormal"><b style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt">Update
+	process: </span></b></p>
+
+	<p class="MsoNormal" style="margin-left: 2.0in; text-indent: .5in"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt"> &nbsp; </span></p>
+
+	<p class="MsoListParagraphCxSpFirst"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; text-indent: -.25in; line-height: 115%; mso-list: l5 level1 lfo3"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%; font-family: Symbol; mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol"><span
+		style="mso-list: Ignore">·<span
+		style="font: 7.0pt Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">Each
+	and every record is verified/updated once every Quarter (90 days) by
+	sending e-newsletters.<span style="mso-spacerun: yes"> </span>We also
+	update open and click tracking details. </span></p>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; text-indent: -.25in; line-height: 115%; mso-list: l5 level1 lfo3"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%; font-family: Symbol; mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol"><span
+		style="mso-list: Ignore">·<span
+		style="font: 7.0pt Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">All
+	Clicks and Opens are tracked for each email we maintain in our
+	database. </span></p>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; text-indent: -.25in; line-height: 115%; mso-list: l5 level1 lfo3"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%; font-family: Symbol; mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol"><span
+		style="mso-list: Ignore">·<span
+		style="font: 7.0pt Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">We
+	have a 24/7 team available to ensure all remove requests/complaints are
+	addressed in 24 hours. We also confirm this with any ISP &amp; service
+	provider who made this complaint/request in the event this did not come
+	directly to us </span></p>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; text-indent: -.25in; line-height: 115%; mso-list: l5 level1 lfo3"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%; font-family: Symbol; mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol"><span
+		style="mso-list: Ignore">·<span
+		style="font: 7.0pt Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">We
+	have the largest Data verification team comprised of tele verifiers and
+	email verification team. Every &quot;out of office&quot; or &quot;Read
+	receipt&quot; is updated in our system to know the current active
+	nature of the contact.<span style="mso-spacerun: yes"> </span><span
+		style="mso-spacerun: yes"> </span><span style="mso-spacerun: yes">
+	</span> </span></p>
+	
+	</td></tr></table>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; line-height: 115%"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">
+	&nbsp; </span></p>
+
+
+
+	<table border="0" cellspacing="0" cellpadding="0" width="100%" >
+        <tr>
+          <td align="right" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">
+          
+	<p class="MsoNormal" style="tab-stops: 0in"><apex:image value="{!$Resource.IDH_Proposal_Logo}" /></p>
+			</td>  
+		</tr>
+    <tr>
+       <td align="left" style="spacing :0; padding: 0in 0pt 0in 0pt; " width="100%" valign="top">	
+       
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; line-height: 115%"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">More
+	information on the quality and ROI:</span></b><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">
+	</span></p>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; line-height: 115%"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">
+	&nbsp; </span></p>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; line-height: 115%"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">Note:</span></b><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">
+	Once the list is purchased, you can use it for multiple times and for
+	multiple usage like tele marketing,<span style="mso-spacerun: yes">
+	</span>email campaigns, tradeshows invites, events information, direct
+	mailing, Promotions, Offers, Recruitment etc. </span></p>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; line-height: 115%"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">
+	&nbsp; </span></p>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; line-height: 115%"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">Guarantee:</span></b><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">
+	We provide guarantee to our email contact list for 90% data accuracy
+	and 85% on emails, if you get any corrupted data you can send us those
+	many records and we will replace the data with the unique ones. This
+	clause will be written in our agreement. </span></p>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; line-height: 115%"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">
+	&nbsp; </span></p>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; line-height: 115%"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">Authenticity:</span></b><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">
+	All our records are permission based or opt-in and we are in compliance
+	with CAN SPAM and all the legal folds made for email marketing to get
+	you the best. </span></p>
+
+	<p class="MsoListParagraphCxSpMiddle"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; line-height: 115%"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">
+	&nbsp; </span></p>
+
+	<p class="MsoListParagraphCxSpLast"
+		style="margin-top: 0in; margin-right: .5in; margin-bottom: 10.0pt; margin-left: .5in; mso-add-space: auto; text-align: justify; line-height: 115%"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">Verification:</span></b><span
+		style="font-size: 14.0pt; mso-bidi-font-size: 10.0pt; line-height: 115%">
+	Before we deliver the data to you, your list undergoes two types of
+	verification measure i.e. we tele verify all the contacts and also do a
+	ping test to check if the email domain is valid, so that the output of
+	the list can have the best ROI. </span></p>
+
+	<p class="MsoNormal" align="center" style="text-align: center"><b
+		style="mso-bidi-font-weight: normal"><span
+		style="font-size: 20.0pt; mso-bidi-font-size: 10.0pt"> &nbsp; </span></b></p>
+</td></tr></table>
+	</div>
+
+	</body>
+
+
+</apex:page>

@@ -1,0 +1,115 @@
+<apex:page controller="LeadGenUserLoginClass" standardstylesheets="false" showHeader="false" sideBar="false" setup="false" >
+
+<style>
+.locationError { color: red; font-weight: strong;}
+/*
+table
+{
+border:1px solid #a1a1a1;
+padding:4px 40px; 
+border-radius:25px;
+}
+td 
+{
+border:1px solid #a1a1a1;
+padding:4px 10px; 
+background:#FFFFFF;
+width:30px;
+border-radius:10px;
+}*/
+body{background-color:#414141;}
+h1{color:orange;
+text-align:center;
+}
+p
+{
+font-family:"verdana";
+font-size:14px;
+font-color:#000;
+}
+b
+{
+font-family:"verdana";
+font-size:12px;
+font-color:red;
+}
+.Mylinks
+{
+    color:#000000s;
+}
+a:link {color:#000; text-decoration: none;}   
+a:visited {color:#000;text-decoration: none;}
+a:hover {color:#000;text-decoration: none;}  
+a:active {color:#000;text-decoration: none;} 
+a, u {text-decoration: none;}
+</style>
+<!--
+    <apex:outputPanel styleClass="left-section1 container " layout="block">
+        <apex:outputPanel styleClass="page-title" layout="block">
+            <h1><center>Login</center></h1>
+    </apex:outputPanel>-->
+        <apex:form id="Form1">
+        
+            <body bgcolor="#414141">
+           <table align="center" width="1000" bgcolor="#414141" cellpadding="2" cellspacing="2" border="0" height="800"  >
+               
+                <tr valign="middle">
+                <td> 
+                <table align="center"  bgcolor="#FFFFFF" cellpadding="4" cellspacing="4" border="0" width="35%"  style="border-radius:10px;" >
+               <tr height="5%" bgcolor="#eee">
+                    <td Colspan="2"><h3>LeadGen Login Portal</h3> </td> 
+                  
+                </tr>
+                <tr><td colspan="2"> <apex:messages styleClass="locationError" /></td></tr>
+                  <tr >
+                    <td><p align="right"><apex:outputText styleClass="field-label">Email Address :</apex:outputText></p></td> 
+                    <td><apex:inputText id="cmsUserName" value="{!username}" styleClass="field-text"/></td>
+                </tr>
+                 <tr>
+                    <td><p align="right"><apex:outputText styleClass="field-label">Password :</apex:outputText></p></td>
+                    <td><apex:inputSecret id="cmsPassword" value="{!Password}" styleClass="field-text" /></td>
+                </tr>
+             <!--  <tr>
+                <td><apex:commandlink action="{!UpdatePassword}" value="UpdatePassword"></apex:commandlink></td>
+                </tr> -->   
+                <tr height="30%">
+                    <td colspan="2" align="center" bgcolor="#eee">
+                        <apex:outputPanel layout="block" styleClass="uname" id="Section">
+                            <div class="form-submit1">                               
+                                <apex:commandButton value="Login" action="{!checkLogin}" title="Login" id="login" onclick="return userNamePasswordValidation(this)" />
+                                
+                            </div>
+                        </apex:outputPanel>
+                    </td> 
+                </tr>
+            </table>
+            </td> 
+                </tr>
+               
+            </table> 
+            </body>
+        </apex:form>
+    
+<script>
+    function userNamePasswordValidation(loginButton){
+        var loginButtonId = loginButton.id;
+        var loginButtonIdList = loginButtonId.split(':');
+        buttonName = 'Section:';
+        var buttonName = loginButtonIdList[loginButtonIdList.length-1];
+        var baseId = loginButtonId.replace(buttonName,'');
+        if((document.getElementById(baseId+'cmsUserName').value).length==0){
+            alert('UserName can not be blank.');
+            return false;
+        }
+        else if((document.getElementById(baseId+'cmsPassword').value).length==0){
+            alert('Password can not be blank');
+            return false;
+        }
+        else{
+         return true;
+        }
+    }
+    //var strSessionValue = '<%=Session["someValue"].ToString();%>'
+    //alert(strSessionValue);
+   </script>
+</apex:page>

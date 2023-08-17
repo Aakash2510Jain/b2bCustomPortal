@@ -1,0 +1,207 @@
+<apex:page controller="SOSLeadFormCtrl_Manager_Robin_Smith" showHeader="false" sidebar="false">
+ <!--    <script>
+        function emailCopy() {
+            document.getElementById('j_id0:j_id2:email').value = document.getElementById('dummyEmail').value;
+        }
+        
+        var temp = false;
+        var submit = false;
+        var check = false;
+        function decideAndSubmit(){
+             if(check == true) {
+                 validate();
+             }
+             else {
+                 validate1();
+             }
+             
+             if(temp) {
+                if(!submit){
+                    //submit=true;
+                    return false;
+                } else {
+                    temp = false;
+                    return true;
+                }
+            } else {
+                return false;
+            }
+        }
+        function validate() {
+            if(document.getElementById('dummyEmail').value == '') {
+                alert('Please Enter email');
+                 submit = false;
+            }
+            else if(document.getElementById('j_id0:j_id2:j_id30').value == '') {
+                alert('Please Enter Company');
+                 submit = false;
+            }
+            else if(document.getElementById('j_id0:j_id2:j_id33').value == '') {
+                alert('Please Enter First Name');
+                 submit = false;
+            }
+            else if(document.getElementById('j_id0:j_id2:j_id35').value == '') {
+                alert('Please Enter Last Name');
+                 submit = false;
+            }
+          
+        }
+        function validate1() {
+            if(document.getElementById('dummyEmail').value == '') {
+                alert('Please Enter email');
+                 submit = false;
+            }
+             else if(document.getElementById('j_id0:j_id2:j_id40').value == '') {
+                alert('Please slect Domain');
+                 submit = false;
+            }
+            else if(document.getElementById('j_id0:j_id2:j_id44').value == '') {
+                alert('Please select Sub domain');
+                 submit = false;
+            }
+           else if(document.getElementById('j_id0:j_id2:j_id48').value == '') {
+                alert('Please Enter Primary Service Interested in');
+                 submit = false;
+            }
+            else if(document.getElementById('j_id0:j_id2:j_id42').value == '') {
+                alert('Please Enter User Name');
+                 submit = false;
+            }
+            else if(document.getElementById('j_id0:j_id2:j_id52').value == '') {
+                alert('Please Enter Industry');
+                 submit = false;
+            }
+            else if(document.getElementById('j_id0:j_id2:j_id60').value == '') {
+                alert('Please Enter Source');
+                 submit = false;
+            }
+            else if(document.getElementById('j_id0:j_id2:j_id68').value == '') {
+                alert('Please Enter Country');
+                 submit = false;
+            }
+            else if(document.getElementById('j_id0:j_id2:j_id72').value == '') {
+                alert('Please Enter State');
+                 submit = false;
+            }
+            
+        }
+      
+        function setSubmit(ele) {
+            if(ele == 'check') {
+                check = true;
+            }   
+            else {
+                check = false;
+            }
+            submit = true;
+            temp = true;
+        }
+        
+        function unsetSubmit() {
+            submit = false;
+        }
+       
+    </script>
+    
+    <apex:form onsubmit="return decideAndSubmit();" style="background-color:#178AB4;">
+    
+    <img src="http://www.pjtrackers.com/images/SOS_CloudLogo.png"></img>
+   <apex:pageMessages id="errormessage"/>"
+    <table border="0" rules="rows" bordercolor='#178AB4' width="90%" align="center" cellpadding="0" cellspacing="0" bgcolor="#178AB4">
+    <tr><td bgcolor="#178AB4">
+    </td><td bgcolor="178AB4" align = "right"><font color="White" style="font-size:14Pt">LEAD FORM</font></td></tr></table>
+     <table border="1" rules="rows" bordercolor='#EBEBEB' width="90%" align="center" cellpadding="0" cellspacing="0" bgcolor="WHITE">
+     <tr><td  bgcolor="178AB4"  BORDERCOLOR="D3649F" colspan="4" style="font-size:10Pt"><font color="WHITE"><b>Email Verification</b></font></td></tr>
+     <tr><td align="right" >&nbsp;&nbsp;Company :</td>
+     <td><apex:inputField value="{!App.Company}" required="true"/></td>
+     <td align="right"> Email :</td>
+     <td><INPUT id="dummyEmail" type="text" size="40" onchange="emailCopy();"/> <apex:inputHidden id="email" value="{!App.Email}"/></td></tr>    
+     <tr><td align="right" >First Name :
+     </td><td><apex:inputField value="{!App.FirstName}"/></td>
+     <td align="right" > Last Name :</td>
+     <td><apex:inputField value="{!App.LastName}" required="true"/></td></tr>
+     <tr><td></td><td colspan="4"><apex:commandButton value="check" action="{!checkemail}" onclick="setSubmit(value)"  style="width:80px;height:25Px;font-size:10Pt"/>
+     </td></tr>
+     
+     </table>     
+       <table border="1" rules="rows" bordercolor='#EBEBEB' width="90%" align="center" cellpadding="0" cellspacing="0" bgcolor="WHITE">
+       <tr><td colspan="4">&nbsp;</td></tr>
+       <tr>
+       <td bgcolor="178AB4" colspan="4"><font color="White" style="font-size:10Pt"><b>Lead Information</b></font></td>
+       </tr>
+       <tr>
+       <td  colspan="4"><font color="red" style="font-size:8Pt"> * Fields are Mandatory</font></td>
+       </tr>
+       <tr>
+       <td align="right"><font color="red">*</font>Domain Name :</td>
+       <td><apex:inputField value="{!App.Division_Name__c}"/></td>
+       <td align="right"><font color="red">*</font>User Name</td>
+       <td><apex:inputfield value="{!App.User_Name_Manager_Robin_Smith__c}"/></td> 
+       </tr>
+       <tr>
+       <td align="right" width='23%'><font color="red">*</font>Sub Domain Name : </td>
+       <td>&nbsp;<apex:inputField value="{!App.Sub_Division_Name__c}"/></td>
+       <td align="right">Lead Assigned To :</td>
+       <td><apex:inputField value="{!App.Lead_AssignedTo__c}"/></td>         
+       </tr>
+       <tr>
+       <td align="right"><font color="red">*</font> Primary Service Interested in :</td>
+       <td><apex:inputField value="{!App.Primary_Service_Name__c}" /></td>
+       <td align="right">Contact's Job Title :</td>
+       <td><apex:inputField value="{!App.Title}"/></td>
+       </tr>
+       <tr>
+       <td align="right"><font color="red">*</font> Industry :</td>
+       <td><apex:inputField value="{!App.Industry}" /></td>
+       <td align="right">TimeLine :</td>
+       <td><apex:inputField value="{!App.Time_Frame__c}"/></td>
+       </tr>
+       <tr>
+       <td align="right">Budget :</td>
+       <td><apex:inputField value="{!App.Budget__c}"/></td>
+       <td align="right">Website :</td>
+       <td><apex:inputField value="{!App.Website}"/></td>
+       </tr>
+       <tr>
+       <td align="right"><font color="red">*</font> Source :</td>
+       <td><apex:inputField value="{!App.LeadSource}" /></td>
+       <td align="right">Phone :</td>
+       <td><apex:inputField value="{!App.Phone}"/></td>
+       </tr>
+       <tr>
+       <td align="right">Street :</td>
+       <td><apex:inputField value="{!App.Street}"/></td>
+       <td align="right">Mobile:</td>
+       <td><apex:inputField value="{!App.MobilePhone}"/></td>
+       </tr>
+       <tr>
+       <td align="right"><font color="red">*</font> Country :</td>
+       <td><apex:inputField value="{!App.Country}" /></td>
+       <td align="right">Fax :</td>
+       <td><apex:inputField value="{!App.Fax}"/></td>
+       </tr>
+       <tr>
+       <td align="right"><font color="red">*</font> State :</td>
+       <td><apex:inputField value="{!App.State}" /></td>
+       <td align="right">Marketing Lead Rating:</td>
+       <td><apex:inputField value="{!App.Rating}"/><b>(1 Low  to 5 High)</b></td>
+       </tr>
+       <tr>
+       <td align="right" width='23%'>Voice Mail : </td>
+       <td>&nbsp;<apex:inputFile value="{!Att.body}" filename="{!Att.name}" size="8"/></td>
+       <td align="right" width='23%'>LinkedIn URL : </td>
+       <td><apex:inputField value="{!App.LinkedIn_URL__c}"/></td>
+       </tr>
+       <tr>
+       <td align="right" valign="top">Comments (Max 32,000 Characters) :</td>
+       <td colspan="2"><apex:inputField value="{!App.Comments__c}"/></td>
+       <td></td>
+       </tr>
+       <tr><td colspan="4"><hr color="#EBEBEB"/></td></tr>
+       <tr><td colspan="4" align="center"><apex:commandButton value="Submit"  action="{!save}" onclick="setSubmit()" /></td></tr>    
+       
+       </table>
+      
+    </apex:form> -->
+    
+</apex:page>

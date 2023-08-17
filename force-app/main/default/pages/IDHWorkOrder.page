@@ -1,0 +1,519 @@
+<apex:page standardController="Opportunity" showHeader="false"
+    sidebar="false" extensions="GenerateOrdersController"
+    renderAs="{!valuetoset}">
+
+    <body style="font-family: Calibri;">
+
+    <c:dynawhitecomponent type="footer">
+        <div>
+        <table width="100%">
+            <tr>
+                <td align="left" style="font-size: 7pt;"><b><u>Your&nbsp;
+                <apex:outputText value="{!Opportunity.Owner.Title}" />&nbsp; at IDH:</u></b><br />
+                 <apex:outputfield value="{!Opportunity.Owner.Name}" /><br />
+
+                <apex:outputText value="{!Opportunity.Owner.Title}" /></td>
+                <td align="right" style="font-size: 7pt;">
+                <apex:outputText value="{!Opportunity.Owner.Email}" /> <br />
+
+                Direct:<apex:outputText value="{!Opportunity.Owner.Phone}" /></td>
+            </tr>
+        </table>
+        </div>
+
+    </c:dynawhitecomponent>
+
+
+    <table border="0" width="100%" align="center">
+        <!-- Outer 01--->
+        <tr>
+            <td style="border: 0px">
+            <table width="100%" style="border: 0px solid #000">
+                <!-- Outer 02--->
+
+                <tr>
+                    <td width="50%"><apex:image value="{!$Resource.IDH}" /></td>
+                    <td width="50%" align="right">
+                    <table style="border: 0px solid #000;" cellpadding="0"
+                        cellspacing="0" width="65%" valign="top" align="right">
+                        <tr style="text-align: left; font-size: 9.0pt;">
+                            <td style="">2500 City West Blvd<br />
+                            Suite 300<br />
+                            Houston, TX 77042<br />
+                            Phone: +1-281-978-4438<br />
+                            Fax: : 1-800-504-8518 <br />
+                            www.infodatahouse.com</td>
+                        </tr>
+
+                    </table>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center" bgcolor="#4170BE" height="20"><b>
+                    <span style="font-size: 20.0pt; color: #0070C0"> </span></b></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                    <table border="0" width="100%" align="center" cellpadding="0"
+                        cellspacing="0" style="border-top: 1px solid #4F81BD">
+                        <!-- Outer 03--->
+                        <tr>
+                            <td>
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <!-- Outer 04--->
+                                <tr style="font-size: 10pt;">
+
+
+                                    <td width="50%"><b><span style="font-size: 12.0pt;"><br />
+                                    Insertion Order </span></b> <br />
+                                    <br />
+                                    Submitted By :<br />
+                                    <br />
+
+                                    <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c!=''}">
+                                        <apex:outputfield value="{!Opportunity.Workorder_Owner_Name__c}" />
+                                    </apex:panelGroup> <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c==''}">
+                                        <apex:outputfield value="{!Opportunity.Owner.Name}" />
+                                    </apex:panelGroup><br />
+
+                                    <apex:outputText value="{!Opportunity.Owner.Title}" /> <br />
+
+                                    <apex:outputText value="{!Opportunity.Brand_Name__c}" /> <br />
+                                    Phone: <apex:outputText value="{!Opportunity.Owner.Phone}" />
+                                    <br />
+                                    Fax: <apex:outputText value="{!Opportunity.Fax__c}" /> <br />
+
+                                    <apex:outputText value="{!Opportunity.Owner.Email}" /><br />
+                                    <br />
+                                    <b> Reference Number:<apex:outputText value="{!Opportunity.Reference_Number__c}" /><br />
+                                    Date:<apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                                        <apex:param value="{!opportunity.current_date__c}" />
+                                    </apex:outputText></b></td>
+                                    <br />
+                                    <td width="50%" valign="top"
+                                        style="font-size: 10pt; padding: 0in 6.4pt 0in 90.4pt;"><br />
+                                    Submitted To:<br />
+                                    <br />
+                                    <b><apex:outputText value="{!Opportunity.Client_Name__r.name}" /></b><br />
+                                    <apex:outputText value="{!Opportunity.Client_Title__c}" /><br />
+                                    <apex:outputText value="{!Opportunity.Account.Name}" /><br />
+                                    Phone:<apex:outputText value="{!Opportunity.Client_Phone__c}" /><br />
+                                    Website:<apex:outputText value="{!Opportunity.Client_Email__c}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                    <table border="1" cellspacing="0" cellpadding="0" width="100%"
+                                        style="border: solid 1.0pt;">
+                                        <!-- Outer 05--->
+                                        <tr
+                                            style="font-size: 10pt; background: #4170BE; height: 18.0pt">
+                                            <td width="20%" style="border-top: solid 1.0pt;"><span
+                                                style="font-weight: bold">SALES PERSON</span></td>
+                                            <td width="20%" style="border-top: solid 1.0pt;"><span
+                                                style="font-weight: bold">Service Type</span></td>
+                                            <td width="20%" style="border-top: solid 1.0pt;"><span
+                                                style="line-height: 110%; font-weight: bold">SHIPPED
+                                            VIA</span></td>
+                                            <td width="20%" style="border-top: solid 1.0pt;"><span
+                                                style="font-weight: bold">Delivery Date</span></td>
+                                            <td width="20%"
+                                                style="border-top: solid 1.0pt; border-right: none"><span
+                                                style="font-weight: bold">TERMS</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                style="font-size: 11pt; border: 1px solid black; border-right: none; border-left: none; border-bottom: none">
+                                            <span><apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c!=''}">
+                                                <apex:outputfield value="{!Opportunity.Workorder_Owner_Name__c}" />
+                                            </apex:panelGroup> <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c==''}">
+                                                <apex:outputfield value="{!Opportunity.Owner.Name}" />
+                                            </apex:panelGroup> </span></td>
+                                            <td
+                                                style="font-size: 11pt; border: 1px solid black; border-right: none; border-bottom: none">
+                                            <span style="mso-no-proof: yes"><apex:outputText value="{!Opportunity.General_Service_Description__c}" /></span>
+                                            </td>
+                                            <td
+                                                style="font-size: 11pt; border: 1px solid black; border-right: none; border-bottom: none">
+                                            <span style="line-height: 110%;">
+                                               
+                                                    <apex:outputText value="{!Opportunity.Shipped_Via__c }" /></span></td>
+                                            <td
+                                                style="font-size: 11pt; border: 1px solid black; border-right: none; border-bottom: none">
+                                            <span style="line-height: 110%;"> <apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                                                <apex:param value="{!opportunity.DateofDelivery__c}" />
+                                            </apex:outputText></span></td>
+                                            <td
+                                                style="font-size: 11pt; border: 1px solid black; border-bottom: none; border-right: none">
+                                            <span style="line-height: 110%;"><apex:outputfield value="{!Opportunity.Payment_Terms__c}" /></span></td>
+                                        </tr>
+                                        <!-- Outer 05--->
+                                    </table>
+                                    </td>
+                                </tr>
+
+                                <tr style="background: #4170BE; border: 1px solid black;">
+                                    <td align="left" width="50%">List Criteria</td>
+                                    <td align="left" width="50%">Counts</td>
+                                </tr>
+                                <apex:repeat value="{!opportunity.opportunityLineItems}"
+                                    var="op">
+                                    <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                                        <tr style="">
+                                            <td width="50%" valign="top"><apex:outputtext value="{!OP.PricebookEntry.Product2.Legal_Name__c}" /></td>
+                                            <td width="50%" valign="top"><apex:outputField value="{!OP.quantity}" /></td>
+                                        </tr>
+                                    </table>
+                                </apex:repeat>
+                                <tr>
+                                    <td bgcolor="gray" align="center" colspan="4">Total
+                                    Records to be delivered — 1,081 companies and 1,081 contacts (
+                                    1 contact/company)</td>
+                                </tr>
+                                <tr>
+                                    <td align="center" bgcolor="#4170BE" colspan="4">IDH
+                                    PACKAGED PRICING OPTIONS</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                    <table width="100%" border="1" cellpadding="0" cellspacing="0">
+                                        <tr>
+
+                                            <td width="10%"><b><span
+                                                style="font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Option</span></b>
+                                            </td>
+                                            <td width="40%"><b><span
+                                                style="font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Particulars</span></b>
+                                            </td>
+                                             <td width="20%"><b><span
+                                                style="font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Quantity</span></b>
+                                            </td>
+                                             <td width="20%"><b><span
+                                                style="font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Unit Price</span></b>
+                                            </td>
+                                            <td width="10%"><b><span
+                                                style="font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Investment</span></b>
+                                            </td>
+                                        </tr>
+                                        <apex:variable var="count" value="{!0}" />
+                                     <apex:repeat value="{!opportunity.opportunityLineItems}" var="op">
+                                    <tr
+                                        style="yfti-irow: 1; page-break-inside: avoid; height: 13.1ptt;">
+                                        <apex:variable var="count" value="{!count+1}" />
+                                        <td width="10%" align="center"><span></span>
+                                        <apex:outputText value="{0, number, ###,##0}">
+                                            <apex:param value="{!count}" />
+                                        </apex:outputText></td>
+                                        <td width="40%" align="center"><apex:outputtext value="{!OP.PricebookEntry.Product2.Legal_Name__c}" /></td>
+                                        <td width="20%" align="center"><span>
+                                        </span> <apex:outputText value="{0, number, ###,##0}">
+                                            <apex:param value="{!OP.Quantity}" />
+                                        </apex:outputText> <b style="font-weight: normal"><span></span></b></td>
+                                        <td width="15%" align="center"><span>
+                                        </span> <apex:outputText value="{!OP.unitprice}" /></td>
+                
+                                        <td width="25%" align="center"><span>
+                                        </span> $<apex:outputText value="{!OP.TotalPrice}" /></td>
+                                    </tr>
+                                </apex:repeat>
+                                         <tr>
+                    <td colspan="5"><apex:panelgroup rendered="{!Opportunity.Annu_Maint_Contract__c!= true}">
+                        <table border="1" width="100%" height="100%" cellpadding="0"
+                            cellspacing="0">
+                            <tr>
+                                <td align="right"><b>Total</b></td>
+                                <td align="center" width="15%"><b> <apex:outputText value="{0, number, 00.00}">
+                                    $<apex:param value="{!Opportunity.Amount}" />
+                                </apex:outputText></b></td>
+                            </tr>
+                        </table>
+                    </apex:panelgroup> <apex:panelgroup rendered="{!Opportunity.Annu_Maint_Contract__c== True}">
+                        <table border="1" width="100%" height="100%" cellpadding="0"
+                            cellspacing="0">
+                            <tr>
+                                <td align="right" width="70%"><b>Annual Maintenance
+                                contract (AMC)</b></td>
+                                <td align="center"><b>20%</b></td>
+                            </tr>
+                            <tr>
+                                <td align="right">Total</td>
+                                <td align="center" width="12%"><b><apex:variable var="amcTotal" value="{!0}" /> <apex:variable var="amcpercentage" value="{!Opportunity.Amount * 0.20}" /> <apex:variable var="amcpercentage"
+                                    value="{!amcpercentage + Opportunity.Amount}" /> <apex:outputText value="{0, number, 00.00}">
+                                    $<apex:param value="{!amcpercentage}" />
+                                </apex:outputText></b></td>
+                            </tr>
+                        </table>
+                    </apex:panelgroup></td>
+                </tr>
+
+                                        <tr>
+                                        
+                                            <td valign="top" width="20%" height="40" colspan="2"><b><span
+                                                style="font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Target
+                                            Criteria:</span></b> <span style="font-size: 10.0pt;"><apex:outputField value="{!opportunity.Data_criteria__c}" /></span></td>
+                                            <td valign="top" colspan="4" width="80%"><b><span
+                                                style="font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Signature:</span></b>
+
+                                            </td>
+                                        </tr>
+                                        </table>
+                                        <table width="100%" border="1" cellpadding="0" cellspacing="0">
+
+                                        <tr
+                                            style="mso-yfti-irow: 10; height: 15.1pt; background: #4170BE;">
+                                            <td width="50%" valign="top" height="40"><b><span
+                                                style="font-size: 12pt; color: white; padding: 0in 5.4pt 0in 5.4pt;">Authorization:
+                                            </span></b></td>
+                                            <td width="50%" colspan="5" valign="top" height="40"><b><span
+                                                style="font-size: 12pt; color: white; padding: 0in 5.4pt 0in 5.4pt;">Authorization:InfoDataHou
+                                            </span></b></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6">
+                                            <table width="100%" border="0" cellpadding="0"
+                                                cellspacing="0">
+
+                                                <tr>
+                                                    <td width="50%"
+                                                        style="border-left: solid thin #4F81BD 1.0pt; font-size: 11.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">Name:
+                                                    <apex:outputField value="{!Opportunity.Client_Name__r.name}" /></td>
+
+                                                    <td width="50%"
+                                                        style="border-left: solid #4F81BD 1.0pt; font-size: 11.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">Name:
+                                                    <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c!=''}">
+                                                        <apex:outputfield value="{!Opportunity.Workorder_Owner_Name__c}" />
+                                                    </apex:panelGroup> <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c==''}">
+                                                        <apex:outputText value="{!Opportunity.owner.name}" />
+                                                    </apex:panelGroup></td>
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td width="50%"
+                                                        style="border-left: solid thin #4F81BD 1.0pt; font-size: 11.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">Title:
+                                                    <apex:outputField value="{!Opportunity.Client_Title__c}" /></td>
+
+                                                    <td width="50%"
+                                                        style="border-left: solid #4F81BD 1.0pt; font-size: 11.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">Title:
+
+                                                    <apex:outputField value="{!Opportunity.Title__c}" /></td>
+
+                                                </tr>
+
+
+
+                                                <tr>
+                                                    <td width="50%"
+                                                        style="border-left: solid thin #4F81BD 1.0pt; font-size: 11.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">Date:
+
+                                                    &nbsp;</td>
+
+                                                    <td width="50%"
+                                                        style="border-left: solid #4F81BD 1.0pt; font-size: 11.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">Date:
+
+                                                    <apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                                                        <apex:param value="{!opportunity.current_date__c}" />
+                                                    </apex:outputText></td>
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td width="50%" valign="top"
+                                                        style="border-left: solid thin #4F81BD 1.0pt; font-size: 11.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">Signature:
+                                                    </td>
+
+                                                    <td width="50%"
+                                                        style="border-left: solid #4F81BD 1.0pt; font-size: 11.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">Signature:
+
+                                                    <apex:outputField value="{!Opportunity.Signauture1__c}" /></td>
+
+                                                </tr>
+                                              
+                                            </table>
+                                            </td>
+                                        </tr>
+                                         </table>
+                                     <div style="page-break-after: always;" />
+                 <table border="0" width="100%" align="center" cellpadding="0"
+                        cellspacing="0">
+                <tr>
+                    <td colspan="4" align="center">
+                    <div><b> <span style="font-size: 18.0pt; color: #0070C0">Agreement Terms and Conditions</span></b></div>
+                    </td>
+                </tr>
+                 <tr>
+                    <td colspan="4" align="center">
+                   <br/> <div><b> <span style="font-size: 10.0pt; color: #0070C0">THIS AGREEMENT is made and entered into this on &nbsp;<apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                                                        <apex:param value="{!opportunity.current_date__c}" />
+                                                    </apex:outputText>, by and between
+                    InfoDataHouse and 
+</span></b></div>
+                    </td>
+                </tr>
+                <tr style="font-size: 13px;">
+                    <td colspan="4">
+                    <div>
+                   <br/> <p style="line-height: normal" align="justify">Following are the terms of this AGREEMENT:</p>
+                    <p><B> GUARANTEES: </b>We guarantee 100% accuracy on the data we deliver for your target audience and provide 85% deliverability on Direct Business Email Addresses and 95% on other data. If the data fails to do so we will replace incorrect records within 3 weeks’ time from the complaint date or make up by providing similar number of records from the other criteria of the customer or refund for the incorrect records. InfoDataHouse agrees to credit ¬¬¬¬ ANS Group for all bounce backs.</p>
+                    <p align="justify"> Any bounced emails is to be sent over to IDH in an excel file so that IDH can re-verify and deliver fresh records for the criteria</p>
+                    <p align="justify">InfoDataHouse agrees to credit ANS Group all bounce backs and bad records. IDH represents warrants and covenants that it has all necessary rights to provide the data pursuant to and for the purposes set forth in this Agreement, and that IDH's provision of the data is and shall be in compliance with all applicable laws</p>
+                    <p align="justify"><b>USAGE:</b> A worldwide, perpetual, irrevocable, royalty-free license to use these records as many times as The Client wants provided they follow CAN-SPAM Act, DMA guidelines for marketing and any other local email and marketing legislation. The Client will own any data it collects from contacts. IDH will deliver the list for perpetual usage license provided client should follow CAN SPAM Act, DPA (Data Protection Act) and other local laws in the marketing messages. </p>
+
+                    <p align="justify"><B>BUFFER RECORDS:</b> 15% Buffering records in-house are for backup in case if there are any undeliverable emails or bad records. Actual bad records would be replaced by buffer data present in-house to make up with guarantees provided.</p>
+
+                    <p align="justify"><B> DATA FORMAT: </b>The list would be delivered in excel format which can be used for your unlimited usage and can be integrated to any CRM as per your needs</p>
+                    <p align="justify"><B> LICENSE and PAYMENT TERMS:</b> The Client will pay to IDH based on the statement of work. The total estimated fee has to be paid prior to IDH conducting email/data services. Perpetual usage license is valid for one year from the date of purchase post which customer has to renew the </p>
+                    <p align="justify">purchase by paying new price which prevails at the time of renewal. Invoice for the payment will be forwarded by our Account Manager assigned  for your company upon receipt of the signed Insertion Order</p>
+
+                    <p align="justify"><b>PAYMENT REMITTANCE ADDRESS:</b> Info Data House - B2B Division, </p>
+                    <p align="justify" style="padding:2.15pt 60.75pt">Dept Lbx 731103, 14800 Frye Road, 2nd Floor, Ft Worth, TX 76155</p>
+                    <p align="justify"><B> DELIVERY TIME and MODE:</b> IDH will deliver the file within 4-5 working days after receipt of complete payment from  ANS Group</p>
+                    <p align="justify"><B>CANCELLATION CHARGES:</b> 40% of the payment is due as cancellation charges and costs of working on the verification  if client cancels the order after signing up</p>
+                    <p align="justify"><B> CONFIDENTIALITY: </b>The Customer Records, the Email Addresses, the Matched Records and all other information (collectively, the "Confidential Information") submitted by Customer to InfoDataHouse and Used by InfoDataHouse for Customer Email Campaigns will remain confidential.</p>
+                    <p align="justify"><B> LIMITATION OF LIABILITY: </b>Neither party shall be liable for any indirect, special, incidental, punitive or consequential damages of any kind (including loss or profits), regardless of the form of action, whether in tort (including negligence), strict liability or otherwise, even if informed of the possibility of such damages in advance. Notwithstanding any other provision of this agreement, client’s entire liability under this agreement shall not exceed the amount payable by client to us under this agreement.  The provisions of this section 7 shall not apply to any indemnification obligation or breach of confidentiality.</p>
+                    <p align="justify"><B> ENTIRE AGREEMENT: </b>This is the entire agreement between the parties and hereby supersedes all other agreements, negotiations, discussions or advertising material related to the subject matter hereof.</p>
+                    </div>
+                  </td>
+                </tr>
+                </table>
+                <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0"  style="border: 1px solid #4F81BD">
+                     <tr style="background: #4170BE;">
+                        <td colspan="2" >
+                        <b><span style=";font-style:normal;padding:0in 5.4pt 0in 5.4pt;">For &nbsp;<apex:outputField value="{!Opportunity.account.name}"/></span></b>
+                                                                                            </td><td colspan="2" >
+                                                                                            <b><span
+                            style=" font-style:normal;font-weight: bold;padding:0in 5.4pt 0in 5.4pt;">For Info Data House </span></b>
+                        </td>
+                     </tr>
+                     
+                       <tr >
+                            <td 
+                            style="border-left:solid thin #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;">Name</td>
+                            <td 
+                            style="border-left:solid #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;"><apex:outputField value="{!Opportunity.Client_Name__r.name}"/></td>
+    
+                            <td 
+                            style="border-left:solid #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;">Name</td>
+    
+                            <td 
+                            style="border-left:solid #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;">
+                            <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c!=''}">    
+                                  <apex:outputfield value="{!Opportunity.Workorder_Owner_Name__c}"/>
+                                </apex:panelGroup>
+                                <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c==''}">    
+                                  <apex:outputText value="{!Opportunity.owner.name}"/> 
+                                </apex:panelGroup>
+                            </td>
+    
+                         </tr>
+                                            
+                         <tr >
+                            <td 
+                            style="border-left:solid thin #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;">Title</td>
+                            <td 
+                            style="border-left:solid  #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;"><apex:outputField value="{!Opportunity.Client_Title__c}"/></td>
+    
+                            <td 
+                            style="border-left:solid #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;">Title</td>
+    
+                            <td 
+                            style="border-left:solid #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;"><apex:outputField value="{!Opportunity.Title__c}"/></td>
+    
+                         </tr>
+    
+    
+                            <tr >
+                            <td 
+                            style="border-left:solid thin #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;">Date</td>
+                            <td 
+                            style="border-left:solid #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;">&nbsp;</td>
+    
+                            <td 
+                            style="border-left:solid #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;">Date</td>
+    
+                            <td 
+                            style="border-left:solid #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;"><apex:outputText value="{0,date, dd'/'MM'/'yyyy}"><apex:param value="{!opportunity.current_date__c}"/></apex:outputText></td>
+       
+                        </tr>
+                        <tr> 
+                            <td 
+                            style="border-left:solid #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;">Signature</td>
+                            
+                            <td 
+                            style="border-left:solid #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;">&nbsp;</td>
+                            
+                            <td 
+                            style="border-left:solid #4F81BD 1.0pt;
+                            border-top:solid #4F81BD 1.0pt;
+                            border-bottom:solid #4F81BD 1.0pt;
+                            border-right:solid #4F81BD 1.0pt;padding:0in 5.4pt 0in 5.4pt;">Signature</td>
+                            
+                           <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;"><apex:outputField value="{!Opportunity.Signauture1__c}" /></td>
+  
+                         </tr>
+                 </table>
+                                   
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- Outer 03---></td>
+                        </tr>
+                    </table>
+                    <!-- Outer 02---></td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+    </table>
+
+
+    </body>
+
+
+</apex:page>

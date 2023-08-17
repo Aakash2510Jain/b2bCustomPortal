@@ -1,0 +1,8 @@
+<apex:page standardController="Lead" showHeader="false" sidebar="false">
+     <apex:form >
+         <div align="center">
+         <h1>Lead uploaded succesfully</H1>
+         </div>
+      
+     </apex:form>
+</apex:page>

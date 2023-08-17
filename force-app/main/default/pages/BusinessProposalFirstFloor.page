@@ -1,0 +1,820 @@
+<apex:page standardController="opportunity" showHeader="false"
+	sidebar="false" extensions="GenerateOrdersController"
+	renderAs="{!valueToSet}">
+	<body lang="EN-US" link="blue" vlink="purple"
+		style="tab-interval: .5in">
+	<div class="WordSection1">
+	<table cellspacing="0" cellpadding="0" width="500">
+		<div align="center">
+		<table border="1" cellspacing="0" cellpadding="0" width="50%">
+			<tr>
+				<td align="left" style="spacing: 0; padding: 0in 0pt 0in 0pt;"
+					width="100%" valign="top">
+
+
+
+
+				<p class="MsoNormal" align="center"><apex:image value="{!$Resource.Brigade123}" /></p>
+
+
+				<table align="center" width="50%">
+					<TR align="center">
+						<TD align="center" bgcolor="#D6D6C2">
+
+						<p class="MsoNormal" align="center" style="text-align: center"><b><span
+							lang="EN-GB"
+							style="font-size: 14.0pt; line-height: 115%; color: gray">Brigade
+						Business Intelligence Group</span></b></p>
+
+						<p class="MsoNormal" align="center"
+							style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center"><span
+							lang="EN-GB"
+							style='font-size: 12.0pt; line-height: 115%; mso-bidi-font-family: Calibri; color: #365F91'>14800
+						Frye Road, 2<sup>nd</sup> Floor</span></p>
+
+						<p class="MsoNormal" align="center"
+							style="margin-bottom: 0in; margin-bottom: .0001pt; text-align: center"><span
+							lang="EN-GB"
+							style="font-size: 12.0pt; line-height: 115%; mso-bidi-font-family: Calibri; color: #365F91">Fort
+						Worth, TX 65155</span></p>
+
+						<p class="MsoNormal" align="center" style="text-align: center"><span><span
+							lang="EN-GB"
+							style="font-size: 14.0pt; line-height: 115%; mso-bidi-font-family: Calibri; text-decoration: none; text-underline: none"><a
+							href="http://www.BrigadeBIG.com">www.BrigadeBIG.com</a></span></span><b><span
+							lang="EN-GB"
+							style="font-size: 12.0pt; line-height: 115%; color: gray"></span></b></p>
+
+
+
+
+						</TD>
+					</TR>
+				</table>
+
+				<p class="MsoNormal"
+					style="margin-top: 0in; margin-right: 0in; margin-bottom: 0in; margin-left: 85.5pt; margin-bottom: .0001pt"><span
+					lang="EN-GB"
+					style="font-size: 36.0pt; line-height: 115%; color: #1F497D; mso-bidi-font-weight: bold">&nbsp;</span></p>
+
+				<p class="MsoNormal" align="center"
+					style='margin-bottom: 0in; margin-left: 0.85in; margin-bottom: .0001pt; text-align: center'><span
+					lang="EN-GB"
+					style='font-size: 30.0pt; line-height: 115%; color: #1F497D; mso-bidi-font-weight: bold'>DATA
+				LICENCING 2.0</span></p>
+
+				<p class="MsoNormal" align="left" style='margin-left: 85.5pt'><b><span
+					lang="EN-GB"
+					style='font-size: 18.0pt; line-height: 115%; color: #4F81BD'>&nbsp;</span></b></p>
+
+				<p class="MsoNormal" align="left" style='margin-left: 0.25in'><b><span
+					lang="EN-GB"
+					style='font-size: 18.0pt; line-height: 115%; color: #4F81BD'>List
+				Acquisition Proposal - Brigade Business Intelligence Group Inc.</span></b></p>
+
+				<p class="MsoNormal" style='margin-left: 85.5pt'><b><span
+					lang="EN-GB"
+					style='font-size: 18.0pt; line-height: 115%; color: #4F81BD'>&nbsp;</span></b></p>
+
+				<p class="MsoNormal" align="left" style='margin-left: 0.25in'><b><span
+					lang="EN-GB"
+					style='font-size: 18.0pt; line-height: 115%; color: #4F81BD'>Submitted
+				to:</span></b></p>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+	
+				
+				<p class="MsoNormal" width="50%" align="center"><apex:image value="{!$Resource.Brigade456}" /></p>
+				
+				</TD>
+
+			</TR>
+		</TABLE>
+		
+		</DIV>
+<br></br>
+<br></br>
+
+
+		<div align="center">
+		<table border="1" cellspacing="0" cellpadding="0" width="50%">
+			<tr>
+				<td align="left" style="spacing: 0; padding: 0in 0pt 0in 0pt;"
+					width="100%" valign="top">
+
+				<p class="MsoNormal" align="center "><apex:image value="{!$Resource.Brigade123}" /></p>
+
+
+				<p class="MsoNormal" align="center" style='margin-left: -0.85in'><b
+					style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+					style='font-size: 12.0pt; mso-bidi-font-size: 16.0pt; line-height: 115%; font-family: "Tahoma", sans-serif; mso-fareast-font-family: Perpetua; letter-spacing: 1.0pt'><span
+					style='mso-spacerun: yes'> </span><span style='mso-spacerun: yes'>
+				</span>[TARGET AUDIENCE - LIST ACQUISITION ONLY]</span></b></p>
+
+<br></br>
+<br></br>
+
+				<p class="MsoNormal" align="center" style='margin-left: 0.85in'><b
+					style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+					style="font-size: 12.0pt; mso-bidi-font-size: 16.0pt; line-height: 115%; font-family: Tahoma, sans-serif; mso-fareast-font-family: Perpetua; letter-spacing: 1.0pt">&nbsp;</span></b></p>
+				<div align="center">
+				<table class="MsoNormal" border="1" cellspacing="0" cellpadding="0" width="70%" align="center"
+					style='margin-left: 0.80in; border-collapse: collapse; border: none; mso-border-alt: solid black .5pt; mso-yfti-tbllook: 1184; mso-padding-alt: 0in 5.4pt 0in 5.4pt; mso-border-insideh: .5pt solid black; mso-border-insidev: .5pt solid black'>
+					<tr width="50%"
+						style='mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: 7.25pt'>
+						<td valign="bottom" width="50%"
+							style='border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; background: #7F7F7F; padding: 0in 5.4pt 0in 5.4pt; height: 7.25pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='color: white'>Criteria</span></b></p>
+						</td>
+						<td valign="bottom"
+							style='border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #7F7F7F; padding: 0in 5.4pt 0in 5.4pt; height: 7.25pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='color: white'>Title</span></b></p>
+						</td>
+						<td width="86" valign="bottom"
+							style='width: 64.85pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #7F7F7F; padding: 0in 5.4pt 0in 5.4pt; height: 7.25pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='color: white'>Counts</span></b></p>
+						</td>
+					</tr>
+					<tr style='mso-yfti-irow: 1; height: 31.55pt'>
+						<td rowspan="2" valign="bottom"
+							style='border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 31.55pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='color: #1F497D'>Revenue Size:</span></b><span lang="EN-GB"
+							style='color: #1F497D'> 1Bn and above.</span></p>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='color: #1F497D'>Geography:</span></b><span lang="EN-GB"
+							style='color: #1F497D'> CA, OR and WA</span></p>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center'><span
+							lang="EN-GB" style='color: #1F497D'>&nbsp;</span></p>
+						</td>
+						<td
+							style='border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 31.55pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; mso-add-space: auto; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='color: red'>“CMO and VP of Marketing<span
+							style='mso-spacerun: yes'> </span>with emails</span></b></p>
+						</td>
+						<td width="86"
+							style='width: 64.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 31.55pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; mso-add-space: auto; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt; color: #548DD4'>2,208</span></b></p>
+						</td>
+					</tr>
+					<tr
+						style='mso-yfti-irow: 2; mso-yfti-lastrow: yes; height: 42.25pt'>
+						<td
+							style='border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 42.25pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; mso-add-space: auto; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='color: red'>CFO’s – 304 contacts with email</span></b></p>
+						</td>
+						<td width="86"
+							style='width: 64.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 42.25pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; mso-add-space: auto; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt; color: #548DD4'>304</span></b></p>
+						</td>
+					</tr>
+				</table>
+				</div>
+
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<p class="MsoNormal" align="center" style="text-align: center"><b
+					style='mso-bidi-font-weight: normal'><u><span lang="EN-GB"
+					style='font-size: 14.0pt;margin-left:-2.5in; mso-bidi-font-size: 16.0pt; line-height: 115%; font-family: "Tahoma", sans-serif; mso-fareast-font-family: Perpetua; letter-spacing: 1.0pt'>INVESTMENT
+				OPTIONS</span></u></b></p>
+
+				<p class="MsoNormal"><b style='mso-bidi-font-weight: normal'><u><span
+					lang="EN-GB"
+					style='font-size: 14.0pt; mso-bidi-font-size: 16.0pt; line-height: 115%; font-family: "Tahoma", sans-serif; mso-fareast-font-family: Perpetua; letter-spacing: 1.0pt'>Only
+				List Acquisition:</span></u></b></p>
+
+				<div align="center">
+				<table class="MsoNormal" border="1" cellspacing="0" cellpadding="0"
+					align="center"
+					style='background: white; border-collapse: collapse; border: none; mso-border-alt: solid black .5pt; mso-yfti-tbllook: 1184; mso-table-lspace: 9.0pt; margin-left: 6.75pt; mso-table-rspace: 9.0pt; margin-right: 6.75pt; mso-table-anchor-vertical: paragraph; mso-table-anchor-horizontal: margin; mso-table-left: left; mso-table-top: 18.85pt; mso-padding-alt: 0in 5.4pt 0in 5.4pt; mso-border-insideh: .5pt solid black; mso-border-insidev: .5pt solid black'>
+					<tr
+						style='mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: 26.55pt'>
+						<td width="84"
+							style='width: 63.0pt; border: solid black 1.0pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 26.55pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; mso-add-space: auto; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 18.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt'>List Type</span></b></p>
+						</td>
+						<td width="73"
+							style='width: 54.9pt; border: solid black 1.0pt; border-left: none; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 26.55pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; mso-add-space: auto; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 18.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt'>No. of Contacts</span></b></p>
+						</td>
+						<td width="120"
+							style='width: 1.25in; border-top: solid black 1.0pt; border-left: none; border-bottom: solid black 1.0pt; border-right: solid windowtext 1.0pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; mso-border-right-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 26.55pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; mso-add-space: auto; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 18.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt'>Investment per Contact</span></b></p>
+						</td>
+						<td width="108"
+							style='width: 81.0pt; border: solid black 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 26.55pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; mso-add-space: auto; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 18.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt'>Investment</span></b></p>
+						</td>
+					</tr>
+					<tr style='mso-yfti-irow: 1; mso-yfti-lastrow: yes; height: 15.1pt'>
+						<td width="84" valign="top"
+							style='width: 63.0pt; border: solid black 1.0pt; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.1pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; mso-add-space: auto; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 18.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='color: red'>Premium</span></b></p>
+						</td>
+						<td width="73" valign="top"
+							style='width: 54.9pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.1pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; mso-add-space: auto; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 18.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt; color: #548DD4'>2,512</span><span
+							lang="EN-GB" style='color: red'></span></b></p>
+						</td>
+						<td width="120" valign="top"
+							style='width: 1.25in; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; mso-border-right-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.1pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; mso-add-space: auto; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 18.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt; color: #548DD4'>$2.00</span></b><span
+							lang="EN-GB" style='font-size: 12.0pt'></span></p>
+						</td>
+						<td width="108" valign="top"
+							style='width: 81.0pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.1pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; mso-add-space: auto; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 18.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt; color: #548DD4'>$5,024</span></b></p>
+						</td>
+					</tr>
+				</table>
+				</div>
+				<p class="MsoNormal"
+					style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: justify; text-indent: .5in'><b><span
+					style='font-family: Verdana, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: black; mso-ansi-language: EN-US'>&nbsp;</span></b></p>
+
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+				<p class="MsoNormal"><b><u><span lang="EN-GB"
+					style="font-size: 14.0pt; mso-bidi-font-size: 16.0pt; line-height: 115%; font-family: Tahoma, sans-serif; mso-fareast-font-family: Perpetua; letter-spacing: 1.0pt">Email
+				campaign + List Acquisition:</span></u></b></p>
+
+				<div align="center" class="shape">
+				<table class="MsoNormal" border="1" cellspacing="0" cellpadding="0"
+					align="center"
+					style='background: white; border-collapse: collapse;margin-left:2.0in; border: none; mso-border-alt: solid black .5pt; mso-yfti-tbllook: 1184; mso-table-lspace: 9.0pt; margin-left: 6.75pt; mso-table-rspace: 9.0pt; margin-right: 6.75pt; mso-table-anchor-vertical: paragraph; mso-table-anchor-horizontal: margin; mso-table-left: left; mso-table-top: 9.85pt; mso-padding-alt: 0in 5.4pt 0in 5.4pt; mso-border-insideh: .5pt solid black; mso-border-insidev: .5pt solid black'>
+					<tr
+						style='mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: 5.7pt'>
+						<td width="84" valign="top"
+							style='width: 63.0pt; border: solid black 1.0pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.7pt'>
+						<p class="MsoNormal"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 9.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt; color: red'>No. of Contacts</span></b></p>
+						</td>
+						<td width="88" valign="top"
+							style='width: 66.3pt; border: solid black 1.0pt; border-left: none; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.7pt'>
+						<p class="MsoNormal"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 9.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt; color: red'>No. of Campaigns</span></b></p>
+						</td>
+						<td width="84" valign="top"
+							style='width: 63.0pt; border: solid black 1.0pt; border-left: none; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.7pt'>
+						<p class="MsoNormal"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 9.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt; color: red'>No. of Reach</span></b></p>
+						</td>
+						<td width="142" valign="top"
+							style='width: 106.8pt; border: solid black 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.7pt'>
+						<p class="MsoNormal"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 9.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt; color: red'>Total Investment
+						(List + Campaign)</span></b></p>
+						</td>
+					</tr>
+					<tr style='mso-yfti-irow: 1; mso-yfti-lastrow: yes; height: 15.1pt'>
+						<td width="10%" valign="top"
+							style='width: 63.0pt; border: solid black 1.0pt; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.1pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 9.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt; color: #548DD4'>2,512</span></b><span
+							lang="EN-GB" style='font-size: 12.0pt'></span></p>
+						</td>
+						<td width="10%" valign="top"
+							style='width: 66.3pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.1pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 9.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt; color: #548DD4'>5</span></b><span
+							lang="EN-GB" style='font-size: 12.0pt'></span></p>
+						</td>
+						<td width="10%" valign="top"
+							style="width: 63.0pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.1pt">
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 9.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt; color: #548DD4'>12,560</span></b><span
+							lang="EN-GB" style='font-size: 12.0pt'></span></p>
+						</td>
+						<td width="20%" valign="top"
+							style='width: 106.8pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; mso-border-top-alt: solid black .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.1pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; mso-add-space: auto; text-align: center; line-height: normal; mso-layout-grid-align: none; text-autospace: none; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 9.85pt; mso-height-rule: exactly'><b
+							style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+							style='font-size: 12.0pt; color: #548DD4'>$8,164</span></b><span
+							lang="EN-GB" style='font-size: 12.0pt'></span></p>
+						</td>
+					</tr>
+				</table>
+				</div>
+				
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<div style='padding: 10.6pt 19.2pt 15.6pt 19.2pt' class="shape">
+				<p class="MsoNormal"
+					style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: justify'><b><span
+					style='font-family: Verdana, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: black; mso-ansi-language: EN-US'>Data
+				fields:-</span></b></p>
+
+				<p class="MsoNormal"
+					style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: justify'><b><span
+					style='font-family: Verdana, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: black; mso-ansi-language: EN-US'>&nbsp;</span></b></p>
+
+				<table class="MsoNormal" border="1" cellspacing="0" cellpadding="0"
+					align="center" width="80%"
+					style='margin-left:-5.0in; border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-table-overlap: never; mso-yfti-tbllook: 1184; mso-table-lspace: 9.0pt; margin-left: 6.75pt; mso-table-rspace: 9.0pt; margin-right: 6.75pt; mso-table-anchor-vertical: paragraph; mso-table-anchor-horizontal: margin; mso-table-left: left; mso-table-top: 23.2pt; mso-padding-alt: 0in 5.4pt 0in 5.4pt; mso-border-insideh: .5pt solid windowtext; mso-border-insidev: .5pt solid windowtext'>
+					<tr
+						style='mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: 30.5pt'>
+						<td width="111"
+							style='width: 83.35pt; border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 30.5pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.Account.name}" /></span></b></p>
+						</td>
+						<td width="103"
+							style='width: 76.9pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 30.5pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.Website__c}" /></span></b></p>
+						</td>
+						<td width="66"
+							style='width: 49.5pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 30.5pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'>Prefix</span></b></p>
+						</td>
+						<td width="130"
+							style='width: 97.15pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 30.5pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.Client_Name__c}" /></span></b></p>
+						</td>
+						<td width="132"
+							style='width: 99.0pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 30.5pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.Client_Name__r.FirstName}" /></span></b></p>
+						</td>
+						<td width="114"
+							style='width: 85.5pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 30.5pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.Client_Name__r.LastName}" /></span></b></p>
+						</td>
+						<td width="115"
+							style='width: 86.25pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 30.5pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.Client_Name__r.Title}" /></span></b></p>
+						</td>
+					</tr>
+					<tr style='mso-yfti-irow: 1; height: 30.6pt'>
+						<td width="111"
+							style='width: 83.35pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 30.6pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.Address__c}" /></span></b></p>
+						</td>
+						<td width="103"
+							style='width: 76.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 30.6pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.City__c}" /></span></b></p>
+						</td>
+						<td width="66"
+							style='width: 49.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 30.6pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.Contact_State_Province__c}" /></span></b></p>
+						</td>
+						<td width="130"
+							style='width: 97.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 30.6pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.Contact_Postal_Code__c}" /></span></b></p>
+						</td>
+						<td width="132"
+							style='width: 99.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 30.6pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.Country__c}" /></span></b></p>
+						</td>
+						<td width="114"
+							style='width: 85.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 30.6pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.Phone__c}" /></span></b></p>
+						</td>
+						<td width="115"
+							style='width: 86.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 30.6pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.Fax__c}" /></span></b></p>
+						</td>
+					</tr>
+					<tr style='mso-yfti-irow: 2; height: 17.15pt'>
+						<td width="111" rowspan="2"
+							style='width: 83.35pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 17.15pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.Client_SIC_Code__c}" /></span></b></p>
+						</td>
+						<td width="103" rowspan="2"
+							style='width: 76.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 17.15pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'><apex:outputField value="{!Opportunity.Industry__c}" /></span></b></p>
+						</td>
+						<td width="66" rowspan="2"
+							style='width: 49.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 17.15pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'>Email</span></b></p>
+						</td>
+						<td width="130" rowspan="2"
+							style='width: 97.15pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 17.15pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: white; mso-ansi-language: EN-US'>Verification
+						Result</span></b></p>
+						</td>
+						<td width="132"
+							style='width: 99.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 17.15pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-bidi-font-family: Calibri; color: white; mso-ansi-language: EN-US'>Social
+						Media Link</span></b></p>
+						</td>
+						<td width="229" colspan="2"
+							style='width: 171.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 17.15pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-bidi-font-family: Calibri; color: white; mso-ansi-language: EN-US'>Application
+						Type</span></b></p>
+						</td>
+					</tr>
+					<tr style='mso-yfti-irow: 3; mso-yfti-lastrow: yes; height: 31.1pt'>
+						<td width="132"
+							style='width: 99.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 31.1pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-bidi-font-family: Calibri; color: black; mso-ansi-language: EN-US'>LinkedIn
+						Profile</span></b><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: black; mso-ansi-language: EN-US'></span></b></p>
+						</td>
+						<td width="229" colspan="2"
+							style='width: 171.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #969696; padding: 0in 5.4pt 0in 5.4pt; height: 31.1pt'>
+						<p class="MsoNormal" align="center"
+							style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: center; line-height: normal; mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 23.2pt; mso-height-rule: exactly'><b><span
+							style='mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: black; mso-ansi-language: EN-US'>Cisco
+						Voice</span></b></p>
+						</td>
+					</tr>
+				</table>
+				</div>
+				
+				<p class="MsoNormal"
+					style='margin-top: 0in; margin-right: 0in; margin-bottom: 0in; margin-left: 31.5pt; margin-bottom: .0001pt; line-height: normal; mso-layout-grid-align: none; text-autospace: none'><span
+					lang="EN-GB" style='font-family: Arial, sans-serif; color: #333333'>&nbsp;</span></p>
+
+				<p class="MsoNormal"
+					style='margin-top: 0in; margin-right: 0in; margin-bottom: 0in; margin-left: 31.5pt; margin-bottom: .0001pt; line-height: normal; mso-layout-grid-align: none; text-autospace: none'><span
+					lang="EN-GB" style='font-family: Arial, sans-serif; color: #333333'>&nbsp;</span></p>
+
+				<p class="shape"
+					style='margin-bottom: 0in; margin-bottom: .0001pt; text-align: justify'><b><span
+					style='font-family: Verdana, sans-serif; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Arial; color: black; mso-ansi-language: EN-US'>Video
+				Testimonial Link: (customer references) </span></b></p>
+
+
+				<p class="MsoNormal"
+					style="margin-top: 0in; margin-right: 0in; margin-bottom: 0in; margin-left: 49.5pt; margin-bottom: .0001pt; text-indent: -.25in; line-height: normal; mso-list: l2 level1 lfo18; mso-layout-grid-align: none; text-autospace: none"><b
+					style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+					style='font-family: Arial, sans-serif; mso-fareast-font-family: Arial; color: #333333'><span
+					style='mso-list: Ignore'>1.<span
+					style='font: 7.0pt Times New Roman'>&nbsp;&nbsp;&nbsp; </span></span></span></b><span
+					lang="EN-GB"
+					style='font-size: 9.0pt; font-family: "Helvetica", sans-serif; color: black'><a
+					href="http://www.youtube.com/embed/YKckTjeoQUc?rel=0">www.youtube.com/embed/YKckTjeoQUc?rel=0</a></span><span
+					lang="EN-GB" style='font-family: Arial, sans-serif; color: #333333'></span></p>
+
+				<p class="MsoNormal"
+					style='margin-top: 0in; margin-right: 0in; margin-bottom: 0in; margin-left: 49.5pt; margin-bottom: .0001pt; line-height: normal; mso-layout-grid-align: none; text-autospace: none'><span
+					lang="EN-GB" style='font-family: Arial, sans-serif; color: #333333'>&nbsp;</span></p>
+
+				<p class="MsoNormal"
+					style='margin-top: 0in; margin-right: 0in; margin-bottom: 0in; margin-left: 49.5pt; margin-bottom: .0001pt; text-indent: -.25in; line-height: normal; mso-list: l2 level1 lfo18; mso-layout-grid-align: none; text-autospace: none'><b
+					style='mso-bidi-font-weight: normal'><span lang="EN-GB"
+					style='font-family: Arial, sans-serif; mso-fareast-font-family: Arial; color: #333333'><span
+					style='mso-list: Ignore'>2.<span
+					style='font: 7.0pt Times New Roman'>&nbsp;&nbsp;&nbsp; </span></span></span></b><span
+					lang="EN-GB"
+					style='font-size: 9.0pt; font-family: "Helvetica", sans-serif; color: black'><a
+					href="http://www.youtube.com/embed/jChGURE34qs?rel=0">www.youtube.com/embed/jChGURE34qs?rel=0</a></span><span
+					lang="EN-GB" style='font-family: Arial, sans-serif; color: #333333'></span></p>
+				<br></br>
+
+				<p class="MsoNormal" width="80%" align="center"><apex:image value="{!$Resource.Brigade456}" /></p>
+				</td>
+			</tr>
+		</table>
+		</div>
+	<br></br>
+
+<br></br>
+<br></br>	<br></br>
+	<div class="WordSection1">
+	<TABLE border="1" cellspacing="0" cellpadding="0" width="50%">
+		<TR>
+	<td align="left" style="spacing: 0; padding: 0in 0pt 0in 0pt;"
+					width="100%" valign="top">
+				
+				<p class="MsoNormal" align="center "><apex:image value="{!$Resource.Brigade123}" /></p>
+			
+
+			<p class="MsoNormal"
+				style='margin-top: 0in; margin-right: 0in; margin-bottom: 0in; margin-left: 31.5pt; margin-bottom: .0001pt; line-height: normal; mso-layout-grid-align: none; text-autospace: none'><span
+				lang="EN-GB" style='font-family: Arial, sans-serif; color: #333333'>&nbsp;</span></p>
+
+			<p class="MsoNormal"
+				style='margin-top: 0in; margin-right: 0in; margin-bottom: 0in; margin-left: 31.5pt; margin-bottom: .0001pt; line-height: normal; mso-layout-grid-align: none; text-autospace: none'>
+					
+					<span
+						style="position: absolute; mso-ignore: vglayout; left: 0pt; z-index: 251657216">
+					<table cellpadding="0" cellspacing="0" width="50%" align="center">
+						<tr>
+							
+							
+							<TD>
+		<p class="MsoNormal" style="margin-left: -21.15pt; text-align: left; text-indent: 7.65pt">
+		<b style="mso-bidi-font-weight: normal"><u>
+		<span lang="EN-GB"	style="font-size: 14.0pt; mso-bidi-font-size: 16.0pt; line-height: 115%; font-family: Tahoma, sans-serif; mso-fareast-font-family: Perpetua; color: black; letter-spacing: 1.0pt">
+		TERMS	AND CONDITION 
+		</span>
+		</u>
+		</b>
+		</p>
+		<p class="MsoNoSpacing"  style='line-height: 100%'>
+		<b style='mso-bidi-font-weight: normal'><span lang="EN-GB" style='font-size: 10.0pt; line-height: 200%; mso-fareast-font-family: Calibri; mso-bidi-font-family: Calibri; color: black; mso-ansi-language: EN-GB'>
+		PACKAGE	INCLUDES:
+		</span>
+		</b>
+		<span lang="EN-GB"	style='font-size: 10.0pt; line-height: 200%; mso-fareast-font-family: Calibri; mso-bidi-font-family: Calibri; color: black; mso-ansi-language: EN-GB'> 
+		</span>
+		<span style='font-size: 10.0pt; line-height: 200%; mso-bidi-font-family: Calibri; color: black'>
+		</span>
+		</p>
+		<p class="MsoNormal"  style='line-height: 200%'>
+		<b	style='mso-bidi-font-weight: normal'>
+		<span lang="EN-GB" align="left"	style='font-size: 10.0pt; line-height: 200%;margin-left:-1.0in; mso-bidi-font-family: Calibri; color: black'>
+		LICENSE	TYPE:
+		</span>
+		</b>
+		<span lang="EN-GB" align="left"	style='font-size: 10.0pt; line-height: 200%; mso-bidi-font-family: Calibri; color: black'>
+			List Purchase is for your perpetual usage. The entire file will
+			be transferred to you along with the ownership rights. 
+		</span>
+		</p>
+		<p class="MsoNormal" style='line-height: 200%'><b
+								style='mso-bidi-font-weight: normal'><span lang="EN-GB" align="left"
+								style='font-size: 10.0pt; line-height: 100%;margin-left:-1.0in; mso-bidi-font-family: Calibri; color: black'>FORMAT:</span></b><span
+								lang="EN-GB"
+								style='font-size: 10.0pt; line-height: 100%; mso-bidi-font-family: Calibri; color: black'>
+							Records will be delivered to you in an Excel/ CSV format. </span></p>
+							<p class="MsoNormal" style='line-height: 100%'><b
+								style='mso-bidi-font-weight: normal'><span lang="EN-GB" align="left"
+								style='font-size: 10.0pt; line-height: 100%;margin-left:-1.0in; mso-bidi-font-family: Calibri; color: black'>TIMELINE:</span></b><span
+								lang="EN-GB"
+								style='font-size: 10.0pt; line-height: 100%; mso-bidi-font-family: Calibri; color: black'>
+							List will be delivered to you within 3-5 business days from the
+							receipt of the payment.</span></p>
+							<p class="MsoNormal"><b><span lang="EN-GB" align="left"
+								style='color: black;margin-left:-1.0in'>Data update:</span></b><span lang="EN-GB"
+								style='color: black'> Our lists are updated once every 45
+							days</span></p>
+							<p class="MsoNormal"><b><span lang="EN-GB" align="left"
+								style='color: black;margin-left:-1.0in'>Opt-in rate:</span></b><span lang="EN-GB" 
+								style='color: black'> 100% permission based contacts </span></p>
+							<p class="MsoNormal"><b><span lang="EN-GB" align="left"
+								style='color: black;margin-left:-1.0in'>Multi-Channel Marketing:</span></b><span
+								lang="EN-GB" style='color: black'> The list can be used
+							for Email Marketing, Direct Mail Marketing, and Tele Marketing.</span></p>
+							<p class="MsoNormal"><b><span lang="EN-GB" align="left"
+								style='color: black;margin-left:-1.0in'>Legal Compliance:</span></b><span lang="EN-GB"
+								style='color: black'> We are in compliance with the CAN
+							SPAM Act, 2003.</span></p>
+							<p class="MsoNormal"><b><span lang="EN-GB" align="left"
+								style='color: black;margin-left:-1.0in'>Satisfaction Guaranteed: </span></b><span
+								lang="EN-GB" style='color: black'>Our &quot;no
+							hassle&quot; guarantee: If you receive bad data, we will replace
+							the contacts for the portion of your list that was undeliverable,out-of-date or disconnected.
+							 </span></p>
+							 <p class="MsoNormal"><b><span lang="EN-GB" align="left"
+								style='color: #1F497D;margin-left:-1.0in'>Video Testimonials:</span></b><span
+								lang="EN-GB" style='color: #1F497D'> You can view a
+							couple of video testimonials on our website home page <a
+								href="http://www.BrigadeBIG.com">www.BrigadeBIG.com</a>. </span></p>
+							<p class="MsoNormal" style='line-height: 100%'><span
+								lang="EN-GB"
+								style='font-size: 10.0pt; line-height: 100%; mso-bidi-font-family: Calibri; color: black'>&nbsp;</span></p>
+							
+		</TD>
+		
+						</tr>
+					</table>
+					</span>
+							
+		
+			<span lang="EN-GB"
+				style='font-family: Arial, sans-serif; color: #333333'>&nbsp;</span></p>
+
+			
+			<p class="MsoNormal"><span style='mso-ignore: vglayout'>
+					<span
+						style='position: absolute; mso-ignore: vglayout; z-index: 251658240'>
+					<table cellpadding="0" cellspacing="0" width="100%">
+						<tr>
+							<td>
+							<div style='padding: 5.6pt 9.2pt 5.6pt 9.2pt' class="shape">
+							<br></br>
+							<br></br>
+							<br></br>
+							<br></br>
+							<br></br>
+							<br></br>
+							<p class="MsoNormal" align="center"
+								style='margin-left: 31.5pt; text-align: center'><b
+								style='mso-bidi-font-weight: normal'><u><span
+								lang="EN-GB"
+								style='font-size: 14.0pt; mso-bidi-font-size: 16.0pt; line-height: 115%; font-family: "Tahoma", sans-serif; mso-fareast-font-family: Perpetua; color: black; letter-spacing: 1.0pt'>BUSINESS
+							TERMS &amp; CONDITION:</span></u></b></p>
+							<p class="MsoNormal"
+								style='margin-top: 0in; margin-right: 0in; margin-bottom: 11.25pt; margin-right: 22.5pt; line-height: 12.0pt; background: white'><span
+								lang="EN-GB"
+								style='font-size: 10.0pt; mso-bidi-font-family: Calibri; color: #333333'>The
+							information available through the Lists is the property of
+							BRIGADEBIG, or its licensors, and is protected by copyright and
+							other intellectual property laws. Information received through
+							the lists may be displayed, printed, and loaded into their own
+							software for the Client's in- house use only. Client agrees to
+							reproduce, retransmit, photocopy, distribute, disseminate, rent,
+							loan, sell, publish, broadcast or circulate the information
+							received through the Lists to anyone, directly or indirectly,
+							outside of the Client's company or organization only with the
+							expressed prior written consent of BRIGADEBIG. Client agrees to
+							communicate such restrictions on use to all individuals within
+							its organization who will have access to the Lists. Client also
+							agrees to keep BRIGADEBIG informed about how many records that
+							are being sold OR used and pay for those as per the pricing
+							identified for each name on the list.<span
+								style='mso-tab-count: 1'> </span></span></p>
+							<p class="MsoNormal"
+								style='margin-top: 0in; margin-right: 0in; margin-bottom: 11.25pt; margin-left: 22.5pt; line-height: 12.0pt; background: white'><b><u><span
+								lang="EN-GB"
+								style='font-size: 10.0pt; mso-bidi-font-family: Calibri; color: black'>DATA
+							PROTECTION</span></u></b><b style='mso-bidi-font-weight: normal'><span
+								lang="EN-GB"
+								style='font-size: 10.0pt; mso-bidi-font-family: Calibri; color: #333333'>:</span></b><span
+								lang="EN-GB"
+								style='font-size: 10.0pt; mso-bidi-font-family: Calibri; color: #333333'>
+							BRIGADEBIG warranties that any personal data included in the
+							Confidential Information has been collected in accordance to data
+							protection laws applicable in the USA, UK, Netherlands, Germany
+							and France respectively. BRIGADEBIG further warranties that it
+							has obtained all necessary authorizations from the data subject
+							in accordance to the law applicable in the data subject's country
+							of residence.<span style='mso-spacerun: yes'> </span></span></p>
+							<p class="MsoNormal"
+								style='margin-top: 0in; margin-right: 0in; margin-bottom: 11.25pt; margin-left: 22.5pt; line-height: 12.0pt; background: white'><b><u><span
+								lang="EN-GB"
+								style='font-size: 10.0pt; mso-bidi-font-family: Calibri; color: black'>VALIDITY
+							GUARANTEE</span></u></b><span lang="EN-GB"
+								style='font-size: 10.0pt; mso-bidi-font-family: Calibri; color: #333333'>:
+							BRIGADEBIG guarantees that all the lists are opt-in and there
+							will not be any more than 2.5% opt-outs with the lists. Our
+							guarantee is limited to provision of additional emails only. If
+							you encounter email bounces exceeding this, you need to send us a
+							report of the bounced emails with detail of soft/hard bounce if
+							you have. We will verify this list again on our end, and provide
+							you with additional records to make up for the bounces exceeding
+							the guarantee or credit for the future projects.</span></p>
+							<p class="MsoNormal"
+								style='margin-top: 0in; margin-right: 0in; margin-bottom: 11.25pt; margin-left: 22.5pt; line-height: 12.0pt; background: white'><b><u><span
+								lang="EN-GB"
+								style='font-size: 10.0pt; mso-bidi-font-family: Calibri; color: black'>DATA
+							QUALITY &amp; USAGE:</span></u></b><span lang="EN-GB"
+								style='font-size: 10.0pt; mso-bidi-font-family: Calibri; color: #333333'>
+							BRIGADEBIG agrees to update and deliver the list to Client.
+							Client can come back for the further data updated by paying
+							additional for the new data.</span></p>
+							<p class="MsoNormal"
+								style='margin-top: 0in; margin-right: 0in; margin-bottom: 11.25pt; margin-left: 22.5pt; line-height: 12.0pt; background: white'><b><u><span
+								lang="EN-GB"
+								style='font-size: 10.0pt; font-family: Arial, sans-serif; color: black'>FORMAT:</span></u></b><span
+								lang="EN-GB"
+								style='font-size: 10.0pt; font-family: Arial, sans-serif; color: #333333'>
+							BRIGADEBIG will deliver the contacts through secured FTP link to
+							download it in an Excel/CSV format.</span></p>
+							<p class="MsoNormal"
+								style='margin-top: 0in; margin-right: 0in; margin-bottom: 11.25pt; margin-left: 22.5pt; line-height: 12.0pt; background: white'><b><u><span
+								lang="EN-GB"
+								style='font-size: 10.0pt; font-family: Arial, sans-serif; color: black'>DELIVERY
+							OF THE RECORDS:</span></u></b><span lang="EN-GB"
+								style='font-size: 10.0pt; font-family: Arial, sans-serif; color: #333333'>
+							To maintain the Quality of Data, Verify Email and to ensure all
+							opt-in and opt-out requests are taken care of; we need 5 Business
+							Days to Deliver the Lists upon receipt of payment.</span></p>
+							<p class="MsoNormal" align="center" style="text-align: center"><span
+								lang="EN-GB">&nbsp;</span></p>
+							</div>
+							</td>
+						</tr>
+					</table>
+					</span>
+		
+
+			</span></p>
+
+			<p class="MsoNormal" width="80%" align="center"><apex:image value="{!$Resource.Brigade456}" /></p>
+		</td>
+		</tr>
+		</table>
+		</div> 
+
+	</table>
+	</div>
+	</body>
+
+</apex:page>

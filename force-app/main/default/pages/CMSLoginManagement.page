@@ -1,0 +1,21 @@
+<apex:page controller="CMSLoginManagementController" standardstylesheets="false" showHeader="false" sideBar="false" action="{!init}" >
+    <ul>
+        <li>
+            <span id="welcome">
+                {!$Label.Welcome} {!userName},
+            </span>
+            <apex:outputLink value="/apex/SiteView
+" rendered="{!contact.Id == null}">
+                    <apex:param name="page" value="CMSSiteLogin"/>
+                    <apex:param name="jobSite" value="{!$CurrentPage.parameters.jobSite}" />
+                    <apex:param name="p" value="{!$CurrentPage.parameters.p}" />
+                <span id="signup">
+                    {!$Label.Login_or_Register}
+                </span>
+            </apex:outputLink>
+            <apex:form >
+                <apex:commandLink action="{!logout}" value="{!$Label.Logout}" rendered="{!contact.Id != null}"/>
+            </apex:form>
+        </li>
+    </ul>
+</apex:page>

@@ -1,0 +1,54 @@
+<apex:page controller="MenuComponent_controller" tabStyle="Menu_Component__c" wizard="true">
+    
+    <apex:form id="Menu_Component_form">
+        <apex:actionFunction name="add" action="{!add}" reRender="MenuComponent" />
+        <apex:actionFunction name="remove" action="{!remove}" reRender="MenuComponent" />
+    <apex:pageBlock title="{!$Label.Menu_Component_Edit}" mode="edit" id="MenuComponent">
+        <apex:pageMessages id="error"/>
+        <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="{!$Label.Save}"/>
+                <apex:commandButton action="{!saveAndNew}" value="{!$Label.Save_New}"/>
+                <apex:commandButton action="{!cancel}" value="{!$Label.Cancel}" immediate="true"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="{!$Label.Information}" >
+            <apex:inputField value="{!menuComponent.Name}" id="Name" required="true"/>
+            <apex:outputText value="" />
+            <apex:inputField value="{!menuComponent.Name__c}" id="Name__c" />
+            <apex:inputField value="{!menuComponent.Active__c}" id="Active__c" />
+            <apex:inputField value="{!menuComponent.Display_Type__c}" id="Display_Type__c" />
+            <apex:inputField value="{!menuComponent.Override_Class__c}" id="Override_Class__c" />
+        </apex:pageBlockSection>
+        <hr width='100%' size='15' noshade="noshade"/>
+            <table width='100%' id='table2'>
+            <tr>
+                <td width='25%'>    
+                        <apex:outputLabel for="AvailableMenus"><b>{!$Label.Available_Menus}</b>
+                        </apex:outputLabel><br/>
+                        <apex:selectList id="AvailableMenus" value="{!availableMenus}" multiselect="true" size="5" Style="width:100%">
+                        <apex:selectOptions value="{!availableMenus1}"/>
+                        </apex:selectList>
+
+                </td>
+                <td width='15%' style='text-align: center'>
+                        {!$Label.add}<br/>
+                        <a href="javascript:add()"><img src="/img/arrow2_picklist_right.gif" alt="Select" width="17" height="17" align="texttop" id="00N80000002y2TJ_right_arrow" style="cursor:pointer;" title="{!$Label.Select}" /></a> <br/><br/>
+                        <a href="javascript:remove()"><img src="/img/arrow2_picklist_left.gif" alt="Remove" width="17" height="17" align="texttop" id="00N80000002y2TJ_left_arrow" style="cursor:pointer;" title="{!$Label.Remove}" /></a> <br/>{!$Label.Remove}
+                </td>
+                <td width='25%'>
+                        <apex:outputLabel for="SelectedMenus"> <b>{!$Label.Selected_Menus}</b>
+                    </apex:outputLabel><br/>
+                    <apex:selectList value="{!selectedMenus}" multiselect="true" size="5" id="SelectedMenus" Style="width:100%">
+                            <apex:selectOptions value="{!selectedMenus1}"/>
+                        </apex:selectList>
+                </td>
+                <td width='25%'>&nbsp;
+                </td>
+            </tr>
+            </table>
+           
+           <hr width='100%' size='15' noshade="noshade"/>
+    
+    </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

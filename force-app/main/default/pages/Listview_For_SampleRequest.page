@@ -1,0 +1,3 @@
+<apex:page showHeader="true" tabstyle="Sample_Request__c">
+    <apex:ListViews type="Sample_Request__c" />
+</apex:page>

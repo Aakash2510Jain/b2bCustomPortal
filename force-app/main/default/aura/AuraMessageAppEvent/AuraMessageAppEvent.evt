@@ -1,0 +1,4 @@
+<aura:event type="Application" description="Sample Application Event">
+    <aura:attribute name="message" type="String" />
+    <aura:attribute name="SelectedRecords" type="List" />
+</aura:event>

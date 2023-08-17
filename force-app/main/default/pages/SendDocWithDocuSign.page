@@ -1,0 +1,139 @@
+<apex:page sidebar="true" showHeader="true" controller="SendDocWithDocuSignController" standardStylesheets="false" >
+ <script type="text/javascript">
+// Popup window code
+function newPopup(url) {
+    popupWindow = window.open(
+        url,'popUpWindow','height=700,width=900,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+}
+</script>
+
+ <apex:form >
+ <apex:pagemessages />
+        
+        <table style="cellpadding:4;cellspacing:0;" bgcolor="#f0f0f0" align="center" border="0" width="100%" >
+        <tr>
+            <td>
+                <table style="cellpadding:4;cellspacing:2;align:center;border:1" width="100%" >
+                <tr>
+                    <td>         
+                        
+                    </td>
+                </tr>
+                <tr style="height:30px;" valign="bottom"> 
+                    <td><strong>Please select the client details :</strong> 
+                    </td>
+                   </tr> 
+                <tr>
+                    <td>
+                            <apex:dataTable id="allcons" value="{!AllContacts}" var="allcon" cellpadding="4" cellspacing="0" border="1" style="bgcolor:#fffff;" width="100%">
+                                <apex:column >                    
+                                   <apex:actionsupport action="{!selectcon}" event="onclick" rerender="consel, allcons">  
+                                        <input type="radio" />                    
+                                        <apex:param name="conid" value="{!allcon.Id}"></apex:param>
+                                   </apex:actionsupport>                            
+                                </apex:column>    
+                                <apex:column headervalue="Last Name">
+                                    <apex:outputfield value="{!allcon.LastName}">
+                                </apex:outputfield></apex:column> 
+                                <apex:column headervalue="First Name">
+                                    <apex:outputfield value="{!allcon.FirstName}">
+                                </apex:outputfield></apex:column>  
+                                <apex:column headervalue="Email">
+                                    <apex:outputfield value="{!allcon.Email}">
+                                </apex:outputfield></apex:column>  
+                                <apex:column headervalue="Phone">
+                                    <apex:outputfield value="{!allcon.Phone}">
+                                </apex:outputfield></apex:column>  
+                            </apex:dataTable>
+                            
+                           <table width="100%" cellpadding="4" cellspacing="2" border="0" >
+                            <tr>
+                                <td width="30%" align="right">
+                                     <strong>   <apex:outputLabel value="Choose your Workorder" for="attachment:" /></strong>
+                                 </td>
+                                 <td width="30%">       
+                                        <apex:selectList value="{!attachmentId}" id="attachment" size="1" >
+                                             <apex:selectOptions value="{!Attachments}" />
+                                        </apex:selectList>
+                                </td>
+                                <td align="left">       
+                                        <apex:commandButton id="addDoc" value="Add Workorder" action="{!addDocuments}"/>
+                                 </td>
+                                 </tr>
+                                <tr>
+                                <td>&nbsp;</td>
+                                    <td colspan="2">
+                                     <a href="JavaScript:newPopup('/apex/SelectDocuments?id={!opportunityId}');">Click here</a>
+                                     <strong>, to share a document to Client.</strong>
+                                     </td>
+                                </tr>
+                            </table>
+                            <apex:datatable id="consel" value="{!selectedContact}" var="selcon" cellpadding="4" cellspacing="0" border="1" width="100%"  >                       
+                                <apex:column headervalue="Last Name">
+                                    <apex:outputfield value="{!selcon.LastName}">
+                                </apex:outputfield></apex:column> 
+                                <apex:column headervalue="First Name">
+                                    <apex:outputfield value="{!selcon.FirstName}">
+                                </apex:outputfield></apex:column>  
+                                <apex:column headervalue="Email">
+                                    <apex:outputfield value="{!selcon.Email}">
+                                </apex:outputfield></apex:column>  
+                                <apex:column headervalue="Phone">
+                                    <apex:outputfield value="{!selcon.Phone}">
+                                </apex:outputfield></apex:column>  
+                            </apex:datatable>
+                    
+                       </td>
+                   </tr>
+                   
+                   <tr>
+                       <td> 
+                       
+                                <!-- <apex:commandButton id="signer" value="Add Signer" /> -->
+                            <table width="100%" cellpadding="4" cellspacing="0" border="0" >
+                            <tr>
+                                <td width="30%" align="right"><strong>    
+                                    <apex:outputLabel value="Email Subject To Recipient"/></strong>
+                                </td>
+                                <td>
+                                    <apex:inputText label="Email Subject To Recipient" value="{!EmailSubject}" size="60"/>
+                                </td>
+                              </tr>
+                                <tr>
+                                    <td width="30%" align="right"><strong>
+                                        <apex:outputLabel value="Email Message To Recipient"/></strong>
+                                    </td>
+                                    <td>
+                                        <apex:inputTextArea label="Email Message All Recipient" value="{!EmailBody}" rows="10" cols="80"/>
+                                    </td>
+                              </tr>
+                              <tr>
+                                <td align="right"><strong><apex:outputLabel value="Attachment Name"/></strong></td>
+                                <td><apex:outputText value="{!attachmentName}"/></td>
+                            </tr>
+                            <tr>
+                                <td align="right"><strong> <apex:outputLabel value="Document Name"/></strong></td>
+                                <td> <apex:outputText value="{!DocumentID}"/></td>
+                            </tr>
+                            <tr>
+                                <td align="right"><strong><apex:outputLabel value="Type of Service"/></strong></td>
+                                <td><apex:selectList value="{!typeofService}" id="typeofService" size="1" >
+                                             <apex:selectOptions value="{!TypeService}" />
+                                        </apex:selectList>
+                                        
+                                      </td>
+                                
+                                
+                            </tr>
+                              <tr><td colspan="2" align="center">
+                                <apex:commandButton id="sendMail" value=" Send  " action="{!sendDocsToDS}"/>
+                             </td></tr>
+                            </table>   
+                    </td>
+                </tr>
+                </table> 
+            </td>
+        </tr>
+        </table>
+    </apex:form> 
+</apex:page>

@@ -1,0 +1,488 @@
+<apex:page standardcontroller="Opportunity" showHeader="false"
+    extensions="GenerateOrdersController" renderAs="{!valueToset}"
+    sidebar="false">
+    <body style="font-family: Calibri;">
+    <c:dynawhitecomponent type="header">
+        <div align="center" class="innerDiv">
+        <table width="100%" style="color: Gray;">
+            <td align="left"><apex:image value="{!$Resource.IDH_Invoice_header1}" /></td>
+            <td align="right"><apex:image value="{!$Resource.IDH_Invoice_header2}" /></td>
+        </table>
+        </div>
+    </c:dynawhitecomponent>
+    <c:dynawhitecomponent type="footer">
+        <div>
+        <hr></hr>
+        <table width="100%" style="color: Gray;">
+            <tr>
+                <td align="left">Confidential</td>
+                <td align="center">Page <span class="pagenumber" /></td>
+                <td align="right"><apex:outputText value="{0,date, MM'/'dd'/'yyyy}">
+                    <apex:param value="{!today()}" />
+                </apex:outputText></td>
+            </tr>
+        </table>
+        </div>
+
+    </c:dynawhitecomponent>
+
+    <div class="WordSection1" align="center">
+    <table border="0" cellspacing="0" cellpadding="0" width="700px">
+        <tr>
+            <td>
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td width="50%" colspan="2" rowspan="2" valign="center"
+                        style="border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt">
+
+                    <apex:image value="{!$Resource.IDHInvoice}" /></td>
+                    <td width="50%" colspan="4" valign="top" align="center"
+                        style="width: 280.05pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;">
+                    <h1><b><span style="font-size: 36.0pt" valign="top">INVOICE</span></b></h1>
+                    <span style="color: #003366"></span></td>
+                </tr>
+                <tr style="mso-yfti-irow: 1" valign="top">
+                    <td width="373" colspan="4" valign="bottom"
+                        style="width: 280.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 53.5pt">
+                    <b style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333; text-transform: uppercase; letter-spacing: .2pt">INVOICE
+                    # <apex:outputField value="{!Opportunity.Invoice_Number__c}" /></span></b><br></br>
+                    <b style="mso-bidi-font-weight: normal"><span
+                        style="line-height: 110%; color: #333333">DATE: <apex:outputField value="{!Opportunity.Invoice_Date__c}" /></span></b></td>
+                </tr>
+                <tr style='mso-yfti-irow: 2; height: 40.0pt'>
+                    <td width="721" colspan="6" valign="center"
+                        style='width: 540.9pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: gray; padding: 0in 5.4pt 0in 5.4pt; height: 40.0pt'>
+                    <b style='mso-bidi-font-weight: normal'><span
+                        style='line-height: 250%; color: white'>Payment details</span></b></td>
+                </tr>
+                <tr style="mso-yfti-irow: 3; height: 220.0pt">
+                    <td width="300" colspan="3" valign="top"
+                        style="width: 270.2pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 220.0pt">
+
+                    <p align="left"><b><apex:outputField value="{!Opportunity.Brand_Name__c}" /> </b><br />
+                    <b><u><span style="color: Black;">FOR CHECK PAYMENT:</span></u></b></p>
+
+                    <p align="left"><span style="color: #333333"> <apex:repeat value="{!checkDetails}" var="w"
+                        rendered="{!if(Opportunity.Check_payment__c==true,'true','fasle')}">
+                        <apex:outputText value="{!w}" />
+                        <br />
+                    </apex:repeat> <!--   <apex:outputText value="{!checkDetails}" rendered="{!if(Opportunity.Check_payment__c==true,'true','fasle')}"></apex:outputText>  -->
+                    </span></p>
+                    <p align="left"><b style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333">Please overnight the check using our
+                    FedEx account (For check payment only) SFOA6</span></b></p>
+                    </td>
+                    <td width="541" colspan="3" valign="top" align="left"
+                        style="width: 270.7pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 220.0pt">
+
+                    <p align="left"><b><apex:outputField value="{!Opportunity.Brand_Name__c}" /> - B2B Division</b><br />
+                    <b><u><span style="color: Balck">FOR BANK TRANSFER
+                    (WIRE) PAYMENT: </span></u></b></p>
+
+                    <!--           <apex:outputText value="{!wireDetaials1}" rendered="{!if(Opportunity.Wire_Payment__c==true,'true','fasle')}"></apex:outputText>
+           <apex:outputText value="{!wireDetaials2}" rendered="{!if(Opportunity.Wire_Payment_Type2__c==true,'true','fasle')}"></apex:outputText> -->
+                    <apex:repeat value="{!wireDetaials1}" var="w"
+                        rendered="{!if(Opportunity.Wire_Payment__c==true,'true','fasle')}">
+                        <apex:outputText value="{!w}" />
+                        <br />
+                    </apex:repeat> <br/>
+                    <b><apex:outputLabel value="WirePayment2" rendered="{!if(Opportunity.Wire_Payment_Type2__c==true,'true','fasle')}"/></b>
+                           <br/>
+                    <apex:repeat value="{!wireDetaials2}" var="w"
+                        rendered="{!if(Opportunity.Wire_Payment_Type2__c==true,'true','fasle')}">
+                        <apex:outputText value="{!w}" />
+                        <br />
+                    </apex:repeat></td>
+                </tr>
+
+                <tr>
+                    <td width="360" colspan="3" valign="top"
+                        style="width: 270.2pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 125.5pt">
+                    <p><b style="mso-bidi-font-weight: normal"><span
+                        style="color: black">Bill To:</span></b><br />
+
+                    <span style="color: black; font-weight: bold"> <apex:outputText value="{!Opportunity.Account.name}" /></span><b
+                        style="mso-bidi-font-weight: normal"></b><span
+                        style="color: black"><apex:outputField value="{!Opportunity.Client_Name__r.OtherStreet}" />&nbsp;<apex:outputField value="{!Opportunity.Client_Name__r.OtherCity}" /> <br />
+                    <apex:outputField value="{!Opportunity.Client_Name__r.OtherState}" />&nbsp;<apex:outputField value="{!Opportunity.Client_Name__r.OtherPostalCode}" />&nbsp;<apex:outputField value="{!Opportunity.Client_Name__r.OtherCountry}" /></span></p>
+                    </td>
+
+                    <td width="361" colspan="3" valign="top"
+                        style="width: 270.7pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 125.5pt">
+
+                    <p><b style="mso-bidi-font-weight: normal"><span
+                        style="color: black">Ship To:</span></b><br />
+
+                    <span class="SpellE"><b style="mso-bidi-font-weight: normal"><span
+                        style="color: black"><apex:outputText value="{!Opportunity.Account.name}" /></span></b></span><b
+                        style="mso-bidi-font-weight: normal"></b><span
+                        style="color: black"><apex:outputField value="{!Opportunity.Client_Name__r.OtherStreet}" />&nbsp;<apex:outputField value="{!Opportunity.Client_Name__r.OtherCity}" /> <br />
+                    <apex:outputField value="{!Opportunity.Client_Name__r.OtherState}" />&nbsp;<apex:outputField value="{!Opportunity.Client_Name__r.OtherPostalCode}" />&nbsp;<apex:outputField value="{!Opportunity.Client_Name__r.OtherCountry}" /><br
+                        style="mso-special-character: line-break"></br>
+                    <br style="mso-special-character: line-break"></br>
+                    </span></p>
+
+                    </td>
+                </tr>
+
+                <tr
+                    style="mso-yfti-irow: 5; page-break-inside: avoid; height: 29.5pt">
+                    <td width="175"
+                        style="width: 131.4pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext 1.5pt; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt; background: gray; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 29.5pt">
+
+                    <span style="line-height: 110%; color: white; font-weight: bold">SALES
+                    EXECUTIVE</span></td>
+                    <td width="185" colspan="2"
+                        style="width: 138.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext 1.5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt; background: gray; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 29.5pt">
+                    <span style="line-height: 110%; color: white; font-weight: bold">INVOICE
+                    NUMBER </span></td>
+                    <td width="132"
+                        style="width: 99.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext 1.5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt; background: gray; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 29.5pt">
+                    <span style="line-height: 110%; color: white; font-weight: bold">REQUISITIONER</span>
+                    </td>
+                    <td width="125"
+                        style="width: 93.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext 1.5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt; background: gray; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 29.5pt">
+
+                    <span style="line-height: 110%; color: white; font-weight: bold">SHIPPED
+                    VIA</span></td>
+                    <td width="104"
+                        style="width: 77.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext 1.5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt; background: gray; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 29.5pt">
+                    <span style="line-height: 110%; color: white; font-weight: bold">TERMS</span>
+                    </td>
+                </tr>
+                <tr
+                    style="mso-yfti-irow: 6; mso-yfti-lastrow: yes; page-break-inside: avoid; height: 47.6pt">
+                    <td width="175"
+                        style="width: 131.4pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 47.6pt">
+                    <span style="line-height: 110%; color: #333333"> <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c!=''}">
+                        <apex:outputfield value="{!Opportunity.Workorder_Owner_Name__c}" />
+                    </apex:panelGroup> <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c==''}">
+                        <apex:outputField value="{!Opportunity.Owner.Name}" />
+                    </apex:panelGroup> </span></td>
+                    <td width="185" colspan="2"
+                        style="width: 138.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 47.6pt">
+                    <b style="mso-bidi-font-weight: normal"><span
+                        style="line-height: 110%; color: #333333; text-transform: uppercase"><apex:outputField value="{!Opportunity.Invoice_Number__c}" /></span></b><span
+                        style="line-height: 110%; color: #333333; letter-spacing: 0pt"></span>
+                    </td>
+                    <td width="132"
+                        style="width: 99.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 47.6pt">
+                    <span style="line-height: 110%; color: #333333"> <apex:outputfield value="{!Opportunity.Requisitioner__c}" /></span></td>
+                    <td width="125"
+                        style="width: 93.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 47.6pt">
+                    <span style="line-height: 110%; color: #333333">
+                            <apex:outputText value="{!Opportunity.Shipped_Via__c }" />
+                        </span></td>
+                    <td width="104"
+                        style="width: 77.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 47.6pt">
+
+                    <span style="line-height: 110%; color: #333333"> <apex:outputField value="{!Opportunity.Payment_Terms__c}" /></span></td>
+                </tr>
+                <tr>
+                    <td width="175" style="border: none"></td>
+                    <td width="171" style="border: none"></td>
+                    <td width="12" style="border: none"></td>
+                    <td width="136" style="border: none"></td>
+                    <td width="123" style="border: none"></td>
+                    <td width="103" style="border: none"></td>
+                </tr>
+            </table>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: 21.1pt">
+                    <td width="720" colspan="2"
+                        style="width: 7.5in; border: solid silver 1.0pt; mso-border-alt: solid silver .5pt; background: gray; padding: 0in 5.4pt 0in 5.4pt; height: 21.1pt">
+                    <h3
+                        style="mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 3.85pt; mso-height-rule: exactly"><span
+                        style="color: white; font-weight: bold">SERVICE DESCRIPTION
+                    </span></h3>
+                    </td>
+                </tr>
+                <tr style="mso-yfti-irow: 1; height: 31.0pt">
+                    <td width="175"
+                        style="width: 131.4pt; border: solid silver 1.0pt; border-top: none; mso-border-top-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 31.0pt">
+                    <h6 align="cente">SERVICE TYPE</h6>
+                    </td>
+                    <td width="545"
+                        style="width: 408.6pt; border-top: none; border-left: none; border-bottom: solid silver 1.0pt; border-right: solid silver 1.0pt; mso-border-top-alt: solid silver .5pt; mso-border-left-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 31.0pt">
+                    <b><span style="color: black"> <apex:repeat value="{!opportunity.opportunityLineItems}" var="op">
+                        <apex:outputField value="{!op.PricebookEntry.Product2.Legal_Name__c}" />
+                        <br />
+                    </apex:repeat> </span></b></td>
+                </tr>
+                <tr style="mso-yfti-irow: 2; height: 301.75pt">
+                    <td width="175"
+                        style="width: 131.4pt; border: solid silver 1.0pt; border-top: none; mso-border-top-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 301.75pt">
+                    <h6 align="center">TARGET CRITERIA</h6>
+                    </td>
+                    <td width="545"
+                        style="width: 408.6pt; border-top: none; border-left: none; border-bottom: solid silver 1.0pt; border-right: solid silver 1.0pt; mso-border-top-alt: solid silver .5pt; mso-border-left-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 301.75pt">
+                    <p><b style="mso-bidi-font-weight: normal"><span
+                        style="color: black"> <!--<apex:outputText value="{!opportunity.Opportunities__r.Sample_Type_Description__c}"></apex:outputText>  -->
+
+                    </span> </b></p>
+                    </td>
+                </tr>
+                <tr style="mso-yfti-irow: 3; height: 53.5pt">
+                    <td width="175"
+                        style="width: 131.4pt; border: solid silver 1.0pt; border-top: none; mso-border-top-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 53.5pt">
+                    <h6
+                        style="mso-element: frame; mso-element-frame-hspace: 9.0pt; mso-element-wrap: around; mso-element-anchor-vertical: paragraph; mso-element-anchor-horizontal: margin; mso-element-top: 3.85pt; mso-height-rule: exactly"><span
+                        style="mso-bidi- mso-bidi-font-weight: normal">TOTAL NO OF
+                    RECORDS</span></h6>
+                    </td>
+                    <td width="545"
+                        style="width: 408.6pt; border-top: none; border-left: none; border-bottom: solid silver 1.0pt; border-right: solid silver 1.0pt; mso-border-top-alt: solid silver .5pt; mso-border-left-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 53.5pt">
+                    <b style="mso-bidi-font-weight: normal"> <apex:variable var="count" value="{!0}" /> <apex:repeat value="{!opportunity.opportunityLineItems}" var="op">
+                        <apex:variable var="count" value="{!OP.quantity+count}" />
+                    </apex:repeat> <apex:outputText value="{0, number, ###,##0}">
+                        <apex:param value="{!count}" />
+                    </apex:outputText> </b></td>
+                </tr>
+
+                <tr style="mso-yfti-irow: 4; mso-yfti-lastrow: yes; height: 58.8pt">
+                    <td width="175"
+                        style="width: 131.4pt; border: solid silver 1.0pt; border-top: none; mso-border-top-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 58.8pt">
+                    <h6 align="center"><span
+                        style="mso-bidi- mso-bidi-font-weight: normal">TOTAL PRICE
+                    [USD]</span></h6>
+                    </td>
+                    <td width="545"
+                        style="width: 408.6pt; border-top: none; border-left: none; border-bottom: solid silver 1.0pt; border-right: solid silver 1.0pt; mso-border-top-alt: solid silver .5pt; mso-border-left-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 58.8pt">
+                    <b><span style="mso-bidi- color: blue"><apex:outputField value="{!Opportunity.Amount}" /> </span></b></td>
+                </tr>
+                <tr
+                    style="mso-yfti-irow: 4; mso-yfti-lastrow: yes; page-break-inside: avoid; height: .8in">
+
+                    <td width="50%" align="center"><span
+                        style="font-size: 10.0pt;"><span style="mso-spacerun: yes">
+                    </span><b>Additional Criteria:</b></span> <span style="font-size: 10.0pt;"><span
+                        style="mso-spacerun: yes"> </span><apex:outputtext value="{!Opportunity.Data_criteria__c}" /></span></td>
+                    <td width="50%" align="center"><span
+                        style="font-size: 10.0pt;"><span style="mso-spacerun: yes">
+                    </span><b>Signature:</b></span></td>
+
+                </tr>
+            </table>
+            <div style="page-break-after: always;" />
+            <p>&nbsp;</p>
+
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td colspan="2" align="center">
+                    <div>
+                    <center><b style="mso-bidi-font-weight: normal"><span
+                        style="font-size: 25.0pt; color: #0070C0"><u>CONTRACT
+                    AND AGREEMENT</u></span></b></center>
+                    </div>
+                    </td>
+                </tr>
+                <tr style="font-size: 11pt">
+                    <td>
+
+                    <p align="left"><span style="color: #333333">THIS
+                    AGREEMENT is made and entered into this _____ day of February 2013,
+                    by and between </span> <span style="color: #333333">InfoDataHouse</span> <span
+                        style="color: #333333">and</span> <b
+                        style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333">StorageCraft</span></b><b
+                        style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333"> Technology Corporation </span></b></p>
+                    <p align="left"><b style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333">Following are the terms of this
+                    AGREEMENT:</span></b></p>
+                    <p align="left"><b style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333">1. VALIDITY GUARANTEE:</span></b><span
+                        style="color: #333333"> We guarantee 90% direct mail
+                    accuracy with our lists. These guarantees are valid for a period of
+                    60 days from purchase of list. Given the nature of email there are
+                    numerous factors that affect deliverability like the type of
+                    servers used to send campaigns, the content of the email pitch and
+                    IP address reputation of Location from which the campaigns are sent
+                    along with the size of the email list. We can guarantee accuracy in
+                    our verified lists but not email deliverability. We also provide
+                    90% Guarantee via additional Tele-Verified and Email-Verified
+                    services making.Double Verified lists available along with the
+                    initial Email Campaign Delivered from our Platform to your list for
+                    an additional cost (all inclusive of Tele Verification, Email
+                    Verification and Initial Email Deployment). </span></p>
+                    <p align="left"><span style="color: #333333"></span> <b
+                        style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333">InfoDataHouse</span></b><span
+                        style="color: #333333"> agrees to </span><span
+                        style="color: #333333">credit </span><b
+                        style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333">StorageCraft</span></b><b
+                        style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333"> Technology Corporation </span></b><span
+                        style="color: #333333">for all hard bounces exceeding the
+                    guarantee.</span></p>
+                    <p align="left"><b style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333">2. DELIVERY TIME:</span></b><span
+                        style="color: #333333"> To maintain the quality of data,
+                    verify email and to ensure all opt-in and opt-out requests are
+                    taken care of, we need 05 business days to deliver the lists upon
+                    receipt of payment. We warranty that your opt-out rate will be less
+                    than half of one percentage (&lt;0.5%) of the list we provide if
+                    you send emails no more than once in a week. If the customer gets
+                    more opt-outs than this in the first month, <span class="SpellE">InfoDataHouse</span>
+                    will replace them with new records. The client has to send the
+                    suppression list and the report to <span class="SpellE">InfoDataHouse</span>
+                    after the campaign. </span></p>
+                    <p align="left"><b style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333">3. CONFIDENTIALITY:</span></b><span
+                        style="color: #333333"> The Customer Records, the Email
+                    Addresses, the Matched Records and all other information
+                    (collectively, the &quot;Confidential Information&quot;) submitted
+                    if any, by Customer to INFODATAHOUSE and Used by INFODATAHOUSE for
+                    Customer Email Campaigns will remain confidential.</span></p>
+                    <p align="left"><b style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333">4. USAGE:</span></b><span
+                        style="color: #333333"> A perpetual license to use these
+                    records as many times as the CUSTOMER wants provided they follow
+                    CAN-SPAM Act, DMA guidelines for marketing and any other
+                    international and local email/marketing legislation.</span></p>
+                    <p align="left"><b style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333">5. FEES:</span></b><span style="color: #333333">
+                    The CUSTOMER will pay to INFODATAHOUSE based on the work order. The
+                    total estimated fee (as mentioned on the work order) has to be paid
+                    prior to INFODATAHOUSE conducting email/data services. </span></p>
+                    <p align="left"><b style="mso-bidi-font-weight: normal"><span
+                        style="line-height: 115%; color: #333333">6.</span></b> <b
+                        style="mso-bidi-font-weight: normal"><span
+                        style="line-height: 115%; color: #333333">Representation
+                    Regarding OPT-IN:</span></b><span style="color: #333333"> InfoDataHouse
+                    represents and warrants that it communicated with the contacts
+                    listed on the Managed Service Providers list it is providing to
+                    StorageCraft Technology Corporation (“StorageCraft”) and that the
+                    contacts (i) opted in to receiving information from vendors via
+                    email about products and services StorageCraft provides including,
+                    but not limited to, backup and disaster recovery software, and (ii)
+                    have not opted out.InfoDataHouse hereby indemnifies, defends and
+                    holds harmless StorageCraft, its affiliates, directors and
+                    employees from any damages finally awarded against StorageCraft
+                    (including, without limitation, reasonable costs and legal fees
+                    incurred by StorageCraft) arising out of any third party suit,
+                    claim or other legal action alleging that the contact did not opt
+                    in and that Storage Craft’s use of the list to email the contact or
+                    others violates applicable consumer protection laws, including
+                    anti-spam laws such as the United States’ CAN-SPAM Act and/or
+                    anti-spam laws of other countries. </span></p>
+                    <p align="left"><b style="mso-bidi-font-weight: normal"><span
+                        style="line-height: 115%; color: #333333">7.</span></b><span
+                        style="line-height: 115%; color: #333333"> <b
+                        style="mso-bidi-font-weight: normal">Non Provision to other
+                    customers:</b> <span class="SpellE">InfoDataHouse</span> agrees that it
+                    will not provide any of the same contacts to another customer
+                    within sixty (60) days of providing them to <span class="SpellE">StorageCraft</span>.
+                    </span></p>
+                    <p align="left"><b style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333">8. ENTIRE AGREEMENT</span></b><span
+                        style="color: #333333">: This is the entire agreement
+                    between the parties and hereby supersedes all other agreements,
+                    negotiations, discussions or advertising material related to the
+                    subject matter hereof. </span></p>
+
+
+                    </td>
+                </tr>
+            </table>
+
+            <table width="100%" style="height: 250px">
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+
+                <tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: 30.0pt">
+                    <td
+                        style="border: solid silver 1.0pt; mso-border-alt: solid silver .5pt; background: gray; padding: 0in 5.4pt 0in 5.4pt;">
+                    <span style="font-weight: bold; color: white">StorageCraft
+                    Technology Corporation</span></td>
+                    <td
+                        style="border: solid silver 1.0pt; border-left: none; mso-border-left-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; background: gray; padding: 0in 5.4pt 0in 5.4pt;">
+                    <span style="font-weight: bold; color: white">InfoDataHouse</span>
+                    </td>
+                </tr>
+                <tr style="mso-yfti-irow: 1; height: 35.0pt">
+                    <td align="left"
+                        style="border: solid silver 1.0pt; border-top: none; mso-border-top-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt;">
+
+                    <b><span style="color: #333333">Contact</span></b><span
+                        style="color: #333333">: </span><strong><span
+                        style="color: #333333; font-weight: normal; mso-bidi-font-weight: bold"><apex:outputText value="{!Opportunity.Client_Name__r.name}" /> <span class="SpellE"></span></span></strong>
+
+
+                    </td>
+                    <td align="left"
+                        style="border-top: none; border-left: none; border-bottom: solid silver 1.0pt; border-right: solid silver 1.0pt; mso-border-top-alt: solid silver .5pt; mso-border-left-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt;">
+
+                    <b><span style="color: #333333"><span
+                        style="mso-spacerun: yes"> </span>Contact</span></b><span
+                        style="color: #333333">: </span><strong><span
+                        style="color: #333333; font-weight: normal; mso-bidi-font-weight: bold"><apex:outputField value="{!Opportunity.Vendor_Name__c}" /> </span></strong><strong><span
+                        style="color: #333333; font-weight: normal; mso-bidi-font-weight: bold"></span></strong>
+                    <span style="color: #333333"></span></td>
+                </tr>
+                <tr style="mso-yfti-irow: 2; height: 35.0pt">
+                    <td align="left"
+                        style="border: solid silver 1.0pt; border-top: none; mso-border-top-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt;">
+
+                    <b><span
+                        style="mso-bidi- color: #333333; mso-bidi-font-weight: bold">Title</span></b><span
+                        style="color: #333333">: </span><strong><span
+                        style="mso-bidi- color: #333333; font-weight: normal"><apex:outputText value="{!Opportunity.Client_Title__c}" /> </span></strong></td>
+                    <td align="left"
+                        style="border-top: none; border-left: none; border-bottom: solid silver 1.0pt; border-right: solid silver 1.0pt; mso-border-top-alt: solid silver .5pt; mso-border-left-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 3.1pt">
+
+                    <b><span style="color: #333333"> Title</span></b><span
+                        style="color: #333333">: </span><strong><span
+                        style="color: #333333; font-weight: normal"><apex:outputField value="{!Opportunity.Title__c}" /> </span></strong></td>
+                </tr>
+                <tr style="mso-yfti-irow: 3; height: 35.0pt">
+                    <td align="left"
+                        style="border: solid silver 1.0pt; border-top: none; mso-border-top-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt;">
+
+                    <b><span style="color: #333333">Date </span></b><span
+                        style="color: #333333">: </span></td>
+                    <td align="left"
+                        style="border-top: none; border-left: none; border-bottom: solid silver 1.0pt; border-right: solid silver 1.0pt; mso-border-top-alt: solid silver .5pt; mso-border-left-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt;">
+                    <b><span style="color: #333333"><span
+                        style="mso-spacerun: yes"> </span>Date</span></b><span style="color: #333333">:<apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                        <apex:param value="{!opportunity.current_date__c}" />
+                    </apex:outputText> </span></td>
+                </tr>
+                <tr style="mso-yfti-irow: 4; height: 35.0pt">
+                    <td valign="top" align="left"
+                        style="border: solid silver 1.0pt; border-top: none; mso-border-top-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt;">
+
+
+                    <b><span style="color: #333333">Signature</span></b><span
+                        style="color: #333333">:</span></td>
+                    <td align="left"
+                        style="border-top: none; border-left: none; border-bottom: solid silver 1.0pt; border-right: solid silver 1.0pt; mso-border-top-alt: solid silver .5pt; mso-border-left-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt;">
+                    <b><span style="color: #333333">Signature</span></b><span
+                        style="color: #333333">:<apex:outputField value="{!Opportunity.Signauture1__c}" /> </span></td>
+                </tr>
+                <tr
+                    style="mso-yfti-irow: 5; mso-yfti-lastrow: yes; page-break-inside: avoid; height: 2.7pt">
+                    <td width="784" colspan="2"
+                        style="width: 587.7pt; border: solid silver 1.0pt; border-top: none; mso-border-top-alt: solid silver .5pt; mso-border-alt: solid silver .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 2.7pt">
+                    <b style="mso-bidi-font-weight: normal"><span
+                        style="color: #333333">Kindly authorize and fax to &nbsp;<apex:outputField value="{!Opportunity.Fax__c}" /></span></b></td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+    </body>
+</apex:page>

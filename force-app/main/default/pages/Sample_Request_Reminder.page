@@ -1,0 +1,10 @@
+<apex:page standardcontroller="Sample_Request__c">
+  <apex:panelGroup rendered="{!Sample_Request__c.Sample_Request_Reminder__c==False}">
+  <table>
+  <tr>
+  <td width="38%"></td><td width="58%" align="center"><font color="WHITE" size="2"><b><center style="background-color:#189ECF;">Please click the Sample Request Button to send an Email to Helpdesk</center></b></font></td>
+  <td width="4%"></td>
+  </tr>
+  </table>
+  </apex:panelGroup>
+</apex:page>

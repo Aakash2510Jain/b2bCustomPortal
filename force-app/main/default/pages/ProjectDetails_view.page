@@ -1,0 +1,5 @@
+<apex:page standardController="Opportunity">
+  <!-- Begin Default Content REMOVE THIS -->
+  <apex:iframe src="http://www.projectcentral.us/SalesForce/ProjectDetailsIntoSF.aspx?OpportunityNo={!Opportunity.Opportunity_Number__c}" scrolling="true" id="theIframe"/>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

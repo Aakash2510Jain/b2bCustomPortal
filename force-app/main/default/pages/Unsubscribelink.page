@@ -1,0 +1,3 @@
+<apex:page showHeader="false" sidebar="false" controller="cls_acceptedlink" action="{!fieldUpdate}">
+   <p style="font-size:60px;color:green;background-color:orange;" align="center"> Thankyou</p>
+</apex:page>

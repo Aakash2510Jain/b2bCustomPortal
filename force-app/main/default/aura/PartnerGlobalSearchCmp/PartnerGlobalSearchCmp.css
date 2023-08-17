@@ -1,0 +1,28 @@
+.THIS .SearchButton{
+    margin-top: 18px;
+ }
+
+ .THIS.slds-spinner_container {  
+  z-index: 10000;
+  position: fixed;   
+ }
+.THIS .scroll-container1 {
+    height: 500px; /* Adjust the height as needed */
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+.THIS .scroll-container1::-webkit-scrollbar {
+     width: 0;
+    background-color: transparent;
+}
+
+.THIS .scroll-container1::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.THIS .scroll-container1::-webkit-scrollbar-track {
+    background-color: transparent;
+}

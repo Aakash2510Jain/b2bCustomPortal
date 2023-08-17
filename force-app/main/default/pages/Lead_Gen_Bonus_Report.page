@@ -1,0 +1,221 @@
+<apex:page controller="LeadGenBonusReport" sidebar="false" > <!-- readOnly="true" -->
+<apex:includeScript value="{!URLFOR($Resource.datepicker,'calendar.js')}"/>
+<apex:stylesheet value="{!URLFOR($Resource.datepicker,'calendar_blue.css')}" /> 
+
+    <style>
+.activeTab {
+    background-color: #F9966B;
+    color: white;
+    background-image: none
+}
+
+.inactiveTab {
+    background-color: lightgrey;
+    color: white;
+    background-image: none
+}
+</style>
+<apex:pageBlock id="LeadGenReport">
+<apex:form >
+<apex:pageMessages id="errorMessage" ></apex:pageMessages>
+ <table Border='0' BORDERCOLOR='#736F6E' width="100%" cellspacing="0" cellpadding="4">
+ 
+                <tr align="center" BGCOLOR='Silver'>
+                        <td align="right" width="15%">Division:	</td>
+                         <td align="left" width="12%">
+                            <apex:selectList id="Divname" value="{!Divname}" size="1">
+                            <apex:selectOptions value="{!DevList}"/>
+                            </apex:selectList>  
+                         </td>
+                        <td align="right" width="10%">Month:</td>
+
+				<td align="left" width="4%"><apex:selectList id="MonthPicker"
+					value="{!ListMonth}" multiselect="false" size="1">
+					<apex:selectOptions value="{!OptionMonth}" />
+				</apex:selectList></td>
+				
+				<td align="right" width="4%">Year:</td>
+
+				<td align="left" width="15%"><apex:selectList id="YearPicker"
+					value="{!ListYear}" multiselect="false" size="1">
+					<apex:selectOptions value="{!OptionYear}" />
+					 <!--<apex:actionSupport event="onchange" action="{!changeYear}" reRender="YearPicker" />
+                    
+				--></apex:selectList></td>
+				        </tr>
+                        <tr>
+                         <td align="right" colspan="4" ><apex:commandButton action="{!doSearch}" value="Generate Bonus Report "/></td>
+                          
+                     <!--    <td align="left" colspan="2" ><apex:commandButton action="{!exportReport}" value="Generate Excel Format ">
+                        <apex:Param id="ExFromDate" value="{!fromdate}" assignTo="{!ExFromDate}"/>
+                        <apex:Param id="ExToDate" value="{!todate}" assignTo="{!ExToDate}"/>
+                        </apex:commandButton> 
+                        </td>--> 
+                         
+                 </tr>
+              
+                 </table> 
+  </apex:form>
+   <apex:form >
+  <table Border='1' BORDERCOLOR='#736F6E' width="100%" cellspacing="0"  cellpading="1">
+              
+                <tr align="center" BGCOLOR='white'><td> Search Results - From: {!fromdate} and To: {!todate} and Division: {!divname}</td>
+                <td> 
+                <apex:commandLink action="{!exportReport}">Download in Excel Format</apex:commandLink>
+                </td>
+                 <td align="right" width="30"><apex:commandButton action="{!save}" value="Save"/></td>
+                </tr>
+                <!--<tr><td colspan="3"><b>Note: </b>You Save the report only once you are sure that there will be no more changes on the data for that month.</td></tr>
+                --></table>
+               </apex:form> 
+           <table Border='1' BORDERCOLOR='#736F6E' width="100%" cellspacing="0"  cellpading="1">
+                <tr align="center" BGCOLOR='Silver'>
+                    <td align="center" width="7%"><b>LeadGen Name</b></td>
+                    <td align="center" width="6%"><b>Division</b></td>
+                    <td align="center" width="6%"><b>Total Leads</b></td>
+                    <td align="center" width="6%"><b>Leads with LinkedIn Profile</b></td>
+                    <td align="center" width="6%"><b>Total Deals</b></td>
+                    <td align="center" width="6%"><b>Paid Deals</b></td>
+                    <td align="center" width="6%"><b>Lead to Deal(%)</b></td>
+                    <td align="center" width="6%"><b>Bonus Amount(Rs.)</b></td>
+                    
+                </tr>
+ 
+                <apex:repeat value="{!LeadGenDivisionList}" var="SRMain" >
+                 <apex:repeat value="{!SRMain.LeadGenReportMap}" var="SR" >
+                    <tr width="100%" BGCOLOR='#CCFFFF'>
+
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;font-weight:bold;">
+                            <apex:param value="{!SR.userName}" />
+                        </apex:outputText></td>
+
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.divisionName}" />
+                        </apex:outputText></td>
+
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.leadCount}" />
+                        </apex:outputText></td>
+                        
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.linkedindeal}" />
+                        </apex:outputText></td>
+
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.dealCount}" />
+                        </apex:outputText></td>
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.paidCount}" />
+                        </apex:outputText></td>
+
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0, number, #0.00} %"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.leadDeal}" />
+                        </apex:outputText></td>
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0, number, #0.00}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.bonusAmount}" />
+                        </apex:outputText></td>
+                    </tr>
+                    </apex:repeat>
+                </apex:repeat>
+            </table>
+
+            <table Border='1' BORDERCOLOR='#736F6E' width="100%" cellspacing='0'
+                cellpadding='1'>
+                <tr bgcolor='#99CCFF'>
+                    <td align="center" width="7%" cellspacing='0'><font
+                        color='#000000'><b>&nbsp;</b></font></td>
+                    <td align="center" width="6%" cellspacing='0'><font
+                        color='#000000'><b>Total</b></font></td>
+
+                    <td align="center" width="6%"><apex:outputText value="{0}">
+                        <apex:param value="{!totalReport.leadCount }" />
+                    </apex:outputText></td>
+                    <td align="center" width="6%"><apex:outputText value="{0}">
+                        <apex:param value="{!totalReport.linkedindeal }" />
+                    </apex:outputText></td>
+                    <td align="center" width="6%"><apex:outputText value="{0}">
+                        <apex:param value="{!totalReport.dealCount }" />
+                    </apex:outputText></td>
+                    <td align="center" width="6%"><apex:outputText value="{0}">
+                        <apex:param value="{!totalReport.paidCount}" />
+                    </apex:outputText></td>
+                    <td align="center" width="6%">
+                     <apex:outputText value="{0, number, #0.00} %"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!totalReport.leadDeal}" />
+                        </apex:outputText></td>
+                    <td align="center" width="6%"><apex:outputText value="{0, number, #0.00}">
+                        <apex:param value="{!totalReport.bonusAmount}" /> 
+                    </apex:outputText></td>
+                </tr>
+        </table>
+        
+      
+</apex:pageBlock>
+<script>
+function fnSetDateFormat(oDateFormat)
+{
+ oDateFormat['FullYear'];  //Example = 2007
+ oDateFormat['Year'];   //Example = 07
+ oDateFormat['FullMonthName']; //Example = January
+ oDateFormat['MonthName'];  //Example = Jan
+ oDateFormat['Month'];   //Example = 01
+ oDateFormat['Date'];   //Example = 01
+ oDateFormat['FullDay'];   //Example = Sunday
+ oDateFormat['Day'];    //Example = Sun
+ oDateFormat['Hours'];   //Example = 01
+ oDateFormat['Minutes'];   //Example = 01
+ oDateFormat['Seconds'];   //Example = 01
+  
+ var sDateString;
+  
+ // Use dd/mm/yyyy format
+ //sDateString = oDateFormat['Date'] +"/"+ oDateFormat['Month'] +"/"+ oDateFormat['FullYear'];
+sDateString = oDateFormat['FullYear'] +"-"+ oDateFormat['Month'] +"-"+ oDateFormat['Date']; 
+ return sDateString;
+}
+   
+     
+function initialiseCalendar(obj, eleId) 
+{
+ var element=document.getElementById(eleId);
+ var params='close=true';
+ if (null!=element)
+ {
+  if (element.value.length>0)
+  {
+   // date is formatted dd/mm/yyyy - pull out the month and year
+   var month=element.value.substr(3,2);
+   var year=element.value.substr(6,4);
+   params+=',month='+month;
+   params+=',year='+year;
+  }
+ }
+ fnInitCalendar(obj, eleId, params);
+}
+ </script>
+</apex:page>

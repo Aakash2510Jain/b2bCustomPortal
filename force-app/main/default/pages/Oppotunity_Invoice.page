@@ -1,0 +1,4 @@
+<apex:page standardController="Work_Order__c"  showHeader="false" sidebar="false" standardStylesheets="true" renderAs="pdf"  >
+
+
+</apex:page>

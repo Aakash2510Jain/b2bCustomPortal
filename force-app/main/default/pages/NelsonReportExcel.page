@@ -1,0 +1,217 @@
+<apex:page controller="NelsonReport" sidebar="false" readOnly="true" contenttype="application/vnd.ms-excel" >
+ <!-- <apex:includeScript value="{!URLFOR($Resource.datepicker,'calendar.js')}"/>
+<apex:stylesheet value="{!URLFOR($Resource.datepicker,'calendar_blue.css')}" /> 
+
+    <style>
+.activeTab {
+    background-color: #F9966B;
+    color: white;
+    background-image: none
+}
+
+.inactiveTab {
+    background-color: lightgrey;
+    color: white;
+    background-image: none
+}
+</style> -->
+ <apex:pageBlock >
+  			<table Border='1' BORDERCOLOR='#736F6E' width="100%" cellspacing="0"  cellpadding="1">
+              
+                <tr align="center" BGCOLOR='white'><td> Search Results - From: {!fromdate} and To: {!todate}</td>
+                </tr>
+            </table>
+                
+            <table Border='1' BORDERCOLOR='#736F6E' width="100%" cellspacing="0"  cellpadding="1">
+                <tr align="center" BGCOLOR='Silver'>
+                    <td align="center" width="7%"><b>User Name</b></td>
+                  <!--    <td align="center" width="6%"><b>Division</b></td> -->
+                    <td align="center" width="6%"><b>Leads Assigned</b></td>
+                    <td align="center" width="6%"><b>Converted Leads</b></td>
+                    <td align="center" width="6%"><b>Open Opportunities</b></td>
+                    <td align="center" width="6%"><b>Closed Opportunities</b></td>
+                 <td align="center" width="6%"><b>Paid Deals</b></td>
+                  <td align="center" width="6%"><b>Payment Amount</b></td>
+                 <td align="center" width="6%"><b>Total Activities</b></td>
+                   <td align="center" width="6%"><b>Pending Activities</b></td>  
+                   <td align="center" width="6%"><b>No Activities (Leads)</b></td>  
+                    <td align="center" width="6%"><b>No Activities (Opportunity)</b></td>  
+                   
+                </tr>
+ 
+               <!--  <apex:repeat value="{!LeadGenDivisionList}" var="SRMain" > -->
+                 <apex:repeat value="{!SearchResults}" var="SR" > 
+                    <tr width="100%" BGCOLOR='white'>
+
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;font-weight:bold;">
+                            <apex:param value="{!SR.ssrRec.uName}" />
+                        </apex:outputText></td>
+
+                     <!--    <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.divisionName}" />
+                        </apex:outputText></td>  -->
+
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.ssrRec.leadCount}" />
+                        </apex:outputText></td>
+                        
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.ssrRec.Convertedleadcount}" />
+                        </apex:outputText></td>
+
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right:solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.ssrRec.Opptycount}" />
+                        </apex:outputText></td>
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.ssrRec.Closedoptycount}" /> 
+                        </apex:outputText></td>
+                    
+                     <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.ssrRec.PaidDeals}" />
+                        </apex:outputText></td> 
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.ssrRec.paymentAmount}" />
+                        </apex:outputText></td> 
+                           <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.ssrRec.Actvtycount}" />
+                        </apex:outputText></td> 
+                       
+                        <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.ssrRec.pendingactvtycount}" />
+                        </apex:outputText></td>
+                        
+                         <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.ssrRec.noActivityLeads}" />
+                        </apex:outputText></td>
+                          <td align="center" width="2%"
+                            style="border-top: none; border-right: solid gray 1pt; border-left: none; border-bottom: solid gray 1pt;">
+                        <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.ssrRec.noActivityOpportunity}" />
+                        </apex:outputText></td>
+                    </tr>
+                    </apex:repeat>
+                <!-- </apex:repeat>-->
+            </table>
+
+             <table Border='1' BORDERCOLOR='#736F6E' width="100%" cellspacing='0'
+                cellpadding='1'>
+                <tr bgcolor='A9A9A9'>
+                   <!--  <td align="center" width="7%" cellspacing='0'><font
+                        color='#000000'><b>&nbsp;</b></font></td>  -->
+                    <td align="center" width="7%" ><font
+                        color='#000000'><b>Total</b></font></td>
+
+                    <td align="center" width="6%"><apex:outputText value="{0}">
+                        <apex:param value="{!totalReport.leadCount }" />
+                    </apex:outputText></td>
+                    <td align="center" width="6%"><apex:outputText value="{0}">
+                        <apex:param value="{!totalReport.Convertedleadcount }" />
+                    </apex:outputText></td>
+                    <td align="center" width="6%"><apex:outputText value="{0}">
+                        <apex:param value="{!totalReport.Opptycount }" />
+                    </apex:outputText></td>
+                    <td align="center" width="6%"><apex:outputText value="{0}">
+                        <apex:param value="{!totalReport.Closedoptycount}" />
+                    </apex:outputText></td>
+                    <td align="center" width="6%">
+                     <apex:outputText value="{0}"
+                            style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!totalReport.PaidDeals}" />
+                        </apex:outputText></td>
+                     <td align="center" width="6%"><apex:outputText value="{0}">
+                        <apex:param value="{!totalReport.paymentAmount}" /> 
+                    </apex:outputText></td>
+                    <td align="center" width="6%"><apex:outputText value="{0}">
+                        <apex:param value="{!totalReport.Actvtycount}" /> 
+                    </apex:outputText></td>
+                    <td align="center" width="6%"><apex:outputText value="{0}">
+                        <apex:param value="{!totalReport.pendingactvtycount}" /> 
+                    </apex:outputText></td>
+                    
+                     <td align="center" width="6%"><apex:outputText value="{0}">
+                        <apex:param value="{!totalReport.noActivityLeads}" /> 
+                    </apex:outputText></td>
+                    <td align="center" width="6%"><apex:outputText value="{0}">
+                        <apex:param value="{!totalReport.noActivityOpportunity}" /> 
+                    </apex:outputText></td>
+                </tr>
+        </table>      
+      
+</apex:pageBlock>
+ <script>
+function fnSetDateFormat(oDateFormat)
+{
+ oDateFormat['FullYear'];  //Example = 2007
+ oDateFormat['Year'];   //Example = 07
+ oDateFormat['FullMonthName']; //Example = January
+ oDateFormat['MonthName'];  //Example = Jan
+ oDateFormat['Month'];   //Example = 01
+ oDateFormat['Date'];   //Example = 01
+ oDateFormat['FullDay'];   //Example = Sunday
+ oDateFormat['Day'];    //Example = Sun
+ oDateFormat['Hours'];   //Example = 01
+ oDateFormat['Minutes'];   //Example = 01
+ oDateFormat['Seconds'];   //Example = 01
+  
+ var sDateString;
+  
+ // Use dd/mm/yyyy format
+ //sDateString = oDateFormat['Date'] +"/"+ oDateFormat['Month'] +"/"+ oDateFormat['FullYear'];
+sDateString = oDateFormat['FullYear'] +"-"+ oDateFormat['Month'] +"-"+ oDateFormat['Date']; 
+ return sDateString;
+}
+   
+     
+function initialiseCalendar(obj, eleId) 
+{
+ var element=document.getElementById(eleId);
+ var params='close=true';
+ if (null!=element)
+ {
+  if (element.value.length>0)
+  {
+   // date is formatted dd/mm/yyyy - pull out the month and year
+   var month=element.value.substr(3,2);
+   var year=element.value.substr(6,4);
+   params+=',month='+month;
+   params+=',year='+year;
+  }
+ }
+ fnInitCalendar(obj, eleId, params);
+}
+ </script>  
+</apex:page>

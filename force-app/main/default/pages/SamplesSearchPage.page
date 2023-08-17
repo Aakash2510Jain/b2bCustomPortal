@@ -1,0 +1,175 @@
+<apex:page standardcontroller="Sample_Request__c" extensions="Samples_SearchController" id="myPage" sidebar="false"  showHeader="false">
+ <apex:includeScript value="{!URLFOR($Resource.datepicker,'calendar.js')}"/>
+<apex:stylesheet value="{!URLFOR($Resource.datepicker,'calendar_blue.css')}" />  
+<!-- Begin Default Content REMOVE THIS -->
+<apex:includeScript value="{!URLFOR($Resource.JQueryScript, 'jquery-ui-1.10.3.custom/js/jquery-1.9.1.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.JQueryScript, 'jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.JQueryScript, 'jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.JQueryScript, 'jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.css')}"/>
+
+<script language="Javascript">
+function toTestForm(){
+
+    var a= document.getElementById('{!$Component.myForm.myBlock.fromDate}').value;
+    var b= document.getElementById('{!$Component.myForm.myBlock.toDate}').value;
+    var c= document.getElementById('{!$Component.myForm.myBlock.dateC}').value;
+    var d= document.getElementById('{!$Component.myForm.myBlock.Keywords}').value;
+    if(a=='' && b == '' && c==''){
+     alert("OOPs !Please enter Date Criteria or From Date and To Date");
+     return false;
+     }
+     if(a!='' && b!='' && c!=''){
+     alert("OOPs !Please remove one of criteria.(Date Criteria or From Date and To Date)");
+     return false;
+     
+     }
+     if(a!='' && b==''){
+     alert("OOPs !Please enter To Date");
+     return false;
+     }
+     if(a=='' && b!=''){
+     alert("OOPs !Please enter From Date");
+     return false;
+     }
+    if(d=='') {
+    alert("OOPs !Please enter the Keywords");
+     return false;
+    }
+    //confirm ("OOPs!Are you sure you want search!");
+    return true;
+    
+}
+function myFunction(a,b,c,d){
+    //alert('Hello'+a+' User'+b+'KEY'+c+'TYPE'+d);
+     var newwindow = window.open('/apex/sampleCount?docName='+a+'&Keyword='+c+'&Stype='+d+'&uEmail='+b,'_blank'); 
+     setTimeout(function () { newwindow.close();}, 1000);
+     //newwindow.close();
+    
+}
+</script>
+
+<apex:form id="myForm" onSubmit="toTestForm()" >
+
+<apex:pageMessages />
+ 
+<apex:pageMessages id="errormessage" />
+    <apex:pageBlock title="Business Analysis Report" mode="detail" id="myBlock">
+	<span id = "ipaddress"></span>
+    <table  Border='0' BORDERCOLOR='#736F6E' width="100%" cellspacing="0" cellpadding="4">
+        <tr>
+            <td align="right" ><b>Sample Type :</b></td>
+            <td align="left" ><apex:inputField value="{!SampleRecord.Sample_Type__c}" />
+            </td>
+            <td align="right" ><b>Keywords :</b></td>
+            <td align="left"><apex:inputText id="Keywords" label="Keywords" size="60" value="{!sampleKeyword}" /></td>
+        </tr>
+        <tr align="center" >
+                <td colspan="2">
+                    <table  Border='0' BORDERCOLOR='#736F6E' width="100%" cellspacing="0"><tr>
+                    <td align="right"><b>From Date :</b>
+                    <apex:inputText id="fromDate" size="15" value="{!fromDate}" onmouseover="initialiseCalendar(this, '{!$Component.fromDate}')"/>
+                        <img src='{!URLFOR($Resource.datepicker,"cal.gif")}' onmouseover="initialiseCalendar(this, '{!$Component.fromDate}')"/> 
+                    </td>
+                    <td align="left"><b>&nbsp;&nbsp;To Date :</b>
+                    <apex:inputText id="toDate" size="15" value="{!toDate}" onmouseover="initialiseCalendar(this, '{!$Component.toDate}')"/>
+                     <img src='{!URLFOR($Resource.datepicker,"cal.gif")}' align='absmiddle' onmouseover="initialiseCalendar(this, '{!$Component.toDate}')"/>     
+                     
+                    </td>
+                     </tr>
+                     </table>
+                    </td>
+                    <td colspan="2" align="left">                   
+                    <table  Border='0' BORDERCOLOR='#736F6E' width="100%" cellspacing="0"><tr>
+                        <td align="left"><font color="red"> <b>&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;&nbsp;</b></font><b>Date Criteria :</b> <apex:selectList id="dateC" label="Date Creteria" value="{!searchDateFormat}" size="1" title="Date Creteria">
+                                <apex:selectOptions value="{!dateC}"></apex:selectOptions>
+                            </apex:selectList></td>
+                    </tr></table>
+                    </td>
+         </tr>
+        <tr align="center">
+            
+            <td colspan="4">&nbsp;</td>
+            
+        </tr>
+         <tr align="center"><td colspan="4" align="center"><apex:commandButton action="{!DoSearch}" value="Search Samples"   rerender="myBlock" status="status" /></td></tr>
+    </table>    
+       
+        <!-- <apex:pageBlock title="Search Results for  {!dateCaption}"  id="myBlock3" rendered="{!NOT(ISNULL(searchResults))}"> -->
+          <apex:actionStatus id="status" startText="requesting..."/>
+         <p align="center"><font color="red">{!errMsg}</font></p>
+        <apex:pageBlockSection title="Search Results for  {!dateCaption}"  id="myBlock3" rendered="{!NOT(ISNULL(searchResults))}" columns="1">
+            <apex:pageBlockTable width="100%" value="{!searchResults}" var="a"  id="myBTable"  >
+                <apex:column headerValue="Description" style="width:60%"  >
+                <apex:outputText value="{!a.ssrRec.sampleDesc}" escape="false" id="sampleDesc" style="font-style:Normal" />             
+                </apex:column>
+                <apex:column headerValue="Created On"  style="width:10%;font-style:Normal" >
+                <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                    <apex:param value="{!a.ssrRec.sampleReqDate}"/> 
+                </apex:outputText>
+                </apex:column>  
+                <apex:column headerValue="Download" style="width:15%">
+                    <apex:outputLink value="/servlet/servlet.FileDownload?file={!a.ssrRec.att1Link.Id}" target="_blank" onclick="JavaScript:myFunction('{!a.ssrRec.att1Name}','{!$User.Email}','{!sampleKeyword}','{!SampleRecord.Sample_Type__c}');">
+                    {!a.ssrRec.att1Name}</apex:outputLink><br></br>
+                    <apex:outputLink value="/servlet/servlet.FileDownload?file={!a.ssrRec.att2Link.Id}" target="_blank" onclick="JavaScript:myFunction('{!a.ssrRec.att2Name}','{!$User.Email}','{!sampleKeyword}','{!SampleRecord.Sample_Type__c}');">
+                    {!a.ssrRec.att2Name}</apex:outputLink> 
+                </apex:column>  
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>    
+        </apex:pageBlock>
+</apex:form>
+<!-- End Default Content REMOVE THISrendered="{!IF(AND(showResults,searchResultsAvailable),true,false)}" --> 
+<script>
+function fnSetDateFormat(oDateFormat)
+{
+ oDateFormat['FullYear'];  //Example = 2007
+ oDateFormat['Year'];   //Example = 07
+ oDateFormat['FullMonthName']; //Example = January
+ oDateFormat['MonthName'];  //Example = Jan
+ oDateFormat['Month'];   //Example = 01
+ oDateFormat['Date'];   //Example = 01
+ oDateFormat['FullDay'];   //Example = Sunday
+ oDateFormat['Day'];    //Example = Sun
+ oDateFormat['Hours'];   //Example = 01
+ oDateFormat['Minutes'];   //Example = 01
+ oDateFormat['Seconds'];   //Example = 01
+  
+ var sDateString;
+  
+ // Use dd/mm/yyyy format
+ //sDateString = oDateFormat['Date'] +"/"+ oDateFormat['Month'] +"/"+ oDateFormat['FullYear'];
+sDateString = oDateFormat['FullYear'] +"-"+ oDateFormat['Month'] +"-"+ oDateFormat['Date']; 
+ return sDateString;
+}
+   
+     
+function initialiseCalendar(obj, eleId) 
+{
+ var element=document.getElementById(eleId);
+ var params='close=true';
+ if (null!=element)
+ {
+  if (element.value.length>0)
+  {
+   // date is formatted dd/mm/yyyy - pull out the month and year
+   var month=element.value.substr(3,2);
+   var year=element.value.substr(6,4);
+   params+=',month='+month;
+   params+=',year='+year;
+  }
+ }
+ fnInitCalendar(obj, eleId, params);
+}
+ </script>
+ <script>
+        j$ = jQuery.noConflict();
+   j$(document).ready(function() {
+        j$(".SampleRecord").click(function() { 
+            alert('IN');
+                   });
+  );
+  
+  }
+  
+
+ </script>
+</apex:page>

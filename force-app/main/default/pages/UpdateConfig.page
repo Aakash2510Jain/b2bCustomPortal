@@ -1,0 +1,18 @@
+<apex:page standardController="Config__c">
+<apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:inputField value="{!Config__c.Blacklisted_Domains__c}"/>
+              <apex:inputField value="{!Config__c.BrandWise__c}"/>
+                <apex:inputField value="{!Config__c.Value__c}"/>
+                <apex:inputField value="{!Config__c.Division__c}"/>
+               <apex:inputField value="{!Config__c.NumberOfDays__c}"/>
+                <apex:inputField value="{!Config__c.NoLeadActivity__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockButtons >
+        <apex:commandButton value="save" action="{!save}"/>
+        <apex:commandButton value="cancel" action="{!cancel}"/>        
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

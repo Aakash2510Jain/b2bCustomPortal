@@ -1,0 +1,68 @@
+<apex:page Controller="LeadDistributionReport" sidebar="false" readOnly="true" contenttype="application/vnd.ms-excel">
+  
+<apex:pageBlock >
+  <table Border='1' bordercolor='silver' width="100%" cellspacing="0"  cellpading="1">              
+                <tr align="center" BGCOLOR='#E0F2F7'>
+                    <td> Search Results - From: {!fromdate} and To: {!todate} and Division: {!divname}</td>                                        
+                </tr>
+  </table>
+ <table border="1" Bordercolor="silver" width="100%" cellspacing="0"  cellpading="1">
+                <tr align="center" BGCOLOR='silver'>
+                    <td align="center" width="7%"><b>LeadGen Name</b></td> 
+                    <td align="center" width="6%"><b>Division</b></td>                   
+                    <td align="center" width="6%"><b>Total Leads</b></td>
+                    <td align="center" width="5%"><b>Lead assigned BD's</b></td>
+                    <td align="center" width="5%"><b>Total Deals</b></td>
+                    <td align="center" width="5%"><b>Deal Closed by BD's</b></td>
+                    <td align="center" width="5%"><b>Conversion Rate</b></td>                    
+                     </tr>
+                <apex:repeat value="{!LeadGenDivisionList}" var="SRMain" >
+                 <apex:repeat value="{!SRMain.LeadGenReportMap}" var="SR" >
+                    <tr width="100%" BGCOLOR='#F2F2F2'>
+                        <td align="center" width="2%" style="border-top: solid gray 1pt; border-right: solid gray 1pt; border-left: solid gray 1pt; border-bottom: none;">
+                            <apex:outputText value="{0}" style="font-style:Arial;font-size:10pt;font-weight:bold;">
+                            <apex:param value="{!SR.userName}" />
+                            </apex:outputText>
+                        </td> 
+                        <td align="center" width="2%" style="border-top: solid gray 1pt; border-right: solid gray 1pt; border-left: none; border-bottom: none;">
+                            <apex:outputText value="{0}" style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.divisionName}" />
+                            </apex:outputText>
+                        </td>              
+                        <td align="center" width="2%" style="border-top: solid gray 1pt; border-right: solid gray 1pt; border-left: none; border-bottom: none;">
+                            <apex:outputText value="{0}" style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.leadCount}" />
+                            </apex:outputText>
+                        </td>
+                        <td align="center" width="2%" style="border-top: solid gray 1pt; border-right: solid gray 1pt; border-left: none; border-bottom: none;">
+                            <apex:repeat value="{!SR.BdNameMap}" var="key" ><br/>                        
+                            <apex:outputText value="{0} - {1}" style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!key}" />
+                            <apex:param value="{!SR.BdNameMap[key]}" />
+                            </apex:outputText>
+                            </apex:repeat>
+                        </td>
+                        <td align="center" width="2%" style="border-top: solid gray 1pt; border-right: solid gray 1pt; border-left: none; border-bottom: none;">
+                            <apex:outputText value="{0}" style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.paidCount}" />
+                            </apex:outputText>
+                        </td>
+                        <td align="center" width="2%" style="border-top: solid gray 1pt; border-right: solid gray 1pt; border-left: none; border-bottom: none;">
+                            <apex:repeat value="{!SR.BdNameMapForClosedDeal}" var="key" ><br/>
+                            <apex:outputText value="{0} - {1}" style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!key}" />
+                            <apex:param value="{!SR.BdNameMapForClosedDeal[key]}" />                            
+                            </apex:outputText>
+                            </apex:repeat>
+                        </td>                        
+                        <td align="center" width="2%" style="border-top: solid gray 1pt; border-right: none; border-left: none; border-bottom: none;">
+                            <apex:outputText value="{0}%" style="font-style:Arial;font-size:10pt;">
+                            <apex:param value="{!SR.paidCount / SR.leadCount*100}" /> 
+                            </apex:outputText>
+                        </td>
+                     </tr>                        
+                  </apex:repeat>
+                </apex:repeat>                    
+ </table>
+ </apex:pageBlock>
+ </apex:page>

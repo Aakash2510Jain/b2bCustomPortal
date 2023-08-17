@@ -1,0 +1,422 @@
+<apex:page controller="FinanceReportLeadDealSample" sidebar="false" readOnly="true">
+              
+<apex:pageBlock title="Sales - (This Month)">
+</apex:pageBlock>
+
+<table Border='1' BORDERCOLOR='#736F6E' width="100%"  cellspacing="0" cellpading="1" >
+  <tr align="center" BGCOLOR='Silver'>
+            <td align="center" width="7%"><b>Division Name</b></td>
+            <td align="center" width="6%" ><b>Total Deals</b></td>
+            <td align="center" width="6%"><b>Total Leads</b></td>  
+            <td align="center" width="6%"><b>Deal Conv%</b></td> 
+            <td align="center" width="6%"><b>Total Assigned Leads</b></td>
+            <td align="center" width="6%"><b>Total Assigned Deals</b></td>
+            <td align="center" width="6%" ><b>Assigned Deal Conv%</b></td>
+            <td align="center" width="6%" ><b>Total SelfGen Leads</b></td>
+            <td align="center" width="6%" ><b>Total SelfGen Deals</b></td>
+            <td align="center" width="6%" ><b>SelfGen Deal Conv%</b></td>
+            <td align="center" width="6%" ><b>Total 0 Follow Up</b></td> 
+            <td align="center" width="6%" ><b>Total Sample Request</b></td> 
+            <td align="center" width="6%" ><b>Samples To Deal</b></td>
+            <td align="center" width="6%" ><b>Samples Deal Conv%</b></td>
+                   
+   </tr>
+
+<apex:repeat value="{!CurrentMonthInfo}" var="SR"> 
+<tr width="100%" BGCOLOR='#CCFFFF'>
+
+<td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0}" style="font-style:Arial;font-size:10pt;font-weight:bold;">
+ <apex:param value="{!SR.divisionName}" />  
+ </apex:outputText>
+    </td>        
+   
+    <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divDealCount}" />  
+ </apex:outputText>
+    </td>
+     
+      <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divLeadCount}" />  
+ </apex:outputText>
+    </td>
+    
+     <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divDealconvPer}" />  
+ </apex:outputText>
+    </td>
+    
+      
+ <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divAssignedLeadCount}" />  
+ </apex:outputText>
+    </td> 
+
+<td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divAssignedDealCount}" />  
+ </apex:outputText>
+    </td>
+       
+       <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divAssignedLeadconvPer}" />  
+ </apex:outputText>
+    </td>
+       
+       <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSelfGenLeadCount}" />  
+ </apex:outputText>
+    </td>
+    
+  <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSelfGenDealCount}" />  
+ </apex:outputText>
+    </td>
+   
+   <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSelfGenLeadconvPer}" />  
+ </apex:outputText>
+    </td>    
+    
+     <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divFollowUpCount}" />  
+ </apex:outputText>
+    </td>
+    
+     <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSampleRequestCount}" />  
+ </apex:outputText>
+    </td>
+    
+     <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSamplesToDealCount}" />  
+ </apex:outputText>
+    </td>
+    
+      <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSamplesToDealconvPer}" />  
+ </apex:outputText>
+    </td> 
+    
+    </tr>
+ </apex:repeat>       
+  </table>  
+ 
+<table Border='1' BORDERCOLOR='#736F6E' width="100%" cellspacing='0' cellpadding='1'>
+<tr bgcolor='#99CCFF'>
+    <td align="center" width="7%" cellspacing='0'><font color = '#000000'><b>Total</b></font></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!currentMonthData.divDealCount}"/></apex:outputText></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!currentMonthData.divLeadCount}"/></apex:outputText></td> 
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.00}"><apex:param value="{!currentMonthData.divDealconvPer}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!currentMonthData.divAssignedLeadCount}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!currentMonthData.divAssignedDealCount}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.00}"><apex:param value="{!currentMonthData.divAssignedLeadconvPer}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!currentMonthData.divSelfGenLeadCount}"/></apex:outputText></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!currentMonthData.divSelfGenDealCount}"/></apex:outputText></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.00}"><apex:param value="{!currentMonthData.divSelfGenLeadconvPer}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!currentMonthData.divFollowUpCount}"/></apex:outputText></td> 
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!currentMonthData.divSampleRequestCount}"/></apex:outputText></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!currentMonthData.divSamplesToDealCount}"/></apex:outputText></td> 
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.00}"><apex:param value="{!currentMonthData.divSamplesToDealconvPer}"/></apex:outputText></td>        
+</tr>
+</table>
+
+<!-- For Last month -->
+  <br/>            
+<apex:pageBlock title="Sales - (Last Month)">
+</apex:pageBlock>
+
+<table Border='1' BORDERCOLOR='#736F6E' width="100%"  cellspacing="0" cellpading="1" >
+  <tr align="center" BGCOLOR='Silver'>
+            <td align="center" width="7%"><b>Division Name</b></td>
+            <td align="center" width="6%" ><b>Total Deals</b></td>
+            <td align="center" width="6%"><b>Total Leads</b></td>  
+            <td align="center" width="6%"><b>Deal Conv%</b></td> 
+            <td align="center" width="6%"><b>Total Assigned Leads</b></td>
+            <td align="center" width="6%"><b>Total Assigned Deals</b></td>
+            <td align="center" width="6%" ><b>Assigned Deal Conv%</b></td>  
+            <td align="center" width="6%" ><b>Total SelfGen Leads</b></td>
+            <td align="center" width="6%" ><b>Total SelfGen Deals</b></td>
+            <td align="center" width="6%" ><b>SelfGen Deal Conv%</b></td>
+            <td align="center" width="6%" ><b>Total 0 Follow Up</b></td> 
+            <td align="center" width="6%" ><b>Total Sample Request</b></td> 
+            <td align="center" width="6%" ><b>Samples To Deal</b></td>
+            <td align="center" width="6%" ><b>Samples Deal Conv%</b></td>                   
+
+   </tr>
+
+<apex:repeat value="{!LastMonthInfo}" var="SR"> 
+<tr width="100%" BGCOLOR='#CCFFFF'>
+
+<td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0}" style="font-style:Arial;font-size:10pt;font-weight:bold;">
+ <apex:param value="{!SR.divisionName}" />  
+ </apex:outputText>
+    </td>        
+   
+    <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divDealCount}" />  
+ </apex:outputText>
+    </td>
+     
+      <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divLeadCount}" />  
+ </apex:outputText>
+    </td>
+    
+     <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divDealconvPer}" />  
+ </apex:outputText>
+    </td>
+    
+      
+ <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divAssignedLeadCount}" />  
+ </apex:outputText>
+    </td> 
+
+<td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divAssignedDealCount}" />  
+ </apex:outputText>
+    </td> 
+       
+        <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divAssignedLeadconvPer}" />  
+ </apex:outputText>
+    </td>
+       
+       <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSelfGenLeadCount}" />  
+ </apex:outputText>
+    </td>
+    
+    <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSelfGenDealCount}" />  
+ </apex:outputText>
+    </td>
+    
+   <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSelfGenLeadconvPer}" />  
+ </apex:outputText>
+    </td>    
+    
+     <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divFollowUpCount}" />  
+ </apex:outputText>
+    </td>
+    
+     <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSampleRequestCount}" />  
+ </apex:outputText>
+    </td>
+    
+     <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSamplesToDealCount}" />  
+ </apex:outputText>
+    </td>
+    
+      <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSamplesToDealconvPer}" />  
+ </apex:outputText>
+    </td>
+       
+    
+    </tr>
+ </apex:repeat>       
+  </table>  
+ 
+<table Border='1' BORDERCOLOR='#736F6E' width="100%" cellspacing='0' cellpadding='1'>
+<tr bgcolor='#99CCFF'>
+    <td align="center" width="7%" cellspacing='0'><font color = '#000000'><b>Total</b></font></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastMonthData.divDealCount}"/></apex:outputText></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastMonthData.divLeadCount}"/></apex:outputText></td> 
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.00}"><apex:param value="{!lastMonthData.divDealconvPer}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastMonthData.divAssignedLeadCount}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastMonthData.divAssignedDealCount}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.00}"><apex:param value="{!lastMonthData.divAssignedLeadconvPer}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastMonthData.divSelfGenLeadCount}"/></apex:outputText></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastMonthData.divSelfGenDealCount}"/></apex:outputText></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.00}"><apex:param value="{!lastMonthData.divSelfGenLeadconvPer}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastMonthData.divFollowUpCount}"/></apex:outputText></td> 
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastMonthData.divSampleRequestCount}"/></apex:outputText></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastMonthData.divSamplesToDealCount}"/></apex:outputText></td> 
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.00}"><apex:param value="{!lastMonthData.divSamplesToDealconvPer}"/></apex:outputText></td>
+    
+    
+      
+
+        
+</tr>
+</table>
+
+
+<!-- LastBefore Month  -->
+         <br/>   
+         
+ <!-- Commented because this is not showing currently          
+<apex:pageBlock title="Sales - (Last 3 Months)">
+</apex:pageBlock>
+
+<table Border='1' BORDERCOLOR='#736F6E' width="100%"  cellspacing="0" cellpading="1" >
+  <tr align="center" BGCOLOR='Silver'>
+            <td align="center" width="7%"><b>Division Name</b></td>
+            <td align="center" width="6%" ><b>Total Deals</b></td>
+            <td align="center" width="6%"><b>Total Leads</b></td>  
+            <td align="center" width="6%"><b>Deal Conv%</b></td> 
+            <td align="center" width="6%"><b>Total Assigned Leads</b></td>
+            <td align="center" width="6%" ><b>Total SelfGen Leads</b></td>
+            <td align="center" width="6%" ><b>Assigned Deal Conv%</b></td>  
+            <td align="center" width="6%" ><b>SelfGen Deal Conv%</b></td>
+            <td align="center" width="6%" ><b>Total 0 Follow Up</b></td> 
+            <td align="center" width="6%" ><b>Total Sample Request</b></td> 
+            <td align="center" width="6%" ><b>Samples To Deal</b></td>
+            <td align="center" width="6%" ><b>Samples Deal Conv%</b></td>                  
+            <td align="center" width="6%"><b>Total Assigned Deals</b></td>
+            <td align="center" width="6%" ><b>Total SelfGen Deals</b></td>
+ 
+   </tr>
+
+<apex:repeat value="{!LastBeforeMonthInfo}" var="SR"> 
+<tr width="100%" BGCOLOR='#CCFFFF'>
+
+<td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0}" style="font-style:Arial;font-size:10pt;font-weight:bold;">
+ <apex:param value="{!SR.divisionName}" />  
+ </apex:outputText>
+    </td>        
+   
+    <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divDealCount}" />  
+ </apex:outputText>
+    </td>
+     
+      <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divLeadCount}" />  
+ </apex:outputText>
+    </td>
+    
+     <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divDealconvPer}" />  
+ </apex:outputText>
+    </td>
+    
+      
+ <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divAssignedLeadCount}" />  
+ </apex:outputText>
+    </td> 
+
+       
+       <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSelfGenLeadCount}" />  
+ </apex:outputText>
+    </td>
+    
+  <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divAssignedLeadconvPer}" />  
+ </apex:outputText>
+    </td>
+   
+   <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSelfGenLeadconvPer}" />  
+ </apex:outputText>
+    </td>    
+    
+     <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divFollowUpCount}" />  
+ </apex:outputText>
+    </td>
+    
+     <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSampleRequestCount}" />  
+ </apex:outputText>
+    </td>
+    
+     <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSamplesToDealCount}" />  
+ </apex:outputText>
+    </td>
+    
+      <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSamplesToDealconvPer}" />  
+ </apex:outputText>
+    </td>
+
+          
+ <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+ <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divAssignedDealCount}" />  
+ </apex:outputText>
+    </td> 
+
+       
+       <td align="center"  width="2%"  style="border-top:none;border-right:solid gray 1pt;border-left:none;border-bottom:solid gray 1pt;">
+  <apex:outputText value="{0,number,###,###,###,##0.##}" style="font-style:Arial;font-size:10pt;">
+ <apex:param value="{!SR.divSelfGenDealCount}" />  
+ </apex:outputText>
+    </td>
+
+    
+    </tr>
+ </apex:repeat>       
+  </table>  
+ 
+<table Border='1' BORDERCOLOR='#736F6E' width="100%" cellspacing='0' cellpadding='1'>
+<tr bgcolor='#99CCFF'>
+    <td align="center" width="7%" cellspacing='0'><font color = '#000000'><b>Total</b></font></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastBeforeMonthData.divDealCount}"/></apex:outputText></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastBeforeMonthData.divLeadCount}"/></apex:outputText></td> 
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.00}"><apex:param value="{!lastBeforeMonthData.divDealconvPer}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastBeforeMonthData.divAssignedLeadCount}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastBeforeMonthData.divSelfGenLeadCount}"/></apex:outputText></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.00}"><apex:param value="{!lastBeforeMonthData.divAssignedLeadconvPer}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.00}"><apex:param value="{!lastBeforeMonthData.divSelfGenLeadconvPer}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastBeforeMonthData.divFollowUpCount}"/></apex:outputText></td> 
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastBeforeMonthData.divSampleRequestCount}"/></apex:outputText></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastBeforeMonthData.divSamplesToDealCount}"/></apex:outputText></td> 
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.00}"><apex:param value="{!lastBeforeMonthData.divSamplesToDealconvPer}"/></apex:outputText></td>
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastBeforeMonthData.divAssignedDealCount}"/></apex:outputText></td>  
+    <td align="center" width="6%"><apex:outputText value="{0, number, #0.##}"><apex:param value="{!lastBeforeMonthData.divSelfGenDealCount}"/></apex:outputText></td>
+      
+
+</tr>
+</table>
+-->
+
+</apex:page>

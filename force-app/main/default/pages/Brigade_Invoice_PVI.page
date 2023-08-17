@@ -1,0 +1,427 @@
+<apex:page standardcontroller="Opportunity" showHeader="false"
+    sidebar="false" extensions="GenerateOrdersController" renderAs="pdf">
+    <body style="font-family: Calibri;">
+
+    <div class="content">
+    <table border="0" cellspacing="0" cellpadding="0" width="700px">
+        <tr>
+            <td>
+
+            <div align="center">
+
+            <table border="1" cellspacing="0" cellpadding="5" width="100%">
+                <tr style='mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: 17.1pt'>
+                    <td align="left"
+                        style="font-size: 11pt; padding: 0in 5.4pt 0in 5.4pt;" width="50%"
+                        rowspan="2" valign="top"><br />
+                    <apex:image value="{!$Resource.BBworkOrder}" /><br />
+                    <span style="line-height: 110%; color: #333399"> <apex:outputText value="{!Opportunity.Owner.Name}" /> </span><br />
+                    <span style="line-height: 110%; color: #333399"><apex:outputText value="{!Opportunity.Owner.title}" /></span><br />
+                    <span style="line-height: 110%; color: #333399"> Brigade
+                    Business Intelligence Group</span><br />
+                    <span style="line-height: 110%; color: #333399">14800 Frye
+                    Road, 2nd Floor </span><br />
+                    <span style="line-height: 110%; color: #333399">Fort Worth,
+                    TX 76155.</span><br />
+                    <span style="color: #333399"></span><br />
+                    </td>
+                    <td valign="top" align="right"
+                        style="padding: 0in 5.4pt 0in 5.4pt;"><span
+                        style="color: #333399; font-weight: bold">INVOICE</span></td>
+                </tr>
+
+                <tr style="mso-yfti-irow: 1; mso-yfi-lastrow: yes;">
+                    <td align="Right"
+                        style="font-size: 11pt; padding: 0in 5.4pt 0in 5.4pt;" width="50%"
+                        rowspan="2" valign="bottom"><span
+                        style="line-height: 110%; color: #333399; mso-no-proof: yes">INVOICE
+                    # &nbsp;<apex:outputText value="{!Opportunity.Invoice_Number__c}" /></span><br />
+                    <span style="line-height: 110%; color: #333399; mso-no-proof: yes">REFERENCE
+                    NUMBER:&nbsp; <apex:outputText value="{!Opportunity.Reference_Number__c}" /></span><br />
+                    <span style="line-height: 110%; color: #333399; mso-no-proof: yes">[TAX
+                    ID]W9 # &nbsp; <apex:outputText value="{!Opportunity.TAX_ID_W9__c}" /></span><br />
+                    <span style="line-height: 110%; color: #333399; mso-no-proof: yes">VAT
+                    # &nbsp; <apex:outputText value="{!Opportunity.VAT__c}" /></span><br />
+                    <br />
+
+                    <span style="line-height: 110%; color: #333399; mso-no-proof: yes">Date:&nbsp;
+                    </span> <span style="line-height: 110%; color: #333399; mso-no-proof: yes"><apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                        <apex:param value="{!opportunity.Invoice_Date__c}" />
+                    </apex:outputText></span></td>
+                </tr>
+            </table>
+            </div>
+            <br />
+            <div align="center">
+
+            <table border="1" cellspacing="0" cellpadding="5" width="100%"
+                style="border: solid 1.0pt;">
+                <tr
+                    style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; mso-yfti-lastrow: yes; height: 15.15pt"
+                    valign="top">
+                    <td align="left"
+                        style="font-size: 11pt; padding: 0in 3.4pt 0in 3.4pt; border-bottom: none;"
+                        width="50%">
+                    <p><span style="color: #333399">Atten: </span><br />
+                    <span style="color: #333399">Ship To:&nbsp;<apex:outputText value="{!Opportunity.Client_Name__r.name}" /></span><br />
+                    <span style="color: #333399"><apex:outputText value="{!Opportunity.Client_Email__c}" /></span><br />
+                    <span style="line-height: 110%; color: #333399"></span></p>
+                    </td>
+                    <td align="left"
+                        style="font-size: 11pt; padding: 0in 3.4pt 0in 3.4pt; border-bottom: none; birder-right: none"
+                        width="50%">
+                    <p><span style="line-height: 50%; color: #333399">BILL
+                    To:</span><br />
+                    <span style="line-height: 110%; color: #333399"> <apex:outputText value="{!Opportunity.Account.name}" /></span><br />
+                    <span style="line-height: 110%; color: #333399"><apex:outputText value="{!Opportunity.Client_Name__r.OtherStreet}" />&nbsp;<apex:outputText value="{!Opportunity.Client_Name__r.OtherCity}" /></span><br />
+                    <span style="color: #333399"><apex:outputText value="{!Opportunity.Client_Name__r.OtherState}" />&nbsp;<apex:outputText value="{!Opportunity.Client_Name__r.OtherPostalCode}" />&nbsp;<apex:outputText value="{!Opportunity.Client_Name__r.OtherCountry}" /></span></p>
+                    </td>
+                </tr>
+            </table>
+            &nbsp;</div>
+
+            <div align="center">
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%"
+                style="border: solid 1.0pt;">
+                <tr style="font-size: 10pt; background: #365F91; height: 25.0pt">
+                    <td width="91" style="border-top: solid 1.0pt;"><span
+                        style="font-weight: bold">SALES PERSON</span></td>
+                    <td width="84" style="border-top: solid 1.0pt;"><span
+                        style="font-weight: bold">P.O. NUMBER</span></td>
+                    <td width="132" style="border-top: solid 1.0pt;"><span
+                        style="font-weight: bold">REQUISITIONER</span></td>
+                    <td width="109" style="border-top: solid 1.0pt;"><span
+                        style="line-height: 110%; font-weight: bold">SHIPPED VIA</span></td>
+                    <td width="90" style="border-top: solid 1.0pt;"><span
+                        style="font-weight: bold">F.O.B. POINT</span></td>
+                    <td width="96" style="border-top: solid 1.0pt; border-right: none">
+                    <span style="font-weight: bold">TERMS</span></td>
+                </tr>
+                <tr>
+                    <td width="132"
+                        style="font-size: 11pt; border: 1px solid black; border-right: none; border-left: none; border-bottom: none">
+                    <span> <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c!=''}">
+                        <apex:outputfield value="{!Opportunity.Workorder_Owner_Name__c}" />
+                    </apex:panelGroup> <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c==''}">
+                        <apex:outputText value="{!Opportunity.owner.name}" />
+                    </apex:panelGroup> </span></td>
+                    <td width="91"
+                        style="font-size: 11pt; border: 1px solid black; border-right: none; border-bottom: none">
+                    <span style="mso-no-proof: yes"><apex:outputText value="{!Opportunity.PO_Number__c}" /></span></td>
+                    <td width="109"
+                        style="font-size: 11pt; border: 1px solid black; border-right: none; border-bottom: none">
+                    <span style="line-height: 110%;"><apex:outputText value="{!Opportunity.Requisitioner__c}" /></span></td>
+                    <td width="90"
+                        style="font-size: 11pt; border: 1px solid black; border-right: none; border-bottom: none">
+                    <span style="line-height: 110%;"><!-- <apex:repeat var="opp"
+                        value="{!Opportunity}">
+                        <apex:repeat var="work" value="{!opp.Work_Orders__r}"> -->
+                            <apex:outputText value="{!Opportunity.Shipped_Via__c }" />
+                        <!-- </apex:repeat>
+                    </apex:repeat> --></span></td>
+                    <td width="96"
+                        style="font-size: 11pt; border: 1px solid black; border-right: none; border-bottom: none">
+                    <span style="line-height: 110%;"><apex:outputText value="{!Opportunity.F_O_B_Point__c}" /></span></td>
+                    <td width="78"
+                        style="font-size: 11pt; border: 1px solid black; border-bottom: none; border-right: none">
+                    <span style="line-height: 110%;"><apex:outputfield value="{!Opportunity.Payment_Terms__c}" /></span></td>
+                </tr>
+
+            </table>
+            </div>
+
+            <div align="center">
+            <table border="1" cellspacing="0" cellpadding="0" width="100%"
+                style="border: solid 1.0pt;">
+                <tr
+                    style="yfti-irow: 0; yfti-firstrow: yes; page-break-inside: avoid; height: 11.75pt">
+                    <td width="93" align="center"><span style="border-top: none">Sl
+                    no.</span></td>
+                    <td width="221"
+                        style="width: 315.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 12.15pt">
+                    DESCRIPTION</td>
+                    <td width="111" colspan="4"
+                        style="width: 83.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 12.15pt">
+                    QTY</td>
+                    <td width="111"
+                        style="width: 83.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 12.15pt">
+                    UNIT PRICE</td>
+                    <td width="90"
+                        style="width: 67.7pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid window0text .5pt; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 12.15pt">
+                    TOTAL</td>
+                </tr>
+                <apex:variable var="count" value="{!0}" />
+
+
+                <apex:repeat value="{!opportunity.opportunityLineItems}" var="op">
+                    <tr style="yfti-irow: 1; page-break-inside: avoid; height: 13.1pt">
+                        <apex:variable var="count" value="{!count+1}" />
+
+                        <td width="124"
+                            style="width: 92.65pt; font-size: 11pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 12.15pt">
+                        <span style="spacerun: yes"></span><apex:outputText value="{!count}" /></td>
+                        <td width="421" colspan="4" valign="top"
+                            style="font-size: 11pt; width: 315.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt .15in 2.15pt .15in; height: 12.15pt">
+
+                        <apex:outputtext value="{!OP.PricebookEntry.Product2.Legal_Name__c}" /></td>
+                        <td width="111"
+                            style="width: 83.3pt; font-size: 11pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt .15in 2.15pt .15in; height: 12.15pt">
+                        <span style="spacerun: yes"> </span> <apex:outputText value="{0, number, ###,##0}">
+                            <apex:param value="{!OP.Quantity}" />
+                        </apex:outputText> <b style="font-weight: normal"><span
+                            style="line-height: 110%"></span></b></td>
+                        <td width="90"
+                            style="font-size: 11pt; border-right: solid windowtext 1.0pt;">
+                        <apex:outputText value="{!OP.unitprice}" /></td>
+                        <td width="90" style="font-size: 11pt; border-right: none;">
+
+                        <apex:outputText value="{!OP.TotalPrice}" /><br />
+                        </td>
+                    </tr>
+                </apex:repeat>
+                <!--    <tr style="mso-yfti-irow:3;page-break-inside:avoid;height:12.15pt">
+              <td width="124" style="width:92.65pt;border:solid windowtext 1.0pt;border-top:
+              none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+              padding:2.15pt 5.75pt 2.15pt 5.75pt;height:12.15pt">
+              <span
+              style="line-height:110%;color:#333399">1.</span>
+              </td>
+              <td width="421" colspan="4" valign="top" style="width:315.85pt;border-top:none;
+              border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+              mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+              mso-border-alt:solid windowtext .5pt;padding:2.15pt .15in 2.15pt .15in;
+              height:12.15pt">
+              <span style="line-height:110%;font-family:
+              Courier New;color:#333399">2 Email &amp; ERP Append; input file 560
+              companies;</span>
+              <span style="line-height:110%;font-family:
+              Courier New;color:#333399">0.30c/ for 2 email address &amp; 0.70c for ERP
+              information </span>
+              </td>
+              <td width="111" style="width:83.3pt;border-top:none;border-left:none;
+              border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+              mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+              mso-border-alt:solid windowtext .5pt;padding:2.15pt .15in 2.15pt .15in;
+              height:12.15pt">
+              <span style="line-height:110%;font-family:
+              Courier New;color:#333399">560</span>
+              </td>
+              <td width="90" rowspan="2" style="width:67.7pt;border-top:none;border-left:none;
+              border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+              mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+              mso-border-alt:solid windowtext .5pt;padding:2.15pt .15in 2.15pt .15in;
+              height:12.15pt">
+              <span style="line-height:110%;font-family:
+              Courier New;color:#333399">$560.00</span>
+              </td>
+         </tr> -->
+                <tr
+                    style="mso-yfti-irow: 4; page-break-inside: avoid; height: 12.15pt">
+                    <td width="124"
+                        style="width: 92.65pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 12.15pt">
+
+                    </td>
+                    <td width="421" colspan="6" valign="top"
+                        style="width: 315.85pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt .15in 2.15pt .15in; height: 12.15pt">
+
+                    </td>
+                    <td width="111"
+                        style="width: 83.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt .15in 2.15pt .15in; height: 12.15pt">
+
+                    </td>
+                </tr>
+
+                <tr
+                    style="mso-yfti-irow: 5; page-break-inside: avoid; height: 12.15pt">
+                    <td width="418" colspan="4" rowspan="4" valign="top"
+                        style="width: 313.25pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; border-bottom: none; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: 12.15pt">
+                    <span style="line-height: 110%; color: #333399"></span></td>
+                    <td width="238" colspan="3"
+                        style="font-size: 11pt; width: 178.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt .15in 2.15pt .15in; height: 12.15pt"
+                        align="right"><span style="line-height: 110%; color: #333399">SUBTOTAL</span>
+                    </td>
+                    <td width="90"
+                        style="width: 67.7pt; font-size: 11pt; border: solid black .5pt; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: none; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt .15in 2.15pt .15in; height: 12.15pt">
+                    <span style="line-height: 110%; color: #333399"><apex:outputText value="{!Opportunity.Amount}" /></span></td>
+                </tr>
+                <tr
+                    style="mso-yfti-irow: 6; page-break-inside: avoid; height: 12.15pt">
+                    <td width="238" colspan="3"
+                        style="font-size: 11pt; width: 178.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt .15in 2.15pt .15in; height: 12.15pt"
+                        align="right"><span style="line-height: 110%; color: #333399">TAX</span>
+                    </td>
+                    <td width="90"
+                        style="width: 67.7pt; font-size: 11pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: none; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt .15in 2.15pt .15in; height: 12.15pt">
+                    <span style="line-height: 110%; color: #333399">0</span></td>
+                </tr>
+                <tr
+                    style="mso-yfti-irow: 7; page-break-inside: avoid; height: 12.15pt">
+                    <td width="238" colspan="3"
+                        style="font-size: 11pt; width: 178.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt .15in 2.15pt .15in; height: 12.15pt"
+                        align="right"><span style="line-height: 110%; color: #333399">SHIPPING
+                    &amp; HANDLING</span></td>
+                    <td width="90"
+                        style="width: 67.7pt; font-size: 11pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: none; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 2.15pt .15in 2.15pt .15in; height: 12.15pt">
+                    <span style="line-height: 110%; color: #333399"><apex:outputText value="{!Opportunity.Shipping_Handling__c}" /></span></td>
+                </tr>
+                <!-- <tr>
+                    <td colspan="5"><apex:panelgroup
+                        rendered="{!Opportunity.Discount__c!= null}">
+                        <table border="1" width="100%" height="100%" cellpadding="0"
+                            cellspacing="0">
+                            <tr>
+                                <td width="29%" align="right"><b>Discount</b></td>
+                                <td align="center" width="15%"><apex:variable
+                                    var="Discount" value="{!0}" /> <apex:variable var="Discount"
+                                    value="{!Opportunity.Amount * Opportunity.Discount__c}" /> <apex:variable
+                                    var="Discount" value="{!Discount / 100 }" /> <apex:variable
+                                    var="Discount" value="{!Opportunity.Amount - Discount}" /> <b>
+                                <apex:outputText value="{0, number, 00.00}">
+                                    <apex:param value="{!Discount}" />
+                                </apex:outputText> </b></td>
+                            </tr>
+                        </table>
+                    </apex:panelgroup> <apex:panelgroup rendered="{!Opportunity.Discount__c == null}">
+                        <table border="0" width="100%" height="100%" cellpadding="0"
+                            cellspacing="0">
+                            <tr>
+                                <td
+                                    style="border-top: 0px; border-bottom: 0px; font-size: 13px;">
+                                </td>
+                            </tr>
+                        </table>
+                    </apex:panelgroup></td>
+                </tr> -->
+
+
+                <tr>
+                    <!--<td colspan="5" style="border-top: 0pt;">&nbsp;</td>-->
+                    <td colspan="5"><apex:panelgroup rendered="{!Opportunity.Annu_Maint_Contract__c!= true}">
+                        <table border="1" width="100%" height="100%" cellpadding="0"
+                            cellspacing="0">
+                            <tr>
+                                <td align="right" width="64%"><b>Total</b></td>
+                                <td align="center"><b><apex:outputText value="{0, number, 00.00}">
+                                    <apex:param value="{!Opportunity.Amount}" />
+                                </apex:outputText></b></td>
+                            </tr>
+                        </table>
+                    </apex:panelgroup> <apex:panelgroup rendered="{!Opportunity.Annu_Maint_Contract__c== True}">
+                        <table border="1" width="100%" height="100%" cellpadding="0"
+                            cellspacing="0">
+                            <tr>
+                                <td align="right" width="50%"><b>Annual Maintenance
+                                contract (AMC)</b></td>
+                                <td align="center"><b>20%</b></td>
+                            </tr>
+                            <tr>
+                                <td align="right"><b>Total</b></td>
+                                <td align="center" width="12%"><b> <apex:variable var="amcTotal" value="{!0}" /> <apex:variable var="amcpercentage" value="{!Opportunity.Amount * 0.20}" /> <apex:variable var="amcpercentage"
+                                    value="{!amcpercentage + Opportunity.Amount}" /> <apex:outputText value="{0, number, 00.00}">
+                                    <apex:param value="{!amcpercentage}" />
+                                </apex:outputText></b></td>
+                            </tr>
+                        </table>
+                    </apex:panelgroup></td>
+                </tr>
+                 <tr align="right">
+                   <td width="70%" colspan="2" style="border: solid  1.0pt; mso-border-top-alt: solid  .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid  .5pt; padding: 0in 5.4pt 0in 5.4pt;"><b>Payment Terms:</b></td>
+                 
+                 <td width="30%" colspan="6" style="border: solid  1.0pt; mso-border-top-alt: solid  .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid  .5pt; padding: 0in 5.4pt 0in 5.4pt;">
+                 <span
+                        style="mso-spacerun: yes"> </span><apex:outputField value="{!Opportunity.Payment_Terms__c}" /></td>
+                 </tr>
+
+                <tr
+                    style="mso-yfti-irow: 4; mso-yfti-lastrow: yes; page-break-inside: avoid; height: .2in">
+
+                    <td width="50%" valign="top" align="left" colspan="2" height="60">
+
+                    <span style="font-size: 11.0pt;"><span
+                        style="mso-spacerun: yes"> </span><b>Additioal Criteria:</b></span> <span
+                        style="font-size: 11.0pt;"><span style="mso-spacerun: yes">
+                    </span><apex:outputtext value="{!Opportunity.Data_criteria__c}" /></span></td>
+                    <td width="50%" valign="top" align="left" colspan="6"><span
+                        style="font-size: 11.0pt;"><span style="mso-spacerun: yes">
+                    </span><b>Signature:</b></span></td>
+
+                </tr>
+            </table>
+            </div>
+
+            <span style="color: #333399"></span> <br />
+            <div align="center">
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: 24.2pt">
+                    <td width="744"
+                        style="width: 558.25pt; border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; background: #365F91; padding: 0in 5.4pt 0in 5.4pt; height: 24.2pt;">
+                    <b><span style="color: white">-------------------PAYMENT
+                    DETAILS ------------------------</span></b><b
+                        style="mso-bidi-font-weight: normal"><span
+                        style="line-height: 110%;"></span></b></td>
+                </tr>
+                <tr style="mso-yfti-irow: 1; mso-yfti-lastrow: yes; height: 68.55pt">
+                    <td width="744" valign="top"
+                        style="font-size: 11pt; width: 558.25pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 68.55pt">
+                    <p align="left"><span style="color: #333399"> <b><apex:outputField value="{!Opportunity.Brand_Name__c}" /> - B2B Division</b><br />
+                    <b style="mso-bidi-font-weight: normal"><u><apex:outputText value="{!modeOfPay}" /></u></b>: <br />
+                    <apex:repeat value="{!wireDetaials1}" var="w"
+                        rendered="{!if(modeOfPay='Wire Payment1','true','fasle')}">
+                        <apex:outputText value="{!w}" />
+                        <br />
+                    </apex:repeat> <apex:repeat value="{!wireDetaials2}" var="w"
+                        rendered="{!if(modeOfPay='Wire Payment2','true','fasle')}">
+                        <apex:outputText value="{!w}" />
+                        <br />
+                    </apex:repeat> <apex:repeat value="{!checkDetails}" var="w"
+                        rendered="{!if(modeOfPay='Check Payment','true','fasle')}">
+                        <apex:outputText value="{!w}" />
+                        <br />
+                    </apex:repeat> <!-- <apex:outputText value="{!wireDetaials1}" rendered="{!if(modeOfPay='Wire Payment1','true','fasle')}"></apex:outputText>
+          <apex:outputText value="{!wireDetaials2}" rendered="{!if(modeOfPay='Wire Payment2','true','fasle')}"></apex:outputText> 
+          <apex:outputText value="{!checkDetails}" rendered="{!if(modeOfPay='Check Payment','true','fasle')}"></apex:outputText> -->
+                    <apex:outputpanel rendered="{!if(modeOfPay='Wire Payment/Check Payment','true','fasle')}">
+                        <b>Wire Details:</b>
+                        <!-- <apex:outputText value="{!wireDetaials1}" rendered="{!if(Opportunity.Wire_Payment__c==true,'true','fasle')}"></apex:outputText>
+              <apex:outputText value="{!wireDetaials2}" rendered="{!if(Opportunity.Wire_Payment_Type2__c==true,'true','fasle')}"></apex:outputText> -->
+                        <apex:repeat value="{!wireDetaials1}" var="w"
+                            rendered="{!if(Opportunity.Wire_Payment__c==true,'true','fasle')}">
+                            <apex:outputText value="{!w}" />
+                            <br />
+                        </apex:repeat><br/>
+                        <b><apex:outputLabel value="WirePayment2" rendered="{!if(Opportunity.Wire_Payment_Type2__c==true,'true','fasle')}"/></b>
+                           <br/>
+                        <apex:repeat value="{!wireDetaials2}" var="w"
+                            rendered="{!if(Opportunity.Wire_Payment_Type2__c==true,'true','fasle')}">
+                            <apex:outputText value="{!w}" />
+                            <br />
+                        </apex:repeat>
+                        <br />
+                        <br />
+                        <b>Check Details:</b>
+                        <apex:repeat value="{!checkDetails}" var="w"
+                            rendered="{!if(Opportunity.Check_payment__c==true,'true','fasle')}">
+                            <apex:outputText value="{!w}" />
+                            <br />
+                        </apex:repeat>
+                        <!--  <apex:outputText value="{!checkDetails}" rendered="{!if(Opportunity.Check_payment__c==true,'true','fasle')}"></apex:outputText> -->
+                    </apex:outputpanel> </span></p>
+
+                    </td>
+                </tr>
+            </table>
+
+
+            </div>
+
+
+            </td>
+        </tr>
+    </table>
+    </div>
+
+
+    </body>
+</apex:page>

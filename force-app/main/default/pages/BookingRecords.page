@@ -1,0 +1,98 @@
+<apex:page standardController="Bookings__c" showHeader="false"  extensions="CalendarExample_Controller" action="{!pageLoad}">
+      <style>
+        .myFormStyle {
+            background-color: #003195;
+        }
+        .fontTag{
+            font-weight:bold;
+            color:#000000;
+            letter-spacing:1pt;
+            word-spacing:2pt;
+            font-size:12px;
+            font-family:verdana, sans-serif;
+            line-height:1;
+            margin:0px;
+            padding:0px;
+        }
+     </style>
+    <apex:form styleClass="myFormStyle">
+        <link href="{!$Resource.fullCalendarCSS}" rel="stylesheet" />
+        <link href="{!$Resource.fullCalendarPrintCSS}" rel="stylesheet" media="print" />
+        <apex:includeScript value="{!$Resource.jquerymin}" />
+        <apex:includeScript value="{!$Resource.jqueryuimin}" />
+        <apex:includeScript value="{!$Resource.fullCalendarMinJS}" />
+        <script>
+        $(document).ready(function() { 
+                 
+            $('#calendar').fullCalendar({
+            
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                  
+                },
+                editable: false,
+                events:
+                [                    
+                    <apex:repeat value="{!events}" var="e">
+                        {
+                            title: "{!e.title}",
+                            start: '{!e.startString}',
+                            end: '{!e.endString}',
+                            url: '{!e.url}',
+                            Source: '{!e.Source}',
+                            Destination: '{!e.Destination}',
+                            House:'{!e.House}',
+                            person:'{!e.person}',
+                            className: '{!e.className}'
+                        },
+                    </apex:repeat>
+                ]
+            });
+             
+        });
+        
+    </script>
+   <style>
+        #cal-options {float:left;}
+        #cal-legend { float:right;}
+        #cal-legend ul {margin:0;padding:0;list-style:none;}
+        #cal-legend ul li {margin:0;padding:5px;float:left;}
+        #cal-legend ul li span {display:block; height:16px; width:16px; margin-right:4px; float:left; border-radius:4px;}
+        #calendar {margin-top:20px;}
+        #calendar a:hover {color:#fff !important;}
+         
+        .fc-event-inner {padding:3px;}
+        .event-birthday {background:#cc9933;border-color:#cc9933;}
+        .event-campaign {background:#33CC00;border-color:#33CC00;}
+        .event-personal {background:#FF0033;border-color:#FF0033;}
+    </style>
+    
+    <table border="0" width="600px" align="center" style="background:#ffffff">  
+        <tr>
+                <td>
+                
+                   <table style="height:200px">
+                    <tr>
+                        <td><b> Bookings :</b> <br />
+                             <apex:outputPanel id="calPanel">
+                            <div id="cal-legend">
+                            <ul>
+                                <li><span class="event-birthday"></span>Pending for Approval</li>
+                                <li><span class="event-campaign"></span>Approved</li>
+                                <li><span class="event-personal"></span>Rejected</li>
+                            </ul> 
+                        <div style="clear:both;"></div>
+                        </div> 
+                            <div style="clear: both;"></div>
+                            <div id="calendar" style="width: 1000px;"></div>
+                         
+                        </apex:outputPanel>
+                        </td>
+                    </tr>
+                </table>
+            </td></tr>
+            </table>
+    </apex:form>
+</apex:page>

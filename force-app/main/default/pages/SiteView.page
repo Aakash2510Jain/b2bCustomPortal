@@ -1,0 +1,49 @@
+<apex:page controller="SiteLayout_controller" standardStylesheets="true" showHeader="false"
+        sideBar="false" action="{!redirectIfNotLoggedIn}" id="CMSLayout1" language="{!selectLanguage}">
+<head>
+    <meta name="keywords" content="{!metaText}" />
+
+    <title>{!pageTitle}</title>
+
+    <apex:includeScript value="{!$Resource.jquery142}"/>
+    <apex:includeScript value="{!$Resource.jqiframe}"/>
+
+     <apex:stylesheet value="{!$Page.CustomStyleSheet}"/>
+</head>
+
+<style>
+    <apex:outputText value="{!CMSCssCustom}" />  
+</style>
+
+<body class="{!layoutWidth}">
+  <apex:pageMessages /> 
+
+     <apex:outputPanel styleClass="wrapper round-corner" layout="block" >
+        <apex:include pageName="PageHeader_view" id="PageHeader_view" /> 
+
+        <div class="wrapper1">
+            <div class="container1">
+                <apex:include pageName="PageLeft_view" id="PageLeft_view" />
+
+                <div class="center1">  
+                    <div class="squeeze">
+                        <div class="right-corner">
+                            <div class="left-corner">
+                                <apex:include pageName="PageCenter_view" id="PageCenter_view" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <apex:include pageName="PageRight_view" id="PageRight_view" />
+
+                <apex:include pageName="PageFooter_view" id="PageFooter_view" />
+            </div>
+        </div>
+    </apex:outputPanel>
+    <div>
+    
+    </div>
+</body>
+
+</apex:page>

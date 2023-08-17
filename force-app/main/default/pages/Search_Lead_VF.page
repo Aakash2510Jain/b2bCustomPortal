@@ -1,0 +1,36 @@
+<apex:page standardController="Lead" extensions="SearchLeads" showHeader="true" sidebar="true">
+        
+           <apex:form >              
+             <table>
+                <apex:pageBlock >
+                   <apex:outputText > <font size="2" color="blue" >Search Leads</font></apex:outputText>
+                   <tr>
+                   <td><b> Search by Company : </b></td>
+                   <td><apex:inputField value="{!Lead.Company}"/></td>
+                   </tr><br/>
+                   <tr>
+                   <td colspan='2'>
+                   <apex:commandButton action="{!AppSearch}" value="Search"/>
+                   </td>
+                   </tr>
+                   </apex:pageBlock>
+                   </table><br></br><br></br>
+                   <apex:pageBlock >
+               <apex:pageBlockSection columns="1" title="Results">
+            <table>
+                    <tr align="center">
+                   <td align="center">
+                   <apex:pageBlockTable value="{!AppSearchData}" var="DS" title="Available Leads" width="100%">
+                      <apex:column value="{!DS.Company}"/>
+                      <apex:column value="{!DS.Division_Name__c}"/>
+                      <apex:column value="{!DS.Sub_Division_Name__c}"/>
+                 </apex:pageBlockTable>
+                    </td>
+                    </tr>
+                   </table>
+                   
+                </apex:pageBlockSection>   
+            </apex:pageBlock> 
+          </apex:form>
+         
+         </apex:page>

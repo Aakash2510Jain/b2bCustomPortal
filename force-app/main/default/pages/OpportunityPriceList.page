@@ -1,0 +1,195 @@
+<apex:page standardcontroller="Opportunity"  extensions="OpportunityPriceList"> 
+ <apex:includeScript value="{!$Resource.ddaccordion}"/>
+ <apex:includeScript value="{!$Resource.jquerymin}"/>
+<apex:includeScript value="{!URLFOR($Resource.JQueryScript, 'jquery-ui-1.10.3.custom/js/jquery-1.9.1.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.JQueryScript, 'jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.JQueryScript, 'jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.JQueryScript, 'jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.css')}"/>
+
+<!--  AutoComplete Feature -->
+ <script>
+    
+ 
+    </script>
+    <style>
+        .ui-autocomplete {
+            max-height: 200px;
+            overflow-y: auto;
+            /* prevent horizontal scrollbar */
+            overflow-x: hidden;
+            /* add padding to account for vertical scrollbar */
+            padding-right: 20px;
+        }
+    </style>
+<!--  AutoComplete Feature End -->
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+<style type="text/css">
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 0px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 0px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+.header {
+	font-size: 20px;
+	font-style: bold;
+	text-align: center;
+}
+.productCategory{
+	font-size: 16px;
+	font-style: bold;
+	color: maroon;
+}
+
+</style>
+<script type="text/javascript">
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+     //  alert(e.style.display);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+    
+    function hideshow(which){
+    alert(which.style.visibility);
+	if (!document.getElementById)
+	return
+	if (which.style.visibility=="visible"){
+		which.style.display="hidden";
+	}else{
+		which.style.display="visible";
+	}
+	}
+</script>
+ <apex:form > 
+      <apex:pagemessages />
+     <br></br>
+   <!--    <table width="100%" class="selectionTable">
+     	<tr>
+     		<td>
+     			<p>Type in the Service Category to add the products/services to the Opportunity:</p>
+     		</td>
+     	</tr>
+     	<tr>
+     		<td>
+     			Product/Services Category :&nbsp;
+     			<apex:inputText id="account" value="{!targetFieldCon}">
+		            <c:AutoComplete2 objectname="Product2" additionalfield="TickerSymbol" autocomplete_textbox="{!$Component.account}" /> 
+		        </apex:inputText>
+     		</td>
+     	</tr>
+     </table> -->
+      <br></br>
+      <table id="theIdOfYourObject" border="0" width="100%" align="left"><tr><td>
+         <div class="arrowlistmenu">
+            <apex:repeat value="{!family}" var="dirKey" >
+           		  <table border="0" cellpadding="4" cellspacing="2" width="100%"  >
+             		<tr bgcolor="#66CCFF">
+             			<td  class="{!dirKey}">
+             				
+             					<a href="javascript:toggle_visibility('{!dirKey}')">
+             						<img src="{!URLFOR($Resource.toggleimage)}" height="15px" weight="20px"></img>
+             					</a>&nbsp;&nbsp;
+             					Category : <apex:outputText value="{!dirKey}" />  
+             			</td>
+             		</tr>
+            		<tr>
+            			<td>
+            				
+					            <div id="{!dirKey}" style="display: none">
+					            	
+								            
+						           			<apex:repeat value="{!familyParentProducts[dirKey]}" var="rlist" >
+							           			<table border="1" cellpadding="1" cellspacing="1" width="100%" class="gridtable"> <tr><td colspan="8" style="background-color: #CCFFFF; height: 20px">
+	            									
+	            									<a href="javascript:toggle_visibility('{!rlist}')">
+	            										<img src="{!URLFOR($Resource.toggleimage)}" height="15px" weight="20px"></img>
+													</a>&nbsp;&nbsp;
+													<b>{!rlist}</b> 
+	            									</td>
+									            </tr></table>
+									            
+									            <div id="{!rlist}" style="display:none" >
+									            <table border="1" cellpadding="1" cellspacing="1" width="100%" class="gridtable"> 
+								            	   <apex:PanelGroup >
+										            <tr>
+										            		<td>&nbsp;</td>
+										            		<td width="20%" align="center"><B>Product Name</B></td>
+										            		<td width="20%" align="center"><B>Product Description</B></td>
+										            		<td width="15%" align="center" ><B>Base Price</B></td>
+										            		<td width="15%" align="center"><B>Sales Price</B></td>
+										            		<td width="15%" align="center"><B>Quantity</B></td> 
+										            		<td width="15%" align="center"><B>Discount</B></td>
+										            	 	<!-- <td width="15%" align="center"><B>Total Price</B></td> --> 
+										            </tr>	  	
+										            </apex:PanelGroup>
+										            </table>
+									            <table  border="1" cellpadding="1" cellspacing="1" width="100%" class="gridtable">
+									            	<apex:repeat value="{!pr[dirKey][rlist]}" var="lis">
+									            		<apex:repeat value="{!lis}" var="rec">
+									            		<tr >
+									            			<td>
+									            				<apex:inputCheckbox value="{!rec.selected}" id="checkedone">
+										                            <apex:actionSupport event="onclick" action="{!GetSelected}" rerender="Selected_PBS" />
+										                        </apex:inputCheckbox>
+									            			</td>
+				            								<td width="20%" align="center"><apex:outputField value="{!rec.pbEntry.Product2.Name}"/></td>
+				            								<td width="20%" align="center"><apex:inputtextarea value="{!rec.oppLineItemRecord.Product_Description__c}" richText="false"/></td>
+				            								<td width="15%" align="center">
+				            								<apex:outputText value="{0, number, ###,###,###,##0.00}">$   
+														       <apex:param value="{!rec.pbEntry.UnitPrice}"/>
+														    </apex:outputText>
+				            								
+				            								<!-- <apex:outputField value="{!rec.pbEntry.UnitPrice}"/>{!rec.pbEntry.UnitPrice} --></td> 
+				            								<td width="15%" align="center" ><apex:inputField style="width:60px" value="{!rec.oppLineItemRecord.UnitPrice}"/></td>
+				            								<td width="15%" align="center"><apex:inputField style="width:60px" value="{!rec.oppLineItemRecord.Quantity}" required="true"/></td>
+				            								<td width="15%" align="center"><apex:inputField style="width:60px" value="{!rec.oppLineItemRecord.Discount}"/></td>
+				            								<!-- <td width="15%" align="center"><apex:outputText value="{!rec.totalPrice}"/>{!rec.totalPrice}</td> -->
+				            								</tr>	
+			            								</apex:repeat>
+			                						</apex:repeat>
+			                						</table>
+			                					</div>
+			                					
+                							</apex:repeat>
+                								
+               						
+               						</div>
+            		  </td>
+            	  </tr>
+           		</table>
+            </apex:repeat>
+        </div>     
+     </td></tr> 
+      <tr align="center"><td colspan="4"> <apex:commandButton action="{!SaveRecord}" value="Save WorkOrder Services" /></td></tr>
+     </table>
+      </apex:form>
+     
+     <script>
+    function checkAll(cb){
+        var inputElem = document.getElementsByTagName("input");
+        for(var i=0; i<inputElem.length; i++){
+        if(inputElem[i].id.indexOf("checkedone")!=-1)
+        inputElem[i].checked = cb.checked;
+        }
+    }   
+    </script>
+</apex:page>

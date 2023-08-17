@@ -1,0 +1,33 @@
+<apex:page controller="SendDocWithDocuSignController">
+<apex:form id="myform">
+   <apex:pageMessages />
+   <apex:pageBlock title="Select Document" id="block1">
+     <apex:pageBlockSection columns="1">
+     	<apex:pageBlockSectionItem >
+            <apex:outputLabel value="Attachments" for="attachment:" />
+            <apex:selectList value="{!attachmentId}" id="attachment" size="1" style="width: 500px; height: 20px">
+                 <apex:selectOptions value="{!Attachments}" />
+            </apex:selectList>
+        </apex:pageBlockSectionItem>
+        
+     	<apex:pageBlockSectionItem >
+            <apex:outputLabel value="Folder Wise" for="folderId" />
+            <apex:selectList value="{!folderId}" id="folderId" size="1" style="width: 500px; height: 20px">
+            	<apex:actionSupport event="onchange" action="{!getDocuments}" rerender="documentId"  />  
+                 <apex:selectOptions value="{!Docfolder}" />
+            </apex:selectList>
+        </apex:pageBlockSectionItem>  
+         
+         <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Documents"  />
+            <apex:selectList value="{!documentId}" id="documentId" size="1" style="width: 500px; height: 20px">
+                 <apex:selectOptions value="{!docfiles}" />
+            </apex:selectList>
+        </apex:pageBlockSectionItem>
+      </apex:pageBlockSection> 
+      <apex:pageBlockButtons location="bottom">
+        <apex:commandButton value="Add" action="{!addDocuments}" onclick="Javasript:window.exit();"/>
+      </apex:pageBlockButtons>    
+   </apex:pageBlock> 
+  </apex:form>
+</apex:page>

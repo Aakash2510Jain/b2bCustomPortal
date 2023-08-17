@@ -1,0 +1,5 @@
+<apex:page StandardController="Opportunity">
+<apex:form >
+ <!--<apex:commandButton value="Upload" action="{!sendOpp}"/>-->
+</apex:form>
+</apex:page>

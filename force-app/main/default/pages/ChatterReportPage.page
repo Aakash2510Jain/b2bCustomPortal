@@ -1,0 +1,38 @@
+<apex:page controller="ChatterController" action="{!init}" tabStyle="account">
+<style>
+.odd { 
+ background-color: #FCF7F7;
+ }
+ .even {
+ background-color: #E3DCDB;
+ }
+</style>
+<apex:dataTable value="{!result}" var="Row" cellspacing="2" cellpadding="0" id="theTable" 
+						rowClasses="odd,even"  border="0" align="center" width="100%">
+		<apex:facet name="caption"><h4>Top 10 Chatter Members</h4></apex:facet>
+		<apex:facet name="header"></apex:facet>
+		<apex:facet name="footer"></apex:facet>
+		<apex:column style="text-align:left;vertical-align: middle;" width="70%">
+		    <apex:facet name="header"><font style="line-height:25px;font-size:14px;">Name</font></apex:facet>
+			<apex:facet name="footer"></apex:facet>
+			<apex:image value="{!Row.SmallPhoto}" width="24px" height="24px"/>&nbsp;&nbsp;
+			<apex:outputText style="vertical-align:middle;" value="{!Row.FullName}"/>
+		</apex:column>
+		<apex:column style="text-align:right;vertical-align: middle;" width="30%">
+		    <apex:facet name="header"><font style="line-height:25px;font-size:14px;">Likes Received&nbsp;</font></apex:facet>
+			<apex:facet name="footer"></apex:facet>
+			<apex:outputText value="{!Row.LikesReceived}"/>&nbsp;
+		</apex:column>
+		<!-- <apex:column style="text-align:center">
+		    <apex:facet name="header">Posts Made&nbsp;</apex:facet>
+			<apex:facet name="footer"></apex:facet>
+			<apex:outputText style="text-align:center" value="{!Row.PostCount}"/>
+		</apex:column>
+		<apex:column style="text-align:center">
+		    <apex:facet name="header">Comments Received&nbsp;</apex:facet>
+			<apex:facet name="footer"></apex:facet>
+			<apex:outputText style="text-align:center" value="{!Row.CommentReceived}"/>
+		</apex:column> -->						
+</apex:dataTable> 
+
+</apex:page>

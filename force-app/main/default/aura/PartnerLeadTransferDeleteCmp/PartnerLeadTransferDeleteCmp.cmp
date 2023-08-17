@@ -1,0 +1,107 @@
+<aura:component controller="B2BPartnerPortal_CTRL" >
+    
+    <aura:handler name="init" value="{!this }" action="{!c.doInit }" />
+    <aura:attribute name="ShowDeleteTransferLeadCmp" type="boolean" />
+    <aura:attribute name="ShowDeletePopup" type="boolean" />
+    <aura:attribute name="ShowTransferPopup" type="boolean" />
+    <aura:attribute name="LeadsTobeProcessed" type="Lead[]" />
+    <aura:attribute name="LeadTobeProcessedSize" type="integer" />
+    <aura:attribute name="responseWrapper" type="object"/>
+    <aura:attribute name="SecletedGroup" type="string"/>
+    <aura:attribute name="AlluserList" type="object[]"/>
+    <aura:attribute name="SecletedUser" type="string"/>
+    <aura:attribute name="PartnerId" type="String"/>
+     <aura:attribute name="showSpinner" type="Boolean" default="false" />
+        <aura:attribute name="isEmailSent" type="boolean" default="false"/>
+ <aura:attribute name="ShowNewEditLeadComp" type="boolean" default="false"/>
+     <aura:attribute name="showlead" type="boolean" />
+      <aura:attribute name="leadDetailPage" type="boolean" />
+    
+    <aura:registerEvent name="AppEvent" type="c:AuraMessageAppEvent"/>
+     
+    <!--aura:if isTrue="{!v.ShowTransferPopup}" -->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+             aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal/Popup Box Header Starts here-->
+            <header class="slds-modal__header">
+                <lightning:buttonIcon iconName="utility:close" onclick="{! c.closeModel }" alternativeText="close"
+                                      variant="bare-inverse" class="slds-modal__close" />
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                    <aura:if isTrue="{!v.ShowDeletePopup}">
+                        Delete Records
+                    </aura:if>
+                    <aura:if isTrue="{!v.ShowTransferPopup}">
+                        Trasnfer Records
+                    </aura:if>
+                    
+                </h2>
+            </header>
+            <!--Modal/Popup Box Body Starts here-->
+            <div class="slds-modal__content slds-p-around_medium" style="text-align: center; height:200px"
+                 id="modal-content-id-1">
+                <p><b>
+                    <aura:if isTrue="{!v.ShowDeletePopup}">
+                        You have Selected <b>{!v.LeadTobeProcessedSize}</b>
+                        Lead Record,<br/>
+                        Are  you Sure want to delete these leads?
+                    </aura:if>
+                    <aura:if isTrue="{!v.ShowTransferPopup}">                        
+                        <lightning:select aura:id="Selected"  onchange="{!c.handleCompanyOnChange}" name="groupSelect" label="Select Group" required="true">
+                                <option value="">--None--</option>
+                                <aura:iteration items="{!v.responseWrapper.Groups}" var="Group" indexVar="key"> 
+                                    <aura:if isTrue="{!Group.Name}">
+                                        <option value="{!Group.Id}">{!Group.Name}</option>
+                                    </aura:if>
+                                </aura:iteration>
+                            </lightning:select>
+
+                        <aura:if isTrue="{!v.AlluserList.length>0}">
+                            <lightning:select aura:id="userSelect" name="userSelect" label="Select User" required="true"  >
+                                <option value="">--None--</option>
+                                <aura:iteration items="{!v.AlluserList}" var="User" indexVar="key">
+                                    <option value="{!User.key}">{!User.value}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </aura:if>
+                    </aura:if>
+                    </b>
+                </p>
+            </div>
+            <!--Modal/Popup Box Footer Starts here-->
+            <footer class="slds-modal__footer">
+                <div class="slds-align_absolute-center">
+                    <lightning:button variant="neutral" class="cancel-button" label="Cancel" title="Cancel" onclick="{! c.closeModel }" />
+                    <aura:if isTrue="{!v.ShowDeletePopup}">
+                        <lightning:button variant="brand" class="custom-button" label="Delete" title="OK" onclick="{!c.DeleteLeads}" />
+                    </aura:if>
+                    <aura:if isTrue="{!v.showSpinner}">
+                        <div class="demo-only" style="height:6rem">
+                            <div class="slds-spinner_container">
+                                <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                                    <span class="slds-assistive-text">Loading</span>
+                                    <div class="slds-spinner__dot-a"></div>
+                                    <div class="slds-spinner__dot-b"></div>
+                                </div>
+                            </div>
+                        </div>    
+                    </aura:if>
+                    <aura:if isTrue="{!v.ShowTransferPopup}">
+                        <lightning:button variant="brand" class="custom-button" label="Transfer" title="OK" onclick="{!c.TransferLeads}" />
+                    </aura:if>
+                    
+                </div>
+                
+            </footer>
+            <!-- <aura:if isTrue="{!v.ShowNewEditLeadComp}">
+                <c:PartnerLeadRecordDetails   partnerId="{!v.partnerId}" />
+            </aura:if>-->
+          
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+    
+    <!-- /aura:if -->
+    
+    
+</aura:component>

@@ -1,0 +1,1716 @@
+<apex:page standardController="Opportunity" renderAs="pdf" >
+<!-- <apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='B2B Data Partners In'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.B2BDataPartners}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Health Care Data Group'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.HealthCareDatagroup}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='IT Data Group'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.ITDataGroup}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='B2B Lists'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.B2BListsWeb}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='B2B List'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.B2BListWeb}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Brigade Big'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.BrigadeBig}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Data 2 Directory'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.Data2Directory}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Direct Healthcare Leads'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.DirectHealthcareLeads}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='European Lists'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.EuropeanLists}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Email Data Group'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.EmailDataGroup}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Global Health Care'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.GlobalHealthCare}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Global Business Archives'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.GlobalBusinessArchives}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Global IT Users Inc'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.GlobalITUsersInc}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Marketing Base'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.MarketingBase}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Marketing Colors'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.MarketingColors}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Marketing Drips'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.MarketingDrips}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Marketing Forces'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.MarketingForces}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Media Sellers Online'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.MediaSellersOnline}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Online Leads Inc'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.OnlineLeadsInc}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Pioneer Marketers'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.PioneerMarketers}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Prepackaged Lists'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.PrepackagedLists}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Procure Data Inc'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.ProcureDataInc}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Publishing Forces'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.PublishingForces}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='ROI Marketing Center'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.ROIMarketingCenter}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Technology User Lists'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.TechnologyUserLists}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Webmailing Lists'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.WebmailingLists}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='Xpress Lists Web'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.XpressListsWeb}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup>
+
+<apex:panelGroup rendered="{!Opportunity.Brand_Name__c=='EZonemarketers'}">
+<table width="100%"><tr><td valign="top" width="50%" align="left"><apex:image value="{!$Resource.EZonemarketers}"/></td>
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<td valign="top" width="50%" align="right"><apex:image value="{!$Resource.Pen_Image_Template}" style="align:right;"/></td>
+</apex:panelGroup></tr></table>
+</apex:panelGroup> -->
+
+
+<!--********* Below code is to render first template when user selects Template 1 **********-->
+
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template1'}">
+<table width="50%"><tr><td valign="top" width="50%" align="left">
+  <apex:image value="{!$Resource.B2BDataPartners}" rendered="{!Opportunity.Brand_Name__c == 'B2B Data Partners'}"/>
+     <apex:image value="{!$Resource.HealthCareDatagroup}" rendered="{!Opportunity.Brand_Name__c == 'Health Care Data Group'}"/>
+      <apex:image value="{!$Resource.InfoDataHouse}" rendered="{!Opportunity.Brand_Name__c == 'Info Data House'}"/>
+      <apex:image value="{!$Resource.Lake_Group}" rendered="{!Opportunity.Brand_Name__c == 'Lake Group'}"/>
+      <apex:image value="{!$Resource.ITDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'IT Data Group'}"/>
+     <apex:image value="{!$Resource.B2BListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B Lists'}"/>
+     <apex:image value="{!$Resource.B2BListWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B List'}"/>
+     <apex:image value="{!$Resource.BrigadeBig}" rendered="{!Opportunity.Brand_Name__c == 'Brigade Big'}"/>
+     <apex:image value="{!$Resource.Data2Directory}" rendered="{!Opportunity.Brand_Name__c == 'Data 2 Directory'}"/>
+     <apex:image value="{!$Resource.DirectHealthcareLeads}" rendered="{!Opportunity.Brand_Name__c == 'Direct Healthcare Leads'}"/>
+     <apex:image value="{!$Resource.EuropeanLists}" rendered="{!Opportunity.Brand_Name__c == 'European Lists'}"/>
+     <apex:image value="{!$Resource.EmailDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'Email Data Group'}"/>
+     <apex:image value="{!$Resource.GlobalHealthCare}" rendered="{!Opportunity.Brand_Name__c == 'Global Health Care'}"/>
+     <apex:image value="{!$Resource.GlobalBusinessArchives}" rendered="{!Opportunity.Brand_Name__c == 'Global Business Archives'}"/>
+     <apex:image value="{!$Resource.GlobalITUsersInc}" rendered="{!Opportunity.Brand_Name__c == 'Global IT Users Inc'}"/>
+     <apex:image value="{!$Resource.MarketingBase}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Base'}"/>
+     <apex:image value="{!$Resource.MarketingColors}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Colors'}"/>
+     <apex:image value="{!$Resource.MarketingDrips}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Drips'}"/>
+     <apex:image value="{!$Resource.MarketingForces}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Forces'}"/>
+     <apex:image value="{!$Resource.MediaSellersOnline}" rendered="{!Opportunity.Brand_Name__c == 'Media Sellers Online'}"/>
+     <apex:image value="{!$Resource.OnlineLeadsInc}" rendered="{!Opportunity.Brand_Name__c == 'Online Leads Inc'}"/>
+      <apex:image value="{!$Resource.StrategicOutSourcingServices}" rendered="{!Opportunity.Brand_Name__c == 'Strategic OutSourcing Services'}"/>
+     <apex:image value="{!$Resource.PioneerMarketers}" rendered="{!Opportunity.Brand_Name__c == 'Pioneer Marketers'}"/>
+     <apex:image value="{!$Resource.PrepackagedLists}" rendered="{!Opportunity.Brand_Name__c == 'Prepackaged Lists'}"/>
+     <apex:image value="{!$Resource.ProcureDataInc}" rendered="{!Opportunity.Brand_Name__c == 'Procure Data Inc'}"/>
+     <apex:image value="{!$Resource.PublishingForces}" rendered="{!Opportunity.Brand_Name__c == 'Publishing Forces'}"/>
+     <apex:image value="{!$Resource.ROIMarketingCenter}" rendered="{!Opportunity.Brand_Name__c == 'ROI Marketing Center'}"/>
+     <apex:image value="{!$Resource.TechnologyUserLists}" rendered="{!Opportunity.Brand_Name__c == 'Technology User Lists'}"/>
+     <apex:image value="{!$Resource.WebmailingLists}" rendered="{!Opportunity.Brand_Name__c == 'Webmailing Lists'}"/>
+     <apex:image value="{!$Resource.XpressListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'Xpress Lists Web'}"/>
+     <apex:image value="{!$Resource.EZonemarketers}" rendered="{!Opportunity.Brand_Name__c == 'EZonemarketers'}"/>
+ </td></tr></table> 
+ <center>
+  <h><b><u>Insertion Order for</u></b></h></center>
+   <br/>
+  <html>
+<head>
+<title>Insertion Order for </title>
+</head>
+<body>
+<table border="0.5" width="100%" height="100%">
+    <tr>
+        <td align="left" width="50%" bgcolor="#B2B2B2">Vendor Contact Details</td>
+        <td align="left" width="50%" bgcolor="#B2B2B2">Client Contact Details</td>
+    </tr>  
+    <tr> 
+               
+        <td valign='top'>
+         <apex:panelGroup rendered="{!Opportunity.Vendor_Contact_Detail__c==''}">         
+        <apex:outputField value="{!Opportunity.Owner.Street}"/><br/>
+        <apex:outputField value="{!Opportunity.Owner.City}"/><br/>
+        <apex:outputField value="{!Opportunity.Owner.State}"/><br/>
+        <apex:outputField value="{!Opportunity.Owner.Country}"/><br/>
+        <apex:outputField value="{!Opportunity.Owner.Postalcode}"/><br/>
+        </apex:panelGroup>
+         <apex:panelGroup rendered="{!Opportunity.Vendor_Contact_Detail__c!=''}">
+         <apex:outputField value="{!Opportunity.Vendor_Name__c}"/><br/>
+         <apex:outputField value="{!Opportunity.Vendor_Contact_Detail__c}"/></apex:panelGroup></td>
+         
+         <td > 
+          <apex:panelGroup rendered="{!Opportunity.Client_Address_Entry__c==''}">
+                      <!-- <apex:outputText value="{!Opportunity.Client_Name__r.name}"/><br/> 
+                       <apex:outputField value="{!Opportunity.Client_Title__c}" /><br/>
+                       <apex:outputField value="{!Opportunity.Client_Email__c}" /><br/>-->
+                      <apex:outputField value="{!Opportunity.Client_Address_Contact__c}"/><br/>
+                       <!-- <apex:outputText value="{!Opportunity.Client_Phone__c}"/><br/><br/>   -->                   
+                       <apex:outputText value="{!Opportunity.Website__c}"/> 
+                    </apex:panelGroup>  
+                    
+                  <apex:panelGroup rendered="{!Opportunity.Client_Address_Entry__c!=''}">
+                    <apex:outputText value="{!Opportunity.Client_Address_Entry__c}"/>
+                    </apex:panelGroup>
+                  
+                    </td>                     
+    </tr></table>
+    <table border="0.5" width="100%" height="100%"> 
+    <tr>
+        <td align="left" width="70%" bgcolor="#B2B2B2">Service Details </td>
+        <td align="left" width="30%" bgcolor="#B2B2B2">Total Investment</td>
+    </tr>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details1__c!=''}">
+    <tr>
+        <td  width="70%" align="center"><apex:outputText value="{!Opportunity.Service_Details1__c}"/></td><td  width="30%"><apex:outputField value="{!Opportunity.Investment1__c}"/></td>
+    </tr>
+    </apex:panelGroup>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details_2__c!=''}">
+    <tr>
+        <td  width="70%" align="center"><apex:outputText value="{!Opportunity.Service_Details_2__c}"/></td><td  width="30%"><apex:outputField value="{!Opportunity.Investment2__c}"/></td> 
+    </tr>
+    </apex:panelGroup>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details_3__c!=''}">
+    <tr>
+        <td  width="70%" align="center"><apex:outputText value="{!Opportunity.Service_Details_3__c}"/></td><td  width="30%"><apex:outputField value="{!Opportunity.Investment3__c}"/></td> 
+    </tr>
+    </apex:panelGroup>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details_4__c!=''}">
+    <tr>
+        <td  width="70%" align="center"><apex:outputText value="{!Opportunity.Service_Details_4__c}"/></td><td  width="30%"><apex:outputField value="{!Opportunity.Investment4__c}"/></td> 
+    </tr>
+    </apex:panelGroup>       
+       <tr>
+        <td  width="70%" style="border-bottom:0px;border-right:0px" align="center">Discount (If any)</td><td  width="30%" style="border-bottom:0px;border-left:1px solid Gray"><apex:outputText value="{!Opportunity.Discount_If_any__c}"/>%</td> </tr> 
+    <tr>
+    <td width="70%" style="border-bottom:0px;border-top:0px;border-right:0px" align="center">Payable Amount: </td><td width="30%" style="border-bottom:0px;border-top:0px;border-left:1px solid Gray"> <apex:outputField value="{!Opportunity.Payable_Amount__c}"/></td></tr>  
+    </table>
+    
+    <apex:panelgroup rendered="{!Opportunity.Annu_Maint_Contract__c== True}">
+    <table border="0.5" width="100%" height="100%">
+    <tr>
+        <td align="left" bgcolor="#B2B2B2" colspan="2">Annual Maintenance contract (AMC)</td>        
+    </tr>
+    <apex:panelgroup rendered="{!Opportunity.AMC__c == NULL}">
+    <tr><td style="border-top:0px;border-bottom:0px;font-size:13px;border-right:0.5px solid black " > <b>“Annual Maintenance contract (AMC) with Quarterly data updates” for an extra 30% will help improve quality of the
+     database and {!Opportunity.Brand_Name__c} will keep the data updated and delivery every quarter with a refreshed and verified email 
+    addresses*.</b><b style="font-size:13px;color:red"> Per Gartner, Contact Data goes bad over 5% to 7% every month which means over 84% of any data investment  
+   could be useless without a Data  AMC that provides regular updates.</b><b style="font-size:13px">All Projects with AMC are Email Verified prior to each  
+    Delivery and come with 80% accuracy guarantee on all other data fields.</b></td></tr>    
+        <tr><td style="border-top:0px;border-bottom:0px;font-size:13px;color:blue;border-right:0.5px solid black"> (*3 updates will be provide across 12 months for the data delivered with this purchase. AMC for any other data purchased will be </td></tr>
+        <tr><td style="border-top:0px;border-bottom:0px;font-size:13px;color:blue;border-right:0.5px solid black"> charged separately)</td></tr>  
+    </apex:panelgroup>
+     <apex:panelgroup rendered="{!Opportunity.AMC__c != NULL}">
+    <tr>
+     <td style="border-bottom:0px" ><apex:outputField value="{!Opportunity.AMC__c}"/></td></tr>  
+    </apex:panelgroup>
+    </table>
+  </apex:panelgroup> 
+  <table border="0.5" width="100%" height="100%">
+  <tr><td align="left" width="50%" bgcolor="#B2B2B2" >Authorization:{!Opportunity.Brand_Name__c}</td>
+  <td align="left" width="50%" bgcolor="#B2B2B2" colspan='2'>Client Details</td>
+  </tr>
+  <tr><td align="left" width="50%" >Name:&nbsp;<apex:outputField value="{!Opportunity.Name__r.name}"/></td>
+  <td align="left" width="50%">Client Name:&nbsp;<apex:outputField value="{!Opportunity.Client_Name__c }"/></td>
+  </tr>
+  <tr><td align="left" width="50%" >Title:&nbsp;&nbsp;&nbsp;<apex:outputField value="{!Opportunity.Title_Authorization__c}"/></td>
+  <td align="left" width="50%">Title:&nbsp;&nbsp;&nbsp;<apex:outputField value="{!Opportunity.Client_Name__r.Title }"/></td>
+  </tr>
+  <tr><td align="left" width="50%" >Signature:&nbsp;<apex:outputField value="{!Opportunity.Name__r.Signature__c}"/></td>
+  <td align="left" width="50%" valign="top">Signature:</td>
+  </tr>
+  <tr><td align="left" width="50%" >Date:<apex:outputText value="{0,date, dd'/'MM'/'yyyy}"><apex:param value="{!opportunity.current_date__c}"/></apex:outputText> </td>
+  <td align="left" width="50%">Date:</td>
+  </tr>
+  </table>
+    <br/>
+     <table border="0.5" width="100%" height="100%" style="page-break-before:always;">
+    <tr>
+        <td align="left" bgcolor="#B2B2B2" colspan="2">Terms And Conditions:</td>        
+    </tr>
+    <tr>
+        <td colspan="2" height="80px"><apex:outputField value="{!Opportunity.Terms_And_Conditions__c}"/></td>
+    </tr>
+    </table> 
+    <!--   
+    <table border="0.5" width="100%" height="100%">
+    <tr>
+        <td align="left" width="50%">Date:<apex:outputText value="{0,date, dd'/'MM'/'yyyy}">        
+         <apex:param value="{!opportunity.current_date__c}"/></apex:outputText></td>
+        <td align="left" width="50%">Date:<apex:outputText value="{0,date, dd'/'MM'/'yyyy}">        
+         <apex:param value="{!opportunity.current_date__c}"/></apex:outputText></td>
+    </tr>
+</table>  -->
+<table>
+<tr>
+        <td style= "color:#4E4E4E;padding-left:150px"><h><b><u>Please sign this insertion order and fax to:{!opportunity.Fax__c}</u></b></h></td><td style= "color:#4E4E4E" align="justify">
+            </td> </tr></table>
+        </body>
+    </html>
+</apex:panelGroup>
+
+<!--********* End of the code to render first template when user selects Template 1 **********-->
+<!--@@@@@@@@@@ Below code is to render Second template when user selects Template 2 @@@@@@@@@@@-->
+
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template2'}">
+<table width="50%"><tr><td valign="top" width="50%" align="left">
+  <apex:image value="{!$Resource.B2BDataPartners}" rendered="{!Opportunity.Brand_Name__c == 'B2B Data Partners'}"/>
+     <apex:image value="{!$Resource.HealthCareDatagroup}" rendered="{!Opportunity.Brand_Name__c == 'Health Care Data Group'}"/>
+     <apex:image value="{!$Resource.Lake_Group}" rendered="{!Opportunity.Brand_Name__c == 'Lake Group'}"/>
+      <apex:image value="{!$Resource.InfoDataHouse}" rendered="{!Opportunity.Brand_Name__c == 'Info Data House'}"/>
+      <apex:image value="{!$Resource.ITDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'IT Data Group'}"/>
+     <apex:image value="{!$Resource.B2BListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B Lists'}"/>
+     <apex:image value="{!$Resource.B2BListWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B List'}"/>
+     <apex:image value="{!$Resource.StrategicOutSourcingServices}" rendered="{!Opportunity.Brand_Name__c == 'Strategic OutSourcing Services'}"/>
+     <apex:image value="{!$Resource.BrigadeBig}" rendered="{!Opportunity.Brand_Name__c == 'Brigade Big'}"/>
+     <apex:image value="{!$Resource.Data2Directory}" rendered="{!Opportunity.Brand_Name__c == 'Data 2 Directory'}"/>
+     <apex:image value="{!$Resource.DirectHealthcareLeads}" rendered="{!Opportunity.Brand_Name__c == 'Direct Healthcare Leads'}"/>
+     <apex:image value="{!$Resource.EuropeanLists}" rendered="{!Opportunity.Brand_Name__c == 'European Lists'}"/>
+     <apex:image value="{!$Resource.EmailDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'Email Data Group'}"/>
+     <apex:image value="{!$Resource.GlobalHealthCare}" rendered="{!Opportunity.Brand_Name__c == 'Global Health Care'}"/>
+     <apex:image value="{!$Resource.GlobalBusinessArchives}" rendered="{!Opportunity.Brand_Name__c == 'Global Business Archives'}"/>
+     <apex:image value="{!$Resource.GlobalITUsersInc}" rendered="{!Opportunity.Brand_Name__c == 'Global IT Users Inc'}"/>
+     <apex:image value="{!$Resource.MarketingBase}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Base'}"/>
+     <apex:image value="{!$Resource.MarketingColors}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Colors'}"/>
+     <apex:image value="{!$Resource.MarketingDrips}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Drips'}"/>
+     <apex:image value="{!$Resource.MarketingForces}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Forces'}"/>
+     <apex:image value="{!$Resource.MediaSellersOnline}" rendered="{!Opportunity.Brand_Name__c == 'Media Sellers Online'}"/>
+     <apex:image value="{!$Resource.OnlineLeadsInc}" rendered="{!Opportunity.Brand_Name__c == 'Online Leads Inc'}"/>
+     <apex:image value="{!$Resource.PioneerMarketers}" rendered="{!Opportunity.Brand_Name__c == 'Pioneer Marketers'}"/>
+     <apex:image value="{!$Resource.PrepackagedLists}" rendered="{!Opportunity.Brand_Name__c == 'Prepackaged Lists'}"/>
+     <apex:image value="{!$Resource.ProcureDataInc}" rendered="{!Opportunity.Brand_Name__c == 'Procure Data Inc'}"/>
+     <apex:image value="{!$Resource.PublishingForces}" rendered="{!Opportunity.Brand_Name__c == 'Publishing Forces'}"/>
+     <apex:image value="{!$Resource.ROIMarketingCenter}" rendered="{!Opportunity.Brand_Name__c == 'ROI Marketing Center'}"/>
+     <apex:image value="{!$Resource.TechnologyUserLists}" rendered="{!Opportunity.Brand_Name__c == 'Technology User Lists'}"/>
+     <apex:image value="{!$Resource.WebmailingLists}" rendered="{!Opportunity.Brand_Name__c == 'Webmailing Lists'}"/>
+     <apex:image value="{!$Resource.XpressListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'Xpress Lists Web'}"/>
+     <apex:image value="{!$Resource.EZonemarketers}" rendered="{!Opportunity.Brand_Name__c == 'EZonemarketers'}"/>
+ </td></tr></table> 
+<center> <h1 align="center">Project Confirmation Form </h1> </center><br/>
+ <font><b> Project Confirmation Date: {!MONTH(TODAY())}/{!DAY(TODAY())}/{!YEAR(TODAY())}</b></font><br/>
+ 
+ <table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-bottom:none" bgcolor="#B2B2B2">
+ <tr><td align="center">Client Company Details</td></tr>
+ </table>
+ <table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-top:none">
+ <tr><td align="center" width="50%">Company</td><td width="50%"><apex:outputField value="{!Opportunity.Account.Name }"/></td></tr>
+ <tr><td align="center" width="50%">Contact</td><td width="50%"><apex:outputField value="{!Opportunity.Client_Name__c }"/></td></tr>
+ <tr><td align="center" width="50%">Title</td><td width="50%"><apex:outputField value="{!Opportunity.Client_Name__r.Title }"/></td></tr>
+ <tr><td align="center" width="50%">Phone</td><td width="50%"><apex:outputField value="{!Opportunity.Client_Name__r.Phone}"/></td></tr>
+ <tr><td align="center" width="50%">Email</td><td width="50%"><apex:outputField value="{!Opportunity.Client_Name__r.Email}"/></td></tr>
+ </table><br/>
+ <table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-bottom:none" bgcolor="#B2B2B2">
+ <tr><td align="center">Project Description</td></tr>
+ </table>
+ <apex:panelGroup rendered="{!Opportunity.Service_Details1__c!=''}">
+ <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:none">
+ <tr><td>
+ 
+ <table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-top:none;border-bottom:none">
+    <tr>
+        <td  width="100%" align="center"><apex:outputText value="{!Opportunity.Service_Details1__c}"/></td>
+    </tr>
+  </table>
+  <table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-top:none">
+   <tr>
+        <td  width="30%" align="center">Investment</td><td width="70%"><apex:outputField value="{!Opportunity.Investment1__c}"/></td>
+    </tr>
+  </table>  
+ 
+ </td></tr>
+ </table>
+    </apex:panelGroup>
+    
+     <apex:panelGroup rendered="{!Opportunity.Service_Details_2__c!=''}">
+ <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:none">
+ <tr><td>
+ 
+ <table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-top:none;border-bottom:none">
+    <tr>
+        <td  width="100%" align="center"><apex:outputText value="{!Opportunity.Service_Details_2__c}"/></td>
+    </tr>
+  </table>
+  <table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-top:none">
+   <tr>
+        <td  width="30%" align="center">Investment</td><td width="70%"><apex:outputField value="{!Opportunity.Investment2__c}"/></td>
+    </tr>
+  </table>  
+ 
+ </td></tr>
+ </table>
+    </apex:panelGroup>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details_3__c!=''}">
+ <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:none">
+ <tr><td>
+ 
+ <table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-top:none;border-bottom:none">
+    <tr>
+        <td  width="100%" align="center"><apex:outputText value="{!Opportunity.Service_Details_3__c}"/></td>
+    </tr>
+  </table>
+  <table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-top:none">
+   <tr>
+        <td  width="30%" align="center">Investment</td><td width="70%"><apex:outputField value="{!Opportunity.Investment3__c}"/></td>
+    </tr>
+  </table>  
+ 
+ </td></tr>
+ </table>
+    </apex:panelGroup>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details_4__c!=''}">
+ <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:none">
+ <tr><td>
+ 
+ <table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-top:none;border-bottom:none">
+    <tr>
+        <td  width="100%" align="center"><apex:outputText value="{!Opportunity.Service_Details_4__c}"/></td>
+    </tr>
+  </table>
+  <table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-top:none">
+   <tr>
+        <td  width="30%" align="center">Investment</td><td width="70%"><apex:outputField value="{!Opportunity.Investment4__c}"/></td>
+    </tr>
+  </table>  
+ 
+ </td></tr>
+ </table>
+    </apex:panelGroup>
+    <table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-top:none">
+    <tr>
+        <td  width="30%" align="center">Discount(%)</td><td  width="70%" ><apex:outputText value="{!Opportunity.Discount_If_any__c}"/>%</td> </tr>
+   
+   
+    <tr>
+    <td width="30%" align="center" >Final Investment: </td><td width="30%" > <apex:outputField value="{!Opportunity.Payable_Amount__c}"/></td></tr>  
+ </table>
+ <apex:panelgroup rendered="{!Opportunity.Annu_Maint_Contract__c== True}">
+    <table border="0" width="100%" height="100%" style="page-break-after:always;" cellpadding="0" cellspacing="0">
+    <tr>
+        <td align="left" bgcolor="#B2B2B2" colspan="2">Annual Maintenance contract (AMC)</td>        
+    </tr>   
+    <tr><td><hr/></td></tr>
+    <apex:panelgroup rendered="{!Opportunity.AMC__c == NULL}">
+   <tr><td style="font-size:13px; " > <b>“Annual Maintenance contract (AMC) with Quarterly data updates” for an extra 30% will help improve quality of the
+     database and {!Opportunity.Brand_Name__c} will keep the data updated and delivery every quarter with a refreshed and verified email 
+    addresses*.</b><b style="font-size:13px;color:red"> Per Gartner, Contact Data goes bad over 5% to 7% every month which means over 84% of any data investment  
+   could be useless without a Data  AMC that provides regular updates.</b><b style="font-size:13px">All Projects with AMC are Email Verified prior to each  
+    Delivery and come with 80% accuracy guarantee on all other data fields.</b></td></tr>
+    
+        <tr style="border-top-style:none;"><td style="font-size:13px;color:blue;border-top-style:none;" > (*3 updates will be provide across 12 months for the data delivered with this purchase. AMC for any other data purchased will be </td></tr>
+        <tr><td style="font-size:13px;color:blue;border-top-style:none;" > charged separately)</td></tr>  
+    </apex:panelgroup>
+    <apex:panelgroup rendered="{!Opportunity.AMC__c != NULL}">
+    <tr>
+     <td style="border-bottom:0px;border-top:0px;border-left:0px;border-right:0px;"><apex:outputField value="{!Opportunity.AMC__c}"/></td></tr>  
+     </apex:panelgroup>
+     <tr><td><hr/></td></tr>
+    </table >
+     
+</apex:panelgroup>
+ 
+    <table width="100%" cellpadding="0" cellspacing="0" border="1">
+    <tr><td align="center" bgcolor="#B2B2B2">Client Service Contact</td></tr>
+    </table>
+    <table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-top:none">
+    <tr><td width="30%">Company</td><td width="70%" ><apex:outputField value="{!Opportunity.Brand_Name__c}"/></td></tr>
+    <tr><td width="30%">Contact</td><td width="70%" ><apex:outputField value="{!Opportunity.Name__r.name}"/></td></tr>
+    <tr><td width="30%">Title</td><td width="70%" ><apex:outputField value="{!Opportunity.Title_Authorization__c}"/></td></tr>
+    <tr><td width="30%">Phone</td><td width="70%" ><apex:outputField value="{!Opportunity.Client_Name__r.Phone}"/></td></tr>
+    <tr><td width="30%">Singature</td><td width="70%" ><apex:outputField value="{!Opportunity.Name__r.Signature__c}"/></td></tr>
+    </table>
+    <br/>
+    <!-- style="page-break-before:always;" -->
+    <table width="100%" cellpadding="0" cellspacing="0" border="1" bgcolor="black">
+    
+    <tr><td><center><b style="font-size:16px;color:white">TO PROCEED, PLEASE SIGN AND EMAIL THE SCANNED COPY</b></center><br/><center><b style="font-size:16px;color:white">Or</b></center><br/>
+    <center><b style="font-size:16px;color:white">Fax it to &nbsp; <apex:outputField value="{!Opportunity.Fax__c}"/></b></center>
+    </td></tr>          
+
+    </table>
+    <br/>
+    
+     <table width="100%" cellpadding="0" cellspacing="0" border="1" bgcolor="#B2B2B2">
+    <tr><td align="center">Authorized Signatory</td></tr>
+    </table>
+    <table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-top:none">
+    <tr><td width="30%">Company</td><td width="70%" ><apex:outputField value="{!Opportunity.Account.Name }"/></td></tr>
+    <tr><td width="30%">Contact</td><td width="70%" ><apex:outputField value="{!Opportunity.Client_Name__c }"/></td></tr>
+    <tr><td width="30%">Designation</td><td width="70%" ><apex:outputField value="{!Opportunity.Client_Name__r.Title }"/></td></tr>
+    
+    <tr><td width="30%">Singature</td><td width="70%" ></td></tr>
+    </table>
+    <br/>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" >
+    <tr><td>TERMS and CONDITIONS</td></tr>
+    </table>
+    <br/>
+    <table width="100%" cellpadding="0" cellspacing="0" border="1" >
+    <tr><td><apex:outputField value="{!Opportunity.Terms_And_Conditions__c}"/> </td></tr>
+    </table>
+    
+</apex:panelGroup>
+
+<!--@@@@@@@@@@ End of the code to render first template when user selects Template 2 @@@@@@@@@@-->
+
+<!--%%%%%%%%%% Below code is to render first template when user selects Template 3 %%%%%%%%%%-->
+
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template3'}">
+<table width="50%"><tr><td valign="top" width="50%" align="left">
+  <apex:image value="{!$Resource.B2BDataPartners}" rendered="{!Opportunity.Brand_Name__c == 'B2B Data Partners'}"/>
+     <apex:image value="{!$Resource.HealthCareDatagroup}" rendered="{!Opportunity.Brand_Name__c == 'Health Care Data Group'}"/>
+      <apex:image value="{!$Resource.InfoDataHouse}" rendered="{!Opportunity.Brand_Name__c == 'Info Data House'}"/>
+      <apex:image value="{!$Resource.Lake_Group}" rendered="{!Opportunity.Brand_Name__c == 'Lake Group'}"/>
+      <apex:image value="{!$Resource.ITDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'IT Data Group'}"/>
+     <apex:image value="{!$Resource.B2BListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B Lists'}"/>
+     <apex:image value="{!$Resource.B2BListWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B List'}"/>
+     <apex:image value="{!$Resource.BrigadeBig}" rendered="{!Opportunity.Brand_Name__c == 'Brigade Big'}"/>
+     <apex:image value="{!$Resource.StrategicOutSourcingServices}" rendered="{!Opportunity.Brand_Name__c == 'Strategic OutSourcing Services'}"/>
+     <apex:image value="{!$Resource.Data2Directory}" rendered="{!Opportunity.Brand_Name__c == 'Data 2 Directory'}"/>
+     <apex:image value="{!$Resource.DirectHealthcareLeads}" rendered="{!Opportunity.Brand_Name__c == 'Direct Healthcare Leads'}"/>
+     <apex:image value="{!$Resource.EuropeanLists}" rendered="{!Opportunity.Brand_Name__c == 'European Lists'}"/>
+     <apex:image value="{!$Resource.EmailDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'Email Data Group'}"/>
+     <apex:image value="{!$Resource.GlobalHealthCare}" rendered="{!Opportunity.Brand_Name__c == 'Global Health Care'}"/>
+     <apex:image value="{!$Resource.GlobalBusinessArchives}" rendered="{!Opportunity.Brand_Name__c == 'Global Business Archives'}"/>
+     <apex:image value="{!$Resource.GlobalITUsersInc}" rendered="{!Opportunity.Brand_Name__c == 'Global IT Users Inc'}"/>
+     <apex:image value="{!$Resource.MarketingBase}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Base'}"/>
+     <apex:image value="{!$Resource.MarketingColors}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Colors'}"/>
+     <apex:image value="{!$Resource.MarketingDrips}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Drips'}"/>
+     <apex:image value="{!$Resource.MarketingForces}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Forces'}"/>
+     <apex:image value="{!$Resource.MediaSellersOnline}" rendered="{!Opportunity.Brand_Name__c == 'Media Sellers Online'}"/>
+     <apex:image value="{!$Resource.OnlineLeadsInc}" rendered="{!Opportunity.Brand_Name__c == 'Online Leads Inc'}"/>
+     <apex:image value="{!$Resource.PioneerMarketers}" rendered="{!Opportunity.Brand_Name__c == 'Pioneer Marketers'}"/>
+     <apex:image value="{!$Resource.PrepackagedLists}" rendered="{!Opportunity.Brand_Name__c == 'Prepackaged Lists'}"/>
+     <apex:image value="{!$Resource.ProcureDataInc}" rendered="{!Opportunity.Brand_Name__c == 'Procure Data Inc'}"/>
+     <apex:image value="{!$Resource.PublishingForces}" rendered="{!Opportunity.Brand_Name__c == 'Publishing Forces'}"/>
+     <apex:image value="{!$Resource.ROIMarketingCenter}" rendered="{!Opportunity.Brand_Name__c == 'ROI Marketing Center'}"/>
+     <apex:image value="{!$Resource.TechnologyUserLists}" rendered="{!Opportunity.Brand_Name__c == 'Technology User Lists'}"/>
+     <apex:image value="{!$Resource.WebmailingLists}" rendered="{!Opportunity.Brand_Name__c == 'Webmailing Lists'}"/>
+     <apex:image value="{!$Resource.XpressListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'Xpress Lists Web'}"/>
+     <apex:image value="{!$Resource.EZonemarketers}" rendered="{!Opportunity.Brand_Name__c == 'EZonemarketers'}"/>
+ </td></tr></table> 
+<center>DATE:{!MONTH(TODAY())}/{!DAY(TODAY())}/{!YEAR(TODAY())}</center><br/>
+
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+ <td width="5%">CLIENTCONTACT</td>
+ <td width="2%"></td>
+ <td width="40%"><table border="0" cellpadding="0" cellspacing="0">
+      <tr><td><apex:outputField value="{!Opportunity.Account.Name }"/></td></tr>
+      <tr><td><apex:outputField value="{!Opportunity.Client_Name__c }"/></td></tr>
+      <tr><td><apex:outputField value="{!Opportunity.Client_Name__r.Title }"/></td></tr>
+      <tr><td><apex:outputField value="{!Opportunity.Client_Name__r.Phone}"/></td></tr>
+      <tr><td><apex:outputField value="{!Opportunity.Client_Name__r.Email}"/></td></tr>
+     </table></td>
+ <td width="15%"></td>
+ <td width="5%">SALES CONTACT</td>
+ <td width="2%"></td>
+ <td width="40%"><table border="0" cellpadding="0" cellspacing="0">
+      <tr><td><apex:outputField value="{!Opportunity.Brand_Name__c}"/></td></tr>
+      <tr><td><apex:outputField value="{!Opportunity.Name__r.name}"/></td></tr>
+      <tr><td><apex:outputField value="{!Opportunity.Title_Authorization__c}"/></td></tr>
+      
+     </table></td>
+</tr>
+</table>
+
+<br/>
+<table border="1" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+ <td width="10%" bgcolor="#f0f8ff">Sl. No.</td>
+ <td width="70%" bgcolor="#f0f8ff">DESCRIPTION</td>
+ 
+ <td width="30%" bgcolor="#f0f8ff">LINE TOTAL</td>
+</tr>
+<tr>
+ <td width="10%">1</td>
+ <td width="70%"><apex:outputField value="{!Opportunity.Service_Details1__c}"/></td>
+ 
+ <td width="30%"><apex:outputField value="{!Opportunity.Investment1__c}"/></td>
+</tr>
+<tr>
+ <td width="10%">2</td>
+ <td width="70%"><apex:outputField value="{!Opportunity.Service_Details_2__c}"/></td>
+ 
+ <td width="30%"><apex:outputField value="{!Opportunity.Investment2__c}"/></td>
+</tr>
+<tr>
+ <td width="10%">3</td>
+ <td width="70%"><apex:outputField value="{!Opportunity.Service_Details_3__c}"/></td>
+ 
+ <td width="30%"><apex:outputField value="{!Opportunity.Investment3__c}"/></td>
+</tr>
+<tr>
+ <td width="10%">4</td>
+ <td width="70%"><apex:outputField value="{!Opportunity.Service_Details_4__c}"/></td>
+ 
+ <td width="30%"><apex:outputField value="{!Opportunity.Investment4__c}"/></td>
+</tr>
+</table>
+
+
+<table width="100%" cellpadding="0" cellspacing="0" border="1" style="border-top:none;">
+<tr>
+<!--<td width="10%" style="border-left:none;"></td>-->
+<td width="80%" align="right" colspan="2">SUB TOTAL</td><td width="20%" bgcolor="#F5F5F5"><apex:outputfield value="{!Opportunity.Total_Investment__c}"/></td></tr>
+<tr><td width="80%" align="right" colspan="2">Discount (%)</td><td width="20%" bgcolor="#F5F5F5"><apex:outputText value="{!Opportunity.Discount_If_any__c}"/></td></tr>
+<tr><td width="80%" align="right" colspan="2">TOTAL</td><td width="20%" bgcolor="#F5F5F5"><apex:outputField value="{!Opportunity.Payable_Amount__c}"/></td></tr>
+</table>
+<apex:panelgroup rendered="{!Opportunity.Annu_Maint_Contract__c== True}">
+    <table border="0" width="100%" height="100%">
+    <tr>
+        <td align="left" bgcolor="#B2B2B2" colspan="2">Annual Maintenance contract (AMC)</td>        
+    </tr>
+    <hr/>
+    <apex:panelgroup rendered="{!Opportunity.AMC__c == NULL}">
+    <tr><td style="border-top:0px;border-bottom:0px;font-size:13px;" > <b>“Annual Maintenance contract (AMC) with Quarterly data updates” for an extra 30% will help improve quality of the
+     database and {!Opportunity.Brand_Name__c} will keep the data updated and delivery every quarter with a refreshed and verified email 
+    addresses*.</b><b style="font-size:13px;color:red"> Per Gartner, Contact Data goes bad over 5% to 7% every month which means over 84% of any data investment  
+   could be useless without a Data  AMC that provides regular updates.</b><b style="font-size:13px">All Projects with AMC are Email Verified prior to each  
+    Delivery and come with 80% accuracy guarantee on all other data fields.</b></td></tr>
+    
+        <tr><td style="border-top:0px;border-bottom:0px;font-size:13px;color:blue;"> (*3 updates will be provide across 12 months for the data delivered with this purchase. AMC for any other data purchased will be </td></tr>
+        <tr><td style="border-top:0px;border-bottom:0px;font-size:13px;color:blue;"> charged separately)</td></tr>  
+    </apex:panelgroup>
+     <apex:panelgroup rendered="{!Opportunity.AMC__c != NULL}">
+    <tr>
+     <td style="border-bottom:0px" ><apex:outputField value="{!Opportunity.AMC__c}"/></td></tr>  
+    </apex:panelgroup>
+    </table>
+  </apex:panelgroup>
+    <hr/>
+    <br/>
+    
+    
+    <table border="0" cellpadding="0" cellspacing="0" bgcolor="#6699CC" width="100%">
+   
+    
+    <tr rowspan="3"  ><td align="center" height="50">SALE TERMS AND CONDITIONS</td></tr>
+    
+    
+    </table>
+    <br/>
+    <br/>
+    <!--<table border="0" cellpadding="0" cellspacing="0">
+    <tr><td>THIS AGREEMENT is made and entered into this _________ day of__________, year, by and between <apex:outputField value="{!Opportunity.Brand_Name__c}"/> and Client <apex:outputField value="{!Opportunity.Account.Name}"/>  </td></tr>
+   
+    <br/>
+    <br/>
+   
+     </table>-->
+     <!--<table border="0" cellpadding="0" cellspacing="0" >
+      <tr><td><u>Following are the terms of this AGREEMENT:</u></td></tr>
+     </table>-->
+     
+     <br/>
+     
+     <table border="0" cellpadding="0" cellspacing="0">
+     <tr><td><apex:outputField value="{!Opportunity.Terms_And_Conditions__c}"/></td></tr>
+     </table>
+     
+      <br/>
+      <br/>
+ 
+    <table border="0" cellpadding="0" cellspacing="0" bgcolor="6699CC" width="100%" style="page-break-before:always;">
+   
+    <tr><td align="center" height="40" >AUTHORIZATION</td></tr>
+   
+    
+    </table>
+    
+    <br/>
+    <br/>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+    <td width="40%">
+    <table border="1" cellpadding="0" cellspacing="0" style="border-bottom:none" width="100%">
+    <tr><td><center><apex:outputfield value="{!Opportunity.Brand_Name__c}"/></center></td></tr>
+    </table> 
+    <table border="1" cellpadding="0" cellspacing="0" style="border-top:none" width="100%">
+    <tr><td width="50%">Authorized by</td><td width="50%"><apex:outputField value="{!Opportunity.Name__r.name}"/></td></tr>
+    <tr><td width="50%">Title</td><td width="50%"><apex:outputField value="{!Opportunity.Title_Authorization__c}"/></td></tr>
+    <tr><td width="50%">Date</td><td width="50%"><apex:outputText value="{0,date, dd'/'MM'/'yyyy}"><apex:param value="{!opportunity.current_date__c}"/></apex:outputText> </td></tr>
+    <tr><td width="50%" height="55">Approval</td><td width="50%" height="25"><apex:outputField value="{!Opportunity.Name__r.Signature__c}"/></td></tr>
+   
+    </table>   
+    </td>
+     <td width="20%">
+    
+    </td>
+    
+     <td width="40%">
+      <table border="1" cellpadding="0" cellspacing="0" style="border-bottom:none" width="100%">
+    <tr><td><center><apex:outputField value="{!Opportunity.Account.Name}"/></center></td></tr>
+    </table> 
+    <table border="1" cellpadding="0" cellspacing="0" style="border-top:none" width="100%">
+    <tr><td width="50%">Authorized by</td><td width="50%"><apex:outputField value="{!Opportunity.Client_Name__c }"/></td></tr>
+    <tr><td width="50%">Title</td><td width="50%"><apex:outputField value="{!Opportunity.Client_Name__r.Title }"/></td></tr>
+    <tr><td width="50%">Date</td><td width="50%"></td></tr>
+    <tr><td width="50%" height="55">Approval</td><td width="50%" height="25"></td></tr>
+   
+    </table>
+    </td>
+    
+    </tr>
+    </table>
+    <br/>
+    <table width="100%" border="1" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+    <tr><td><center>PLEASE SIGN THE INSERTION ORDER AND EMAIL THE SCANNED COPY</center>   
+    <center>OR</center>
+    <center>FAX IT TO &nbsp;<apex:outputField value="{!Opportunity.Fax__c}"/></center></td></tr>
+    </table>
+    
+</apex:panelGroup>
+
+<!-- <style>
+table{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+font-weight:bold;
+}
+p{
+    color:#aaa;
+}
+font{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:1em;
+font-weight:Normal;
+}
+
+</style>-->
+<!--%%%%%%%%%% End of the code to render first template when user selects Template 3 %%%%%%%%%%-->
+<!--%%%%%%%%%% Below code is to render first template when user selects Template 4 %%%%%%%%%%-->
+
+<apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template4'}">
+  <table width="50%"><tr><td valign="top" width="50%" align="left">
+  <apex:image value="{!$Resource.B2BDataPartners}" rendered="{!Opportunity.Brand_Name__c == 'B2B Data Partners'}"/>
+   <apex:image value="{!$Resource.InfoDataHouse}" rendered="{!Opportunity.Brand_Name__c == 'Info Data House'}"/>
+     <apex:image value="{!$Resource.HealthCareDatagroup}" rendered="{!Opportunity.Brand_Name__c == 'Health Care Data Group'}"/>
+     <apex:image value="{!$Resource.Lake_Group}" rendered="{!Opportunity.Brand_Name__c == 'Lake Group'}"/>
+      <apex:image value="{!$Resource.ITDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'IT Data Group'}"/>
+     <apex:image value="{!$Resource.B2BListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B Lists'}"/>
+     <apex:image value="{!$Resource.StrategicOutSourcingServices}" rendered="{!Opportunity.Brand_Name__c == 'Strategic OutSourcing Services'}"/>
+     <apex:image value="{!$Resource.B2BListWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B List'}"/>
+     <apex:image value="{!$Resource.BrigadeBig}" rendered="{!Opportunity.Brand_Name__c == 'Brigade Big'}"/>
+     <apex:image value="{!$Resource.Data2Directory}" rendered="{!Opportunity.Brand_Name__c == 'Data 2 Directory'}"/>
+     <apex:image value="{!$Resource.DirectHealthcareLeads}" rendered="{!Opportunity.Brand_Name__c == 'Direct Healthcare Leads'}"/>
+     <apex:image value="{!$Resource.EuropeanLists}" rendered="{!Opportunity.Brand_Name__c == 'European Lists'}"/>
+     <apex:image value="{!$Resource.EmailDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'Email Data Group'}"/>
+     <apex:image value="{!$Resource.GlobalHealthCare}" rendered="{!Opportunity.Brand_Name__c == 'Global Health Care'}"/>
+     <apex:image value="{!$Resource.GlobalBusinessArchives}" rendered="{!Opportunity.Brand_Name__c == 'Global Business Archives'}"/>
+     <apex:image value="{!$Resource.GlobalITUsersInc}" rendered="{!Opportunity.Brand_Name__c == 'Global IT Users Inc'}"/>
+     <apex:image value="{!$Resource.MarketingBase}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Base'}"/>
+     <apex:image value="{!$Resource.MarketingColors}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Colors'}"/>
+     <apex:image value="{!$Resource.MarketingDrips}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Drips'}"/>
+     <apex:image value="{!$Resource.MarketingForces}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Forces'}"/>
+     <apex:image value="{!$Resource.MediaSellersOnline}" rendered="{!Opportunity.Brand_Name__c == 'Media Sellers Online'}"/>
+     <apex:image value="{!$Resource.OnlineLeadsInc}" rendered="{!Opportunity.Brand_Name__c == 'Online Leads Inc'}"/>
+     <apex:image value="{!$Resource.PioneerMarketers}" rendered="{!Opportunity.Brand_Name__c == 'Pioneer Marketers'}"/>
+     <apex:image value="{!$Resource.PrepackagedLists}" rendered="{!Opportunity.Brand_Name__c == 'Prepackaged Lists'}"/>
+     <apex:image value="{!$Resource.ProcureDataInc}" rendered="{!Opportunity.Brand_Name__c == 'Procure Data Inc'}"/>
+     <apex:image value="{!$Resource.PublishingForces}" rendered="{!Opportunity.Brand_Name__c == 'Publishing Forces'}"/>
+     <apex:image value="{!$Resource.ROIMarketingCenter}" rendered="{!Opportunity.Brand_Name__c == 'ROI Marketing Center'}"/>
+     <apex:image value="{!$Resource.TechnologyUserLists}" rendered="{!Opportunity.Brand_Name__c == 'Technology User Lists'}"/>
+     <apex:image value="{!$Resource.WebmailingLists}" rendered="{!Opportunity.Brand_Name__c == 'Webmailing Lists'}"/>
+     <apex:image value="{!$Resource.XpressListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'Xpress Lists Web'}"/>
+     <apex:image value="{!$Resource.EZonemarketers}" rendered="{!Opportunity.Brand_Name__c == 'EZonemarketers'}"/>
+ </td></tr></table> 
+    <table width="700px" cellpadding="0" align="center"   cellspacing="0" border="0" style="border-top: none">
+    <tr height="50px">
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+      <tr>
+        <td><!--- 01-->
+            <table width="100%" cellpadding="1" cellspacing="1" border="0" style="border-top: none">
+                <tr>
+                    <td width="16%" style="font-size:13px"><b>Order Number:</b>
+                    <apex:repeat var="p" value="{!Opportunity}">
+    
+    
+        <apex:repeat var="c" value="{!p.Contracts__r}">
+            <apex:outputText value="{!c.ContractNumber}"/>
+        </apex:repeat>
+   
+</apex:repeat>
+                  </td>
+                    <td width="16%" >&nbsp;</td>
+                    <td width="16%" style="font-size:13px"><b>Insertion order for:</b></td>
+                    <td width="26%" >&nbsp;</td>
+                    <td width="16%" style="font-size:13px"><b>TIN:</b>13-4176938</td>
+                    <td width="16%" >&nbsp;</td>
+                </tr>
+            </table>
+        </td>
+      </tr>
+      <tr>
+        <td><!--- 02-->
+            <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none">
+                <tr style="border-bottom: none" bgcolor="#B2B2B2" height="50px">
+                    <td align="left" bgcolor="#B2B2B2"  height="30px">Vendor Contact Details</td>
+                    <td align="left" bgcolor="#B2B2B2"   height="30px">Client Contact Details</td>
+                </tr>
+             <tr> 
+               
+        <td valign='top'>
+           
+         
+           <!-- <apex:panelGroup rendered="{!Opportunity.Vendor_Contact_Detail__c==''}">         
+        						<apex:outputField value="{!Opportunity.Owner.Street}"/><br/>
+        						<apex:outputField value="{!Opportunity.Owner.City}"/><br/>
+       							 <apex:outputField value="{!Opportunity.Owner.State}"/><br/>
+        						<apex:outputField value="{!Opportunity.Owner.Country}"/><br/>
+       							 <apex:outputField value="{!Opportunity.Owner.Postalcode}"/><br/><br/>       							               
+      							  </apex:panelGroup>             
+        <apex:panelGroup rendered="{!Opportunity.Vendor_Contact_Detail__c!=''}"> --> 
+        <b>Name:</b> <apex:outputField value="{!Opportunity.Vendor_Name__c}"/><br/>
+        <b>Position:</b>   <apex:outputField value="{!Opportunity.Title_Authorization__c}"/><br/>
+           <apex:outputField value="{!Opportunity.Brand_Name__c}"/><br/>  
+       <apex:outputField value="{!Opportunity.Vendor_Contact_Detail__c}"/><br/>
+          <b> Address:</b><br/> <apex:outputField value="{!Opportunity.Owner.Street}"/><br/>
+        						<apex:outputField value="{!Opportunity.Owner.City}"/><br/>
+       							 <apex:outputField value="{!Opportunity.Owner.State}"/><br/>
+        						<apex:outputField value="{!Opportunity.Owner.Country}"/><br/>
+       							 <apex:outputField value="{!Opportunity.Owner.Postalcode}"/><br/>
+       							<b>Phone:</b>  <apex:outputField value="{!Opportunity.Owner.Phone}"/><br/>
+       							<b>Email:</b>   <apex:outputField value="{!Opportunity.Owner.Email}"/><br/>
+       							 
+        <!--  </apex:panelGroup> --></td>
+         
+         <td > 
+          <apex:panelGroup rendered="{!Opportunity.Client_Address_Entry__c==''}">
+                    <b> Name:</b> <apex:outputText value="{!Opportunity.Client_Name__r.name}"/><br/> 
+                    <b> Position: </b> <apex:outputField value="{!Opportunity.Client_Title__c}" /><br/><br/>
+                      <b>Address:</b><br/><apex:outputField value="{!Opportunity.Client_Name__r.MailingStreet}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.MailingCity}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.MailingState}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.MailingPostalCode}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.MailingCountry}"/><br/><br/>
+                       <b>Phone:</b> <apex:outputText value="{!Opportunity.Client_Phone__c}"/><br/>  
+                       <b>Email:</b><apex:outputField value="{!Opportunity.Client_Email__c}" /><br/>                 
+                      <b>Website: </b><apex:outputText value="{!Opportunity.Website__c}"/> 
+                    </apex:panelGroup>  
+                    
+                  <apex:panelGroup rendered="{!Opportunity.Client_Address_Entry__c!=''}">
+                    <apex:outputText value="{!Opportunity.Client_Address_Entry__c}"/>
+                    </apex:panelGroup>
+                  
+                    </td>                     
+    </tr>
+    </table>
+    
+    </td>
+      </tr>
+      
+      <tr><!--- 03-->
+        <td>
+        <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+            <tr>
+        <td align="left" width="70%" bgcolor="#B2B2B2" height="30px">Service Details: Please check the option you are interested in: </td>
+        <td align="left" width="30%" bgcolor="#B2B2B2" height="30px">Total Investment</td>
+    </tr>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details1__c!=''}">
+    <tr>
+        <td  width="70%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><apex:outputField value="{!Opportunity.Service_Details1__c}"/></td><td  width="30%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><apex:outputField value="{!Opportunity.Investment1__c}"/></td>
+    </tr>
+    </apex:panelGroup>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details_2__c!=''}">
+    <tr>
+        <td  width="70%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><apex:outputField value="{!Opportunity.Service_Details_2__c}"/></td><td  width="30%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><apex:outputField value="{!Opportunity.Investment2__c}"/></td> 
+    </tr>
+    </apex:panelGroup>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details_3__c!=''}">
+    <tr>
+        <td  width="70%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><apex:outputField value="{!Opportunity.Service_Details_3__c}"/></td><td  width="30%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><apex:outputField value="{!Opportunity.Investment3__c}"/></td> 
+    </tr>
+    </apex:panelGroup>
+    <apex:panelGroup rendered="{!Opportunity.Service_Details_4__c!=''}">
+    <tr>
+        <td  width="70%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><apex:outputField value="{!Opportunity.Service_Details_4__c}"/></td><td  width="30%" style="border-bottom:0px;border-top:0px;border-right:1px"><apex:outputField value="{!Opportunity.Investment4__c}"/></td> 
+    </tr>
+    </apex:panelGroup>
+    
+   
+        <tr>
+        <td  width="70%" style="border-bottom:0px;border-top:0px;border-right:1px" ><b>List type:</b><apex:outputField value="{!Opportunity.Primary_Service_Name__c}"/></td><td  width="30%" style="border-bottom:0px;border-top:0px;border-left:1px solid Gray"></td> </tr>
+       <tr>
+        <td  width="70%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><b>Industry:</b><apex:outputField value="{!Opportunity.Industry__c}"/></td><td  width="30%" style="border-bottom:0px;border-top:0px;border-left:1px solid Gray"></td> </tr> 
+         <tr>
+        <td  width="70%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><b>Employee size:</b><apex:outputField value="{!Opportunity.No_Of_Employees__c}"/></td><td  width="30%" style="border-bottom:0px;border-top:0px;border-left:1px solid Gray"></td> </tr>
+    <tr>
+    <td width="70%"  style="border-bottom:0px;border-top:0px;border-right:1px" ><b>Total Number of records:</b><apex:outputField value="{!Opportunity.Number_Of_Records__c}"/></td><td  width="30%" style="border-bottom:0px;border-top:0px;border-left:1px solid Gray"><apex:outputField value="{!Opportunity.Total_Investment__c}"/></td></tr> 
+    </table>
+          
+        </td>
+      </tr>
+      <apex:panelgroup rendered="{!Opportunity.Annu_Maint_Contract__c== True}">
+    <table border="0" width="100%" height="100%">
+    <tr>
+        <td align="left" bgcolor="#B2B2B2" colspan="2">Annual Maintenance contract (AMC)</td>        
+    </tr>
+   <hr/>
+    <apex:panelgroup rendered="{!Opportunity.AMC__c == NULL}">
+    <tr><td style="border-top:0px;border-bottom:0px;font-size:13px;" > <b>“Annual Maintenance contract (AMC) with Quarterly data updates” for an extra 30% will help improve quality of the
+     database and {!Opportunity.Brand_Name__c} will keep the data updated and delivery every quarter with a refreshed and verified email 
+    addresses*.</b><b style="font-size:13px;color:red"> Per Gartner, Contact Data goes bad over 5% to 7% every month which means over 84% of any data investment  
+   could be useless without a Data  AMC that provides regular updates.</b><b style="font-size:13px">All Projects with AMC are Email Verified prior to each  
+    Delivery and come with 80% accuracy guarantee on all other data fields.</b></td></tr>
+    
+        <tr><td style="border-top:0px;border-bottom:0px;font-size:13px;color:blue;"> (*3 updates will be provide across 12 months for the data delivered with this purchase. AMC for any other data purchased will be </td></tr>
+        <tr><td style="border-top:0px;border-bottom:0px;font-size:13px;color:blue;"> charged separately)</td></tr>  
+    </apex:panelgroup>
+     <apex:panelgroup rendered="{!Opportunity.AMC__c != NULL}">
+    <tr>
+     <td style="border-bottom:0px" ><apex:outputField value="{!Opportunity.AMC__c}"/></td></tr>  
+    </apex:panelgroup>
+    </table>
+  </apex:panelgroup>
+    <hr/>
+    <br/>
+             <tr ><!--- 04-->
+        <td>
+        <table width="700px"  cellpadding="0" cellspacing="0" border="1" >
+                <tr bgcolor="#B2B2B2" >
+                    <td align="left" width="100px" bgcolor="#B2B2B2" height="30px">Terms and Conditions:</td>
+                </tr >
+                <tr height="100px">
+                <td height="200px" width="100px">&nbsp;<apex:outputField value="{!Opportunity.Terms_And_Conditions__c}"/></td>
+                </tr>
+               
+        </table>
+      </td>
+      </tr>
+    <table><tr><td height="200px"></td></tr></table>
+       <tr><!--- 05-->
+        <td>
+        <table width="100%" cellpadding="4" cellspacing="0" border="1" >
+                <tr bgcolor="#B2B2B2"  height="30px">                 
+                    <td align="left" bgcolor="#B2B2B2">Authorization:&nbsp; <apex:outputField value="{!Opportunity.Brand_Name__c}"/> </td>
+                   <td align="left" bgcolor="#B2B2B2">Authorization:</td>
+                </tr>
+                <tr >
+                <td align="left" width="50%"><b>Name :</b><apex:outputField value="{!Opportunity.Vendor_Name__c}"/></td> 
+                  <td align="left" width="50%"><b>Name :</b><apex:outputField value="{!Opportunity.Client_Name__r.name}"/></td> 
+                    
+                
+                </tr>
+                <tr>
+                  <td align="left" width="50%"><b>Title :</b><apex:outputField value="{!Opportunity.Title_Authorization__c}"/></td> 
+                  <td align="left" width="50%"><b>Title :</b><apex:outputField value="{!Opportunity.Client_Title__c}"/></td>
+                  
+                  
+                </tr>
+                <tr>
+				<td align="left" width="50%"><b>Signature :</b><apex:outputField value="{!Opportunity.Name__r.Signature__c}"/></td>
+               <td align="left" width="50%"><b>Signature :</b><apex:outputField value="{!Opportunity.Signature__c}"/></td>
+                   
+                   
+                </tr>
+                <tr>
+                <td align="left" width="50%"><b>Date :</b><apex:outputText value="{0,date, dd'/'MM'/'yyyy}"><apex:param value="{!opportunity.current_date__c}"/></apex:outputText> </td>
+                   <td align="left" width="50%"><b>Date :</b><apex:outputField value="{!Opportunity.Deal_Approved_Date__c}"/></td>
+                    
+                 
+                </tr>
+        </table>
+        </td>
+      </tr> 
+    
+      
+      <tr height="200px" valign="bottom">
+      
+          <td>
+        <p align="center"><u><b>Please sign this Insertion Order and fax to:  &nbsp;<apex:outputField value="{!Opportunity.Fax__c}"/></b></u></p>
+        <p> <b>Note:</b>
+        <font>Your success is our top priority. Our objective is to provide you with the best quality data to achieve your marketing objectives. Our data quality process is thorough. Lists are updated weekly , and we use Postal-approved address standardization software and the USPS’ National Change of Address (NCOA) to identify changes. Lists are also double- verified against multiple sources as an additional integrity check. Given the nature of email even a perfect veritied email list could get 18% to 40% bounces based on the content of the email, the type of servers being used, Spam blocks and the domain you are sending emails from. We guarantee 80+% Email Deliverability with our Custom Built Lists. Should the hard bounce rate be over 20%,the warranty will be limited to provision of additional records only for these hard bounces.</font></p>
+      </td>
+     
+      </tr>
+    
+      </table>  
+      </apex:panelGroup>
+       <!--%%%%%%%%%% End of the code to render first template when user selects Template 4 %%%%%%%%%%-->
+      <!--%%%%%%%%%% Below code is to render first template when user selects Template 5 %%%%%%%%%%-->
+      
+   <apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template5'}">
+
+       <table width="700px" cellpadding="0" align="center"   cellspacing="0" border="1" style="margin: .5em; border-collapse: collapse;">
+           <tr > 
+               <td>
+                  <table width="100%"  height="100px" cellpadding="0" align="center"   cellspacing="0" border="1" style="border-top: none">
+                     <tr> 
+                        <td width="50%" rowspan="2" height="100px">   
+    				    	 <apex:image value="{!$Resource.B2BDataPartners}" rendered="{!Opportunity.Brand_Name__c == 'B2B Data Partners'}"/>
+						     <apex:image value="{!$Resource.HealthCareDatagroup}" rendered="{!Opportunity.Brand_Name__c == 'Health Care Data Group'}"/>
+						      <apex:image value="{!$Resource.InfoDataHouse}" rendered="{!Opportunity.Brand_Name__c == 'Info Data House'}"/>
+						      <apex:image value="{!$Resource.Lake_Group}" rendered="{!Opportunity.Brand_Name__c == 'Lake Group'}"/>
+						      <apex:image value="{!$Resource.ITDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'IT Data Group'}"/>
+						     <apex:image value="{!$Resource.B2BListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B Lists'}"/>
+						     <apex:image value="{!$Resource.B2BListWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B List'}"/>
+						     <apex:image value="{!$Resource.BrigadeBig}" rendered="{!Opportunity.Brand_Name__c == 'Brigade Big'}"/>
+						   <apex:image value="{!$Resource.StrategicOutSourcingServices}" rendered="{!Opportunity.Brand_Name__c == 'Strategic Outsourcing Services'}"/>
+						     <apex:image value="{!$Resource.Data2Directory}" rendered="{!Opportunity.Brand_Name__c == 'Data 2 Directory'}"/>
+						     <apex:image value="{!$Resource.DirectHealthcareLeads}" rendered="{!Opportunity.Brand_Name__c == 'Direct Healthcare Leads'}"/>
+						     <apex:image value="{!$Resource.EuropeanLists}" rendered="{!Opportunity.Brand_Name__c == 'European Lists'}"/>
+						     <apex:image value="{!$Resource.EmailDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'Email Data Group'}"/>
+						     <apex:image value="{!$Resource.GlobalHealthCare}" rendered="{!Opportunity.Brand_Name__c == 'Global Health Care'}"/>
+						     <apex:image value="{!$Resource.GlobalBusinessArchives}" rendered="{!Opportunity.Brand_Name__c == 'Global Business Archives'}"/>
+						     <apex:image value="{!$Resource.GlobalITUsersInc}" rendered="{!Opportunity.Brand_Name__c == 'Global IT Users Inc'}"/>
+						     <apex:image value="{!$Resource.MarketingBase}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Base'}"/>
+						     <apex:image value="{!$Resource.MarketingColors}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Colors'}"/>
+						     <apex:image value="{!$Resource.MarketingDrips}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Drips'}"/>
+						     <apex:image value="{!$Resource.MarketingForces}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Forces'}"/>
+						     <apex:image value="{!$Resource.MediaSellersOnline}" rendered="{!Opportunity.Brand_Name__c == 'Media Sellers Online'}"/>
+						     <apex:image value="{!$Resource.OnlineLeadsInc}" rendered="{!Opportunity.Brand_Name__c == 'Online Leads Inc'}"/>
+						     <apex:image value="{!$Resource.PioneerMarketers}" rendered="{!Opportunity.Brand_Name__c == 'Pioneer Marketers'}"/>
+						     <apex:image value="{!$Resource.PrepackagedLists}" rendered="{!Opportunity.Brand_Name__c == 'Prepackaged Lists'}"/>
+						     <apex:image value="{!$Resource.ProcureDataInc}" rendered="{!Opportunity.Brand_Name__c == 'Procure Data Inc'}"/>
+						     <apex:image value="{!$Resource.PublishingForces}" rendered="{!Opportunity.Brand_Name__c == 'Publishing Forces'}"/>
+						     <apex:image value="{!$Resource.ROIMarketingCenter}" rendered="{!Opportunity.Brand_Name__c == 'ROI Marketing Center'}"/>
+						     <apex:image value="{!$Resource.TechnologyUserLists}" rendered="{!Opportunity.Brand_Name__c == 'Technology User Lists'}"/>
+						     <apex:image value="{!$Resource.WebmailingLists}" rendered="{!Opportunity.Brand_Name__c == 'Webmailing Lists'}"/>
+						     <apex:image value="{!$Resource.XpressListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'Xpress Lists Web'}"/>
+						     <apex:image value="{!$Resource.EZonemarketers}" rendered="{!Opportunity.Brand_Name__c == 'EZonemarketers'}"/>
+                         </td>
+                        <td width="50%" height="50px" style="font-size:50px" align="center"><b>INVOICE</b></td>   
+                        </tr>
+                       <tr>
+                       <td>&nbsp;</td>
+                   </tr>
+             </table>
+          </td>
+      </tr>
+            <tr bgcolor="#bbbbbb">
+                 <td  bgcolor="#B2B2B2" height="50"><font size="6" color="white"> <center> Payment details <apex:outputField value="{!Opportunity.Payment_Details__c}"/></center></font></td> 
+            </tr>
+            <tr >
+                 <td>
+                        <table width="100%"  height="150px" cellpadding="0" align="center"   cellspacing="0" border="1" style="border-top: none">
+                          <tr> 
+                                 <td width="50%" ><b><u>FOR CHECK PAYMENT:</u></b><br/>
+                               <b> <apex:outputField value="{!Opportunity.Brand_Name__c}"/> </b> <br/>
+                               <apex:panelGroup rendered="{!Opportunity.Vendor_Contact_Detail__c==''}">         
+        						<apex:outputField value="{!Opportunity.Owner.Street}"/><br/>
+        						<apex:outputField value="{!Opportunity.Owner.City}"/><br/>
+       							 <apex:outputField value="{!Opportunity.Owner.State}"/><br/>
+        						<apex:outputField value="{!Opportunity.Owner.Country}"/><br/>
+       							 <apex:outputField value="{!Opportunity.Owner.Postalcode}"/><br/>
+      							  </apex:panelGroup>
+       							  <apex:panelGroup rendered="{!Opportunity.Vendor_Contact_Detail__c!=''}">
+       							  <apex:outputField value="{!Opportunity.Vendor_Name__c}"/><br/>
+        						 <apex:outputField value="{!Opportunity.Vendor_Contact_Detail__c}"/></apex:panelGroup><br/><br/>
+                           <b> <apex:outputText value="Send the check using our Fedex account # 366-359-940 (For check payment only)"/></b>
+                                 </td>
+                                 <td><b><u>FOR BANK TRANSFER(WIRE) PAYMENT</u></b><br/>
+                                     <b> Bank Name:</b> JP Morgan Chase<br/>
+                                     <b> Account Name:</b>B2B<br/>
+                                     <b> Account#:</b>9400811249<br/>
+                                      <b>Wire ROUTING#:</b>021000021<br/>
+                                     <b> ABA#/US ACH Routing#: </b> 322271627    <br/>                            
+                                      <b>Business Address: </b>8605 Santa Monica Blvd, Sept 83797, West Hollywood, CA 90069<br/>
+                                     
+                                     <b> Intl SWIFT CODE: </b>CHASUS33<br/>
+                                    <b>  Bank Address: </b>1415 India Street, San Diego, CA 92101<br/>
+                                     
+                                    <b> Originator to Beneficiary: </b> <apex:outputField value="{!Opportunity.Brand_Name__c}"/> -B2B division
+                                 </td></tr>
+                                 </table>
+                                
+                              
+                 </td> 
+            </tr>
+            <tr >
+                 <td>
+                         <table width="100%"  height="150px" cellpadding="0" align="center"   cellspacing="0" border="1" style="border-top: none">
+                          <tr> 
+                                 <td width="50%" height="100" ><b>Bill To:</b><br/> 
+                                  
+                                  <apex:outputField value="{!Opportunity.Client_Name__r.MailingStreet}"/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.MailingCity}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.MailingState}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.MailingPostalCode}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.MailingCountry}"/><br/>
+                              
+                                 </td>
+                                 <td height="100"><b>Ship To:</b><br/>
+                                 
+                                  <apex:outputField value="{!Opportunity.Client_Name__r.OtherStreet}"/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.OtherCity}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.OtherState}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.OtherPostalCode}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.OtherCountry}"/><br/>
+                               
+                                 </td>  
+                            </tr>
+                        </table>
+                 </td> 
+            </tr>
+            <tr >
+                 <td>
+                         <table width="100%"  height="100px" cellpadding="0" align="center"   cellspacing="0" border="1" style="border-top: none">
+                          <tr  bgcolor="#B2B2B2" style="color:white "> 
+                                 <td bgcolor="#B2B2B2" style="color:white " width="10%" height="50" align="center">SALES EXECUTIVE</td>
+                                 <td bgcolor="#B2B2B2" style="color:white " width="10%" height="50" align="center">INVOICE NUMBER</td>    
+                                 <td bgcolor="#B2B2B2" style="color:white " width="10%" height="50" align="center">REQUISITIONER</td> 
+                                 <td bgcolor="#B2B2B2" style="color:white " width="10%" height="50" align="center">SHIPPED VIA</td>   
+                                 <td bgcolor="#B2B2B2" style="color:white " width="10%" height="50" align="center">TERMS</td> 
+                            </tr>
+                            <tr> 
+                                 <td height="70" ><apex:outputField value="{!Opportunity.Owner.Name}"/></td>
+                                 <td height="70">  <apex:repeat var="opp" value="{!Opportunity}">   
+       							 <apex:repeat var="work" value="{!opp.Work_Orders__r}">
+        						    <apex:outputText value="{!work.Invoice_Number__c}"/>
+        							</apex:repeat>
+								 </apex:repeat></td>    
+                                 <td height="70"> &nbsp;</td>   
+                                 <td height="70"><apex:repeat var="opp" value="{!Opportunity}">   
+       							 <apex:repeat var="work" value="{!opp.Work_Orders__r}">
+        						    <apex:outputText value="{!work.Shipped_Via__c }"/>
+        							</apex:repeat>
+								 </apex:repeat> </td>    
+                                 <td height="70"> <apex:outputField value="{!Opportunity.Terms_And_Conditions__c}"/></td> 
+                            </tr>
+                         </table>
+                 </td> 
+            </tr>
+          
+         </table>
+            <table width="700px" cellpadding="0" align="center"   cellspacing="0" border="0" style="border-top: none">
+           <tr>
+                 <td>
+                         <table width="100%"  height="100px" cellpadding="0" align="center"   cellspacing="0" border="1" style="border-top: none">
+                          <tr   bgcolor="#B2B2B2" style="color:white "> 
+                                 <td width="50%" height="50"  align="center" bgcolor="#B2B2B2" cellspacing="5">Submitted to:<br/></td>
+                                 
+                                 <td width="50%" height="50"  align="center"  bgcolor="#B2B2B2" cellspacing="5">Submitted by:<br/></td> 
+                            </tr>
+                            <tr > 
+                                 <td width="50%"  ><b>Contact:</b><apex:outputField value="{!Opportunity.Client_Name__r.name}"/></td>
+                                  
+                                 <td width="50%"  ><b>Contact:</b><apex:outputField value="{!Opportunity.Vendor_Contact_Detail__c}"/><br/></td> 
+                            </tr>
+                            <tr> 
+                                 <td width="50%" ><b>Title:</b><apex:outputField value="{!Opportunity.Client_Title__c}"/></td>
+                                 
+                                 <td width="50%" ><b>Title:</b><apex:outputField value="{!Opportunity.Title_Authorization__c}"/><br/></td>    
+                            </tr>
+                            <tr> 
+                                 <td width="50%"  ><b>Email:</b><apex:outputField value="{!Opportunity.Client_Email__c}"/></td>
+                                  
+                                 <td width="50%" ><b>Email:</b><apex:outputField value="{!Opportunity.Owner.Email}"/><br/></td>   
+                            </tr>
+                            <tr> 
+                                 <td width="50%" ><b>Phone:</b><apex:outputField value="{!Opportunity.Client_Phone__c}"/></td>
+                                  
+                                 <td width="50%" ><b>Phone:</b><apex:outputField value="{!Opportunity.Owner.Phone}"/><br/></td>   
+                            </tr>
+                        </table>
+                 </td> 
+            </tr>
+         </table>
+           <tr> <td> <table><tr><td height="200px"></td></tr></table></td></tr>
+      
+            <tr >
+                 <td>
+                         <table width="100%"  height="150px" cellpadding="0" align="center"   cellspacing="0" border="1" style="border-top: none">
+                          <tr  bgcolor="#B2B2B2" style="color:white "> 
+                                 <td width="50%" height="50" align="center" bgcolor="#B2B2B2" colspan="2" >SERVICE DESCRIPTION</td>
+                            </tr>
+                           <tr > 
+                                 <td width="50%"  >Service Type</td>
+                                 <td><apex:outputField value="{!Opportunity.Type}"/><br/></td> 
+                            </tr>
+                            <tr> 
+                                 <td width="50%" >Target Criteria</td>
+                                 <td><apex:outputField value="{!Opportunity.Primary_Service_Name__c}"/><br/></td>    
+                            </tr>
+                            <tr> 
+                                 <td width="50%" >Total No Of Records</td>
+                                 <td><apex:outputField value="{!Opportunity.Number_Of_Records__c}"/><br/></td>    
+                            </tr>
+                            <tr> 
+                                 <td width="50%"  >Total Package Price</td>
+                                 <td> <apex:repeat var="opp" value="{!Opportunity}">   
+       							 <apex:repeat var="work" value="{!opp.Work_Orders__r}">
+        						    <apex:outputText value="{!work.Package_Price__c }"/>
+        							</apex:repeat>
+								 </apex:repeat><br/></td>    
+                            </tr>
+                        </table>
+                 </td> 
+            </tr>
+          
+             
+         <tr >
+                 <td>
+                         <table width="100%" cellpadding="0" align="center"   cellspacing="0" border="1" style="border-top: none">
+                          <tr style="color:white "> 
+                           <td width="10%" bgcolor="#B2B2B2" align="center" height="50px">Authorization:</td>
+                                 <td width="10%" bgcolor="#B2B2B2" align="center" height="50px">Authorization:<apex:outputField value="{!Opportunity.Brand_Name__c}"/></td>
+                                
+                            </tr>
+                              <tr > 
+                               <td width="10%"><b>Contact:</b><apex:outputField value="{!Opportunity.Client_Name__r.name}"/><br/></td> 
+                                 <td width="10%" ><b>Contact:</b><apex:outputField value="{!Opportunity.Vendor_Contact_Detail__c}"/><br/></td>
+                                
+                            </tr>
+                            <tr> 
+                             <td width="10%"><b>Title:</b><apex:outputField value="{!Opportunity.Client_Title__c}"/><br/></td> 
+                                 <td width="10%" ><b>Title:</b><apex:outputField value="{!Opportunity.Title_Authorization__c}"/><br/></td>
+                                   
+                            </tr>
+                            <tr> 
+                                <td width="10%" ><b>Email:</b><apex:outputField value="{!Opportunity.Client_Email__c}"/><br/></td>  
+                                 <td width="10%" ><b>Email:</b><apex:outputField value="{!Opportunity.Owner.Email}"/><br/></td>
+                              
+                            </tr>
+                            <tr> 
+                             <td width="10%"><b>Signature:</b><apex:outputField value="{!Opportunity.Signature__c}"/><br/><br/></td>   
+                                 <td width="10%" ><b>Signature:</b><apex:outputField value="{!Opportunity.Name__r.Signature__c}"/><br/><br/></td>
+                                
+                            </tr>
+                            <TR>
+ 							
+ 							<TD width="10px"><b>Date</b>
+   							 <apex:outputField value="{!Opportunity.Deal_Approved_Date__c}"/></TD>
+   							 <TD width="10px"><b>Date</b>
+   							<apex:outputText value="{0,date, dd'/'MM'/'yyyy}"><apex:param value="{!opportunity.current_date__c}"/></apex:outputText> </TD>
+								</TR>
+                        </table>
+                 </td> 
+            </tr>
+            
+  
+   
+       <tr >
+                 <td>
+                          <table width="100%"  cellpadding="0" cellspacing="0" border="0" ><tr><td color="#00CCFF" height="50px">
+                                
+                                 <center><br/><br/>  THIS AGREEMENT is made and entered into this <b>  <apex:outputField value="{!Opportunity.CloseDate}"/>, </b> by and between</center>
+                                   
+                                <br/><br/>
+                                   
+    
+                             <b> Following are the terms of this AGREEMENT:</b> <br/><br/>
+							<ol>
+							<li>
+                                <b>EMAIL CLEANSING</b>: <apex:outputField value="{!Opportunity.Brand_Name__c}"/> executes emails cleansing on behalf of &nbsp;<b><apex:outputField value="{!Opportunity.Account.Name}"/> </b> by using its email campaign/verification platform.
+
+							</li><li>
+                                <b>GUARANTEE</b>: <apex:outputField value="{!Opportunity.Brand_Name__c}"/> Guarantees 100% verification and cleansing of Email lists provided by &nbsp;<apex:outputField value="{!Opportunity.Account.Name}"/>.
+							</li>
+							<li>
+                                <b>DELIVERY TIME and MODE</b>: <apex:outputField value="{!Opportunity.Brand_Name__c}"/> will deliver the file within 3-5 business days upon receipt of the payment.
+							</li><li>
+                                <b>CONFIDENTIALITY</b>: The Customer Records, the Email Addresses, the Matched Records and all other information (collectively, the "Confidential Information") submitted by Customer to &nbsp; <apex:outputField value="{!Opportunity.Brand_Name__c}"/> and Used by &nbsp; <apex:outputField value="{!Opportunity.Brand_Name__c}"/> for Customer Email Campaigns will remain confidential.
+							</li><li>
+                                <b>FEES</b>: Customer will pay to &nbsp; <apex:outputField value="{!Opportunity.Brand_Name__c}"/> based on the work order, prior to &nbsp; <apex:outputField value="{!Opportunity.Brand_Name__c}"/> conducting Email/Data Services.
+								</li><li>
+                                <b>ENTIRE AGREEMENT</b>: This is the entire agreement between the parties and hereby supersedes all other agreements, negotiations, discussions or advertising material related to the subject matter hereof.
+                                </li></ol>
+                                </td>
+                            </tr>
+                        </table>
+                 </td> 
+            </tr>   
+            <table><tr><td height="150px"></td></tr></table>
+            <tr >
+                 <td>
+                         <table width="100%" cellpadding="0" align="center"   cellspacing="0" border="1" style="border-top: none">
+                          <tr  bgcolor="#bbbbbb" style="color:white "> 
+                          <td width="10%" bgcolor="#B2B2B2" height="50px" align="center">Authorization:</td>
+                                 <td width="10%" bgcolor="#B2B2B2" height="50px" align="center">Authorization:<apex:outputField value="{!Opportunity.Brand_Name__c}"/></td>
+                                 
+                            </tr>
+                               <tr > 
+                               <td width="10%"><b>Contact:</b><apex:outputField value="{!Opportunity.Client_Name__r.name}"/><br/></td> 
+                                 <td width="10%" ><b>Contact:</b><apex:outputField value="{!Opportunity.Vendor_Contact_Detail__c}"/><br/></td>
+                                
+                            </tr>
+                            <tr> 
+                             <td width="10%"><b>Title:</b><apex:outputField value="{!Opportunity.Client_Title__c}"/><br/></td> 
+                                 <td width="10%" ><b>Title:</b><apex:outputField value="{!Opportunity.Title_Authorization__c}"/><br/></td>
+                                   
+                            </tr>
+                            <tr> 
+                                <td width="10%" ><b>Email:</b><apex:outputField value="{!Opportunity.Client_Email__c}"/><br/></td>  
+                                 <td width="10%" ><b>Email:</b><apex:outputField value="{!Opportunity.Owner.Email}"/><br/></td>
+                              
+                            </tr>
+                            <tr> 
+                              <td width="10%"><b>Signature:</b><apex:outputField value="{!Opportunity.Signature__c}"/><br/><br/></td>  
+                                 <td width="10%" ><b>Signature:</b><apex:outputField value="{!Opportunity.Name__r.Signature__c}"/><br/><br/></td>
+                                
+                            </tr>
+                           <TR>
+                          
+ 							<TD width="10px" height="10px"><b>Date</b>
+   							 <apex:outputField value="{!Opportunity.Deal_Approved_Date__c}"/></TD>
+   							  <TD width="10px" height="10px"><b>Date</b>
+    						<apex:outputText value="{0,date, dd'/'MM'/'yyyy}"><apex:param value="{!opportunity.current_date__c}"/></apex:outputText> </TD>
+							</TR>
+                        </table>
+                 </td> 
+            </tr>
+               <tr> 
+                 <td align="center"><b>Kindly authorize and fax this to:  &nbsp;<apex:outputField value="{!Opportunity.Fax__c}"/></b></td>
+            </tr>
+         </apex:panelGroup>
+          <!--%%%%%%%%%% End of the code to render first template when user selects Template 5 %%%%%%%%%%-->
+          <!--%%%%%%%%%% Below code is to render first template when user selects Template 6 %%%%%%%%%%-->
+      
+   <apex:panelGroup rendered="{!Opportunity.Template_Type__c=='Template6'}">
+<!-- 
+           <head>
+<style>
+table{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+font-weight:bold;
+}
+p{
+    color:#aaa;
+}
+font{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:1em;
+font-weight:Normal;
+}
+
+</style>
+ </head> -->
+ <body>
+  
+ <table width="50%"><tr><td valign="top" width="50%" align="left">
+  <apex:image value="{!$Resource.B2BDataPartners}" rendered="{!Opportunity.Brand_Name__c == 'B2B Data Partners'}"/>
+  <apex:image value="{!$Resource.LakeGroupMedia}" rendered="{!Opportunity.Brand_Name__c == 'Lake Group Media'}"/>
+   <apex:image value="{!$Resource.InfoDataHouse}" rendered="{!Opportunity.Brand_Name__c == 'Info Data House'}"/>
+   <apex:image value="{!$Resource.Lake_Group}" rendered="{!Opportunity.Brand_Name__c == 'Lake Group'}"/>
+     <apex:image value="{!$Resource.HealthCareDatagroup}" rendered="{!Opportunity.Brand_Name__c == 'Health Care Data Group'}"/>
+      <apex:image value="{!$Resource.ITDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'IT Data Group'}"/>
+      <apex:image value="{!$Resource.StrategicOutSourcingServices}" rendered="{!Opportunity.Brand_Name__c == 'Strategic OutSourcing Services'}"/>
+     <apex:image value="{!$Resource.B2BListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B Lists'}"/>
+     <apex:image value="{!$Resource.B2BListWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B List'}"/>
+     <apex:image value="{!$Resource.BrigadeBig}" rendered="{!Opportunity.Brand_Name__c == 'Brigade Big'}"/>
+     <apex:image value="{!$Resource.Data2Directory}" rendered="{!Opportunity.Brand_Name__c == 'Data 2 Directory'}"/>
+     <apex:image value="{!$Resource.DirectHealthcareLeads}" rendered="{!Opportunity.Brand_Name__c == 'Direct Healthcare Leads'}"/>
+     <apex:image value="{!$Resource.EuropeanLists}" rendered="{!Opportunity.Brand_Name__c == 'European Lists'}"/>
+     <apex:image value="{!$Resource.EmailDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'Email Data Group'}"/>
+     <apex:image value="{!$Resource.GlobalHealthCare}" rendered="{!Opportunity.Brand_Name__c == 'Global Health Care'}"/>
+     <apex:image value="{!$Resource.GlobalBusinessArchives}" rendered="{!Opportunity.Brand_Name__c == 'Global Business Archives'}"/>
+     <apex:image value="{!$Resource.GlobalITUsersInc}" rendered="{!Opportunity.Brand_Name__c == 'Global IT Users Inc'}"/>
+     <apex:image value="{!$Resource.MarketingBase}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Base'}"/>
+     <apex:image value="{!$Resource.MarketingColors}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Colors'}"/>
+     <apex:image value="{!$Resource.MarketingDrips}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Drips'}"/>
+     <apex:image value="{!$Resource.MarketingForces}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Forces'}"/>
+     <apex:image value="{!$Resource.MediaSellersOnline}" rendered="{!Opportunity.Brand_Name__c == 'Media Sellers Online'}"/>
+     <apex:image value="{!$Resource.OnlineLeadsInc}" rendered="{!Opportunity.Brand_Name__c == 'Online Leads Inc'}"/>
+     <apex:image value="{!$Resource.PioneerMarketers}" rendered="{!Opportunity.Brand_Name__c == 'Pioneer Marketers'}"/>
+     <apex:image value="{!$Resource.PrepackagedLists}" rendered="{!Opportunity.Brand_Name__c == 'Prepackaged Lists'}"/>
+     <apex:image value="{!$Resource.ProcureDataInc}" rendered="{!Opportunity.Brand_Name__c == 'Procure Data Inc'}"/>
+     <apex:image value="{!$Resource.PublishingForces}" rendered="{!Opportunity.Brand_Name__c == 'Publishing Forces'}"/>
+     <apex:image value="{!$Resource.ROIMarketingCenter}" rendered="{!Opportunity.Brand_Name__c == 'ROI Marketing Center'}"/>
+     <apex:image value="{!$Resource.TechnologyUserLists}" rendered="{!Opportunity.Brand_Name__c == 'Technology User Lists'}"/>
+     <apex:image value="{!$Resource.WebmailingLists}" rendered="{!Opportunity.Brand_Name__c == 'Webmailing Lists'}"/>
+     <apex:image value="{!$Resource.XpressListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'Xpress Lists Web'}"/>
+     <apex:image value="{!$Resource.EZonemarketers}" rendered="{!Opportunity.Brand_Name__c == 'EZonemarketers'}"/>
+ </td></tr></table> 
+   <table width="100%"  cellpadding="0" cellspacing="0" border="0" ><tr><td color="#00CCFF" align="center" height="50px">
+       <b style="font-size:30px;color:#00CCFF">Work Order</b></td>
+        </tr>
+        </table>
+    <table width="700px" cellpadding="0" align="center"   cellspacing="0" border="0" style="border-top: none">
+    <tr height="50px">
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+      <tr>
+        <td><!--- 01-->
+             <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+<TR>
+    <TD width="10%" height="10px" align="center" ><b>Company Name</b></td>
+    <TD width="10%" height="10px" align="center"><apex:outputField value="{!Opportunity.Account.Name}"/></TD>
+    <TD width="10%" height="10px" align="center"><b>Date of Order</b></TD>
+    <TD width="20%" height="10px" align="center"><apex:outputField value="{!Opportunity.CloseDate}"/></TD>
+</TR>
+<TR>
+    <TD width="10%" height="10px" align="center"><b>Contact Person</b></TD>
+    <TD width="10%" height="10px" align="center"><apex:outputField value="{!Opportunity.Client_Name__c}"/></TD>
+    <TD width="10%" height="10px" align="center"><b>Title</b></TD>
+    <TD width="10%" height="10px" align="center"><apex:outputField value="{!Opportunity.Client_Title__c}"/></td>
+    </TR>
+    <TR>
+        <TD  width="10%" height="10px" align="center"><b>Phone Number</b></TD>
+        <TD  width="10%" height="10px" align="center"><apex:outputField value="{!Opportunity.Client_Phone__c}"/></TD>
+        <TD  width="10%" height="10px" align="center"><b>Email Address</b></TD>
+        <TD  width="10%" height="10px" align="center"><apex:outputField value="{!Opportunity.Client_Email__c}"/></TD>
+    </TR>
+    <TR>
+        <TD  width="10%" height="10px" align="center"><b>Reference Number</b></TD>
+        <TD  width="10%" height="10px" align="center"><apex:outputField value="{!Opportunity.Mobile_No__c}"/></TD>
+        <TD  width="10%" height="10px" align="center"><b>Project Start Date</b></TD>
+        <TD  width="10%" height="10px" align="center"><apex:outputField value="{!Opportunity.Project_Start_Date__c}"/></TD>
+    </TR>
+    
+
+</TABLE>
+        </td>
+      </tr>
+     
+      <tr>
+        <td><!--- 02-->
+            <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+<TR>
+    <TD  height="50px" align="center" bgcolor="#00CCFF"><U>PROJECT DETAILS</U></TD>
+    <TD  height="50px" align="center" bgcolor="#00CCFF"><U>INVESTMENT</U></TD>
+</TR>
+<TR>
+    <TD  height="10px" align="center"><apex:outputField value="{!Opportunity.Service_Details1__c}"/></TD>
+    <TD   height="10px" align="center"><apex:outputField value="{!Opportunity.Investment1__c}"/></TD>
+</TR>
+<TR>
+    <TD   height="10px" align="center"><apex:outputField value="{!Opportunity.Service_Details_2__c}"/></TD>
+    <TD   height="10px" align="center"><apex:outputField value="{!Opportunity.Investment2__c}"/></TD>
+</TR>
+<TR>
+    <TD   height="10px" align="center"><apex:outputField value="{!Opportunity.Service_Details_3__c}"/></TD>
+    <TD  height="10px" align="center"><apex:outputField value="{!Opportunity.Investment3__c}"/></TD>
+</TR>
+<TR>
+    <TD   height="10px" align="center"><apex:outputField value="{!Opportunity.Service_Details_4__c}"/></TD>
+    <TD  height="10px" align="center"><apex:outputField value="{!Opportunity.Investment4__c}"/></TD>
+</TR>
+</TABLE>
+    </td>
+      </tr>
+      
+      <tr><!--- 03-->
+        <td>
+        <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+            <tr>
+            <TD width="40%" height="10px" align="center" bgcolor="#00CCFF">ACCEPTANCE</TD>
+</TR>
+</TABLE>
+ <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+<TR>
+  <TD  height="10px" width="90px" align="center">For:</TD>
+  <TD  height="10px" width="50px" align="center">For: &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}"/></TD>
+  
+  
+</TR>
+</TABLE>
+ <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+<TR>
+<TD width="10px" height="10px"><b>Contact Person</b></TD>
+    <TD width="50px" height="10px"><apex:outputField value="{!Opportunity.Client_Name__c}"/></TD>
+    <TD width="10px" height="10px" ><b>Contact Person</b></TD>
+    <TD width="50px" height="10px"><apex:outputField value="{!Opportunity.Vendor_Name__c}"/></TD>
+    
+</TR>
+<TR>
+  <TD width="10px" height="10px"><b>Title</b></TD>
+    <TD width="50px" height="10px" ><apex:outputField value="{!Opportunity.Client_Title__c}"/></TD>
+    <TD width="10px" height="10px" ><b>Title</b></TD>
+    <TD  width="50px" height="10px" ><apex:outputField value="{!Opportunity.Title_Authorization__c}"/></TD>
+  
+</TR>
+<TR>
+<TD width="10px" height="10px" ><b>Phone  </b></TD>
+    <TD width="50px" height="10px"><apex:outputField value="{!Opportunity.Client_Phone__c}"/></TD>
+    <TD width="10px" height="10px"><b>Phone</b>  </TD>
+    <TD width="50px"  height="10px"><apex:outputField value="{!Opportunity.Owner.Phone}"/></TD>
+    
+</TR>
+<TR>
+ <TD width="10px" height="10px"><b>Email Address </b> </TD>
+    <TD width="50px" height="10px" color="blue"><apex:outputField value="{!Opportunity.Client_Email__c}"/></TD>
+    <TD width="10px" height="10px"><b>Email Address</b></TD>
+    <TD width="50px" height="10px"><apex:outputField value="{!Opportunity.Owner.Email}"/></TD>
+   
+</TR>
+<TR>
+ 
+ <TD width="10px" height="10px"><b>Date</b></TD>
+    <TD width="50px" height="10px"><apex:outputField value="{!Opportunity.Deal_Approved_Date__c}"/></TD>
+   <TD width="10px" height="10px"><b>Date</b></TD>
+    <TD width="50px" height="10px"><apex:outputText value="{0,date, dd'/'MM'/'yyyy}"><apex:param value="{!opportunity.current_date__c}"/></apex:outputText> </TD>
+   
+</TR>
+<TR>
+<TD width="10px" height="10px"><b>Signature</b></TD>
+    <TD width="40px" height="10px"><apex:outputField value="{!Opportunity.Signature__c}"/></TD>
+  <TD width="10px" height="50px"> <b>Signature</b></TD>
+    <TD width="50px" height="10px"><apex:outputField value="{!Opportunity.Name__r.Signature__c}"/></TD>
+
+  
+    
+        </tr>
+</table>
+          
+        </td>
+      </tr>
+        <table width="100%"  cellpadding="0" cellspacing="0" border="0" ><tr><td color="#00CCFF" align="center" height="50px">
+      <b style="color:#00CCFF"> <u>Data Service Agreement</u></b></td>
+        </tr>
+        </table>
+         <table width="100%"  cellpadding="0" cellspacing="0" border="0" ><tr><td color="#00CCFF" height="50px">
+         This Data Agreement (“Agreement”) is entered into by and between <b><apex:outputField value="{!Opportunity.Brand_Name__c}"/></b>, and <font style="color:red">(CLIENT)</font>. The terms and conditions of this Agreement shall be deemed incorporated by reference into any schedule hereto or order for data referring to this Agreement (each a "Data /Work Order") identifying the target data and such other additional terms and conditions as the parties may agree, including pricing. All Work Orders together with this Data Service Agreement shall be collectively known as the "Agreement." <br/><br/> 
+         Whereas, <apex:outputField value="{!Opportunity.Brand_Name__c}"/> is engaged in the publishing, writing, manufacture, distribution, reselling and licensing of proprietary databases and providing related marketing services, and has the rights to do so, and whereas, CLIENT desires to use such services to add data to its house file on the terms and conditions set forth herein.  Now, therefore, in consideration of the premises set forth above and the mutual promises, agreements and conditions stated herein, the parties agree as follows:<br/><br/>
+         <ol>
+         <li><b>DESCRIPTION OF SERVICE: </b> <apex:outputField value="{!Opportunity.Brand_Name__c}"/> will provide to CLIENT data records consisting of all of the following data attributes such as Company Name, Web Address, Contact Name, Title, Mailing Address, Phone Number, Fax Number, Employee Size, Revenue Size ($ Mil), SIC Code(S), Industry Details and Email Address</li>
+         <li><b>	DATA DELIVERY AND FORMAT:</b><apex:outputField value="{!Opportunity.Brand_Name__c}"/> will provide data to the CLIENT via email (Excel format) or FTP without charging any shipping costs. Data can be provided on a CD or other format at an extra cost </li>
+         <li><b>	PAYMENT: </b>CLIENT will pay&nbsp; <apex:outputField value="{!Opportunity.Brand_Name__c}"/> before data delivery.</li>
+         <li><b>	DATA USAGE: </b>The data will be delivered for CLIENT’s Unlimited Usage </li>
+         <li><b>	LIMITED LICENSE: </b>Upon purchase CLIENT will have a limited license to use the information delivered to you subject to these terms and conditions. You agree not to sell, sublicense, transfer or otherwise make available any portion of the information to anyone outside of your business organization, unless otherwise agreed prior to purchase.</li>
+         <li><b>CUSTOMER RESPONSIBILITIES:</b> CLIENT agrees that it is CLIENT’S responsibility to understand and comply with all federal, state, and local laws, rules, and regulations including do not call and do not fax regulations. CLIENT agrees to indemnify and hold&nbsp; <apex:outputField value="{!Opportunity.Brand_Name__c}"/> and its subsidiaries harmless against all claims related, in whole or in part, to your failure to comply with such laws, rules, and regulations.  For the purpose of resolving any dispute in any way related to your use of the information, or these terms and conditions, the state and federal courts located in California shall have exclusive jurisdiction. CLIENT agrees that such courts represent “convenient and appropriate” forums for this purpose. </li>
+         <li><b>GUARANTEE: </b><apex:outputField value="{!Opportunity.Brand_Name__c}"/> guarantee’s 85% accuracy on email deliverability and 95% accuracy on Company Name, Contact Name, Title, Mailing Address, Phone Number, Employee Size of the company, SIC Code(S), Website URL. If the CLIENT fails to achieve the said percentage of accuracy then &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}"/> will replace 1 to 1 contact or provide a credit for the same.</li>
+         <li><b>	LIMITATION OF LIABILITY:</b> In no event shall &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}"/> be liable for direct, indirect, special, exemplary, consequential, incidental, or punitive damage or loss for any claim or cause of action related to or arising out of this Agreement or the services performed hereunder. Our liability at all times will be limited to the purchase price paid by the CLIENT minus any delivery expenses incurred by&nbsp; <apex:outputField value="{!Opportunity.Brand_Name__c}"/>.</li>
+         <li><b>	ENTIRE AGREEMENT:</b> This is the entire agreement between &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}"/> and the CLIENT and hereby supercedes all other agreements, negotiations, discussions or promotional material related to the subject matter here of.</li>
+         </ol>
+        </td></tr></table> 
+      
+      <tr ><!--- 04-->
+        <td>
+        <table width="100%"  cellpadding="0" cellspacing="0" border="0" ><tr><td color="#00CCFF" align="center" height="50px">
+            <b style="color:#00CCFF"> <u>PAYMENT DETAILS</u></b></td></tr>
+        </table>
+      </td>
+      </tr>
+       <tr><!--- 05-->
+        <td>
+        <table width="100%" cellpadding="4" cellspacing="0" border="1" >
+               <TR>
+    <TD  width="40%" height="30px" align="center" bgcolor="#00CCFF">    Wire transfer</TD>
+    <TD  width="40%" height="30px" align="center" bgcolor="#00CCFF">    Overnight Payment</TD>
+</TR>
+<TR>
+    <TD  width="40%" height="50px">
+   <b>Bank Name: </b>
+   JP Morgan Chase <br/>
+   <b> Account Name: </b>
+   B2B <br/>
+   <b> Account# :</b> 
+   9400811249 <br/>
+   <b> Wire ROUTING#:</b>
+    021000021 <br/>
+   <b> ABA#/US ACH Routing#:</b> 
+   322271627 <br/>
+   <b> Intl SWIFT CODE: </b>
+   CHASUS33 <br/>
+   <b> Bank Address :</b>
+   1415 India Street, San Diego, CA 92101                              
+</TD>
+    <TD  width="40%" height="50px" align="center">
+    <u><b>Payable To:</b></u><br/><br/>
+      <apex:panelGroup rendered="{!Opportunity.Vendor_Contact_Detail__c==''}">         
+        <apex:outputField value="{!Opportunity.Owner.Street}"/><br/>
+        <apex:outputField value="{!Opportunity.Owner.City}"/><br/>
+        <apex:outputField value="{!Opportunity.Owner.State}"/><br/>
+        <apex:outputField value="{!Opportunity.Owner.Country}"/><br/>
+        <apex:outputField value="{!Opportunity.Owner.Postalcode}"/><br/>
+        </apex:panelGroup>
+         <apex:panelGroup rendered="{!Opportunity.Vendor_Contact_Detail__c!=''}">
+         <apex:outputField value="{!Opportunity.Vendor_Name__c}"/><br/>
+         <apex:outputField value="{!Opportunity.Vendor_Contact_Detail__c}"/></apex:panelGroup></td>
+</TR>
+        </table>
+        </td>
+      </tr> 
+      <table><tr><td height="250"></td></tr></table>
+  <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+   <TR>
+    <TD width="40%" height="10px" align="center" bgcolor="#00CCFF">AUTHORIZATION</TD>
+</TR>
+</TABLE>
+<table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+<TR>
+  <TD  height="10px" width="90px" align="center">For:</TD>
+  <TD  height="10px" width="50px" align="center">For: &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}"/></TD>
+  
+  
+</TR>
+</TABLE>
+ <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+<TR>
+<TD width="10px" height="10px"><b>Contact Person</b></TD>
+    <TD width="50px" height="10px"><apex:outputField value="{!Opportunity.Client_Name__c}"/></TD>
+    <TD width="10px" height="10px" ><b>Contact Person</b></TD>
+    <TD width="50px" height="10px"><apex:outputField value="{!Opportunity.Vendor_Name__c}"/></TD>
+    
+</TR>
+<TR>
+  <TD width="10px" height="10px"><b>Title</b></TD>
+    <TD width="50px" height="10px" ><apex:outputField value="{!Opportunity.Client_Title__c}"/></TD>
+    <TD width="10px" height="10px" ><b>Title</b></TD>
+    <TD  width="50px" height="10px" ><apex:outputField value="{!Opportunity.Title_Authorization__c}"/></TD>
+  
+</TR>
+<TR>
+<TD width="10px" height="10px" ><b>Phone  </b></TD>
+    <TD width="50px" height="10px"><apex:outputField value="{!Opportunity.Client_Phone__c}"/></TD>
+    <TD width="10px" height="10px"><b>Phone</b>  </TD>
+    <TD width="50px"  height="10px"><apex:outputField value="{!Opportunity.Owner.Phone}"/></TD>
+    
+</TR>
+<TR>
+ <TD width="10px" height="10px"><b>Email Address </b> </TD>
+    <TD width="50px" height="10px" color="blue"><apex:outputField value="{!Opportunity.Client_Email__c}"/></TD>
+    <TD width="10px" height="10px"><b>Email Address</b></TD>
+    <TD width="50px" height="10px"><apex:outputField value="{!Opportunity.Owner.Email}"/></TD>
+   
+</TR>
+<TR>
+ 
+ <TD width="10px" height="10px"><b>Date</b></TD>
+    <TD width="50px" height="10px"><apex:outputField value="{!Opportunity.Deal_Approved_Date__c}"/></TD>
+   <TD width="10px" height="10px"><b>Date</b></TD>
+    <TD width="50px" height="10px"><apex:outputText value="{0,date, dd'/'MM'/'yyyy}"><apex:param value="{!opportunity.current_date__c}"/></apex:outputText> </TD>
+   
+</TR>
+<TR>
+<TD width="10px" height="10px"><b>Signature</b></TD>
+    <TD width="40px" height="10px"><apex:outputField value="{!Opportunity.Signature__c}"/></TD>
+  <TD width="10px" height="50px"> <b>Signature</b></TD>
+    <TD width="50px" height="10px"><apex:outputField value="{!Opportunity.Name__r.Signature__c}"/></TD>
+
+  
+    
+        </tr>
+</table>
+<table width="100%" height="50px" cellpadding="0" cellspacing="0" border="0" style="border-top: none">
+<tr><td align="center" height="50px">
+<b style="color:#00CCFF">
+Please sign this agreement and fax to  &nbsp;<apex:outputField value="{!Opportunity.Fax__c}"/></b></td></tr></table>
+<table width="100%" height="30px" cellpadding="0" cellspacing="0" border="0" style="border-top: none">
+<tr><td align="center" height="30px"><b style="color:#00CCFF">
+Or</b></td></tr></table>
+<table width="100%" height="30px" cellpadding="0" cellspacing="0" border="0" style="border-top: none">
+<tr><td align="center" height="30px"><b style="color:#00CCFF">
+Please send this agreement to me via email post signature</b></td></tr></table>
+
+</table>
+ </body>
+ </apex:panelGroup>
+ <!--%%%%%%%%%% End of the code to render first template when user selects Template 6 %%%%%%%%%%-->
+</apex:page>

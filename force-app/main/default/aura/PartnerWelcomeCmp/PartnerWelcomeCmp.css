@@ -1,0 +1,231 @@
+/*.THIS .mainComp {
+position: sticky;
+
+}*/
+.THIS .container{
+    /* height: 100vh; */
+}
+.THIS .custom-scrollable-container {
+    /*    Enable vertical scrolling */
+    height: 84vh; /*  overflow: auto;
+    overflow-y: scroll; Set your desired height value */
+    
+    border:  ; /* Add a border for visibility */
+    padding: 10px; /* Optional: Add padding for spacing */
+    z-index: -1;  
+}
+
+.THIS .custom-scrollable-content { 
+    z-index: -1;
+    /* Add any desired styles for the content inside the scrollable container */
+}
+.THIS .slds-page-header{
+    z-index: 100;   
+}
+.THIS .A{
+    background-color :#F1F0F0;
+    box-shadow: -4px 0px 0px 0px #dedae3;
+}
+.THIS .B{
+    background-color :white;
+    box-shadow: -4px 0px 0px 0px #dedae3;
+}
+.THIS .hide {
+    display: none;
+}
+
+.THIS .myDIV:hover + .hide {
+    display: block;
+    color: red;
+    position:absolute;
+    float:left;
+    margin-right:200px;
+    width:10%;
+    height:auto;
+    transition: all 10s ease;
+}
+.THIS.over {
+    overflow-y: auto;
+    
+}
+.THIS .scrollable-container {
+    overflow-y: auto;
+    height: 100px;
+    border:  ; /* Add a border for visibility */
+    padding: 10px; /* Optional: Add padding for spacing */
+    z-index: -1;  
+    
+}
+
+
+.THIS .scrollable-content {
+    /* Add any desired styles for the content inside the scrollable container */
+}
+.THIS .scrollable-container::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+.THIS .scrollable-container::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.THIS .scrollable-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+.THIS .slds-align_absolute-center{
+    z-index: -1;
+}
+.THIS .myClass1 {
+    background-color: #DCD0FF;
+}
+
+.THIS .myClass2 {
+    background-color: #BDEDFF;
+}
+
+
+.THIS .myClass3 {
+    background-color: #A0D6B4;
+}
+.THIS.A{
+    background-color:#CBCBCB;
+    width: 1200px;
+    min-height: 100px;
+    height: auto;
+    margin: 80px auto 0px auto;
+    padding: 10px 10px; 
+    overflow:auto
+}
+.THIS.e{
+    background-color:#CBCBCB;
+}
+.THIS.over {
+    overflow-y: auto;
+    
+}
+.THIS .scrollable-container1 {
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    height:80vh;/* Set the desired height of the scrollable container */
+    border:  ; /* Add a border for visibility */
+    padding: 10px; /* Optional: Add padding for spacing */
+}
+
+.THIS .scrollable-content1 {
+    
+    /* Add any desired styles for the content inside the scrollable container */
+}
+.THIS .scrollable-container1::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+.THIS .scrollable-container1::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.THIS .scrollable-container1::-webkit-scrollbar-track {
+    background: transparent;
+}
+.THIS .slds-align_absolute-center{
+    z-index: -1;
+} 
+.THIS .header{
+    margin-left:12px;
+    position:sticky;
+    
+}
+.THIS .custom-button{
+    background-color:#9E7BFF;
+    color:white;
+    border: 2px solid #9E7BFF;
+    
+}
+.THIS .custom-button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);  
+    color:white;
+    font-weight : bold ;
+}
+.THIS .sidenav {
+    height: 100%;
+    font-weight: bold;
+    font-size:15px;
+    position: fixed;
+    color:#9E7BFF;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    margin-right:5px;
+    overflow-y: auto;
+    overflow-x: auto;
+    
+}
+
+.THIS .sidenav:hover{
+    color:#9E7BFF;
+    font-weight: bold;
+}
+.THIS .Navigationbutton:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);  
+    color:#9E7BFF;
+    font-weight: bold;
+}
+
+.THIS .sidenav::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+    
+}
+
+.THIS .sidenav::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.THIS .sidenav::-webkit-scrollbar-track {
+    background: transparent;
+}
+.THIS .no-border-input .slds-input {
+    border: none;
+    box-shadow: none;
+    background-color:#e2dce3;
+    
+}
+.THIS .chnageInput .slds-input{
+  /*border: none;
+    box-shadow: none;*/
+    background-color:white;
+    
+}
+.THIS .userButton:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19); 
+    
+}
+.THIS .logoutclass:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19); 
+    background-color:#cdb2d4;
+}
+.THIS .custom-button1{
+    color:black;
+    width: 168px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 8px;
+     box-shadow:none;
+}
+.THIS .custom-button1:hover{
+    /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19); */
+     
+    
+    background:  #E9E8FF no-repeat;
+    color:#9E7BFF;
+    font-weight : bold ;
+     box-shadow:none;
+}
+.THIS .custom-button1:focus {
+    background: #E9E8FF fixed;
+    outline-color: transparent ;
+      border:none;
+     box-shadow:none;
+     color:#9E7BFF;
+}

@@ -1,0 +1,43 @@
+<apex:page showHeader="true" sidebar="false">
+<!-- <apex:page controller="SalesReport_Update_IsFollowUp" showHeader="true" sidebar="false">
+  <apex:form >
+  <table width='100%' boreder='1'>
+  <tr> <H2> Buttons for Leads</H2></tr>
+  <tr>
+  <td>
+  <apex:commandButton value="ThisMonth" action="{!getThisMonthInfo}"/>
+  </td>
+  <td>
+  <apex:commandButton value="LastMonth" action="{!getLastMonthInfo}"/>
+  </td>
+  <td>
+  <apex:commandButton value="LastBeforeMonth" action="{!getBeforeLastMonthInfo}"/>
+  </td>
+  <td>
+  <apex:commandButton value="FEBRUARY" action="{!getFebruaryMonthInfo}"/>
+  </td>
+  </tr>
+  <tr></tr>
+  </table>
+  
+  <table width='100%' boreder='1'>
+  <tr></tr>
+  <tr> <H2> Buttons for Opportunity</H2></tr>
+  <tr>
+  <td>
+  <apex:commandButton value="ThisMonth" action="{!getCurrentMonthInfo_Oppty}"/>
+  </td>
+  <td>
+  <apex:commandButton value="LastMonth" action="{!getLastMonthInfo_Oppty}"/>
+  </td>
+  <td>
+  <apex:commandButton value="LastBeforeMonth" action="{!getBeforeLastMonthInfo_Oppty}"/>
+  </td>
+  <td>
+  <apex:commandButton value="FEBRUARY_Oppty" action="{!getBeforeLastMonthInfo_Oppty_Feb}"/>
+  </td>
+  </tr>
+  </table>
+  </apex:form>
+   -->
+</apex:page>

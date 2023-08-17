@@ -1,0 +1,4 @@
+<apex:page controller="DocusignStatusController" action="{!analysePost}">
+    
+{!responseGot}    
+</apex:page>

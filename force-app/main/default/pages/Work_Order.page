@@ -1,0 +1,192 @@
+<apex:page standardController="Work_Order__c"  showHeader="false" sidebar="false" standardStylesheets="true" renderAs="pdf"  >
+
+
+
+
+  <table border="1" style="width:100%;margin-left:0px;height:850px;border:0px solid Gray;border-bottom:0px solid gray;">
+
+  <td>
+  
+  <div>
+               <table height="200px" width="100%" border="1" style="border-top:0px solid gray;border-bottom:0px solid gray;border-right:0px solid gray;border-left:0px solid gray;margin-top:0px;">
+               <tr>
+               <td width="100%" style="border-top:0px solid gray;border-bottom:0px solid gray;border-right:0px solid gray;border-left:0px solid gray;">
+                    <table width="100%" style="border-top:0px solid gray;border-bottom:0px solid gray;border-right:0px solid gray;border-left:0px solid gray;margin-top:0px">
+                       <img  src='{!URLFOR($Resource.Header_logo)}' style="margin-top:-2px;width:100%" />
+                       </table></td> </tr>
+                
+                 <table style="border:0;margin-left:57px;margin-top:-720px" cellspacing="0" cellpadding="0" height="50px" width="85%">
+                 
+                 
+                 <table style="border-top:1px solid gray;border-bottom:1px solid gray;border-right:0px solid gray;border-left:1px solid gray;margin-left:57px;margin-top:0px" cellspacing="0" cellpadding="0" width="85%">
+                 <tr>
+                 <td width="100%" height="30px" style="border-right:1px solid gray">
+                              
+                 <apex:outputText value="Insertion Order for" style="font-size:12pt;color:red;font-weight:bold;padding-left:20px" /></td>
+                 </tr>
+                </table> 
+                <table style="border-top:0px solid gray;border-bottom:1px solid gray;border-right:0px solid gray;border-left:1px solid gray;margin-left:57px;margin-top:0px" cellspacing="0" cellpadding="0" width="85%" height="20px">
+                  <tr>
+                 <td width="25%" height="25px" style="border-right:1px solid gray"><apex:outputText value="Ref:" style="padding-left:20px;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray"><apex:outputText value="{!Work_Order__c.Ref__c}" style="padding-left:20px;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray"><apex:outputText value="Date:" style="padding-left:20px;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray"><apex:outputText value="{!Work_Order__c.Date__c}" style="padding-left:20px;font-size:10pt;font-weight:bold"></apex:outputText></td>
+                 </tr>
+                 </table>
+                 
+                 
+                 
+                 <table style="border-top:1px solid gray;border-bottom:1px solid gray;border-right:0px solid gray;border-left:1px solid gray;margin-left:57px;margin-top:20px" cellspacing="0" cellpadding="0" width="85%">
+                 <tr>
+                 <td width="50%" height="30px" style="border-right:0px solid gray">
+                              
+                 <apex:outputText value="Client Contact" style="font-size:12pt;color:red;font-weight:bold;padding-left:20px" /></td>
+                 <td width="50%" height="30px" style="border-right:1px solid gray">
+                              
+                 <apex:outputText value="Lists & Campaign Contact" style="font-size:12pt;color:red;font-weight:bold;padding-left:20px" /></td>
+                 
+                 </tr>
+                </table>
+               
+                <table style="border-top:0px solid gray;border-bottom:1px solid gray;border-right:0px solid gray;border-left:1px solid gray;margin-left:57px;margin-top:0px" cellspacing="0" cellpadding="0" width="85%">
+                 <tr>
+                 <td width="50%" height="100px" style="border-right:1px solid gray">
+                 <table border="0" width="100%">
+                 
+            <tr><td width="34%"><apex:outputText value="Company Name:" style="font-size:10pt;color:Black;font-weight:bold;padding-left:0px;" /></td><td style="padding-left:-5px"><apex:outputText value="{!Work_Order__c.Company_Name__c}" style="padding-left:-5px"></apex:outputText></td></tr>
+              <tr><td width="34%"><apex:outputText value="Client Contact:" style="font-size:10pt;color:Black;font-weight:bold;padding-left:0px" /></td><td style="padding-left:-5px"><apex:outputText value="{!Work_Order__c.Client_Contact__c}"></apex:outputText></td></tr>
+             <tr><td width="34%"><apex:outputText value="Email:" style="font-size:10pt;color:Black;font-weight:bold;padding-left:0px" /></td><td style="padding-left:-50px"><apex:outputText value="{!Work_Order__c.Email__c}" ></apex:outputText></td></tr>
+             <tr><td width="34%"><apex:outputText value="Phone:" style="font-size:10pt;color:Black;font-weight:bold;padding-left:0px" /></td><td style="padding-left:0px"><apex:outputText value="{!Work_Order__c.Phone__c}"></apex:outputText></td></tr>  
+                 </table></td>
+                 <td width="50%" height="100px" style="border-right:1px solid gray">
+                 <table border="0" width="100%">
+                 
+             <tr><td width="38%" ><apex:outputText value="Company Name:" style="font-size:10pt;color:Black;font-weight:bold;padding-left:0px" /></td><td style="padding-left:15px"><apex:outputText value="{!Work_Order__c.Company_Name1__c}"></apex:outputText></td></tr>
+             <tr><td><apex:outputText value="Sales Exec:" style="font-size:10pt;color:Black;font-weight:bold;padding-left:0px" /></td><td style="padding-left:15px"><apex:outputText value="{!Work_Order__c.Sales_Executive__c}"></apex:outputText></td></tr>
+            <tr><td><apex:outputText value="Email:" style="font-size:10pt;color:Black;font-weight:bold;padding-left:-5px" /></td><td style="padding-left:5px"><apex:outputText value="{!Work_Order__c.Email1__c}"></apex:outputText></td></tr>
+            <tr><td width="34%"><apex:outputText value="Phone:" style="font-size:10pt;color:Black;font-weight:bold;padding-left:0px" /></td><td style="padding-left:15px"><apex:outputText value="{!Work_Order__c.Phone1__c}"></apex:outputText></td></tr>  
+                </table></td>
+                 </tr>
+                </table> 
+                
+                
+                
+                <table style="border-top:1px solid gray;border-bottom:1px solid gray;border-right:0px solid gray;border-left:1px solid gray;margin-left:57px;margin-top:20px" cellspacing="0" cellpadding="0" width="85%">
+                 <tr>
+                 <td width="50%" height="30px" style="border-right:0px solid gray">
+                              
+                 <apex:outputText value="Tasks" style="font-size:12pt;color:red;font-weight:bold;padding-left:20px" /></td>
+                 <td width="50%" height="30px" style="border-right:1px solid gray;">
+                              
+                 <apex:outputText value="TargetMarket" style="font-size:12pt;color:red;font-weight:bold;padding-left:20px" /></td>
+                 
+                 </tr>
+                </table>
+                 <table style="border-top:0px solid gray;border-bottom:1px solid gray;border-right:0px solid gray;border-left:1px solid gray;margin-left:57px;margin-top:0px" cellspacing="0" cellpadding="0" width="85%">
+                 <tr>
+                 <td width="50%" height="70px" style="border-right:1px solid gray">
+                              
+                 <apex:outputText value="{!Work_Order__c.Tasks__c}" style="font-size:10pt;color:Black;font-weight:bold;padding-left:20px" /></td>
+                 <td width="50%" height="70px" style="border-right:1px solid gray">
+                              
+                 <apex:outputText value="{!Work_Order__c.Target_Market__c}" style="font-size:10pt;color:Black;font-weight:bold;padding-left:20px" /></td>
+                 
+                 </tr>
+                </table> 
+                
+                
+                 <table style="border-top:1px solid gray;border-bottom:1px solid gray;border-right:0px solid gray;border-left:1px solid gray;margin-left:57px;margin-top:20px" cellspacing="0" cellpadding="0" width="85%">
+                 <tr>
+                 <td width="50%" height="30px" style="border-right:0px solid gray">
+                              
+                 <apex:outputText value="Package Details" style="font-size:12pt;color:red;font-weight:bold;padding-left:20px" /></td>
+                 <td width="50%" height="30px" style="border-right:1px solid gray">
+                              
+                 <apex:outputText value="Package Price" style="font-size:12pt;color:red;font-weight:bold;padding-left:160px" /></td>
+                 
+                 </tr>
+                </table>
+                 <table style="border-top:0px solid gray;border-bottom:1px solid gray;border-right:0px solid gray;border-left:1px solid gray;margin-left:57px;margin-top:0px" cellspacing="0" cellpadding="0" width="85%">
+                 <tr>
+                 <td width="75%" height="60px" style="border-right:1px solid gray">
+                              
+                 <apex:outputText value="{!Work_Order__c.Package_Details__c}" style="font-size:10pt;color:Black;font-weight:bold;padding-left:20px" /></td>
+                 <td width="25%" height="60px" style="border-right:1px solid gray">
+                              
+                 <apex:outputText value="{!Work_Order__c.Package_Price__c}" style="font-size:10pt;color:Black;font-weight:bold;padding-left:20px" /></td>
+                 
+                 </tr>
+                </table> 
+                 <table style="border-top:0px solid gray;border-bottom:1px solid gray;border-right:0px solid gray;border-left:1px solid gray;margin-left:57px;margin-top:0px" cellspacing="0" cellpadding="0" width="85%">
+                 <tr>
+                 <td width="100%" height="100px" style="border-right:1px solid gray;">
+                  <table style="margin-top:-50px" >
+                              
+                 <tr><td  ><apex:outputText value="Guarantees & Warranties:" style="font-size:12pt;color:red;font-weight:bold;padding-left:20px" /></td></tr>
+                 <tr><td><apex:outputText value="{!Work_Order__c.Gurantees_Warrenties__c}" style="font-size:10pt;color:Black;font-weight:bold;padding-left:20px" /></td></tr>
+                 </table> </td>
+                 
+                 </tr>
+                </table>
+                
+                
+                
+                
+                 <table style="border-top:1px solid gray;border-bottom:1px solid gray;border-right:0px solid gray;border-left:1px solid gray;margin-left:57px;margin-top:20px" cellspacing="0" cellpadding="0" width="85%">
+                 <tr>
+                 <td width="50%" height="30px" style="border-right:1px solid gray">
+                              
+                 <apex:outputText value="Authorization – B2BMCS" style="font-size:12pt;color:red;font-weight:bold;padding-left:20px" /></td>
+                 
+                 <td width="50%" height="30px" style="border-right:1px solid gray">
+                              
+                 <apex:outputText value="Authorization –   " style="font-size:12pt;color:red;font-weight:bold;padding-left:20px" /></td>
+                 
+                 </tr>
+                </table> 
+                <table style="border-top:0px solid gray;border-bottom:1px solid gray;border-right:0px solid gray;border-left:1px solid gray;margin-left:57px;margin-top:0px" cellspacing="0" cellpadding="0" width="85%" height="20px">
+                  <tr>
+                 <td width="25%" height="25px" style="border-right:1px solid gray;border-top:0px solid gray"><apex:outputText value="Print Name:" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray;border-top:0px solid gray"><apex:outputText value="{!Work_Order__c.Print_Name__c}" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray"><apex:outputText value="Print Name:" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray"><apex:outputText value="{!Work_Order__c.Print_Name1__c}" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td>
+                 </tr>
+                  <tr>
+                 <td width="25%" height="25px" style="border-right:1px solid gray;border-top:1px solid gray"><apex:outputText value="Title:" style="padding-left:20px;border-top:0px solid gray;border-right:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray;border-top:1px solid gray;"><apex:outputText value="{!Work_Order__c.Title__c}" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray;border-top:1px solid gray"><apex:outputText value="Title:" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray;border-top:1px solid gray"><apex:outputText value="{!Work_Order__c.Title1__c}" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td>
+                 </tr>
+                  <tr>
+                 <td width="25%" height="50px" style="border-right:1px solid gray;border-top:1px solid gray"><apex:outputText value="Address:" style="padding-left:20px;border-top:0px solid gray;border-right:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray;border-top:1px solid gray;"><apex:outputText value="{!Work_Order__c.Address__c}" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray;border-top:1px solid gray"><apex:outputText value="Address:" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray;border-top:1px solid gray"><apex:outputText value="{!Work_Order__c.Address1__c}" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td>
+                 </tr>
+                  <tr>
+                 <td width="25%" height="25px" style="border-right:1px solid gray;border-top:1px solid gray"><apex:outputText value="Date:" style="padding-left:20px;border-top:0px solid gray;border-right:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray;border-top:1px solid gray;"><apex:outputText value="{!Work_Order__c.Gurantees_Warrenties__c}" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray;border-top:1px solid gray"><apex:outputText value="Date:" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray;border-top:1px solid gray"><apex:outputText value="{!Work_Order__c.Date1__c}" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td>
+                 </tr>
+                 <tr>
+                 <td width="25%" height="50px" style="border-right:1px solid gray;border-top:1px solid gray"><apex:outputText value="Signature:" style="padding-left:20px;border-top:0px solid gray;border-right:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray;border-top:1px solid gray;"><apex:outputText value="{!Work_Order__c.Signature__c}" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray;border-top:1px solid gray"><apex:outputText value="Signature:" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td><td width="25%" height="25px" style="border-right:1px solid gray;border-top:1px solid gray"><apex:outputText value="{!Work_Order__c.Signature1__c}" style="padding-left:20px;border-top:0px solid gray;font-size:10pt;font-weight:bold"></apex:outputText></td>
+                 </tr>
+                 </table>
+                
+                <table  cellspacing="0" cellpadding="0" width="100%" style="margin-top:10px">
+                <tr>
+                <td style="font-size:12pt;color:red;padding-left:120px;margin-top:20px"><u>Please sign and fax this Insertion Order to 800-524-5813/786-226-0065</u>
+             
+                </td>
+                </tr>
+                
+                </table>
+                
+                
+                
+                
+                 
+                </table>
+                
+                
+                
+              </table>
+              
+            
+  </div>
+ </td>
+  </table>
+  
+       
+       
+    <!----------------Content to be Changed for Every Page Ends Please Keep Code Alignment as it is!!!!!!!!!!!!!---------------------------->
+ 
+   
+
+</apex:page>

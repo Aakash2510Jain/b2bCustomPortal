@@ -1,0 +1,49 @@
+<apex:page Controller="OpportunityEmailerController"  >      
+  <apex:form id="myform">
+    <apex:pageMessages />
+   <apex:pageBlock title="Send an Email" id="block1">
+      <apex:pageBlockButtons location="Both">
+        <apex:commandButton action="{!backToTemplateViewer}" value="Back to TemplateViewer" />
+        <apex:commandButton action="{!sendDoc}" value="Send Mail" />
+        <apex:commandButton action="{!Cancel}" value="Back to Opportunity"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection columns="1" id="bsection1">
+      <apex:pageBlockSectionItem >
+            <apex:outputLabel value="From Email :" for="From Email"/>
+          <apex:inputText value="{!fromEmail}" id="email" style="width: 500px; height: 20px" disabled="true"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="From Name :" for="From Name"/>
+          <apex:inputText value="{!fromName}" id="email" style="width: 500px; height: 20px" /> 
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="To :" for="email"/>
+          <apex:inputText value="{!email}" id="email" style="width: 500px; height: 20px" />
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputtext value="Cc :"/>
+            <apex:inputtext value="{!emailCc}" style="width: 500px; height: 20px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputtext value="Bcc :"/>
+            <apex:inputtext value="{!emailBcc}" style="width: 500px; height: 20px"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="bItem">
+            <apex:outputtext value="Subject :"/>
+            <apex:inputtext value="{!Subject}" id="subject"  style="width: 500px; height: 20px" />
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Document" for="document:" />
+            <apex:selectList value="{!documentId}" id="document" size="1" style="width: 500px; height: 20px">
+                 <apex:selectOptions value="{!Documents}" />
+            </apex:selectList>
+        </apex:pageBlockSectionItem>
+         
+        <apex:pageBlockSectionItem >
+            <apex:outputtext value="Body :"/>
+            <apex:InputTextarea id="emailBody" value="{!emailBody}" style="width: 500px; height: 500px"></apex:InputTextarea>
+        </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>     
+   </apex:pageBlock> 
+  </apex:form>
+</apex:page>

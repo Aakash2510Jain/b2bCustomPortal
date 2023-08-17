@@ -1,0 +1,160 @@
+<apex:page standardController="Opportunity" showHeader="false"
+    sidebar="false"  extensions="GenerateOrdersController" renderAs="{!valuetoset}">
+<BODY style="font-family:Calibri;font-size:12px">
+<table border="1" cellspacing="0" cellpadding="0" width="100%" align="center" >
+<tr style="height:800px">
+<td>
+
+    <TABLE border="0" cellspacing="0" cellpadding="0" width="95%" align="center" style="margin-left:30.0pt;">  
+            <TR valign="top" ><!--imagerow-->
+                <TD ><apex:image value="{!$Resource.OnlineLeads}"/> </TD>
+                
+            </TR>
+            <TR align="center" style="font-size:14pt;"><!--after image-->
+                <TD>INVOICE</TD>
+                
+            </TR>
+    </table>
+    <br/><br/>
+    <TABLE border="0" cellspacing="0" cellpadding="0" width="95%" align="center">  
+        <TR valign="top"  ><!--table1-->
+            <TD>
+                <TABLE border="0" cellspacing="0" cellpadding="0" width="95%" style="border:solid black 2px;" align="center">
+                <TR valign="top">
+                    <TD style="padding:0in 5.4pt 0in 5.4pt;">
+                        <p><b>Client Name &amp; Billing Details:</b><br/>
+                        <apex:outputField value="{!opportunity.Client_Name__r.Name}"/><br/>
+                        <apex:outputField value="{!opportunity.Client_Name__r.MailingStreet}"/><br/>
+                        <apex:outputField value="{!opportunity.Client_Name__r.MailingCity}"/><br/>
+                        <apex:outputField value="{!opportunity.Client_Name__r.MailingState}"/><br/>
+                        <apex:outputField value="{!opportunity.Client_Name__r.MailingCountry}"/><br/>
+                        <apex:outputField value="{!opportunity.Client_Name__r.MailingPostalcode}"/><br/><br/>
+                        <b>Tel:<apex:outputField value="{!opportunity.Client_Phone__c}"/></b><br/>
+                        </p>
+                    </TD>
+                    <TD style="padding:0in 5.4pt 0in 5.4pt;border-left:solid black 2px;">
+                        <p><b>Email To/Ship campaign Details to:</b><br/>
+                        <apex:outputField value="{!opportunity.Vendor_Email__c}"/><br/>                        
+                        <apex:outputField value="{!opportunity.Vendor_Contact_Detail__c}"/><br/><br/>
+                        <b>Tel:<apex:outputField value="{!opportunity.Vendor_Moblie_Number__c}"/></b>
+                        </p>
+                    </TD>
+                </TR>
+                </TABLE>
+            </TD>
+        </TR>
+
+        <TR><!--table2-->
+            <TD>
+                <TABLE border="0" cellspacing="0" cellpadding="0" width="95%" style="border:solid black 2px;" align="center">
+                    <TR style="background:#000066;height:20.0pt;font-size:12pt" align="center">
+                        <TD style="color:#FFFFFF;font-weight:bold;border-right:solid black 2px;border-bottom:solid black 2px;">Invoice no</TD>
+                        <TD style="color:#FFFFFF;font-weight:bold;border-right:solid black 2px;border-bottom:solid black 2px;">Payment Mode</TD>
+                        <TD style="color:#FFFFFF;font-weight:bold;border-right:solid black 2px;border-bottom:solid black 2px;">Invoice date</TD>
+                        <TD style="color:#FFFFFF;font-weight:bold;border-bottom:solid black 2px;">Payment due date</TD>
+                    </TR>
+                    <TR align="center" style="height:25.0pt">
+                        <TD style="border-right:solid black  2px;"><apex:outputField value="{!opportunity.Invoice_Number__c}"/></TD>
+                        <TD style="border-right:solid black  2px;"><apex:outputField value="{!opportunity.Payment_Mode__c}"/></TD>
+                        <TD style="border-right:solid black  2px;;"><apex:outputField value="{!opportunity.Invoice_Date__c}"/></TD>
+                        <TD ><apex:outputField value="{!opportunity.Due_Date__c}"/></TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+
+        <TR><!--table3-->
+            <TD>
+                <TABLE border="0" cellspacing="0" cellpadding="0" width="95%" style="border:solid black 2px" align="center">
+                    <TR style="background:#000066;height:20.0pt;font-size:12pt" align="center">
+                        <TD style="color:#FFFFFF;font-weight:bold;border-bottom:solid black 2px;border-top:none;" colspan="5">
+                        Package Details
+                        </TD>
+                    </TR>
+                    <TR style="height:25.0pt;font-size:12pt" align="center">
+                        <TD style="border-right:solid black 2px;">Sl.No.</TD>
+                        <TD style="border-right:solid black 2px;">Details</TD>
+                        <TD style="border-right:solid black 2px;">Qty</TD>
+                        <TD style="border-right:solid black 2px;">Unit Price</TD>
+                        <TD >Amount</TD>
+                    </TR>
+                    
+       
+                <apex:variable var="count" value="{!0}" />
+                <apex:repeat value="{!opportunity.opportunityLineItems}" var="op">
+                    <TR style="font-size:10pt;height:25.0pt" align="center">
+                    <apex:variable var="count" value="{!count+1}" />
+                        <TD style="border-right:solid black 2px;border-top:solid black  2px;"><apex:outputText value="{0, number, ###,##0}">
+                         <apex:param value="{!count}" />
+                       </apex:outputText></TD>
+                        <TD style="border-right:solid black 2px;border-top:solid black  2px;"><apex:outputtext value="{!OP.PricebookEntry.Product2.Legal_Name__c}" /></TD>
+                        <TD style="border-right:solid black 2px;border-top:solid black  2px;"><apex:outputText value="{0, number, ###,##0}">
+                            <apex:param value="{!OP.Quantity}" />
+                        </apex:outputText> </TD>
+                        <TD style="border-right:solid black 2px;border-top:solid black  2px;"> <apex:outputText value="{!OP.unitprice}"/>    </TD>
+                        <TD style="border-top:solid black  2px;"> <apex:outputText value="{!OP.TotalPrice}"/>  </TD>
+                    </TR>
+                     </apex:repeat>
+                </TABLE>
+            </TD>           
+        </TR>
+
+        <TR><!--table4-->
+            <TD >
+                <TABLE border="0" cellspacing="0" cellpadding="0" width="95%" style="border:solid black 2px;" align="center">
+                    <TR style="background:#000066;height:20.0pt;font-size:12pt" align="center">
+                        <TD colspan="4" style="color:#FFFFFF;font-weight:bold;border-right:solid black 2px;border-bottom:solid black 2px;">
+                        Payment Instruction
+                        </TD>
+                    </TR>
+                    <TR style="background:#000066;height:20.0pt;font-size:12pt" align="center">
+                         <td style="border: 1px solid black;" colspan="3" height="40px">
+            <span style=" letter-spacing: 0pt"> &nbsp; </span>
+            <span style=" color: #FFFFFF; letter-spacing: 0pt"><b><apex:outputText value="{!modeOfPay}"/>:</b></span>&nbsp; </td>
+        </tr>
+        <tr style="mso-yfti-irow: 1; mso-yfti-lastrow: yes; height: 114.75pt">
+            <td colspan="2" width="50%" align="left" style="padding: 0in 5.4pt 0in 5.4pt">
+            
+            <br/><b><apex:outputField value="{!Opportunity.Brand_Name__c}"/></b>
+           <br/>
+            
+           <apex:repeat value="{!wireDetaials1}" var="w" rendered="{!if(modeOfPay='Wire Payment1','true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat>
+           <apex:repeat value="{!wireDetaials2}" var="w" rendered="{!if(modeOfPay='Wire Payment2','true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat> 
+            <apex:repeat value="{!checkDetails}" var="w" rendered="{!if(modeOfPay='Check Payment','true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat> 
+           
+          <apex:outputpanel rendered="{!if(modeOfPay='Wire Payment/Check Payment','true','fasle')}">
+              <b>Wire Details:</b><br/>
+              <apex:repeat value="{!wireDetaials1}" var="w" rendered="{!if(Opportunity.Wire_Payment__c==true,'true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat>
+            <apex:repeat value="{!wireDetaials2}" var="w" rendered="{!if(Opportunity.Wire_Payment_Type2__c==true,'true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat> <br/><br/>
+            <b>Check Details:</b><br/>
+            <apex:repeat value="{!checkDetails}" var="w" rendered="{!if(Opportunity.Check_payment__c==true,'true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat> 
+          
+          </apex:outputpanel>
+                <br />
+           </td>
+                    </TR>
+                   
+                </TABLE>
+            </TD>
+        </TR>
+    </TABLE>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <p aling="center"><apex:image value="{!$Resource.JudyFooter}"/></p>
+</td>
+</tr>
+</table>
+</BODY>
+
+</apex:page>

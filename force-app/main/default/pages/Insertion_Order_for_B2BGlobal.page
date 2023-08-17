@@ -1,0 +1,359 @@
+<apex:page standardController="Opportunity" showHeader="false" sidebar="false" extensions="GenerateOrdersController" renderAs="{!valuetoset}">
+<c:dynawhitecomponent type="header" > 
+  <div align="left" class="innerDiv"> <apex:image value="{!$Resource.DataSolutions}" width="100%"/></div>
+ </c:dynawhitecomponent>
+ 
+
+            <p >&nbsp;</p>
+            <p >&nbsp;</p>
+            <p >&nbsp;</p>
+            
+            <p  align="center" style='text-align:center'><b style='mso-bidi-font-weight:
+            normal'><span style='font-size:24.0pt;mso-bidi-font-size:12.0pt;color:gray'>
+            <apex:image value="{!$Resource.B2BGlobal}" width="50%"/>
+            </span></b></p>
+            
+            
+            
+            
+            <p align="center" style='margin-top:0in;margin-right:1.0in;
+            margin-bottom:0in;margin-left:63.0pt;margin-bottom:.0001pt;text-align:center'><b
+            style='mso-bidi-font-weight:normal'><span style='font-size:20.0pt;font-family:
+            Arial,sans-serif'>List Acquisition </span></b></p><br/><br/>
+    
+            <p align="center" style='margin-top:0in;margin-right:1.0in;
+            margin-bottom:0in;margin-left:63.0pt;margin-bottom:.0001pt;text-align:center'><span style='font-size:20.0pt;font-family:
+            Arial,sans-serif'>Insertion Order for</span></p>
+            <p>&nbsp;</p>
+           <table border="0" width="700"><tr><td align="center" style=" padding: 0in 35.4pt 0in 140.4pt;">
+            <apex:outputfield value="{!Opportunity.Client_Logo__c}" /></td>     
+            </tr></table>
+            <p align="center" style='margin-top:0in;margin-right:1.0in;
+            margin-bottom:0in;margin-left:63.0pt;margin-bottom:.0001pt;text-align:center'><span style='font-size:12.0pt;font-family:
+            Arial,sans-serif'></span></p><br/>
+           
+            <br></br><br></br><br></br><br></br><br></br>
+           
+            
+            <table  border="1"  width="100%" align="center" cellspacing="0" cellpadding="0">
+             <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes; padding: 0in 5.4pt 0in 5.4pt;mso-yfti-lastrow:yes;
+                height:136.75pt'>
+             <td width="342" style=" padding: 0in 5.4pt 0in 5.4pt;" >
+              
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>Submitted by:&nbsp; 
+              <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c!=''}">
+                        <apex:outputfield value="{!Opportunity.Workorder_Owner_Name__c}" />
+                    </apex:panelGroup> <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c==''}">
+                        <apex:outputText value="{!Opportunity.owner.name}" />
+                    </apex:panelGroup> 
+              </span></b><br></br><br/>
+              
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>BToB Global</span></b>
+              
+              
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>16420 Valley View Ave.<br/>
+              Dept. # 511292<br/>
+              La Mirada, CA 90638<br/>
+              
+              </span></b>
+               
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>Phone :212-931-5151</span></b><br/>
+
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>Fax: 866-241-0058</span></b><br/>
+              
+               <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>Email :<apex:outputText value="{!Opportunity.Vendor_Email__c}"/><BR/>
+              </span></b>
+              </td>
+             
+               <td width="336" style=" padding: 0in 5.4pt 0in 5.4pt;">
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:"Book Antiqua","serif";
+              mso-bidi-font-family:Arial;color:black'>Attn:&nbsp;<apex:outputText value="{!Opportunity.Client_Name__r.Name}"/></span></b><br/><br/>
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>CoralBridge Partners</span></b>
+              
+              
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>
+              <apex:outputField value="{!Opportunity.Client_Name__r.MailingStreet}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.MailingCity}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.MailingState}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.MailingPostalCode}"/><br/>
+                                 <apex:outputField value="{!Opportunity.Client_Name__r.MailingCountry}"/><br/>
+                       
+              </span></b>
+               
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>Phone :&nbsp;<apex:outputText value="{!Opportunity.Client_Phone__c}"/></span></b><br/>
+
+              <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>Cell: 312-267-2925</span></b><br/>
+              
+               <b style='mso-bidi-font-weight:
+              normal'><span style='font-size:12.0pt;font-family:Book Antiqua,serif;
+              mso-bidi-font-family:Arial'>Email :&nbsp;<apex:outputText value="{!Opportunity.Client_Email__c}"/><BR/>
+              </span></b>
+              </td>
+              
+             </tr>
+            </table>
+
+ <div style="page-break-after:always;"/>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+<p align="center">
+        <apex:image value="{!$Resource.PriceQuotation}"/></p>
+        <table border="1" cellspacing="0" cellpadding="0" width="100%" >
+        <tr>
+        <td colspan="6">
+        <table border="1" cellspacing="0" cellpadding="0" width="100%" >
+          <tr style="mso-yfti-irow: 2;font-size:9pt; page-break-inside: avoid; height: .2in">
+                    <td width="531" rowspan="8" align="left" valign="top"
+                        style="border: 0.7px solid black;border-bottom:none;border-left:none;border-top:none;"><br></br>
+                    <apex:outputfield value="{!Opportunity.Client_Logo__c}"/><br></br>
+                    </td>
+                    <td width="50%" align="left" style="border-top:none;"><span
+                        style="line-height: 110%">Date </span></td>
+                    <td width="40%" align="left" style="border-top:none;"><span
+                        style="line-height: 110%"><apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                                                        <apex:param value="{!opportunity.current_date__c}" />
+                                                    </apex:outputText> </span></td>
+                </tr>
+                <tr style="mso-yfti-irow: 3; font-size:9pt;page-break-inside: avoid; height: .2in">
+                   
+                    <td width="60%" align="left"><span
+                        style="line-height: 110%">Ref Number </span></td>
+                    <td width="30%" align="left"><span
+                        style="line-height: 110%"><apex:outputText value="{!Opportunity.Reference_Number__c}" /> </span></td>
+                </tr>
+                <tr style="mso-yfti-irow: 3;font-size:9pt; page-break-inside: avoid; height: .2in">
+                  
+                    <td width="60%" align="left"><span
+                        style="line-height: 110%">Client Name </span></td>
+                    <td width="30%" align="left"><span
+                        style="line-height: 110%"><apex:outputText value="{!Opportunity.Client_Name__r.Name}" /> </span></td>
+                </tr>
+                <tr style="mso-yfti-irow: 3;font-size:9pt; page-break-inside: avoid; height: .2in">
+                    
+                    <td width="60%" align="left"><span
+                        style="line-height: 110%">Client Email</span></td>
+                    <td width="30%" align="left"><span
+                        style="line-height: 110%"><apex:outputText value="{!Opportunity.Client_Email__c}" /> </span></td>
+                </tr>
+                <tr style="mso-yfti-irow: 3;font-size:9pt; page-break-inside: avoid; height: .2in">
+                    
+                    <td width="60%" align="left"><span
+                        style="line-height: 110%">Client Phone </span></td>
+                    <td width="30%" align="left"><span
+                        style="line-height: 110%"><apex:outputText value="{!Opportunity.Client_Phone__c}" /> </span></td>
+                </tr>
+                <tr style="mso-yfti-irow: 3;font-size:9pt; page-break-inside: avoid; height: .2in">
+                    
+                    <td width="60%" align="left"><span
+                        style="line-height: 110%">BD Name </span></td>
+                    <td width="30%" align="left"><span
+                        style="line-height: 110%"><apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c!=''}">
+                                        <apex:outputfield value="{!Opportunity.Workorder_Owner_Name__c}" />
+                                    </apex:panelGroup> <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c==''}">
+                                        <apex:outputText value="{!Opportunity.owner.name}" />
+                                    </apex:panelGroup> </span></td>
+                </tr>
+                <tr style="mso-yfti-irow: 3;font-size:9pt; page-break-inside: avoid; height: .2in">
+                    
+                    <td width="60%" align="left"><span
+                        style="line-height: 110%" >BD Email </span></td>
+                    <td width="30%" align="left"><span
+                        style="line-height: 110%"><apex:outputText value="{!Opportunity.Vendor_Email__c}" /> </span></td>
+                </tr>
+                <tr style="mso-yfti-irow: 3; font-size:9pt;page-break-inside: avoid; height: .2in">
+                    
+                    <td width="60%" align="left" style="border-bottom:none;"><span
+                        style="line-height: 110%">BD Phone </span></td>
+                    <td width="30%" align="left" style="border-bottom:none;"><span
+                        style="line-height: 110%"><apex:outputText value="{!Opportunity.Vendor_Moblie_Number__c}" /> </span></td>
+                </tr>
+                </table>
+                </td>
+                </tr></table>
+               <p>&nbsp;</p>
+               <table border="1" cellspacing="0" cellpadding="0" width="100%" >
+         <tr>
+                   <td width="60%" align="right" colspan="2" style="border: solid  1.0pt;border-top:none; mso-border-top-alt: solid  .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid  .5pt; padding: 0in 5.4pt 0in 5.4pt;"><b>Payment Terms:</b></td>
+                 
+                 <td width="40%" colspan="4" align="center" style="border: solid  1.0pt;border-top:none;mso-border-top-alt: solid  .5pt; mso-border-top-themecolor: accent1; mso-border-alt: solid  .5pt;  padding: 0in 5.4pt 0in 5.4pt;">
+                 <apex:outputField value="{!Opportunity.Payment_Terms__c}" /></td>
+                 </tr>
+                   <tr
+                    style="height: 11.75pt">
+                   
+                    <td width="15%" colspan="2" align="center"><span><b>Product Description</b></span></td>
+
+                    <td width="25%" colspan="4" align="center"><span><b>TOTAL</b>
+                    </span></td>
+                </tr>
+          <apex:repeat value="{!opportunity.opportunityLineItems}" var="op">
+                    <tr
+                        style="yfti-irow: 1; page-break-inside: avoid; height: 13.1ptt;">
+                       
+                       
+                      <td width="40%" colspan="2" align="left" style="padding: 0in 5.4pt 0in 25.4pt;"> <span> </span> <apex:outputField value="{!OP.Product_Description__c}" /></td>
+                        
+                       <td width="25%" colspan="4" align="center"><span>
+                        </span>$ <apex:outputText value="{!OP.TotalPrice}" /></td>    
+                        
+                    </tr>
+                </apex:repeat>
+          <tr>
+                    <td colspan="5"><apex:panelgroup rendered="{!Opportunity.Annu_Maint_Contract__c!= true}">
+                        <table border="1" width="100%" height="100%" cellpadding="0"
+                            cellspacing="0">
+                            <tr>
+                                <td align="right"><b>Total</b></td>
+                                <td align="center" width="40%"><b> <apex:outputText value="{0, number, 00.00}">
+                                    $<apex:param value="{!Opportunity.Amount}" />
+                                </apex:outputText></b></td>
+                            </tr>
+                        </table>
+                    </apex:panelgroup> <apex:panelgroup rendered="{!Opportunity.Annu_Maint_Contract__c== True}">
+                        <table border="1" width="100%" height="100%" cellpadding="0"
+                            cellspacing="0">
+                            <tr>
+                                <td align="right" width="18%"><b>Annual Maintenance
+                                contract (AMC)</b></td>
+                                <td align="center"><b>20%</b></td>
+                            </tr>
+                            <tr>
+                                <td align="right">Total</td>
+                                <td align="center" width="12%"><b><apex:variable var="amcTotal" value="{!0}" /> <apex:variable var="amcpercentage" value="{!Opportunity.Amount * 0.20}" /> <apex:variable var="amcpercentage"
+                                    value="{!amcpercentage + Opportunity.Amount}" /> <apex:outputText value="{0, number, 00.00}">
+                                    $<apex:param value="{!amcpercentage}" />
+                                </apex:outputText></b></td>
+                            </tr>
+                        </table>
+                    </apex:panelgroup></td>
+                </tr>
+         <tr>
+          <td  colspan="6" style="padding: 0in 5.4pt 0in 5.4pt;font-size:10pt;">
+        
+        <apex:panelgroup rendered="{!Opportunity.AMC__c == NULL}">
+    
+     
+    </apex:panelgroup>
+     <apex:panelgroup rendered="{!Opportunity.AMC__c != NULL}">
+    <b><u>AMC Terms</u></b><br/><br/>
+     <apex:outputField value="{!Opportunity.AMC__c}"/> 
+    </apex:panelgroup></td>
+    
+    
+  </tr>
+        
+         
+         <tr style='mso-yfti-irow:4;height:17.5pt'>
+          <td colspan="6" style='border:solid windowtext 1.0pt;font-size:8pt;
+          border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+          padding:0in 5.4pt 0in 5.4pt;font-size:10pt;height:17.5pt'>
+        <b style='mso-bidi-font-weight:normal'><span
+          style='font-family:"Book Antiqua","serif";mso-bidi-font-family:
+          Arial'><u>Terms and Conditions:</u></span></b><br/>
+          
+                   &nbsp;&nbsp;&nbsp;<apex:outputField value="{!Opportunity.Terms__c}"/>
+                    </td>
+                 </tr>
+              
+                       
+                                <tr style="background: #D9D9D9;">
+                                    <td colspan="2" width="50%"><b
+                                        style="mso-bidi-font-weight: normal"><span
+                                        style="font-size: 12.0pt; padding: 0in 5.4pt 0in 5.4pt;">BToB Global</span></b></td>
+                                    <td colspan="2" width="50%"><b><span
+                                        style="font-size: 12.0pt; line-height: 150%; font-style: normal; padding: 0in 5.4pt 0in 5.4pt;">CoralBridge Partners,LLC</span></b></td>
+                                   
+                                </tr>
+                                <tr>
+                                    
+
+                                    <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Print Name</td>
+
+                                    <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+                                    <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c!=''}">
+                                        <apex:outputfield value="{!Opportunity.Workorder_Owner_Name__c}" />
+                                    </apex:panelGroup> <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c==''}">
+                                        <apex:outputText value="{!Opportunity.owner.name}" />
+                                    </apex:panelGroup></td>
+                                    <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Print Name</td>
+                                    <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;"><apex:outputField value="{!Opportunity.Client_Name__r.name}" /></td>
+                                </tr>
+
+                                <tr>
+                                    
+
+                                    <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Title</td>
+
+                                    <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;"><apex:outputField value="{!Opportunity.Title__c}" /></td>
+                                        <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Title</td>
+                                    <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt;font-size :10.0pt;; padding: 0in 5.4pt 0in 5.4pt;"><apex:outputField value="{!Opportunity.Client_Title__c}" /></td>
+
+                                </tr>
+
+                               
+                                <tr>
+                                    <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Date</td>
+                                    <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+                                    <apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                                                        <apex:param value="{!opportunity.current_date__c}" />
+                                                    </apex:outputText></td>
+
+                                    <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Date</td>
+
+                                    <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;"><apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                                        <apex:param value="{!opportunity.current_date__c}" />
+                                    </apex:outputText></td>
+
+                                </tr>
+                                <tr>
+                                    
+
+                                    <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">Signature</td>
+
+                                    <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;"><apex:outputField value="{!Opportunity.Signauture1__c}" /></td>
+                                        <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">Signature</td>
+
+                                    <td
+                                        style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">&nbsp;</td>
+
+                             
+                        </tr>
+        </table>
+       
+</apex:page>

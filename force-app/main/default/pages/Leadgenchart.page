@@ -1,0 +1,23 @@
+<apex:page controller="PieChartController2" title="Pie Charts" wizard=""  tabStyle="Dashboard" showHeader="false">
+    <apex:form >
+    	<apex:stylesheet value="{!$Resource.LeadGenPortal}" />
+    		<apex:pagemessages /> 
+				<div class="CSSTableGeneratorFrame" >
+        			<table>
+    	    			<TR bgcolor="#ffffff" height="30px">
+                    		<TD colspan="4">Lead Count per month(Order by Division)</TD>
+        				</TR>
+        				</table>
+        				</div>
+        				<div class="CSSTableGeneratorFrame">
+        				<table>
+    					<TR>
+	  			     		<apex:chart height="500" width="500" data="{!pieData3}" >
+	       					<TD><apex:pieSeries dataField="data" labelField="name"/></TD>
+	   			    		<TD><apex:legend position="right"/></TD>
+	   				 		</apex:chart>    
+	   					</TR>
+   					</table>
+   				</div>
+   	</apex:form>
+</apex:page>

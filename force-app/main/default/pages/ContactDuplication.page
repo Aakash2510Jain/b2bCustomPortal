@@ -1,0 +1,47 @@
+<apex:page standardController="Contact" extensions="ContactDuplicationCon"  tabStyle="Contact" standardStylesheets="true" lightningStylesheets="true" >
+    <apex:form target="_self">
+        <apex:sectionHeader title="New Contact"/>
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock mode="edit">
+            <apex:pageBlockButtons location="bottom">
+                <div align="center" draggable="false" >
+                    <apex:commandButton value="Save" action="{!contactsave}"/>
+                    <apex:commandButton value="Cancel" action="{!Cancel}"/>
+                </div>
+            </apex:pageBlockButtons>         
+            
+            <apex:pageBlockSection title="Contact Information">
+                <apex:inputField value="{!Contact.FirstName}"/>
+                <apex:inputField value="{!Contact.LastName}"/>
+                <apex:inputField required="true" value="{!Contact.Email}"/>
+                <apex:inputField value="{!Contact.Phone}"/>
+                <apex:inputField value="{!Contact.AccountId}" required="true" rendered="{!acclookup}"/>
+                <apex:inputText value="{!accname}" label="Client Company" rendered="{!accstring}"/>
+                <apex:inputField value="{!Contact.Title}"/>
+                <apex:inputField value="{!Contact.Address__c}"/>
+                <apex:inputField value="{!Contact.Active__c}"/>
+                <apex:inputField value="{!Contact.Target_Audience__c}"/>
+                <apex:inputField value="{!Contact.Title}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Address Information" >
+                <apex:inputField value="{!Contact.MailingStreet}"/>
+                <apex:inputField value="{!Contact.MailingCity}"/>
+                <apex:inputField value="{!Contact.MailingState}"/>
+                <apex:inputField value="{!Contact.MailingPostalCode}"/>
+                <apex:inputField value="{!Contact.MailingCountry}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Additional Information" >
+                <apex:inputField value="{!Contact.Fax}"/>
+                <apex:inputField value="{!Contact.LeadSource}"/>
+                <apex:inputField value="{!Contact.AssistantName }"/>
+                <apex:inputField value="{!Contact.Department}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Description Information" >
+                <apex:inputField value="{!Contact.Description}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>                                                         
+</apex:page>

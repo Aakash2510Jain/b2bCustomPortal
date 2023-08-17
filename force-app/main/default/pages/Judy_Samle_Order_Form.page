@@ -1,0 +1,477 @@
+<apex:page standardController="Opportunity" showHeader="false" sidebar="false" extensions="GenerateOrdersController" renderAs="{!valuetoset}">
+<c:dynawhitecomponent type="header">
+        <div align="center" class="innerDiv">
+        <table width="100%" style="color: #3D7596; ">
+            <tr>
+                <td align="left"><apex:image value="{!$Resource.OnlineLeads}" /></td>
+                <td align="center" style="font-size:11pt;">Insertion Order</td>              
+            </tr>
+        </table>
+        </div>
+    </c:dynawhitecomponent>
+    <c:dynawhitecomponent type="footer">
+        <div>
+        <table width="100%" style="color: Gray; ">
+            <tr>
+                <td valign="top" style="color:#6DB0D8;font-size:9pt;">Order Form OLLPB29Confidential</td>
+                <td align="center" style="color:red;font-size:9pt;">Please sign and fax this order form to 1-800 886 6978</td>
+                <td valign="bottom"><span class="pagenumber"></span></td>
+            </tr>
+        </table>
+        </div>
+
+    </c:dynawhitecomponent>
+    <table border="1" cellspacing="2" cellpadding="0" width="100%">
+    
+        <tr>
+            <td>
+             
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+            <p align="center"><b><span style='font-size:18.0pt;font-family:Calibri;color:navy'>
+            Insertion Order is for</span></b></p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+            <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+            <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+            <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+            </td>
+        </tr>
+    </table>
+    <p>&nbsp;</p>
+    <table border="1" cellspacing="2" cellpadding="2" width="100%">
+        <tr>
+            <td>
+            <p><b><span style='font-size:10.0pt;font-family:Calibri;color:red;margin-left:0.2in'>Date:</span></b>
+            <span style='font-size:10.0pt;font-family:Calibri;
+            color:navy'><apex:outputText value="{0,date, MM'/'dd'/'yyyy}">
+                            <apex:param value="{!today()}" />
+                        </apex:outputText></span>
+            <b>
+            <span style='font-size:10.0pt;font-family:Calibri;color:red;margin-left:0.7in'>Reference No:</span></b>
+            <span
+            style='font-size:10.0pt;font-family:Calibri;color:navy'> <apex:outputText value="{!Opportunity.Reference_Number__c}" /> </span>
+            
+            <b><span style='font-size:10.0pt;font-family:Calibri;color:red;margin-left:1.3in'>Account Manager:</span></b><span
+            style='font-size:10.0pt;font-family:Calibri;color:navy'>  </span></p>
+            
+            <table border="1" cellspacing="2" cellpadding="2" width="553" align="center" >
+             <tr style="spacing:2pt;padding:2pt;">
+              <td width="553" colspan="2" align="center" style='width:414.6pt;border:double windowtext 2.25pt;
+              border-right:double black 2.25pt;background:#99CCFF;padding:0in 5.4pt 0in 5.4pt;
+              height:10.85pt'>
+              <b><span
+              style='font-size:11.0pt;font-family:Calibri;color:#002060'>Client Contact</span></b>
+              </td>
+             </tr>
+             <tr>
+              <td width="260" style='width:194.95pt;border:double windowtext 2.25pt;
+              border-top:none;padding:0in 5.4pt 0in 5.4pt;height:17.3pt'>
+              <b><span
+              style='font-size:11.0pt;font-family:Calibri;color:#002060'>Company Name</span></b>
+              </td>
+              <td width="293" style='width:219.65pt;border-top:none;border-left:none;
+              border-bottom:double windowtext 2.25pt;border-right:double windowtext 2.25pt;
+              padding:0in 5.4pt 0in 5.4pt;height:17.3pt'>
+              <b ><span style='font-size:11.0pt;font-family:Calibri;color:#002060'><apex:outputText value="{!Opportunity.account.name}"/> </span></b>
+              </td>
+             </tr>
+             <tr >
+              <td width="260" style='width:194.95pt;border:double windowtext 2.25pt;
+              border-top:none;padding:0in 5.4pt 0in 5.4pt;height:10.5pt'>
+              <b ><span
+              style='font-size:11.0pt;font-family:Calibri;color:#002060'>Contact Name</span></b>
+              </td>
+              <td width="293" style='width:219.65pt;border-top:none;border-left:none;
+              border-bottom:double windowtext 2.25pt;border-right:double windowtext 2.25pt;
+              padding:0in 5.4pt 0in 5.4pt;height:10.5pt'>
+             <b ><span style='font-size:11.0pt;font-family:Calibri;color:#002060'><apex:outputText value="{!Opportunity.Client_Title__c}" /></span></b>
+              </td>
+             </tr>
+             <tr >
+              <td width="260" style='width:194.95pt;border:double windowtext 2.25pt;
+              border-top:none;padding:0in 5.4pt 0in 5.4pt;height:10.35pt'>
+              <b><span
+              style='font-size:11.0pt;font-family:Calibri;color:#002060'>Phone No:</span></b>
+              </td>
+              <td width="293" style='width:219.65pt;border-top:none;border-left:none;
+              border-bottom:double windowtext 2.25pt;border-right:double windowtext 2.25pt;
+              padding:0in 5.4pt 0in 5.4pt;height:10.35pt'>
+              <b ><span
+              style='font-size:11.0pt;font-family:Calibri;color:#002060'><apex:outputText value="{!Opportunity.Client_Phone__c}"/></span></b>
+              </td>
+             </tr>
+             <tr >
+              <td width="260" style='width:194.95pt;border:double windowtext 2.25pt;
+              border-top:none;padding:0in 5.4pt 0in 5.4pt;height:4.1pt'>
+              <b ><span
+              style='font-size:11.0pt;font-family:Calibri;color:#002060'>Email</span></b>
+              </td>
+              <td width="293" style='width:219.65pt;border-top:none;border-left:none;
+              border-bottom:double windowtext 2.25pt;border-right:double windowtext 2.25pt;
+              padding:0in 5.4pt 0in 5.4pt;height:4.1pt'>
+              <span style='font-size:11.0pt;font-family:Calibri;color:#002060'><apex:outputText value="{!Opportunity.Client_Email__c}"/></span>
+              </td>
+             </tr>
+            </table>
+            <p>&nbsp;</p><p>&nbsp;</p>
+            <p><b><span style='font-size:10.0pt;font-family:Calibri;color:red'>Order is for: </span></b></p>
+            
+            <table border="1" cellspacing="2" cellpadding="0" width="650" align="center">
+             <tr >
+              <td width="170" style='width:127.6pt;mso-border-top-alt:double black 2.25pt;mso-border-left-alt:double black 2.25pt;mso-border-top-alt:double black 2.25pt;padding:0in 5.4pt 0in 5.4pt;
+              height:32.1pt'>
+              <span style='font-size:10.0pt;font-family:Calibri;color:navy'>Custom Built List
+               </span><span
+              style='font-family:Wingdings;mso-ascii-font-family:Tahoma;mso-hansi-font-family:
+              Tahoma;mso-bidi-font-family:Tahoma;color:navy;mso-char-type:symbol;
+              mso-symbol-font-family:Wingdings'>þ</span>
+              </td>
+              <td width="189" style='width:142.0pt;mso-border-top-alt:double black 2.25pt;mso-border-left-alt:double black 2.25pt;mso-border-top-alt:double black 2.25pt;mso-border-left-alt:padding:0in 5.4pt 0in 5.4pt;
+              height:32.1pt'>
+              <span style='font-size:10.0pt;font-family:Calibri;color:navy'>B2C Email Appending</span>
+              </td>
+              <td width="189" style='width:142.05pt;mso-border-top-alt:double black 2.25pt;mso-border-left-alt:double black 2.25pt;mso-border-top-alt:double black 2.25pt;padding:0in 5.4pt 0in 5.4pt;
+              height:32.1pt'>
+              <span style='font-size:10.0pt;font-family:Calibri;
+              color:navy'>B2B Email appending</span>
+              </td>
+              <td width="171" style='width:128.35pt;mso-border-top-alt:double black 2.25pt;mso-border-left-alt:double black 2.25pt;mso-border-top-alt:double black 2.25pt;padding:0in 5.4pt 0in 5.4pt;
+              height:32.1pt'>
+              <span style='font-size:10.0pt;font-family:Calibri;
+              color:navy'>Contact Appending</span>
+              </td>
+             </tr>
+             <tr >
+              <td width="170" style='width:127.6pt;mso-border-top-alt:double black 2.25pt;mso-border-top-alt:double black 2.25pt;mso-border-left-alt:double black 2.25pt;padding:0in 5.4pt 0in 5.4pt;
+              height:24.75pt'>
+              <span style='font-size:10.0pt;font-family:Calibri;
+              color:navy'>Reverse Appending</span>
+              </td>
+              <td width="189" style='width:142.0pt;mso-border-top-alt:double black 2.25pt;
+              border-right:double black 2.25pt;
+              mso-border-top-alt:double black 2.25pt;mso-border-left-alt:double black 2.25pt;
+              padding:0in 5.4pt 0in 5.4pt;height:24.75pt'>
+              <span style='font-size:10.0pt;font-family:Calibri;
+              color:navy'>eCampaigner</span>
+              
+              </td>
+              <td width="189" style='width:142.05pt;
+              border-right:double black 2.25pt;
+              mso-border-top-alt:double black 2.25pt;mso-border-left-alt:double black 2.25pt;
+              padding:0in 5.4pt 0in 5.4pt;height:24.75pt'>
+              <span style='font-size:10.0pt;font-family:Calibri;
+              color:navy'>Email cleansing</span>
+              </td>
+              <td width="171" style='width:128.35pt;
+              border-right:double black 2.25pt;
+              mso-border-top-alt:double black 2.25pt;mso-border-left-alt:double black 2.25pt;
+              padding:0in 5.4pt 0in 5.4pt;height:24.75pt'>
+              <span style='font-size:10.0pt;font-family:Calibri;
+              color:navy'>Email Broadcasting</span>
+              </td>
+             </tr>
+            </table>
+            <p>&nbsp;</p>
+            <p><b><span style='font-size:10.0pt;font-family:Calibri;
+            color:red'>Target market</span></b><span style='font-size:10.0pt;font-family:Calibri;color:navy'>:</span></p>
+            <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+            
+            </td>
+        </tr>
+    </table>
+   <div style="page-break-after:always;"/>
+   <p>&nbsp;</p>
+    <table border="1" cellspacing="2" cellpadding="0" width="100%">
+    
+        <tr >
+            <td>
+                    <p><b style='mso-bidi-font-weight:
+                        normal'><span style='font-size:10.0pt;font-family:Calibri;color:red'>INVESTMENT PACKAGE:</span></b></p>
+                    
+                <table border="1" cellspacing="0" cellpadding="0" align="center"
+                 width="654" >
+                 <tr >
+                  <td width="117" style='width:88.0pt;border:solid windowtext 1.0pt;background:
+                  #17365D;padding:0in 5.4pt 0in 5.4pt;height:42.05pt'>
+                  <b><span style='font-size:10.0pt;font-family:Calibri;
+                  color:white;mso-bidi-font-style:italic'>Package Code</span></b><b><span
+                  style='font-size:10.0pt;font-family:Calibri;color:white'></span></b>
+                  </td>
+                  <td width="256" align="center" style='width:191.9pt;border:solid windowtext 1.0pt;border-left:
+                  none;background:#17365D;padding:0in 5.4pt 0in 5.4pt;height:42.05pt'>
+                  <b><span style='font-size:10.0pt;font-family:Calibri;
+                  color:white;mso-bidi-font-style:italic'>Criteria</span></b>
+                  </td>
+                  <td width="125" style='width:1.3in;border:solid windowtext 1.0pt;border-left:
+                  none;background:#17365D;padding:0in 5.4pt 0in 5.4pt;height:42.05pt'>
+                  <b><span style='font-size:10.0pt;font-family:Calibri;
+                  color:white;mso-bidi-font-style:italic'>Total Number of records</span></b>
+                  </td>
+                  <td width="156" style='width:117.0pt;border:solid windowtext 1.0pt;border-left:
+                  none;background:#17365D;padding:0in 5.4pt 0in 5.4pt;height:42.05pt'>
+                  <b><span style='font-size:10.0pt;font-family:Calibri;
+                  color:white;mso-bidi-font-style:italic'>Complete Package</span></b>
+                  </td>
+                 </tr>
+                 <tr align="center">
+                  <td width="117" style='width:88.0pt;border:solid windowtext 1.0pt;border-top:
+                  none;mso-border-left-alt:solid windowtext 1.0pt;mso-border-bottom-alt:solid windowtext 1.0pt;
+                  mso-border-right-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+                  height:97.9pt'>
+                  <b><span style='font-size:10.0pt;font-family:Calibri;
+                  color:#002060'>&nbsp;</span></b>
+                  </td>
+                  <td width="256" style='width:191.9pt;border-top:none;border-left:none;
+                  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                  mso-border-bottom-alt:solid windowtext 1.0pt;mso-border-right-alt:solid windowtext .5pt;
+                  padding:0in 5.4pt 0in 5.4pt;height:97.9pt'>
+                  <span
+                  style='font-size:11.0pt;font-family:Calibri;color:#002060'><apex:outputField value="{!Opportunity.Data_criteria__c}" /></span>
+                  </td>
+                  <td width="125" style='width:1.3in;border-top:none;border-left:none;border-bottom:
+                  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-bottom-alt:
+                  solid windowtext 1.0pt;mso-border-right-alt:solid windowtext .5pt;padding:
+                  0in 5.4pt 0in 5.4pt;height:97.9pt'>
+                  <span style='font-size:11.0pt;font-family:Calibri;
+                  color:#002060'><apex:outputField value="{!Opportunity.Number_Of_Records__c}" /></span>
+                  </td>
+                  <td width="156" style='width:117.0pt;border-top:none;border-left:none;
+                  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                  padding:0in 5.4pt 0in 5.4pt;height:97.9pt'>
+                  <b><span style='font-size:11.0pt;font-family:Calibri;
+                  color:#002060'>&nbsp;</span></b>
+                  </td>
+                 </tr>
+                </table>
+                
+                <p>&nbsp;</p>
+                
+                <p><b><span style='font-size:10.0pt;border-bottom:none;font-family:Calibri;margin-left:9.0pt;
+                    color:red'>Payment Mode:</span></b></p>
+                 
+                 
+                 <table border="1" cellspacing="0" cellpadding="0" align="center"
+                 width="654">
+                 <tr >
+                  <td width="50%" style='border:solid windowtext 1.0pt;background:
+                  #17365D;padding:0in 5.4pt 0in 5.4pt;height:42.05pt'>
+                  <b><span style='font-size:10.0pt;font-family:Calibri;
+                  color:white;mso-bidi-font-style:italic'>Wire Details</span></b><b><span
+                  style='font-size:10.0pt;font-family:Calibri;color:white'></span></b>
+                  </td>
+                 <td width="50%" style='border:solid windowtext 1.0pt;background:
+                  #17365D;padding:0in 5.4pt 0in 5.4pt;height:42.05pt'>
+                  <b><span style='font-size:10.0pt;font-family:Calibri;
+                  color:white;mso-bidi-font-style:italic'>Check Details</span></b><b><span
+                  style='font-size:10.0pt;font-family:Calibri;color:white'></span></b>
+                  </td>
+              </tr>
+              <tr style="height:60pt;">
+               <td style="padding:0in 5.4pt 0in 5.4pt;font-size:10pt;font-family:Calibri">
+              <br/> <b><apex:outputField value="{!Opportunity.Brand_Name__c}"/></b>
+           <br/>
+           
+           <apex:repeat value="{!wireDetaials1}" var="w" rendered="{!if(modeOfPay='Wire Payment1','true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat>
+           <apex:repeat value="{!wireDetaials2}" var="w" rendered="{!if(modeOfPay='Wire Payment2','true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat> 
+            
+             <apex:outputpanel rendered="{!if(modeOfPay='Wire Payment/Check Payment','true','fasle')}">
+              <b>Wire Details:</b><br/>
+              <apex:repeat value="{!wireDetaials1}" var="w" rendered="{!if(Opportunity.Wire_Payment__c==true,'true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat>
+            <apex:repeat value="{!wireDetaials2}" var="w" rendered="{!if(Opportunity.Wire_Payment_Type2__c==true,'true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat> <br/><br/>
+             </apex:outputpanel>
+            </td>
+            <td style="padding:0in 5.4pt 0in 5.4pt;font-size:10pt;font-family:Calibri">
+     
+            <apex:repeat value="{!checkDetails}" var="w" rendered="{!if(modeOfPay='Check Payment','true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat>
+            <apex:outputpanel rendered="{!if(modeOfPay='Wire Payment/Check Payment','true','fasle')}">
+             <b>Check Details:</b><br/>
+            <apex:repeat value="{!checkDetails}" var="w" rendered="{!if(Opportunity.Check_payment__c==true,'true','fasle')}">
+                <apex:outputText value="{!w}" /><br/>
+            </apex:repeat>  
+             </apex:outputpanel>
+           
+            </td>
+              </tr>
+              </table>
+                <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+                <p>
+                <apex:outputText value="{!Opportunity.Signauture1__c}" escape="false"/><br/>
+                
+                <span style='margin-left:9.0pt'>________________</span><span style='margin-left:3.5in'>________________</span><br/> 
+                <span style='font-size:11.0pt;margin-left:9.0pt;font-family:Calibri;color:Navy'>Authorized Signature</span>
+                <span style='font-size:11.0pt;margin-left:3.5in;font-family:Calibri;color:Navy'>Authorized Signature</span><br/>
+                </p>
+                <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>                 
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <table border="1" cellspacing="2" cellpadding="0" width="100%">
+        <tr>
+            <td>
+                
+                    <p align="center"><b><span style='font-size:12.0pt;font-family:Calibri;color:red'>EMAIL SERVICES &amp; CONFIDENTIALITY AGREEMENT</span></b></p>
+                    <table border="0" cellspacing="0" cellpadding="8" width="100%">
+                        <tr>
+                            <td width="50%">
+                                <span style='font-size:
+                                9.5pt;font-family:Calibri;color:#000099'>This is the entire
+                                agreement between the parties and hereby supersedes all other agreements,
+                                negotiations, discussions or advertising material related to the subject
+                                matter hereof. Client agrees to have reviewed our Delivery Guarantees, and
+                                Pricing Details identified above and sends us acceptance and understanding
+                                of the offerings by signing this Insertion Order. &nbsp;</span>
+                                <p><b><u><span style='font-size:
+                                9.5pt;font-family:Calibri;color:#000099'>Guarantee</span></u></b><span
+                                style='font-size:9.5pt;font-family:Calibri;color:#000099'>:All the contacts are delivered for
+                                your perpetual usage with unlimited licensing. If the delivered contacts
+                                are not accurate and relevant to the criteria we'll have the contacts
+                                replaced else the client will be entitled for a refund.</span></p>
+                                <p><b><u><span style='font-size:9.5pt;font-family:Calibri;color:#000099'>Deliverability</span></u></b>
+                                <b>:</b><span style='font-size:9.5pt;font-family:Calibri;
+                                color:#000099'> 85% on email records and 95% on other data fields. Online
+                                Leads guarantees replacement for every hard bounced Email record beyond
+                                this limit, once they are returned to Online Leads.</span></p>
+                                <p ><span style='font-size:9.5pt;
+                                font-family:Calibri;color:#000099'>This replacement offer is
+                                valid for up to 30 days from the date of delivery of the data.</span></p>
+                            </td>
+                            <td width="50%">
+                                <b><u><span style='font-size:9.5pt;font-family:Calibri;
+                                color:#000099'>License Terms:</span></u></b><span style='font-size:9.5pt;
+                                font-family:Calibri;color:#000099'> Company Name is granted a
+                                non-exclusive, non-assignable, non-transferable license to access and use
+                                the information provided by Online Leads. Company Name certifies that it
+                                will use the information for legitimate business purposes related to sales
+                                and marketing activities and in a manner that complies with local, state
+                                and federal laws.</span>
+                                <p><b><u><span style='font-size:9.5pt;font-family:
+                                Calibri;color:#000099'>Confidentiality</span></u></b><b><span
+                                style='font-size:9.5pt;font-family:Calibri;color:#000099'>: </span></b><span
+                                style='font-size:9.5pt;font-family:Calibri;color:#000099'>At
+                                Online Leads the complete process of List building is done in-house. The
+                                information/list provided to Online Leads is kept strictly confidential and
+                                is used only for the purpose of appending/updating the required information
+                                on the input file provided by Company Name. <span style='mso-bidi-font-weight:
+                                bold'>All documents containing Confidential Information and provided by </span>Company
+                                Name <span style='mso-bidi-font-weight:bold'>and all such documents, and
+                                copies thereof shall be returned/destroyed upon the request of by </span>Company
+                                Name </span></p>
+                                <p><b><u><span style='font-size:9.5pt;font-family:
+                                Calibri;color:#000099'>List Delivery</span></u></b><b><span
+                                style='font-size:9.5pt;font-family:Calibri;color:#000099'>: </span></b><span
+                                style='font-size:9.5pt;font-family:Calibri;color:#000099'>Online
+                                Leads will deliver the Custom list with the number of records specified in
+                                the investment package to Company Name within 5 to 6 business days from the
+                                date of receipt of signed Order and payment. </span></p>
+                            </td>
+                        </tr>
+                    </table>
+                        <p style='margin-left:10.0pt;'><span style='font-size:9.5pt;font-family:Calibri;
+                                    color:#000099'>The parties are independent contracting entities, and there is no
+                                partnership or agency relationship between them.Further, you may not use the Online Leads name in your advertising or
+                                marketing as the source of your data without express written permission from Online Leads.
+                                Customer does not inform the Company within 30 days of receipt of
+                                Products/Services that there is a problem or mistake, the Products/Services
+                                shall have been accepted "Company Name".</span></p>
+                        <p style='margin-left:10.0pt;'><span style='font-size:9.5pt;font-family:Calibri;
+                                    color:#000099'><b>I hereby agree with the “Terms of
+                    Service” and set my hand and seal this on the 29<sup>th</sup> May, 2013.</b></span></p>
+                    <p><span style='font-size:11pt;font-family:Calibri;margin-left:10.0pt;
+                                    color:red'><u>Authorization:</u></span></p> 
+                            
+                    <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                       <tr>
+                       <td width="10%"></td>
+                        <td width="50%" style='border-top:solid #999999 1.0pt;border-left:
+                             solid #999999 1.0pt;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+                             padding:0in 5.4pt 0in 5.4pt;'>
+                        <div>
+                        <p align="center"><b><u><span style='font-size:10.0pt;
+                        font-family:Calibri;color:#000066'>Online Leads</span></u></b></p>
+                        
+                        <b><span style='font-size:10.0pt;font-family:Calibri;
+                        color:#000066'>Signature:&nbsp;<apex:outputText value="{!Opportunity.Signauture1__c}" escape="false"/> </span></b>
+                        <b style='mso-bidi-font-weight:normal'><span
+                        style='font-size:10.0pt;font-family:Calibri;color:#000066'>  </span></b><br/>
+                        
+                        
+                        <b><span style='font-size:10.0pt;font-family:Calibri;
+                        color:#000066'>Name:&nbsp; <apex:outputField value="{!Opportunity.Vendor_Name__c}" /></span></b>
+                        <span style='font-size:10.0pt;font-family:
+                        Calibri;color:#000066'> </span><br/>
+                        
+                        
+                        <b><span style='font-size:10.0pt;font-family:Calibri;
+                        color:#000066'>Title:&nbsp; <apex:outputField value="{!Opportunity.Title__c}" /></span></b>
+                        <span style='font-size:10.0pt;font-family:
+                        Calibri;color:#000066'> </span><br/>
+                        
+                        <b><span style='font-size:10.0pt;font-family:Calibri;
+                        color:#000066'>Date:&nbsp; <apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                                                        <apex:param value="{!opportunity.current_date__c}" />
+                                                    </apex:outputText></span></b>
+                        <span style='font-size:10.0pt;font-family:
+                        Calibri;color:#000066'>   </span><br/>
+                        
+                        </div>
+                        </td>
+                        <td width="10%">&nbsp;</td>
+                        
+                        <td width="50%" style='border-top:solid #999999 1.0pt;border-left:
+                             solid #999999 1.0pt;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+                             padding:0in 5.4pt 0in 5.4pt;'>
+                        <div>
+                        <p align="center"><span style='font-size:9.5pt;
+                        font-family:Calibri;color:#000099'><b
+                        ><u>Company Name</u></b></span></p>
+                        
+                        <b><span style='font-size:10.0pt;font-family:Calibri;
+                        color:#000066'>
+                        Signature:</span></b><br/>
+                        
+                        <b ><span style='font-size:10.0pt;font-family:Calibri;
+                        color:#000066'>Name:&nbsp; <apex:outputText value="{!Opportunity.Client_Name__r.name}" /></span></b>
+                        <span style='font-size:10.0pt;font-family:Calibri;
+                        color:#000066'>   </span><br/>
+                        
+                        <b><span style='font-size:10.0pt;font-family:Calibri;
+                        color:#000066'>Title:&nbsp; <apex:outputField value="{!Opportunity.Client_Title__c}" /></span></b>
+                        <span
+                        style='font-size:10.0pt;font-family:Calibri;color:#000066;
+                        mso-bidi-font-weight:bold'>    </span><br/>
+                        
+                        <b><span style='font-size:10.0pt;font-family:Calibri;
+                        color:#000066'>Date:&nbsp; </span></b>
+                        <span style='font-size:10.0pt;font-family:
+                        Calibri;color:#000066'>    </span><br/>
+                        
+                        </div>
+                        </td>
+                        <td width="10%"></td>
+                       </tr>
+                      </table>
+                    <p>&nbsp;</p>
+            </td>
+        </tr>
+    </table>
+    
+</apex:page>

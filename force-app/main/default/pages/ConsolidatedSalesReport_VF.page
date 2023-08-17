@@ -1,0 +1,177 @@
+<apex:page controller="ConsolidatedSalesReport" sidebar="false" id="myPage">
+ <apex:includeScript value="{!URLFOR($Resource.datepicker,'calendar.js')}"/>
+<apex:stylesheet value="{!URLFOR($Resource.datepicker,'calendar_blue.css')}" /> 
+    <apex:form id="myForm">
+       <apex:pageblock id="myblock">
+              <table Border='0' BORDERCOLOR='#736F6E' width="100%" cellspacing="0" cellpadding="4">
+                <tr align="center" BGCOLOR='Silver'>
+	                <td align="right">From Date</td>
+	                <td align="left">
+	                 <!-- <apex:inputText id="fromNewdate" value="{!fromNewdate}" styleClass="cssbody"  onfocus="DatePicker.pickDate(false,'myPage:myForm:myblock:fromNewdate', false);" /> (YYYY-MM-DD) <a href="javascript:NewCal('{!$Component.fromdate}','mmddyyyy')"><img src="{!URLFOR($Resource.datepicker, 'cal/cal.gif')}" width="16" height="16" border="0" alt="Pick a date"/></a> -->
+	                <apex:inputText id="fromNewDate" size="15" value="{!fromNewDate}" onmouseover="initialiseCalendar(this, '{!$Component.fromNewDate}')"/>
+	                 	<img src='{!URLFOR($Resource.datepicker,"cal.gif")}' align='absmiddle' onmouseover="initialiseCalendar(this, '{!$Component.fromNewDate}')" />
+	                </td>
+	                <td align="right">To Date</td>
+	                <td align="left">
+	                 <!--  <apex:inputText id="toNewdate" value="{!toNewdate}" styleClass="cssbody"  onfocus="DatePicker.pickDate(false,'myPage:myForm:myblock:toNewdate', false);"/> (YYYY-MM-DD)<a href="javascript:NewCal('{!$Component.todate}','mmddyyyy')"><img src="{!URLFOR($Resource.datepicker, 'cal/cal.gif')}" width="16" height="16" border="0" alt="Pick a date"/></a> -->
+	                 <apex:inputText id="toNewDate" size="15"  value="{!tonewDate}"  onmouseover="initialiseCalendar(this, '{!$Component.toNewDate}')"/>
+	                 <img src='{!URLFOR($Resource.datepicker,"cal.gif")}' align='absmiddle' onmouseover="initialiseCalendar(this, '{!$Component.toNewDate}')"/>     
+	                 
+	                 </td>
+	                <td align="left"> Division : 
+						<apex:selectList id="dateC" label="Divisions" value="{!divisionName}" size="1" title="Divisions">
+					<apex:selectOptions value="{!DivisionList}"></apex:selectOptions>  
+				</apex:selectList>
+					</td></tr><tr>
+	                 <td align="center" colspan="5"><apex:commandButton action="{!search}" value="Search ICP Statistics"/></td>
+                 </tr>
+                 </table> 
+         </apex:pageblock>     
+    </apex:form>
+<apex:pageblock >
+    <div id="panelDiv">
+    <apex:pageMessages id="errormessage"/>
+    <table Border='1' BORDERCOLOR='#736F6E' width="100%" cellspacing="0" cellpadding="1">
+                <tr align="left" BGCOLOR='white'>
+                <td> From Date: {!fromDate}</td>
+                <td> To Date: {!toDate}</td>
+                </tr></table>
+            <table Border='1' BORDERCOLOR='#736F6E' width="100%" cellspacing="0" cellpadding="1">
+                <tr align="center" BGCOLOR='Silver'>
+					<td align="center" width="7%"><b>Sales Rep</b></td>                
+                    <td align="center" width="7%"><b>Leads</b></td>
+                    <td align="center" width="6%"><b>Demos</b></td>
+                    <td align="center" width="6%"><b>Demos%</b></td>
+                    <td align="center" width="6%"><b>Deals</b></td>
+                    <td align="center" width="6%"><b>Close%</b></td>
+                     <td align="center" width="6%"><b>Deal Amount($)</b></td>
+                    <td align="center" width="6%"><b>Paid Amount($)</b></td>
+                    <td align="center" width="6%"><b>Avg/Sales($)</b></td>
+                </tr>
+
+
+			<apex:repeat value="{!SalesTeamList}" var="team"> 
+				<apex:repeat value="{!team.SalesRepList}" var="teamrep">
+				 
+	 				<tr align="center" BGCOLOR='Silver' style="display:{!IF(OR(teamrep.totalLeads > 0,teamrep.totalDemos > 0,teamrep.totalDeals > 0,teamrep.icpEnabled),'','none')}"> <!-- style="display:{!IF(teamrep.icpEnabled,'','none')}" -->
+						<td align="center" width="7%">{!teamrep.repName}</td>                
+	                    <td align="center" width="7%">{!teamrep.totalLeads}</td>
+	                    <td align="center" width="6%">{!teamrep.totalDemos}</td>
+	                    <td align="center" width="6%">{!teamrep.percentDemos}</td>
+	                    <td align="center" width="6%">{!teamrep.totalDeals}</td>
+	                    <td align="center" width="6%">{!teamrep.percentClose}</td>
+	                    <td align="center" width="6%"><apex:outputText value="{0, number, 000.00}"><apex:param value="{!teamrep.totalSalesAmount}" /></apex:outputText></td>
+	                    <td align="center" width="6%"><apex:outputText value="{0, number, 000.00}"><apex:param value="{!teamrep.totalRevenue}" /></apex:outputText></td>
+	                    <td align="center" width="6%"><apex:outputText value="{0, number, 000.00}"><apex:param value="{!teamrep.avgSales}" /></apex:outputText></td>
+	                </tr>
+                </apex:repeat>
+			</apex:repeat></table>
+        </div>
+ </apex:pageblock>   
+
+     
+ <apex:pageblock >       
+            <div id="panelDivteam">
+            <table Border='1' BORDERCOLOR='#736F6E' width="100%" cellspacing="0" cellpadding="1">
+                <tr align="center" BGCOLOR='Silver'>
+					<td align="center" width="7%"><b>Team</b></td>                
+                    <td align="center" width="7%"><b>Leads</b></td>
+                    <td align="center" width="6%"><b>Demos</b></td>
+                    <td align="center" width="6%"><b>Demos%</b></td>
+                    <td align="center" width="6%"><b>Deals</b></td>
+                    <td align="center" width="6%"><b>Close%</b></td>
+                    <td align="center" width="6%"><b>Deal Amount($)</b></td>
+                    <td align="center" width="6%"><b>Paid Amount($)</b></td>
+                    <td align="center" width="6%"><b>Avg/Sales($)</b></td>
+                </tr>
+            <apex:repeat value="{!ICPTeam}" var="iteam"> 
+				
+	 				<tr align="center" BGCOLOR='Silver'>
+						<td align="center" width="7%">{!iteam.teamName}</td>                
+	                    <td align="center" width="7%">{!iteam.teamTotalLeads}</td>
+	                    <td align="center" width="6%">{!iteam.teamTotalDemos}</td>
+	                    <td align="center" width="6%">{!iteam.teamPercentDemos}</td>
+	                    <td align="center" width="6%">{!iteam.teamTotalDeals}</td>
+	                    <td align="center" width="6%">{!iteam.teamPercentClose}</td>
+	                    <td align="center" width="6%"><apex:outputText value="{0, number, 0000.00}"><apex:param value="{!iteam.teamTotalSalesAmount}" /></apex:outputText></td>
+	                    <td align="center" width="6%"><apex:outputText value="{0, number, 0000.00}"><apex:param value="{!iteam.teamTotalRevenue}" /></apex:outputText></td>
+	                    <td align="center" width="6%"><apex:outputText value="{0, number, 0000.00}"><apex:param value="{!iteam.teamAvgSales}" /></apex:outputText></td>
+	                </tr>
+               
+			</apex:repeat>    
+			<apex:repeat value="{!SalesTeamList}" var="team">  <!--  include the reps who's icpEnabled = false -->
+				
+	 				<tr align="center" BGCOLOR='Silver'>
+						<td align="center" width="7%">{!team.teamName}</td>                
+	                    <td align="center" width="7%">{!team.teamTotalLeads}</td>
+	                    <td align="center" width="6%">{!team.teamTotalDemos}</td>
+	                    <td align="center" width="6%">{!team.teamPercentDemos}</td>
+	                    <td align="center" width="6%">{!team.teamTotalDeals}</td>
+	                    <td align="center" width="6%">{!team.teamPercentClose}</td>
+	                    <td align="center" width="6%"><apex:outputText value="{0, number, 0000.00}"><apex:param value="{!team.teamTotalSalesAmount}" /></apex:outputText></td>
+	                    <td align="center" width="6%"><apex:outputText value="{0, number, 0000.00}"><apex:param value="{!team.teamTotalRevenue}" /></apex:outputText></td>
+	                    <td align="center" width="6%"><apex:outputText value="{0, number, 0000.00}"><apex:param value="{!team.teamAvgSales}" /></apex:outputText></td>
+	                </tr>
+               
+			</apex:repeat></table>
+			<!-- Over All Team Stats --><br></br><br></br>
+			<table Border='1' BORDERCOLOR='#736F6E' width="100%" cellspacing="0" cellpadding="1">
+			<apex:repeat value="{!OverAllTeamList}" var="oteam">  <!--  include the reps who's icpEnabled = false -->
+	 				<tr align="center" BGCOLOR='Silver'>
+						<td align="center" width="7%"><b>All ICP Sales Stats</b></td>                
+	                    <td align="center" width="7%">{!oteam.teamTotalLeads}</td>
+	                    <td align="center" width="6%">{!oteam.teamTotalDemos}</td>
+	                    <td align="center" width="6%">{!oteam.teamPercentDemos}</td>
+	                    <td align="center" width="6%">{!oteam.teamTotalDeals}</td>
+	                    <td align="center" width="6%">{!oteam.teamPercentClose}</td>
+	                    <td align="center" width="6%"><apex:outputText value="{0, number, 0000.00}"><apex:param value="{!oteam.teamTotalSalesAmount}" /></apex:outputText></td>
+	                    <td align="center" width="6%"><apex:outputText value="{0, number, 0000.00}"><apex:param value="{!oteam.teamTotalRevenue}" /></apex:outputText></td>
+	                    <td align="center" width="6%"><apex:outputText value="{0, number, 0000.00}"><apex:param value="{!oteam.teamAvgSales}" /></apex:outputText></td>
+	                </tr>
+			</apex:repeat>
+			</table>
+        </div>
+        </apex:pageblock>
+        <script>
+function fnSetDateFormat(oDateFormat)
+{
+ oDateFormat['FullYear'];  //Example = 2007
+ oDateFormat['Year'];   //Example = 07
+ oDateFormat['FullMonthName']; //Example = January
+ oDateFormat['MonthName'];  //Example = Jan
+ oDateFormat['Month'];   //Example = 01
+ oDateFormat['Date'];   //Example = 01
+ oDateFormat['FullDay'];   //Example = Sunday
+ oDateFormat['Day'];    //Example = Sun
+ oDateFormat['Hours'];   //Example = 01
+ oDateFormat['Minutes'];   //Example = 01
+ oDateFormat['Seconds'];   //Example = 01
+  
+ var sDateString;
+  
+ // Use dd/mm/yyyy format
+ //sDateString = oDateFormat['Date'] +"/"+ oDateFormat['Month'] +"/"+ oDateFormat['FullYear'];
+sDateString = oDateFormat['FullYear'] +"-"+ oDateFormat['Month'] +"-"+ oDateFormat['Date']; 
+ return sDateString;
+}
+   
+     
+function initialiseCalendar(obj, eleId) 
+{
+ var element=document.getElementById(eleId);
+ var params='close=true';
+ if (null!=element)
+ {
+  if (element.value.length>0)
+  {
+   // date is formatted dd/mm/yyyy - pull out the month and year
+   var month=element.value.substr(3,2);
+   var year=element.value.substr(6,4);
+   params+=',month='+month;
+   params+=',year='+year;
+  }
+ }
+ fnInitCalendar(obj, eleId, params);
+}
+ </script>
+</apex:page>

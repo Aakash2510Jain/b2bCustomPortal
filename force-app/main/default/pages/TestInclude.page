@@ -1,0 +1,12 @@
+<apex:page id="thePage" controller="TestIncludeController" action="{!init}">
+<apex:form >
+    {!$Label.Module_double_dot} <apex:inputText value="{!pageName}" />
+    <apex:commandButton value="[!$Label.Open}" action="{!open}" />
+</apex:form>    
+    
+    <br /><br /><br /><br />
+    
+    
+    <apex:outputText value="{!$Label.page_This_is_the_page}"/><br/>
+    <apex:include pageName="{!pageName}" />
+</apex:page>

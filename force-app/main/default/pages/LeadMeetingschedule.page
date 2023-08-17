@@ -1,0 +1,35 @@
+<apex:page showHeader="false" standardController="Lead" extensions="MeetingScheduleController">
+ <apex:form >  
+ <apex:pageMessages id="errormessage"/>
+  <apex:pageBlock >
+   <apex:pageBlockSection title="List of Leads Uploaded By '{!uploadedBy}'  for this week" rendered="{!ShowList}">
+    <apex:pageBlockTable value="{!LeadsForUser}" var="leadRec"> 
+     <apex:column >  
+      <apex:facet name="header">Link</apex:facet>   
+        <apex:commandLink action="{!setEvent}" value="Schedule Meeting">
+            <apex:param value="{!leadRec.Id}" name="eventLeadId" assignTo="{!eventLeadId}"/>
+            <apex:param value="{!uploadedBy}" name="uploadedBy"  assignTo="{!uploadedBy}"/>
+        </apex:commandLink>
+     </apex:column>
+      <apex:column value="{!leadRec.Name}"/> 
+      <apex:column value="{!leadRec.Company}"/>
+      <apex:column value="{!leadRec.Email}"/>
+      <apex:column value="{!leadRec.Owner.Name}"/>    
+      <apex:column value="{!leadRec.LastActivityDate}"/>     
+     </apex:pageBlockTable>         
+    </apex:pageBlockSection>
+   
+     
+     <apex:pageBlockSection title="Schedule Meeting" columns="2" rendered="{!ShowMeetingStatus}">
+                <apex:inputField label="Meeting with " value="{!eventLeadRecord.Name}"/>
+                <apex:inputField label="Meeting Assigned To " value="{!eventLeadRecord.owner.Name}"/>
+                <apex:inputField label="Subject" value="{!eventRecord.Subject}"/>
+                <apex:inputField label="Start DateTime" value="{!eventRecord.StartDateTime}"/>
+                <apex:inputField label="End DateTime" value="{!eventRecord.EndDateTime}"/>
+                <apex:inputField label="Description" value="{!eventRecord.Description}"/>
+                <apex:inputField label="Set Reminder" value="{!eventRecord.ReminderDateTime}"/>
+                <apex:commandButton action="{!saveEvent}" value="Save Schedule" />
+     </apex:pageBlockSection>
+     </apex:pageBlock>   
+   </apex:form>
+</apex:page>

@@ -1,0 +1,298 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" controller="B2BPartnerPortal_CTRL">
+    
+    <aura:handler name="init" value="{! this }" action="{! c.doinit }"/>
+    <aura:attribute name="partnerId" type="string" />
+    <aura:attribute name="isdisabled" type="Boolean" default="True" />
+    <aura:attribute name="EditRecord" type="Boolean" default="false" />
+    <aura:attribute name="isButtonEdit" type="Boolean" default="true" />
+    <aura:attribute name="selectedStep" type="string" default="step1"/>
+    <aura:attribute name="SelectedStage" type="string" />
+    <aura:attribute name="SelectecLeadRec" type="Lead" />
+    <aura:attribute name="LeadStatusPickVal" type="List"/>
+    <aura:attribute name="AllowEdit" type="Boolean" default="true" />
+    <aura:attribute name="LeadSourcePickVal" type="List"/>
+    <aura:attribute name="LeadIndustryPickVal" type="List"/> 
+    <aura:attribute name="ShowDeleteTransferLeadCmp" type="boolean" />
+    <aura:attribute name="ShowDeletePopup" type="boolean" />
+    <aura:attribute name="ShowTransferPopup" type="boolean" />
+    <aura:attribute name="ShowNewEditTaskComp" type="boolean" default="false"/>
+    <aura:attribute name="ShowNewTask" type="boolean" default="false"/>
+    <aura:attribute name="LeadsTobeProcessed" type="Lead[]" />
+    <aura:handler event="force:refreshView" action="{!c.doinit}" />
+    <aura:registerEvent name = "AuraMessageEvent" type = "c:AuraMessageEvent"/>
+    <aura:attribute name="showlead" type="boolean" />
+    <aura:attribute name="leadDetailPage" type="boolean" />
+    <aura:attribute name="steps" type="List"/>
+    <ltng:require styles="/resource/sldsXYZ/assets/styles/salesforce-lightning-design-system-ltng.min.css"/>
+    
+    
+    
+    <aura:html tag="style">
+        .slds-modal__container { 
+        width : 60%  max-width : 80% !important; 
+        },
+        .headerTop{
+        background-color: #CCCAFF !important;
+        }
+    </aura:html> 
+    
+    
+    
+    <div class="slds-grid slds-gutters headerTop   slds-align_absolute-center  " style="Width:100%;margin-left:px;;margin-top:%; border-radius: 8px;  background: linear-gradient(90.51deg, #CCCAFF 0%, #DABEFF 100%);">
+        <div class="slds-size_1-of-12  " style="">
+            
+            <lightning:button class="NewButton1 slds-float_right slds-p-right_large" label="NewTask" onclick="{!c.CreateNewTask}" title="New Task" />
+            
+        </div>
+     
+                  <aura:if isTrue="{!v.ShowNewEditTaskComp}">
+			<c:PartnerNewLeadTaskCmp ShowNewEditTaskComp="{!v.ShowNewEditTaskComp}"  PartnerId="{!v.partnerId}" leadRec = "{!v.SelectecLeadRec}"/>
+        </aura:if>
+        <div class="slds-col slds-size_1-of-1" >
+            
+            <div class="slds-p-right_xx-small">
+                <div class="left slds-p-vertical_medium " style="float:left;margin-top:px; margin-left:5px;">
+                    <h3 style="font-size:1rem"><b>{!v.SelectecLeadRec.Name}</b></h3>
+                    <p>{!v.SelectecLeadRec.LeadID__c}</p>
+                </div>   
+                <!--  <div class="right" style="float:right;  ">
+                        <aura:if isTrue="{!v.isButtonEdit}">
+                            <lightning:button variant="brand-outline" class="custom-button" label="Edit" title="Edit" onclick="{! c.Editable }" />
+                            <lightning:button variant="destructive" class="custom-button1" label="Delete" title="Delete" name="Delete" onclick="{!c.DeletetransferLead}" />
+                            <lightning:button variant="brand" class="custom-button1" label="Transfer" title="Transfer" name="Transfer" onclick="{!c.DeletetransferLead}" />            
+                            <aura:set attribute="else">
+                                <lightning:button variant="brand-outline" class="custom-button" label="save" title="save" onclick="{! c.save }" />
+                                <lightning:button variant="brand-outline" class="custom-button1" label="cancel" title="cancel" onclick="{! c.cancel }" />
+                            </aura:set>
+                        </aura:if>         
+                    </div>-->
+            </div>
+            
+        </div>
+    </div>
+    <div class="slds-col slds-size_1-of-1" style="margin-top:10px;margin-bottom:10px;">
+        <span>
+            <div class="slds-grid slds-gutters   slds-align_absolute-center slds-p-top_medium">
+                <div class="slds-col slds-size_11-of-12" style="margin-left:15px;margin-bottom:1%;">
+                    <lightning:progressIndicator currentStep="{!v.SelectecLeadRec.Status}" type="path" variant="base">
+                        <aura:iteration items="{! v.LeadStatusPickVal}" var="step">
+                            <lightning:progressStep name="{!step.value}" aura:id="stepvalue"  label="{!step.label }"  class="custom-Path" value="{!step.value}" onclick="{!c.handleStepSelect}"/>
+                        </aura:iteration>
+                    </lightning:progressIndicator>
+                </div>
+                <!--   <div class="slds-col slds-size_3-of-12  slds-align_absolute-right" style="margin-left:0px">
+                    <lightning:button class="custom-button" variant="success" label="Mark Status as Complete" title="Mark as" onclick="{! c.MarkLeadStatus}" /> 
+                </div>-->
+            </div>
+            
+        </span>
+    </div>
+    
+    
+    <div class=" scrollable-container1">
+         <div class=" scrollable-content1">  
+        <lightning:tabset>
+            <lightning:tab label="Details">
+                <div>
+                    <lightning:layout multipleRows="True">
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                First Name
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.FirstName}" disabled="{!v.AllowEdit}"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Last Name
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input  type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.LastName}" disabled="{!v.AllowEdit}"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Email
+                            </div>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.Email}" disabled="{!v.AllowEdit}"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Phone
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.Phone}" disabled="{!v.AllowEdit}"/>
+                        </lightning:layoutItem> 
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Company
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.Company}" disabled="{!v.AllowEdit}"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Lead Status
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:select label="" variant="label-hidden" name="status" value="{!v.SelectecLeadRec.Status}" disabled="{!v.AllowEdit}" >
+                                <option value="{!null}">Please select</option>
+                                <aura:iteration items="{!v.LeadStatusPickVal}" var="status">
+                                    <option value="{!status.value}" selected="{!status.value == v.SelectecLeadRec.Status}">{!status.label}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Lead Source
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:select label="" variant="label-hidden" name="status" value="{!v.SelectecLeadRec.LeadSource}" disabled="{!v.AllowEdit}" >
+                                <option value="{!null}">Please select</option>
+                                <aura:iteration items="{!v.LeadSourcePickVal}" var="status">
+                                    <option value="{!status.value}" selected="{!status.value == v.SelectecLeadRec.LeadSource}">{!status.label}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Industry
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:select label="" variant="label-hidden" name="status" value="{!v.SelectecLeadRec.LeadSource}" disabled="{!v.AllowEdit}" >
+                                <option value="{!null}">Please select</option>
+                                <aura:iteration items="{!v.LeadIndustryPickVal}" var="status">
+                                    <option value="{!status.value}" selected="{!status.value == v.SelectecLeadRec.LeadSource}">{!status.label}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Owner
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.Owner.Name}" disabled="true"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Client Name
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.Client_Name__c}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Lead Assigned BD Name
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.Lead_Assigned_BD_name}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Revenue
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.AnnualRevenue}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Company Recent Blog's
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.Company_Recent_Blogs__c}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Webinar Links
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.Webinar_Links__c}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Event's
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.Webinar_Links__c}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Client Time Zone
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.Client_Time_Zone__c}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Lead Created Date
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                         <!--   <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.CreatedDate	}" disabled="true"/>-->
+                             <lightning:formattedDateTime value="{!v.SelectecLeadRec.CreatedDate	}" timeZone="UTC"  disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Last Activity Date
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <!--lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.LastActivityDate}" disabled="true"/-->
+                            <lightning:formattedDateTime value="{!v.SelectecLeadRec.LastActivityDate}" timeZone="UTC"  disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        
+                        <aura:if isTrue="{!v.ShowDeleteTransferLeadCmp}">
+                            <c:PartnerLeadTransferDeleteCmp   showlead="{!v.showlead}"  leadDetailPage="{!v.leadDetailPage}" PartnerId="{!v.partnerId}" LeadsTobeProcessed="{!v.LeadsTobeProcessed}" ShowDeleteTransferLeadCmp="{!v.ShowDeleteTransferLeadCmp}" ShowDeletePopup="{!v.ShowDeletePopup}" ShowTransferPopup="{!v.ShowTransferPopup}" />
+                        </aura:if>
+                    </lightning:layout>
+                </div>
+            </lightning:tab>
+            <!--  <lightning:tab label=" Invoice" title="2nd tab extended title">
+                Invoice
+            </lightning:tab>
+            <lightning:tab label="Visit">
+                Visit
+            </lightning:tab>-->
+        </lightning:tabset>
+        </div>
+    </div>
+    
+    
+    
+    
+</aura:component>

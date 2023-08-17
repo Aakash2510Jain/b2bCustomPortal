@@ -1,0 +1,51 @@
+<apex:page controller="bookController" showHeader="false">
+ <apex:stylesheet value="{!$Resource.Test}" />
+  <apex:form > 
+    <!-- <apex:pageBlock >
+         <apex:pageBlockTable value="{!Book}" var="bo">         
+             <apex:column headervalue="User Name">
+             <apex:outputlink onclick="window.open('/{!Bo.Id}','height=1000,width=1000,left=100,top=100,sidebar=no,scrollbars=yes,toolbar=no,status=no');">{!bo.User_Name__r.Name}</apex:outputlink>
+             </apex:column>
+             <apex:column value="{!bo.Status__c}"/>
+             <apex:column value="{!bo.From_Date__c}"/>
+             <apex:column value="{!bo.To_Date__c}"/>
+             <apex:column value="{!bo.Subject__c}"/>
+             <apex:column value="{!bo.Driver__c}"/>
+             <apex:column value="{!bo.Vehicles__c}"/>         
+         </apex:pageBlockTable> 
+         <apex:pageBlockButtons location="bottom">
+             <apex:commandButton action="{!GoBack}" value="GoBack"/>
+         </apex:pageBlockButtons>        
+     </apex:pageBlock> -->
+      <div class="CSSTableGeneratorFrame">
+         <table>
+         <tr bgcolor="#fff">
+             <td><b>User Name</b></td>
+             <td><b>Status</b></td>
+             <td><b>From Date</b></td>
+             <td><b>To Date</b></td>
+             <td><b>Subject</b></td>
+             <td><b>Driver</b></td>
+             <td><b>Vehicles</b></td>
+         </tr>  
+         <apex:repeat value="{!Book}" var="bo">
+         <tr>
+             <td>
+             <apex:outputlink onclick="window.open('/{!Bo.Id}','height=1000,width=1000,left=100,top=100,sidebar=no,scrollbars=yes,toolbar=no,status=no');">{!bo.User_Name__r.Name}</apex:outputlink>
+             </td>
+             <td>{!bo.Status__c}</td>
+             <td>{!bo.From_Date__c}</td>
+             <td>{!bo.To_Date__c}</td>
+             <td>{!bo.Subject__c}</td>
+             <td>{!bo.Driver__c}</td>
+             <td>{!bo.Vehicles__c}</td>
+         </tr>
+         </apex:repeat>
+         <tr>
+             <td colspan="4"> <apex:commandButton action="{!GoBack}" value="GoBack"/></td>
+             <td colspan="4">&nbsp;</td>
+         </tr>
+         </table>
+       </div>       
+  </apex:form>
+</apex:page>

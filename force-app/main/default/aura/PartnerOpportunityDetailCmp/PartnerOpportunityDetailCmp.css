@@ -1,0 +1,18 @@
+.THIS .custom-button2{
+    background-color:transparent;
+    color:black;
+     border: 2px solid #9E7BFF;
+    width:2%;
+    height:2%;
+  border: none;  
+    
+ }
+.THIS .custom-button2:hover{
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19); 
+     background-color:#9E7BFF;
+    color:white;
+    font-weight : bold ;
+    width:2%;
+    height:2%;
+        border: none;
+}

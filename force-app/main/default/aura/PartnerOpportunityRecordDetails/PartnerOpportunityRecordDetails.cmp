@@ -1,0 +1,144 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" controller="B2BPartnerPortal_CTRL" >
+     <aura:handler name="init" value="{!this }" action="{!c.doinit }"/>
+ <aura:attribute name="OpportunityDetailPage" type="boolean" />	
+      <aura:attribute name="SelectedOpportunityRec" type="Opportunity" />
+     <aura:attribute name="OppLeadPickVal" type="List"/>
+    
+     <aura:html tag="style">
+        .slds-modal__container { 
+        width : 60%  max-width : 80% !important; 
+        },
+        
+        .headerTop{
+        background-color: #CCCAFF !important;
+        }
+    </aura:html>
+     <div class="slds-grid slds-gutters headerTop slds-align_absolute-center slds-p-top_medium" style="Width:100%;margin-left:2px;height:15%;margin-top:1%;">
+        <div class="slds-col slds-size_1-of-1" >
+            <span>
+    
+        <div class="j">
+            <div class="left" style="float:left;margin-top: -12px; margin-left:5px;">
+                <h3 style="font-size:1rem"><b>{!v.SelectedOpportunityRec.Name}</b></h3>
+                <p><b>Partner No.:&nbsp;&nbsp;</b>{!v.SelectedOpportunityRec.Partner__r.Name}</p>
+            </div>
+        </div>
+    </span>
+         </div>
+    </div>
+     <div class="slds-col slds-size_1-of-1" style="margin-top:2%;margin-bottom: 20px;">
+        <span>
+            <div class="slds-grid slds-gutters headerTop lds-align_absolute-center slds-p-top_medium">
+                <div class="slds-col slds-size_12-of-12 slds-p-horizontal_x-small" style="margin-left:0px;margin-bottom:1%;">
+                    <lightning:progressIndicator currentStep="{!v.SelectedOpportunityRec.StageName}" type="path" variant="base">
+                        <aura:iteration items="{! v.OppLeadPickVal}" var="step">
+                            <lightning:progressStep name="{!step.value}" aura:id="stepvalue"  label="{!step.label }"  class="custom-Path" value="{!step.value}"  />
+                        </aura:iteration>
+                    </lightning:progressIndicator>
+	                </div>
+             </div>
+         </span>
+    </div>
+    
+     <div>
+        <lightning:tabset>
+            <lightning:tab label="Details">
+                <div>
+                    <lightning:layout multipleRows="True">
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Name
+                            </div>
+                         </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectedOpportunityRec.Name}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Account Name
+                            </div>
+                         </lightning:layoutItem>
+                         <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input  type="text" variant="label-hidden" label="" value="{!v.SelectedOpportunityRec.Account.Name}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Close Date
+                            </div>
+                         </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectedOpportunityRec.CloseDate}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                   <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Stage
+                            </div>
+                         </lightning:layoutItem>
+                         <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectedOpportunityRec.StageName}" disabled="true"/>
+                         </lightning:layoutItem> 
+                        
+                       <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Amount
+                            </div>
+                         </lightning:layoutItem>
+                         <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectedOpportunityRec.Amount}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Partner
+                            </div>
+                         </lightning:layoutItem>
+                         <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectedOpportunityRec.Partner__r.Name}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Lead Source
+                            </div>
+                        </lightning:layoutItem>
+                          <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectedOpportunityRec.LeadSource}" disabled="true"/>
+                        </lightning:layoutItem>
+                        
+                    <!--    <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Industry
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:select label="" variant="label-hidden" name="status" value="{!v.SelectecLeadRec.LeadSource}" disabled="{!v.AllowEdit}" >
+                                <option value="{!null}">Please select</option>
+                                <aura:iteration items="{!v.LeadIndustryPickVal}" var="status">
+                                    <option value="{!status.value}" selected="{!status.value == v.SelectecLeadRec.LeadSource}">{!status.label}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </lightning:layoutItem>
+                        
+                         <lightning:layoutItem class="e" size="2" padding="around-medium">
+                            <div>
+                                Owner
+                            </div>
+                         </lightning:layoutItem>
+                         <lightning:layoutItem class="e" size="4" padding="around-medium">
+                            <lightning:input type="text" variant="label-hidden" label="" value="{!v.SelectecLeadRec.Owner.Name}" disabled="true"/>
+                        </lightning:layoutItem> -->
+                        
+                        
+                    </lightning:layout>
+                </div>
+            </lightning:tab>
+         </lightning:tabset>
+    </div>
+    <br/>
+    <br/>
+</aura:component>

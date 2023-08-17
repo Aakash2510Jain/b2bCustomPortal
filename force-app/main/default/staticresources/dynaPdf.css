@@ -1,0 +1,55 @@
+@page {
+
+@top-center {
+
+content: element(header);
+
+}
+
+@bottom-left {
+
+    content: element(footer);
+
+}
+
+}
+
+div.header {
+
+padding: 10px;
+
+position: running(header);
+
+}
+
+div.footer {
+
+display: block;
+
+padding: 5px;
+
+position: running(footer);
+
+}
+div.content {
+margine-top:200px;
+
+ }
+
+.pagenumber:before {
+
+content: counter(page);
+
+}
+
+.pagecount:before {
+
+content: counter(pages);
+
+}
+
+.innerDiv{
+
+font-size: 20px; font-family: 'ms serif', monospace; font-weight: 700;
+color:#ffffff;
+}

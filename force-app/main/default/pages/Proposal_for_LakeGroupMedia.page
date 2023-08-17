@@ -1,0 +1,528 @@
+<apex:page standardController="Opportunity" showHeader="false"
+	sidebar="false" extensions="GenerateOrdersController"
+	renderAs="{!valuetoset}">
+	<c:dynawhitecomponent type="header">
+		<table>
+			<tr>
+				<td valign="top" width="10%" align="right"><apex:image value="{!$Resource.LakeB2B}" height="45"
+					rendered="{!Opportunity.Brand_Name__c == 'Lake B2B'}" /> <apex:image value="{!$Resource.LakeGroupMedia}" height="40"
+					rendered="{!Opportunity.Brand_Name__c == 'Lake Group'}" /></td>
+			</tr>
+		</table>
+	</c:dynawhitecomponent>
+
+	<c:dynawhitecomponent type="footer">
+		<div>
+		<table>
+			<tr>
+				<td align="center" width="100%"><apex:image value="{!$Resource.LakeFooter}" height="35" width="700" /></td>
+
+			</tr>
+		</table>
+		</div>
+
+	</c:dynawhitecomponent>
+
+	<table border="0" width="100%" align="center">
+		<!-- Outer 02--->
+		<tr>
+			<td width="45%" colspan="2"><apex:image value="{!$Resource.Proposal}" width="100%" /></td>
+		</tr>
+		<tr>
+			<td width="10%" colspan="2" align="center" height="50px"
+				style="color: #ffffff; font-size: 14pt; background: #32A3CD">Proposal
+			for company name</td>
+		</tr>
+		<tr>
+			<td width="45%" colspan="2"><apex:image value="{!$Resource.Proposal1}" width="100%" height="450px" /></td>
+		</tr>
+		<div style="page-break-after: always;" />
+		<tr>
+			<td colspan="2" align="center">
+			<div><b> <span style="font-size: 18.0pt; color: #4D998F"><b><u>About
+			Us</u></b></span></b></div>
+			</td>
+		</tr>
+		<tr style="font-size: 11pt;">
+			<td colspan="2">
+			<div>
+			<p style="line-height: normal" align="justify">This Data &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}" />, Inc Established in
+			1960,&nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}" />,
+			Inc. serves the direct response industry with state-of-the-art list
+			management, list brokerage, and specialized marketing services. We
+			are recognized as an industry leader for one-reason…bottom-line
+			results!</p>
+			<p><apex:outputField value="{!Opportunity.Brand_Name__c}" /> is
+			a member of the Direct Marketing Association (DMA) since 1960. We are
+			also proud members of the DMA List and Database Council, DMA
+			Non-Profit Federation, DMA Business-to-Business Council, DMA Catalog
+			Council, Direct Marketing Association of Washington (DMAW), Magazine
+			Publishers Association (MPA), Specialized Information Publishers
+			Association (SIPA), and the Direct Marketing Club of New York (DMCNY)
+			and the Hudson Valley Direct Marketing Association (HVDMA).</p>
+			<p align="justify">Back in 2010, we decided to become the
+			exclusive reseller partner of B2B datapartners, B2B datapartners is a
+			DMA member, and co-exhibited with Lake Group at the 2010 San
+			Francisco DMA, and 2011 Boston DMA.</p>
+			<p align="justify">They are a leading e-marketing provider
+			undertakes full service data management services to our customers.
+			They started with handful of services for business-to-business
+			marketing, but now have extended products and solutions to support
+			all stages of customer lifecycle</p>
+			<p align="justify">Our business edge lies with our capability to
+			compile large quantity of data from thousands of disparate
+			data-streams.</p>
+
+			<p align="justify" style="color: red"><B><u>Here are some
+			of our solutions for our clients:</u></b></p>
+			<B>Data Intelligence:</B>We enhance your customer database and help
+			you maintain vital information for your consistent business use.<br />
+			<B>Marketing Intelligence: </B>Attract the attention of the right
+			prospects and turns them into quality customers.<br />
+			<B> Web Intelligence: </b>We help you design, develop and maintain
+			your dream website.<br />
+			<B> Content Intelligence:</b> Providing SEO driven content
+			development solutions for all types of Internet marketing campaigns.
+			And more... <br />
+			<p align="justify">This process of adding opt-in records is
+			obtained through a subscription management and confirmation process.
+			We gather, analyze, and manage our data consistently and continuously
+			from a variety of sources, from public records, to title companies,
+			to credit bureau data. From DBA filings and tax liens or judgments,
+			to yellow pages.</p>
+			<p align="justify" style="color: #3563A8"><B><u>FACT
+			SHEET: </u></b></p>
+			<p align="justify">
+			<ul>
+				<li>Global data list and related services leader</li>
+				<li>Host, update and expand our 23 million record B2B master
+				database</li>
+				<li>13% steady average yearly revenue growth rate over last 8
+				years</li>
+				<li>1600 company employees</li>
+				<li>800 data team members</li>
+				<li>450 telemarketers</li>
+				<li>200 sales representatives</li>
+				<li>Market innovator for marketing outsourcing services</li>
+				<li>Adding 4000+ new customers per year</li>
+				<li>80%+ email data accuracy and deliverability</li>
+				<li>4 million tele-verified records and expanding</li>
+				<li>Leader in data appending, particularly email data appending
+				and in custom specialty lists</li>
+				<li>Unique email campaign and social media solutions and
+				services</li>
+			</ul>
+			</p>
+			</div>
+			</td>
+		</tr>
+		<div style="page-break-after: always;" />
+
+		<tr>
+			<td colspan="2">
+			<table border="0">
+				<tr>
+					<td width="700" align="center"><b> <span>
+					<p style="font-size: 18.0pt; color: #4D998F"><b><u>Purchase
+					Details</u></b></p>
+					</span></b></td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+	</table>
+	<div align="center">
+
+	<table border="1" cellspacing="0" cellpadding="0" width="100%"
+		style="border: solid 1.0pt;">
+		<tr style="font-size: 10pt; background: #44B0C4; height: 25.0pt">
+			<td width="91" style=""><span style="font-weight: bold">SOLUTION</span></td>
+			<td width="84" style=""><span style="font-weight: bold">ITEM
+			#</span></td>
+			<td width="132" style=""><span style="font-weight: bold">DEPLOYMENT
+			DATE</span></td>
+			<td width="109" style=""><span
+				style="line-height: 110%; font-weight: bold">PAYMENT TERMS</span></td>
+
+		</tr>
+		<tr>
+			<td width="132"
+				style="font-size: 11pt; border: 1px solid black; border-right: none; border-left: none; border-bottom: none">
+			<span> <apex:outputfield value="{!Opportunity.General_Service_Description__c}" /> </span></td>
+			<td width="91"
+				style="font-size: 11pt; border: 1px solid black; border-right: none; border-bottom: none">
+			<span style="mso-no-proof: yes"><apex:outputText value="{!Opportunity.item__c}" /></span></td>
+			<td width="109"
+				style="font-size: 11pt; border: 1px solid black; border-right: none; border-bottom: none">
+			<span style="line-height: 110%;"><apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+				<apex:param value="{!opportunity.DateofDelivery__c}" />
+			</apex:outputText></span></td>
+			<td width="90"
+				style="font-size: 11pt; border: 1px solid black; border-right: none; border-bottom: none">
+			<span style="line-height: 110%;"> <apex:outputText value="{!Opportunity.Payment_Terms__c}" /> </span></td>
+		</tr>
+
+	</table>
+	</div>
+	<p>&nbsp;</p>
+
+	<div align="center">
+
+	<table border="1" cellspacing="0" cellpadding="0" width="100%"
+		style="border: solid 1.0pt;">
+		<tr style="height: 11.75pt; background: #44B0C4;">
+			<td width="10%" align="center"><span style="mso-spacerun: yes;">QTY.
+			No </span></td>
+
+			<td width="40%" align="center"><span style="mso-spacerun: yes">DESCRIPTION
+			</span></td>
+			<td width="20%" align="center"><span style="mso-spacerun: yes">UNIT
+			PRICE </span></td>
+			<td width="15%" align="center"><span style="mso-spacerun: yes">DISCOUNT
+			</span></td>
+			<td width="15%" colspan="5" align="center"><span
+				style="mso-spacerun: yes;">TOTAL </span></td>
+		</tr>
+
+		<apex:repeat value="{!opportunity.opportunityLineItems}" var="op">
+			<tr style="padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt">
+				<td width="10%" valign="bottom"
+					style="border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-alt: solid #4F81BD .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt">
+				<span style="font-size: 10.0pt;"><span
+					style="mso-spacerun: yes"> </span><apex:outputField value="{!OP.quantity}" /></span></td>
+				<td width="40%" valign="bottom"
+					style="border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-alt: solid #4F81BD .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt">
+				<span style="font-size: 10.0pt;"><span
+					style="mso-spacerun: yes"> </span><apex:outputtext value="{!OP.Product_Description__c}" /></span></td>
+
+				<td width="20%" valign="bottom"
+					style="border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-alt: solid #4F81BD .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt">
+				<span style="font-size: 10.0pt;"><span
+					style="mso-spacerun: yes"> </span><apex:outputField value="{!OP.unitprice}" /></span></td>
+				<td width="15%" valign="bottom" align="center"
+					style="border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-alt: solid #4F81BD .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt">
+				<span style="font-size: 10.0pt;"> <apex:outputField value="{!Opportunity.Discount__c}" /></span></td>
+				<td width="15%" valign="bottom" align="center" colspan="6"
+					style="border-top: none; mso-border-top-alt: solid #4F81BD .5pt; mso-border-alt: solid #4F81BD .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 15.15pt">
+				<span style="font-size: 10.0pt;"> <apex:outputField value="{!OP.TotalPrice}" /></span></td>
+			</tr>
+		</apex:repeat>
+	 	<tr style="height: 15.15pt;">
+
+			<td colspan="4" align="right"
+				style="border: none; border-right: solid #1F497D 1.0pt; mso-border-top-alt: solid #1F497D .25pt; mso-border-right-alt: solid #1F497D .25pt;">
+			<span style="color: #1F497D;">TOTAL DISCOUNT</span></td>
+			<td
+				style="border-top: none; border-left: none; border-bottom: solid #1F497D 1.0pt; border-right: solid #1F497D 1.0pt; mso-border-top-alt: solid #1F497D .25pt; mso-border-left-alt: solid #1F497D .25pt; mso-border-alt: solid #1F497D .25pt;"
+				align="center"><apex:outputField value="{!Opportunity.Total_Discount__c}" /></td>
+			<!-- <td
+				style="border-top: none; border-left: none; border-bottom: solid #1F497D 1.0pt; border-right: solid #1F497D 1.0pt; mso-border-top-alt: solid #1F497D .25pt; mso-border-left-alt: solid #1F497D .25pt; mso-border-alt: solid #1F497D .25pt;">
+
+			</td> -->
+		</tr>
+
+		<tr style="height: 15.15pt;">
+			<td width="390" colspan="3"
+				style="width: 292.5pt; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: .2in;border-top: none; border-left: none; border-right: solid #1F497D 0.0pt; border-bottom: solid #1F497D 0.0pt;">
+			<p></p>
+			</td>
+			<td colspan="1"
+				style="border: none; border-right: solid #1F497D 1.0pt; mso-border-top-alt: solid #1F497D .25pt; mso-border-bottom-alt: solid #1F497D .25pt; mso-border-top-alt: solid #1F497D .25pt; mso-border-right-alt: solid #1F497D .25pt;"
+				align="center"><span style="color: #1F497D;"></span>
+				SUB TOTAL
+				</td>
+			<td colspan="3"
+				style="border-top: none; border-left: none; border-bottom: solid #1F497D 1.0pt; border-right: solid #1F497D 1.0pt; mso-border-top-alt: solid #1F497D .25pt; mso-border-left-alt: solid #1F497D .25pt; mso-border-alt: solid #1F497D .25pt;"
+				align="center"><apex:outputField value="{!Opportunity.Amount}" />
+			</td>
+		</tr>
+		<tr style="height: 15.15pt;">
+			<td width="390" colspan="3"
+				style="width: 292.5pt; padding: 2.15pt 5.75pt 2.15pt 5.75pt; height: .2in;border-top: none; border-left: none; border-right: solid #1F497D 0.0pt; border-bottom: solid #1F497D 0.0pt;">
+			<p></p>
+			</td>
+			<td
+				style="border: none; border-right: solid #1F497D 1.0pt; mso-border-top-alt: solid #1F497D .25pt; mso-border-top-alt: solid #1F497D .25pt; mso-border-right-alt: solid #1F497D .25pt;"
+				align="right"><span style="mso-spacerun: yes; color: #1F497D;"></span>PROCESSING
+			FEE</td>
+			<td 
+				style="border-top: none; border-left: none; border-right: solid #1F497D 1.0pt; border-bottom: solid #1F497D 1.0pt; mso-border-top-alt: solid #1F497D .25pt; mso-border-left-alt: solid #1F497D .25pt; mso-border-alt: solid #1F497D .25pt;"
+				align="center"><apex:outputField value="{!Opportunity.Processing_Fee__c}" /></td>
+		</tr>
+		<tr style="height: 15.15pt;">
+			<td width="390" colspan="6">
+			<apex:panelgroup rendered="{!Opportunity.Annu_Maint_Contract__c!= true}">
+				<table border="0" width="100%" height="100%" cellpadding="0"
+					cellspacing="0">
+					<tr style="height: 15.15pt;">
+						<td colspan="4" width="94%"
+							style="border-top: none; border-left: none; border-right: solid #1F497D 0.0pt; border-bottom: solid #1F497D 0.0pt; mso-border-top-alt: solid #1F497D .25pt; mso-border-left-alt: solid #1F497D .25pt; mso-border-alt: solid #1F497D .25pt; color: #1F497D;"
+							align="right"><b> Total:</b></td>
+						<td width="10%"
+							style="border-top: none; border-left: none; border-right: solid #1F497D 1.0pt; border-left: solid #1F497D 1.0pt; border-bottom: solid #1F497D 1.0pt;"
+							align="center"><apex:panelgroup rendered="{!Opportunity.Processing_Fee__c!= null}">
+							<b> <apex:outputText value="{0, number, 00.00}">
+								<apex:param value="{!Opportunity.Amount+Opportunity.Processing_Fee__c}" />
+							</apex:outputText></b>
+						</apex:panelgroup> <apex:panelgroup rendered="{!Opportunity.Processing_Fee__c== null}">
+							<b><apex:outputField value="{!Opportunity.Amount}" /> </b>
+						</apex:panelgroup></td>
+					</tr>
+				</table>
+			</apex:panelgroup> 
+			<apex:panelgroup rendered="{!Opportunity.Annu_Maint_Contract__c== True}">
+				<table border="0" width="100%" height="100%" cellpadding="0"
+					cellspacing="0">
+					<tr style="height: 15.15pt;">
+						<td width="85%"
+							style="border-top: solid #1F497D 0.0pt; border-leftsolid #1F497D 0.0pt; border-right: solid #1F497D 0.0pt; border-bottom: solid #1F497D 0.0pt; mso-border-top-alt: solid #1F497D .25pt; mso-border-left-alt: solid #1F497D .25pt; mso-border-alt: solid #1F497D .25pt; color: #1F497D;"
+							align="right"><b>Annual Maintenance contract (AMC)</b></td>
+						<td width="50%" align="center"
+							style="border-top: none; border-left: solid #1F497D 1.0pt; border-right: solid #1F497D 1.0pt; border-bottom: solid #1F497D 1.0pt; mso-border-top-alt: solid #1F497D .25pt; mso-border-left-alt: solid #1F497D .25pt; mso-border-alt: solid #1F497D .25pt; color: #1F497D;"><b>20%</b></td>
+					</tr>
+					<tr style="height: 15.15pt;">
+						<td width="86%"
+							style="border-top: solid #1F497D 0.0pt; border-left: solid #1F497D 0.0pt; border-right: solid #1F497D 0.0pt; border-bottom: solid #1F497D 0.0pt; mso-border-top-alt: solid #1F497D .25pt; mso-border-left-alt: solid #1F497D .25pt; mso-border-alt: solid #1F497D .25pt; color: #1F497D;"
+							align="right"><b>Total</b></td>
+						<td width="14%"
+							style="border-top: none; border-left: solid #1F497D 1.0pt; border-right: solid #1F497D 1.0pt; border-bottom: solid #1F497D 1.0pt; mso-border-top-alt: solid #1F497D .25pt; mso-border-left-alt: solid #1F497D .25pt; mso-border-alt: solid #1F497D .25pt; color: #1F497D;"
+							align="center"><b>$ <apex:variable var="amcTotal"
+							value="{!0}" /> <apex:variable var="amcpercentage"
+							value="{!Opportunity.Amount * 0.20}" /> <apex:variable var="amcpercentage" value="{!amcpercentage + Opportunity.Amount}" />
+						<apex:outputText value="{0, number, 00.00}">
+							<apex:param value="{!amcpercentage}" />
+						</apex:outputText></B></td>
+					</tr>
+				</table>
+			</apex:panelgroup>
+			</td></tr>
+			<tr height="150px"><td colspan="6">
+				<table border="0" width="100%" height="100%" cellpadding="0"
+						cellspacing="0">
+				<tr>
+					<td align="left" style="font-size: 10pt;"><span
+						style="line-height: 110%;"> Lake Group Media, Inc.</span><br />
+					<span style="line-height: 110%;">1 Byram Brook Place</span><br />
+					<span style="line-height: 110%;">Armonk, NY 10504</span><br />
+					<span style="line-height: 110%;">O: 914.925.2400</span><br />
+					<span style="line-height: 110%;">Direct: 818-665-4611</span><br />
+					</td>
+	
+					<td 
+						style="font-size: 10pt; padding: 0in 5.4pt 0in 100.4pt;">
+					Company Name and address along with contact number</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+
+			<tr>
+				<td colspan="6">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr style="background: #44B0C4;">
+
+						<td colspan="4" width="50%"><b
+							style="mso-bidi-font-weight: normal"><span
+							style="font-size: 12.0pt; padding: 0in 5.4pt 0in 5.4pt;">For&nbsp;
+						<apex:outputField value="{!opportunity.Brand_Name__c}" /></span></b></td>
+						<td width="50%"><b><span
+							style="font-size: 12.0pt; line-height: 150%; font-style: normal; padding: 0in 5.4pt 0in 5.4pt;">For&nbsp;<apex:outputField value="{!Opportunity.account.name}" /></span></b></td>
+					</tr>
+					<tr align="left">
+
+
+						<td
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Name</td>
+
+						<td
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+						<apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c!=''}">
+							<apex:outputfield value="{!Opportunity.Workorder_Owner_Name__c}" />
+						</apex:panelGroup> <apex:panelGroup rendered="{!Opportunity.Workorder_Owner_Name__c==''}">
+							<apex:outputText value="{!Opportunity.owner.name}" />
+						</apex:panelGroup></td>
+						<td
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Name</td>
+						<td colspan="4"
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;"><apex:outputField value="{!Opportunity.Client_Name__r.name}" /></td>
+
+					</tr>
+
+					<tr align="left">
+
+
+						<td
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Title</td>
+
+						<td
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;"><apex:outputField value="{!Opportunity.Title__c}" /></td>
+						<td
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Title</td>
+						<td colspan="4"
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt;; padding: 0in 5.4pt 0in 5.4pt;"><apex:outputField value="{!Opportunity.Client_Title__c}" /></td>
+
+					</tr>
+
+
+					<tr align="left">
+						<td
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Date</td>
+						<td
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+						<apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+							<apex:param value="{!opportunity.current_date__c}" />
+						</apex:outputText></td>
+
+						<td
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;">Date</td>
+
+						<td colspan="4"
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; font-size: 10.0pt; padding: 0in 5.4pt 0in 5.4pt;"><apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+							<apex:param value="{!opportunity.current_date__c}" />
+						</apex:outputText></td>
+
+					</tr>
+					<tr align="left">
+
+
+						<td
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">Signature</td>
+
+						<td
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;"><apex:outputField value="{!Opportunity.Signauture1__c}" /></td>
+						<td
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">Signature</td>
+
+						<td colspan="4"
+							style="border-left: solid #4F81BD 1.0pt; border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt; border-right: solid #4F81BD 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">&nbsp;</td>
+
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<div style="page-break-after: always;" />
+			<tr>
+				<td colspan="6" align="center">
+				<div><b> <span style="font-size: 18.0pt; color: #4D998F"><u>Terms
+				and Conditions</u></span></b></div>
+				</td>
+			</tr>
+			<tr style="font-size: 12px;">
+				<td colspan="6">
+				<div>
+				<p style="line-height: normal" align="justify">This Data
+				Agreement (“Agreement”) is entered into by and between &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}" /> and company name
+				(‘CLIENT’). The terms and conditions of this Agreement shall be
+				deemed incorporated by reference into any schedule hereto or order
+				for data referring to this Agreement (each a "Data /Insertion
+				Order") identifying the target data and such other additional terms
+				and conditions as the parties may agree, including pricing. All
+				Insertion Orders together with this Data Acquisition Agreement shall
+				be collectively known as the "Agreement."</p>
+				<p style="line-height: normal" align="justify">WHEREAS, &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}" /> is engaged in the
+				publishing, writing, manufacture, distribution, reselling and
+				licensing of proprietary databases and providing related marketing
+				services, and has the rights to do so, and WHEREAS, CLIENT desires
+				to use such services to add data to its house file on the terms and
+				conditions set forth herein. NOW, therefore, in consideration of the
+				premises set forth above and the mutual promises, agreements and
+				conditions stated herein, the parties agree as follows:</p>
+				<p align="justify">I.<B> <u> DESCRIPTION OF SERVICE:</u></B>
+				&nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}" />
+				will provide to CLIENT data records consisting of ALL of the
+				following data attributes: contact name, business name, phone#, fax
+				# (where ever available), email, website address, SIC Code,
+				Industry, street, city, state and zip.</p>
+				<p align="justify">II.<B> <u> DATA :</u></B> We will provide
+				data to the client via Email (Excel Format) or FTP without charging
+				any shipping costs. Data can be provided on a CD or other format at
+				an extra cost along with shipping costs.</p>
+				<p align="justify">III.<B> <u> INITIAL COMMUNICATION:</u></B> .
+				If the CLIENT desires we will work with CLIENT to develop the email
+				message(s) which will be sent to all email Records by our Email
+				Campaign Manager software. We will only send one email message per
+				Record. The reply email will be provided to CLIENT. We will also
+				track Click-trough’s and provide a report at the end of the
+				campaign.</p>
+				<p align="justify">IV.<B> <u>CONFIDENTIALITY:</u></B> The Email
+				Addresses, the Matched Records and all other information
+				(collectively, the "Confidential Information") will remain
+				confidential and will not be resold by the client.</p>
+
+				<p align="justify">V.<B> <u> FEES:</u> </B>CLIENT will pay us
+				prior to purchase of the list or provision of Marketing Services.</p>
+
+				<p align="justify">VI.<B> <u>LIMITED LICENSE:</u></B> Upon
+				purchase you will have a limited license to use the information
+				delivered to you subject to these terms and conditions. You agree
+				not to sell, sublicense, transfer or otherwise make available any
+				portion of the information to anyone outside of your business
+				organization</p>
+				<p align="justify">VII.<B> <u>CUSTOMER RESPONSIBILITIES:</u></B>
+				You agree that it is your responsibility to understand and comply
+				with all federal, state, and local laws, rules, and regulations
+				including do not call and do not fax regulations. You agree to
+				indemnify and hold&nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}" /> and its subsidiaries (“<apex:outputField value="{!Opportunity.Brand_Name__c}" />”) harmless against all
+				claims related, in whole or in part, to your failure to comply with
+				such laws, rules, and regulations. For the purpose of resolving any
+				dispute in any way related to your use of the information, or these
+				terms and conditions, the state and federal courts located in
+				California shall have exclusive jurisdiction. You agree that such
+				courts represent “convenient and appropriate” forums for this
+				purpose</p>
+				<p align="justify">VIII. <B> <u> WARRANTY:</u></B> We guarantee
+				90% accuracy on mailing and phone information of the List provided
+				with this agreement will be accurate. The Warranty will be limited
+				to provision of additional records. We hereby disclaim all express
+				or implied warranties, including the implied warranties of
+				merchantability, fitness for a particular purpose, correctness,
+				quality, accuracy, completeness or reliability, for any data or
+				service provided hereunder.</p>
+
+				<p align="justify">IX.<B> <u>EXCLUSIVE LIMITED WARRANTY:</u></B>
+				<apex:outputField value="{!Opportunity.Brand_Name__c}" /> compiles
+				its databases from various sources and where appropriate verifies
+				the information. You will have 14 days after purchasing the
+				information to inspect and notify &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}" /> of any operational
+				problems or material mistakes with regards to the information. If
+				&nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}" /> is
+				notified of an operational problem or material mistake within 14
+				days from the date of your purchase then &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}" /> will correct the problem
+				or, in its sole discretion, provide additional records if needed
+				relating to the materially mistaken information. This warranty is a
+				limited warranty and &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}" /> makes no other warranties,
+				express or implied, including without limitation, any express or
+				implied warranties of merchantability or fitness for a particular
+				purpose. In no event shall &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}" /> be liable for lost
+				profits, consequential, incidental, or special damages, or other
+				claims of a similar nature.</p>
+				<p align="justify">X. <B> <u>LIMITATION OF LIABILITY:</u></B> In
+				no event shall either party be liable for direct, indirect, special,
+				exemplary, consequential, incidental, or punitive damage or loss for
+				any claim or cause of action related to or arising out of this
+				Agreement or the services performed hereunder. Except for claims
+				arising under relevant e-mail laws and regulations, our liability at
+				all times will be limited to the purchase price paid by the client
+				minus any delivery expenses incurred by us.</p>
+				<p align="justify">XI.<B> <u>LIST DELIVERY:</u></B>The
+				above-mentioned custom list would be delivered within 5-7 days on
+				receipt of payment. If the process is likely to take longer than the
+				agreed delivery date, the client would be informed in advance and
+				delivery date rescheduled after reaching a mutual agreement with the
+				client.</p>
+				<p align="justify">XII.<B> <u>ENTIRE AGREEMENT</u></b>This is
+				the entire agreement between the parties and hereby supersedes all
+				other agreements, negotiations, discussions or advertising material
+				related to the subject matter hereof.</p>
+				</div>
+				</td>
+			</tr>
+			
+	</table>
+
+	</div>
+</apex:page>

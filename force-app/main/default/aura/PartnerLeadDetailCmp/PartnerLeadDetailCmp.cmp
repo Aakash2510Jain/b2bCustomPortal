@@ -1,0 +1,444 @@
+<aura:component
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" controller="B2BPartnerPortal_CTRL">
+    
+    <aura:attribute name="hashcode" type="string" />
+    <aura:attribute name="partnerId" type="string" />
+    <aura:attribute name="SelectedleadRecordId" type="string" />
+    <aura:attribute name="singleLeadRec" type="Lead" default="{}" />
+    <aura:attribute name="CompleteLeadlist" type="Lead[]" />
+    <aura:attribute name="LeadlistForPagination" type="Lead[]" />
+    
+    <!-- =========================== For LeadListView Detail Page ==================== -->
+    <aura:attribute name="listviewselectedValue" type="string" />
+    <aura:attribute name="showleadPagination" type="boolean" default="false" />
+    <aura:attribute name="leadDetailPage" type="boolean" default="false" />
+    <aura:attribute name="Listviewoptions" type="List" />
+    <aura:attribute name="EditSelectedLeadRec" type="Lead" default="{}" />
+    
+    <aura:attribute name="ShowNewEditLeadComp" type="boolean" default="false" />
+    <aura:attribute name="ShowNewLead" type="boolean" default="false" />
+    <aura:attribute name="ShowEditLead" type="boolean" default="false" />
+    <!-- =============================== Select All delete and Transfer =================================== -->
+    <aura:attribute name="ShowDeleteTransferLeadCmp" type="boolean" />
+    <aura:attribute name="ShowDeletePopup" type="boolean" />
+    <aura:attribute name="ShowTransferPopup" type="boolean" />
+    <aura:attribute name="LeadsTobeProcessed" type="Lead[]" />
+    
+    <aura:import library="lightning:alert" property="LightningAlert" />
+    <aura:attribute name="isRecordSelected" type="Boolean" default="true" />
+    
+    
+    <!-- UnfilteredData -->
+    <aura:handler name="init" value="{!this }" action="{!c.doInit }" />
+    <!--aura:handler name="change" value="{!v.filter}" action="{!c.doFilter}" /-->
+    <aura:attribute name="filter" type="string" />
+    
+    <!-- ======================================== For Pagination ===========================================-->
+    <aura:attribute name="showPagination" type="boolean" />
+    <aura:attribute name="PaginationList" type="list" />
+    <aura:attribute name="selectedCount" type="integer" default="0" description="selected Records Count" />
+    <aura:attribute name="totalRecordsCount" type="Integer" />
+    <aura:attribute name="totalPagesCount" type="integer" />
+    <aura:attribute name="bNoRecordsFound" type="boolean" /> 
+    <aura:attribute name="showdatefilter" type="boolean" default="false"/>
+    <aura:attribute name="showdropdown" type="boolean" default="false"/>
+    <aura:attribute name="showdropdownButton" type="boolean" default="true"/>
+    <aura:attribute name="hidedropdownButton" type="boolean" default="false"/>
+    <aura:attribute name="listviewvalue" type="string" default="All" />
+    <aura:attribute name="isDateError" type="boolean" default="false"/>
+    <!-- ======================================== For Pagination ===========================================-->
+    <aura:attribute name="showlead" type="boolean" />
+    <aura:attribute name="ShowNoleadImage" type="boolean" />
+    <aura:attribute name="hideHeaderSarchBar" type="boolean" default="true" />
+    <aura:attribute name="showSpinner" type="boolean" default="false" />
+    
+    <ltng:require styles="/resource/sldsXYZ/assets/styles/salesforce-lightning-design-system-ltng.min.css"/>
+    
+    <aura:attribute name="PaginatedList" type="list" />
+    <aura:attribute name="pageSize" type="Integer" default="10" />
+    <aura:attribute name="currentPage" type="Integer" default="1" />
+    <aura:attribute name="totalRecords" type="Integer" default="0" />
+    <aura:attribute name="totalPages" type="Integer" default="0" />
+    <aura:attribute name="startPage" type="Integer" default="1" />
+    <aura:attribute name="endPage" type="Integer" default="1" />
+    <aura:attribute name="pageNumbers" type="string[]" default="" />
+    <aura:attribute name="deletemessage" type="string" default="First Select Leads" />
+    <aura:handler name="sampleCmpEvent" event="c:AuraMessageEvent" action="{!c.handlerComponentEvent}"/>
+    
+    <aura:attribute name="startDate" type="Date" />
+    <aura:attribute name="endDate" type="Date" />
+    
+    <aura:handler event="c:AuraMessageAppEvent" action="{!c.component2Event}"/>
+    
+    
+    
+    <lightning:layout>
+        <lightning:layoutItem class="e" size="12" padding="around-Medium">
+            <div onclick="{!c.hidelistviewDropdown}">
+                <aura:if isTrue="{!v.leadDetailPage}">
+                    <b> <img  src="{!$Resource.B2BPartnerLogo + '/AssetsB2BDataPartner/arrow-narrow-left.png'}" title="Back to Lead Page"  style="width:30px; height:30px; font-weight: bold;" onclick="{!c.backtoPginationpage}"></img></b>
+                    <!--  <b><lightning:button class="back-button"   iconName="utility:back"  onclick="{!c.backtoPginationpage}"/></b>-->
+                </aura:if>
+                <div class="scrollable-container1" >
+                    <aura:if isTrue="{!v.hideHeaderSarchBar}">
+                        <lightning:layout >
+                            <lightning:layoutItem class="e " size="3"  >
+                                <span>
+                                    <!--    <lightning:select name="Select List view" label="" aura:id="listviewId"
+                                                  value="{!v.listviewselectedValue}" variant="label-hidden"   onchange="{! c.handleListView }">
+                                    <aura:iteration items="{!v.Listviewoptions}" var="option">
+                                        <option text="{!option.label}" value="{!option.value}" />
+                                       
+                                     </aura:iteration>
+                                     
+                                </lightning:select>-->
+                                    <!--  <aura:if isTrue="{!v.showdatefilter}">
+                                    <lightning:card title="Custom Dates">
+                                        <div class="slds-grid slds-p-horizontal_x-small ">
+                                            <div class="slds-col slds-p-right_xx-small " style="width:5%;">
+                                                <p>Start Date</p>
+                                                <lightning:input     type="Date"   aura:id="EndDateField"  value="" displayDatePicker="true" format="MM/dd/yyyy" placeholder="MM/dd/yyy"  />
+                                            </div>
+                                            <div class="slds-col slds-p-left_xx-small" style="width:5%;">
+                                                <p>End  Date</p>
+                                                <lightning:input     type="Date"  aura:id="EndDateField"  value="" displayDatePicker="true" format="MM/dd/yyyy" placeholder="MM/dd/yyy"/>
+                                            </div>
+                                         </div>
+                                        <br/>
+                                        <div class="slds-text-align_center">
+                                         <lightning:button variant="destructive" class="custom-button1 " label="Apply Filter" title="filter"   onclick="{!c.applyfilter}" />
+                                        </div>
+                                         
+                                    </lightning:card>
+                                </aura:if> -->
+                                    
+                                    <div style="position: absolute;z-index:1; width:15%; ">
+                                        <div >
+                                            <b style="font-size:15px;" onclick="{!c.showDopdownMenu}">{!v.listviewvalue}</b>
+                                            
+                                            <aura:if isTrue="{!v.showdropdownButton}">
+                                                <img  src="{!$Resource.B2BPartnerLogo + '/AssetsB2BDataPartner/chevron-down.png'}" title="Show ListView"  style="width:30px; height:30px; font-weight: bold;" onclick="{!c.showDopdownMenu}"></img> 
+                                            </aura:if>
+                                            <aura:if isTrue="{!v.hidedropdownButton}">
+                                                <img  src="{!$Resource.B2BPartnerLogo + '/AssetsB2BDataPartner/chevron-down.png'}" title="Show ListView"  style="width:30px; height:30px; font-weight: bold;" onclick="{!c.showDropdownButton}"></img> 
+                                            </aura:if>
+                                            <aura:if isTrue="{!v.showdropdown}">
+                                                <div  class="DateDiv"  >
+                                                    <lightning:card  >
+                                                        <ul >
+                                                            <aura:iteration items="{!v.Listviewoptions}" var="item">
+                                                                
+                                                                <li data-value="{!item.value}" onclick="{!c.handleListView}">
+                                                                    
+                                                                    <h2 style="font-size:15px;" class="listview"  href="">&nbsp;&nbsp;{!item.value} </h2>
+                                                                </li>
+                                                            </aura:iteration>
+                                                        </ul>
+                                                    </lightning:card>
+                                                    <ul> 
+                                                        <lightning:card title="Custom Dates">
+                                                            <div class="slds-grid slds-p-horizontal_x-small ">
+                                                                <div class="slds-col slds-p-right_xx-small " style="width:5%;">
+                                                                    <p>Start Date</p>
+                                                                    <lightning:input  onchange = "{!c.validateStartDate}"   type="Date"   aura:id="startDateField"  value="{!v.startDate}" displayDatePicker="true" format="MM/dd/yyyy" placeholder="MM/dd/yyyy"  />
+                                                                </div>
+                                                                <div class="slds-col slds-p-left_xx-small" style="width:5%;">
+                                                                    <p>End Date</p>
+                                                                    <lightning:input  onchange = "{!c.validateEndDate}"   type="Date"  aura:id="EndDateField"  value="{!v.endDate}" displayDatePicker="true" format="MM/dd/yyyy" placeholder="MM/dd/yyyy"/>
+                                                                </div>
+                                                            </div>
+                                                            <br/>
+                                                            <div class="slds-text-align_center">
+                                                                <lightning:button variant="destructive" class="custom-button1 " label="Apply Filter" title="filter"   onclick="{!c.applyfilter}" />
+                                                            </div>
+                                                            <!--    <p>Start Date</p>
+                                            <lightning:input type="Date" aura:id="EndDateField"  value="" displayDatePicker="true" format="MM/dd/yyyy" placeholder="MM/dd/yyy"/>
+                                            <p>End  Date</p>
+                                            <lightning:input type="Date" aura:id="EndDateField"  value="" displayDatePicker="true" format="MM/dd/yyyy" placeholder="MM/dd/yyy"/>-->
+                                                        </lightning:card>
+                                                    </ul>
+                                                </div>
+                                            </aura:if>
+                                        </div>
+                                    </div>
+                                    
+                                </span>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem class="e" size="9"  >
+                                <span>
+                                    <div class="slds-grid slds-p-bottom_small" >
+                                        
+                                        <div class="slds-size_11-of-12" style="" >
+                                            <lightning:input class="  slds-float_right slds-p-bottom_xx-small slds-p-right_small" type="search" name="x" value="{!v.filter}" label="Filter"  style="width:40%;"
+                                                             variant="label-hidden" placeholder="Search Lead by " onchange="{!c.doFilter}" />
+                                        </div>
+                                        <div class="slds-size_1-of-12  " style="">
+                                            <!--    <lightning:button variant="neutral" class="deleteTransferButton slds-float_right slds-m-left_x-small slds-m-top_xx-small" label="Transfer" name="Transfer"
+                                                          disabled="{!v.isRecordSelected}" onclick="{!c.DeletetransferLead}" title="Transfer Lead" />
+                                       
+                                        <lightning:button variant="neutral" class="deleteTransferButton slds-float_right slds-m-top_xx-small" label="Delete" name="Delete"
+                                                          
+                                                          disabled="{!v.isRecordSelected}" onclick="{!c.DeletetransferLead}" title="{!v.deletemessage}" />-->
+                                            <lightning:button class="NewButton1 slds-float_right " label="New" onclick="{!c.CreateNewLead}"
+                                                              title="New Lead" />
+                                            
+                                        </div>
+                                        <!-- <div class="slds-size_6-of-12 slds-p-around_x-small" style="float:right;">
+                                            <lightning:button class="NewButton1 slds-float_right" label="New" onclick="{!c.CreateNewLead}"
+                                                              title="New Lead" />
+                                            <lightning:button variant="neutral" class="deleteTransferButton slds-float_right" label="Delete" name="Delete"
+                                                              onclick="{!c.DeletetransferLead}" title="Delete Lead" />
+                                            <lightning:button variant="neutral" class="deleteTransferButton slds-float_right" label="Transfer" name="Transfer"
+                                                              onclick="{!c.DeletetransferLead}" title="Transfer Lead" />
+                                        </div>-->
+                                    </div>
+                                </span>
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </aura:if>
+                    <aura:if isTrue="{!v.hideHeaderSarchBar}">
+                        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_fixed-layout slds-table_striped"  style="position: relative;">
+                            <thead>
+                                <tr class="slds-text-title_caps " style="background-color:#9E7BFF;font-size:12px;">
+                                    <!--th class="slds-text-align_center" style="width: 3rem; background-color:#CCCCFF;">
+                                        <div class="slds-form-element">
+                                            <div class="slds-form-element__control">
+                                                <label class="slds-checkbox">
+                                                    <ui:inputCheckbox aura:id="selectAllId"
+                                                                      change="{!c.handleSelectAllLead}" /-->
+                                                    <!-- ui:inputCheckbox value="{!v.isSelectAll}" change="{!c.handleSelectAllLead}" aura:id="selectAll"/ -->
+                                                    <!--span class="slds-checkbox_faux"></span>
+                                                    <span class="slds-form-element__label"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </th-->
+                                    <th scope="col" style="background-color:#CCCCFF;">
+                                        <strong>
+                                            <div class="slds-truncate slds-text-align_center slds-has-flexi-truncate"
+                                                 title="Name">Lead ID</div>
+                                        </strong>
+                                    </th>
+                                    <th scope="col" style="background-color:#CCCCFF;">
+                                        <strong>
+                                            <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                 title="Name">Client Name</div>
+                                        </strong>
+                                    </th>
+                                    <th scope="col" style="background-color:#CCCCFF;">
+                                        <strong>
+                                            <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                 title="Phone">Email</div>
+                                        </strong>
+                                    </th>
+                                    <th scope="col" style="background-color:#CCCCFF;">
+                                        <strong>
+                                            <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                 title="Email">Lead Status</div>
+                                        </strong>
+                                    </th>
+                                    <th scope="col " class="slds-cell-wrap" style="background-color:#CCCCFF;">
+                                        <strong>
+                                            <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                 title="LeadSource">Lead Assigned To</div>
+                                        </strong>
+                                    </th>
+                                    <th scope="col" class="slds-cell-wrap" style="background-color:#CCCCFF;">
+                                        <strong>
+                                            <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                 title="Status">Uploaded By</div>
+                                        </strong>
+                                    </th>
+                                    <!--th scope="col" class="slds-cell-wrap" style="background-color:#CCCCFF;">
+                                        <strong>
+                                            <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                 title="Status">User EmailId</div>
+                                        </strong>
+                                    </th-->
+                                    <th scope="col" style="background-color:#CCCCFF;">
+                                        <strong>
+                                            <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                 title="Status">Owner</div>
+                                        </strong>
+                                    </th>
+                                    <th scope="col" class="slds-cell-wrap" style="background-color:#CCCCFF;">
+                                        <strong>
+                                            <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                 title="Status"> Created Date</div>
+                                        </strong>
+                                    </th>
+                                    <th scope="col" class="slds-cell-wrap" style="background-color:#CCCCFF;">
+                                        <strong>
+                                            <div class="slds-truncate slds-text-align_left slds-has-flexi-truncate"
+                                                 title="Status">Last Activity Date</div>
+                                        </strong>
+                                    </th>
+                                </tr>
+                            </thead>
+                            
+                            <aura:if isTrue="{!v.showleadPagination}">
+                                <tbody>
+                                    <aura:iteration items="{!v.PaginationList}" var="lead">
+                                        <tr class="slds-cell-wrap" style="font-size:12px;width:auto;">
+                                            <!--td class="slds-text-align_center">
+                                                <div class="slds-form-element">
+                                                    <div class="slds-form-element__control">
+                                                        <label class="slds-checkbox">
+                                                            <ui:inputCheckbox text="{!lead.Id}" value="{!lead.isChecked}"
+                                                                              change="{!c.checkboxSelect}" aura:id="checkid" />
+                                                            <span class="slds-checkbox_faux"></span>
+                                                            <span class="slds-form-element__label text"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </td-->
+                                            <td scope="row" data-label="Name">
+                                                <div class="slds-text-align_center" title="{!lead.Name}">
+                                                    <a href="javascript:void(0);" onclick="{!c.navigateToLead}"
+                                                       data-recordid="{!lead.Id}">
+                                                        <b style="color:#6592FD;">{!lead.LeadID__c} </b></a>
+                                                </div>
+                                            </td>
+                                            <td scope="row" data-label="Name">
+                                                
+                                                <div class="slds-text-align_left slds-has-flexi-truncate"
+                                                     title="{!lead.Name}">
+                                                    <a href="javascript:void(0);" onclick="{!c.navigateToLead}"
+                                                       data-recordid="{!lead.Id}">
+                                                        <b style="color:#6592FD;">{!lead.Name}</b></a>
+                                                </div>
+                                                <!-- <div class="slds-truncate" title="{!lead.Name}"></div> -->
+                                            </td>
+                                            <td class="slds-cell-wrap" scope="row" data-label="Phone">
+                                                <div class="slds-text-align_left slds-has-flexi-truncate"
+                                                     title="{!lead.Phone}">{!lead.Email}</div>
+                                            </td>
+                                            <td scope="row" data-label="Email">
+                                                <div class="slds-text-align_left slds-has-flexi-truncate"
+                                                     title="{!lead.Email}">{!lead.Status}</div>
+                                            </td>
+                                            
+                                            <td scope="row" data-label="Status">
+                                                <div class="slds-text-align_left slds-has-flexi-truncate"
+                                                     title="{!lead.Status}"></div>
+                                            </td>
+                                            <td scope="row" data-label="Status">
+                                                <div class="slds-text-align_left slds-has-flexi-truncate"
+                                                     title="{!lead.Status}">{!lead.Partner__r.First_Name__c}&nbsp;{!lead.Partner__r.Last_Name__c}</div>
+                                            </td>
+                                            <!--td scope="row" data-label="Status">
+                                                <div class="slds-text-align_left slds-has-flexi-truncate"
+                                                     title="{!lead.Status}"></div>
+                                            </td-->
+                                            <td scope="row" data-label="Status">
+                                                <div class="slds-text-align_left slds-has-flexi-truncate"
+                                                     title="{!lead.Status}">{!lead.Owner.Name}</div>
+                                            </td>
+                                            <td scope="row" data-label="Status">
+                                                <div class="slds-text-align_center slds-has-flexi-truncate"
+                                                     title="{!lead.Status}">   <lightning:formattedDateTime value="{!lead.CreatedDate}" timeZone="UTC"  disabled="true"/></div>
+                                            </td>
+                                            <td scope="row" data-label="Status">
+                                                <div class="slds-text-align_left slds-has-flexi-truncate"
+                                                     title="{!lead.Status}">{!lead.LastActivityDate}</div>
+                                            </td>
+                                            <!--  <td scope="row" data-label="Status">
+                                            <div data-id="{!lead.Id}" class="slds-text-align_right slds-has-flexi-truncate"
+                                                 onclick="{!c.EditLeadrec}" style="margin-right: 54%;">
+                                                <img class="slds-text-align_center"
+                                                     src="{!$Resource.B2BPartnerLogo + '/AssetsB2BDataPartner/pencil-line2.png'}"
+                                                     style="width:15px; height:25px;" />
+                                            </div>
+                                        </td>-->
+                                            
+                                        </tr>
+                                    </aura:iteration>
+                                    
+                                </tbody>
+                            </aura:if>
+                          
+                        </table>
+                          <aura:if isTrue="{!v.ShowNoleadImage}">
+                                 <div class="slds-grid slds-gutters">
+                                    <div class="slds-col slds-size_3-of-3">
+                                        <span >
+                                             <div class="slds-align_absolute-center"   style="width:300px;height250px;">
+                                                <img  src="{!$Resource.NoLeadDataImage}" style="width:300px;height:300px;"/>
+                                            </div> 
+                                 <div class="slds-text-align_center   " style="background-color:white; float:center;"><b>No Data Available</b></div>    
+                                             
+                                        </span>
+                                    </div>
+                                 </div> 
+                             </aura:if>
+                    </aura:if>
+                    
+                    
+                    <aura:if isTrue="{!v.hideHeaderSarchBar}">
+                        <aura:if isTrue="{!v.showleadPagination}">
+                            <div class="  slds-m-left_xx-large">
+                                <div  class="slds-float_right">
+                                    <!--  <lightning:button class="slds-button"  
+                                                  onclick="{!c.previousPage}" disabled="{!v.currentPage == 1}"> </lightning:button>Prev-->
+                                    <!--     <lightning:icon iconName="utility:back" alternativeText="Previous" ></lightning:icon>-->
+                                    <img  src="{!$Resource.B2BPartnerLogo + '/AssetsB2BDataPartner/arrow-narrow-left.png'}" class="slds-p-bottom_xx-small slds-m-left_xx-large" title="Previous Page"   style="width:5%; height:5%; font-weight: bold;margin-left:35%;" onclick="{!c.previousPage}" disabled="{!v.currentPage == 1}" ></img><b class="slds-p-top_small slds-p-left_x-small">Prev</b> 
+                                    
+                                    
+                                    
+                                    <!-- Display page numbers dynamically -->
+                                    
+                                    <aura:iteration items="{!v.pageNumbers}" var="pageNumber">
+                                        <lightning:button   label="{!pageNumber}" class="slds-p-top_x-small  slds-m-horizontal_small custom-button2"
+                                                          onclick="{!c.navigateToPage}">
+                                        </lightning:button>
+                                    </aura:iteration>
+                                    
+                                    <!-- <lightning:button class="slds-button slds-button_icon"
+                                                  onclick="{!c.nextPage}" disabled="{!(v.currentPage == v.totalPages)}">
+                                    <lightning:icon iconName="utility:forward" alternativeText="Next" ></lightning:icon>
+                                </lightning:button>-->
+                                    <b class="slds-p-top_small  " style="color:#9E7BFF;">Next</b><img  src="{!$Resource.B2BPartnerLogo + '/AssetsB2BDataPartner/arrow-narrow-right.png'}" title="Next Page" class=" "  style="width:5%; height:%; font-weight: bold;"  onclick="{!c.nextPage}" disabled="{!(v.currentPage == v.totalPages)}" ></img>  
+                                </div>
+                            </div>
+                            <!-- c:DynamicPaginationv1 data="{!v.LeadlistForPagination}" PaginatedList="{!v.PaginationList}"/ -->
+                        </aura:if>
+                    </aura:if>
+                    
+                    <aura:if isTrue="{!v.leadDetailPage}">
+                        <!-- b><lightning:button class="back-button"   iconName="utility:back"  onclick="{!c.backtoPginationpage}"/></b --> 
+                        <c:PartnerLeadRecordDetails leadDetailPage="{!v.leadDetailPage}" showlead="{!v.showlead}" SelectecLeadRec="{!v.singleLeadRec}" partnerId = "{!v.partnerId}"/>
+                    </aura:if>
+                    
+                    <aura:if isTrue="{!v.ShowNewEditLeadComp}">
+                        <c:PartnerNewEditLeadCmp CompleteLdList="{!v.CompleteLeadlist}"
+                                                 ShowNewEditLeadComp="{!v.ShowNewEditLeadComp}" EditLeadRec="{!v.EditSelectedLeadRec}"
+                                                 ShowNewLead="{!v.ShowNewLead}" ShowEditLead="{!v.ShowEditLead}" PartnerId="{!v.partnerId}" />
+                    </aura:if>
+                    
+                    <aura:if isTrue="{!v.ShowDeleteTransferLeadCmp}">
+                        <c:PartnerLeadTransferDeleteCmp PartnerId="{!v.partnerId}" LeadsTobeProcessed="{!v.LeadsTobeProcessed}" ShowDeleteTransferLeadCmp="{!v.ShowDeleteTransferLeadCmp}" ShowDeletePopup="{!v.ShowDeletePopup}" ShowTransferPopup="{!v.ShowTransferPopup}" />
+                    </aura:if>
+                </div>
+                <!-- <aura:if isTrue="{!v.ShowDeletePopup}">
+            </aura:if> -->
+            </div>  
+            
+            <aura:if isTrue="{!v.showSpinner}">
+                <div class="demo-only" style="height:6rem">
+                    <div class="slds-spinner_container">
+                        <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                            <span class="slds-assistive-text">Loading</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </div>    
+            </aura:if>
+            
+        </lightning:layoutItem>
+        
+    </lightning:layout>
+    
+    
+</aura:component>

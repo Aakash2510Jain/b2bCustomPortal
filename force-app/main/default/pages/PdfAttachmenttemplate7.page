@@ -1,0 +1,279 @@
+<apex:page showHeader="false" standardController="opportunity" renderAs="pdf">
+<apex:form >
+
+  <head>
+ 
+<style>
+table{
+font-family:Calibri;
+font-size:11px;
+font-weight:bold;
+}
+p{
+    color:#FF9D00;
+}
+font{
+font-family:Calibri;
+font-size:1em;
+font-weight:Normal;
+}
+ div.footer {
+    color: #CC3333;
+    padding: 5px;
+    position: running(footer);
+   content: BTOB Global Confidential;
+}
+</style>
+ </head>
+
+ <body>
+ <table width="70%" cellpadding="0" cellspacing="0" border="0" >
+  <tr><td> 
+
+
+ 
+ 
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr><td width="200px" align="center"> 
+
+ 
+  <apex:image value="{!$Resource.B2BGlobal1}" rendered="{!Opportunity.Brand_Name__c == 'B2B Global'}" width="350px"/>
+       
+ </td>
+ </tr>
+ </table> 
+  <table width="100%"  cellpadding="0" cellspacing="0" border="0" >
+  <tr>
+  <td color="#FFCC00" align="center" height="100px">
+   <b style="font-size:50px;color:#FFCC00;font-family:Calibri">Work Order</b>
+ </td>
+    </tr>
+    </table>
+   
+  
+    <table width="700px" cellpadding="0" align="center"   cellspacing="0" border="0" >
+    <tr height="50px">
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+      <tr>
+        <td><!--- 01-->
+   <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border:1px solid gray"> 
+<TR>
+    <TD width="40%" height="35px" align="left" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<b>Company Name:</b>
+    <apex:outputField value="{!Opportunity.Account.Name}"/></TD>
+    <TD width="30%" height="35px" align="left" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<b>Date of Order:</b>
+    <apex:outputField value="{!Opportunity.CloseDate}"/></TD>
+   <TD width="30%" height="30px" align="left" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<b>Reference #:</b>
+   <apex:outputField value="{!Opportunity.Mobile_No__c}"/></TD> 
+  
+</TR>
+<TR>
+    <TD width="50%" height="30px" align="left" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<b>Contact Person:</b>
+   <apex:outputField value="{!Opportunity.Client_Name__c}"/></TD>
+    <TD width="50%" height="30px" align="left" colspan="6" style="border:1px solid gray">&nbsp;&nbsp;<b> Contact Person Title:</b>
+    <apex:outputField value="{!Opportunity.Client_Title__c}"/></td>
+</TR>
+    <TR>
+        <TD  width="50%" height="30px" align="left" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<b>Email Address:</b>
+        <apex:outputField value="{!Opportunity.Client_Email__c}"/></TD>
+        <TD  width="50%" height="30px" align="left" colspan="6" style="border:1px solid gray">&nbsp;&nbsp;<b>Telephone Number:</b>
+      <apex:outputField value="{!Opportunity.Client_Phone__c}"/></TD>
+    </TR>
+    
+    </TABLE>
+      
+      <table width="100%"  cellpadding="0" cellspacing="0" border="0" style="border:1px solid gray">
+<TR>
+    <TD  height="30px" align="center" width="50%"  bgcolor="#FFCC00" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;Package Details</TD>
+    <TD  height="30px" align="center" width="50%"  bgcolor="#FFCC00" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;Package Investment</TD>
+</TR>
+<TR>
+    <TD  height="30px" align="center" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<apex:outputField value="{!Opportunity.Service_Details1__c}"/></TD>
+    <TD   height="30px" align="center" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<apex:outputField value="{!Opportunity.Investment1__c}"/></TD>
+</TR>
+<TR>
+    <TD   height="30px" align="center" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<apex:outputField value="{!Opportunity.Service_Details_2__c}"/></TD>
+    <TD   height="30px" align="center" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<apex:outputField value="{!Opportunity.Investment2__c}"/></TD>
+</TR>
+<TR>
+    <TD   height="30px" align="center" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<apex:outputField value="{!Opportunity.Service_Details_3__c}"/></TD>
+    <TD  height="30px" align="center" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<apex:outputField value="{!Opportunity.Investment3__c}"/></TD>
+</TR>
+<TR>
+    <TD   height="30px" align="center" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<apex:outputField value="{!Opportunity.Service_Details_4__c}"/></TD>
+    <TD  height="30px" align="center" colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<apex:outputField value="{!Opportunity.Investment4__c}"/></TD>
+</TR>
+</TABLE>
+<table width="100%"  cellpadding="0" cellspacing="0" border="0" style="border:0px solid gray">
+<tr>
+                  <TD  height="30px" align="Left" width="80%"  bgcolor="#FFCC00"  colspan="3" style="border:1px solid gray">&nbsp;&nbsp; Payment Method</td>
+            </tr></table>
+  <table width="100%"  height="150px" cellpadding="0" align="center"   cellspacing="0" border="0" style="border:1px solid gray">
+                          <tr> 
+                            <td height="100px"  style="border:1px solid gray">&nbsp;&nbsp;<b><u>For Wire Transfer: Please WIRE PAYMENT to “BTOB Global” :</u></b><br/>
+                                      &nbsp;&nbsp;Bank Name: JP Morgan Chase<br/>
+                                      &nbsp;&nbsp;Account Name:B2B<br/>
+                                      &nbsp;&nbsp;Account#:9400811249<br/>
+                                      &nbsp;&nbsp;Wire ROUTING#:021000021<br/>
+                                      &nbsp;&nbsp;ABA#/US ACH Routing#: 322271627    <br/>                            
+                                     
+                                      &nbsp;&nbsp;Intl SWIFT CODE:CHASUS33<br/>
+                                      &nbsp;&nbsp;Bank Address:1415 India Street, San Diego, CA &nbsp;&nbsp;92101<br/>
+                                     
+                                   
+                                 </td>
+                                 <td width="50%" height="100px"  style="border:1px solid gray"> &nbsp;&nbsp;<b><u>All check payments are payable to:</u></b><br/><br/>
+                                &nbsp;&nbsp; B2B Dept. # 511292, 16420 Valley View Ave,<br/>
+                                &nbsp;&nbsp; La Mirada, CA 90638<br/>
+                             <!--  <b> <apex:outputField value="{!Opportunity.Brand_Name__c}"/> </b> <br/>
+                               <apex:panelGroup rendered="{!Opportunity.Vendor_Contact_Detail__c==''}">  <br/>       
+                                <apex:inputField value="{!Opportunity.Owner.Street}"/><br/>
+                                <apex:inputField value="{!Opportunity.Owner.City}"/><br/>
+                                 <apex:inputField value="{!Opportunity.Owner.State}"/><br/>
+                                <apex:inputField value="{!Opportunity.Owner.Country}"/><br/>
+                                 <apex:inputField value="{!Opportunity.Owner.Postalcode}"/><br/>
+                                  </apex:panelGroup>
+                                  <apex:panelGroup rendered="{!Opportunity.Vendor_Contact_Detail__c!=''}">
+                                  <apex:inputField value="{!Opportunity.Vendor_Name__c}"/><br/>
+                                 <apex:inputField value="{!Opportunity.Vendor_Contact_Detail__c}"/></apex:panelGroup><br/><br/>-->
+                           &nbsp;&nbsp;<b style="color:#FF3300"><u>FedEx A/c Number :</u> 3663-5994-0</b>
+                                 </td>
+                               </tr>
+                                 </table>
+                
+             <table width="100%"  cellpadding="0" cellspacing="0" border="0"  style="border-left:0px solid gray">
+            <tr>
+            <TD width="40%" height="30px" align="center" bgcolor="#FFCC00"  style="border:1px solid  gray">ACCEPTANCE</TD>
+</TR>
+</TABLE>
+ <table width="100%"  cellpadding="0" cellspacing="0" border="0" style="border:1px solid gray"> 
+<TR>
+  <TD  width="51%" height="30px" align="left"  colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<b>For&nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}"/></b></TD>
+  <TD  width="51%" height="30px" align="left"  colspan="3" style="border:1px solid gray">&nbsp;&nbsp;<b>For &nbsp; <apex:outputField value="{!Opportunity.Account.Name}"/></b></TD>
+ 
+  
+</TR>
+</TABLE>
+ <table width="100%"  cellpadding="0" cellspacing="0" border="0" style="border:1px solid  gray"> 
+<TR>
+<TD width="10px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<b>Print Name</b></TD>
+    <TD width="50px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<apex:inputField value="{!Opportunity.Vendor_Name__c}"/></TD>
+    <TD width="10px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<b>Print Name</b></TD>
+    <TD width="50px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<apex:inputField value="{!Opportunity.Client_Name__c}"/></TD>
+    
+</TR>
+<TR>
+ <TD width="10px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<b>Title</b></TD>
+    <TD  width="50px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<apex:inputField value="{!Opportunity.Title_Authorization__c}"/></TD>
+  <TD width="10px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<b>Title</b></TD>
+    <TD width="50px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<apex:inputText value="{!Opportunity.Client_Title__c}"/></TD>
+   
+  
+</TR>
+<TR>
+<TD width="10px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<b>Telephone</b>  </TD>
+    <TD width="50px"  height="30px" style="border:1px solid gray">&nbsp;&nbsp;<apex:inputField value="{!Opportunity.Owner.Phone}"/></TD>
+<TD width="10px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<b>Telephone  </b></TD>
+    <TD width="50px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<apex:inputText value="{!Opportunity.Client_Phone__c}"/></TD>
+    
+</TR>
+
+<TR>
+  <TD width="10px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<b>Date</b></TD>
+    <TD width="50px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<apex:outputText value="{0,date, dd'/'MM'/'yyyy}"><apex:param value="{!opportunity.current_date__c}"/></apex:outputText> </TD>
+ <TD width="10px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<b>Date</b></TD>
+    <TD width="50px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<apex:inputField value="{!Opportunity.Deal_Approved_Date__c}"/></TD>
+  
+</TR>
+<TR>
+ <TD width="10px" height="30px" style="border:1px solid gray">&nbsp;&nbsp; <b>Signature</b></TD>
+    <TD width="50px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<apex:inputField value="{!Opportunity.Name__r.Signature__c}" styleClass="cke_contents"/></TD>
+<TD width="10px" height="30px" style="border:1px solid gray">&nbsp;&nbsp;<b>Signature</b></TD>
+    <TD width="40px" height="30px" style="border:1px solid gray">&nbsp;&nbsp; <apex:inputField value="{!Opportunity.Signature__c}" styleClass="cke_contents"/></TD>
+     
+        </tr>
+</table>  
+       <div style="page-break-after:always;"/>     
+ 
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:0px solid gray">
+  <tr><td     align="center" style="border:0px solid gray">&nbsp;&nbsp; 
+ 
+  <apex:image value="{!$Resource.B2BGlobal1}" rendered="{!Opportunity.Brand_Name__c == 'B2B Global'}"/>
+       
+ </td>
+ </tr>
+ </table> 
+            <table width="100%"  cellpadding="0" cellspacing="0" border="0" ><tr><td color="#00CCFF" height="50px">
+                                
+                                 <center> <b style="font-size:35px;color:#FFCC00;font-name:Calibri"> Data Service Agreement </b>  </center>
+                            <p>This Data Agreement (“Agreement”) is entered into by and between <b>BTOB Global,</b> and XXXXX. The terms and conditions of this Agreement shall be deemed incorporated by reference into any schedule hereto or order for data referring to this Agreement (each a "Data /Insertion Order") identifying the target data and such other additional terms and conditions as the parties may agree, including pricing. All Insertion Orders together with this Data Append Agreement shall be collectively known as the "Agreement."<br/>
+                           <br/> Whereas, <b>BTOB Global</b> is engaged in the publishing, writing, manufacture, distribution, reselling and licensing of proprietary databases and providing related marketing services, and has the rights to do so, and whereas, CLIENT desires to use such services to add data to its house file on the terms and conditions set forth herein. Now, therefore, in consideration of the premises set forth above and the mutual promises, agreements and conditions stated herein, the parties agree as follows:
+                            <ol>
+                            <li>
+                                <b>DESCRIPTION OF SERVICE: BTOB Global</b> will provide to CLIENT data records consisting of all of the following data attributes: contact name, contacts’ title, Verified Email Address, Name of the business, fax#, Phone #, SIC code, Street, Address, city, state and zip codes, Country, URL and industry information.<br/><br/>
+
+                            </li><li>
+                                <b>DATA DELIVERY AND FORMAT:</b>We will provide data to the client via email (Excel format) or FTP without charging any shipping costs. Data can be provided on a CD or other format at an extra cost along with shipping costs.<br/><br/>
+                            </li>
+                            <li>
+                                <b>INITIAL COMMUNICATION:</b> If the CLIENT desires we will work with CLIENT to develop the email message(s), which will be sent to all email records by our email campaign manager software. We will only send one email message per record. The reply email will be provided to CLIENT. We will also track click-troughs and provide a report at the end of the campaign. This is an additional service.<br/><br/>
+                            </li><li>
+                                <b>CONFIDENTIALITY:</b>The CLIENT records, the email addresses, the matched records and all other information (collectively, the "Confidential Information") will remain confidential and will not be resold by BTOB Global or used for any other purpose.<br/><br/>
+                            </li><li>
+                                <b>PAYMENT:</b>CLIENT will pay us prior to purchase of the list.<br/><br/>
+                                </li><li>
+                                <b>LIMITED LICENSE:</b>Upon purchase you will have a limited license to use the information delivered to you subject to these terms and conditions. You agree not to sell, sublicense, and transfer or otherwise make available any portion of the information to anyone outside of your business organization, unless otherwise agreed prior to purchase.<br/><br/>
+                                </li>
+                                 
+                                <li>
+                                 <b>CUSTOMER RESPONSIBILITIES:</b>You agree that it is your responsibility to understand and comply with all federal, state, and local laws, rules, and regulations including do not call and do not fax regulations. You agree to indemnify and hold <b>BTOB Global</b> and its subsidiaries harmless against all claims related, in whole or in part, to your failure to comply with such laws, rules, and regulations. For the purpose of resolving any dispute in any way related to your use of the information, or these terms and conditions, the state and federal courts located in New York shall have exclusive jurisdiction. You agree that such courts represent “convenient and appropriate” forums for this purpose.<br/><br/>
+                                </li>                       
+                                <li>
+                                <b>GUARANTEE:WARRANTY.</b> 100% of the List provided with this agreement will be accurate. The Warranty will be limited to provision of additional records. We hereby disclaim all express or implied warranties, including the implied warranties of merchantability, fitness for a particular purpose, correctness, quality, accuracy, completeness or reliability, for any data or service provided hereunder. Guarantees are as follows;<br/>
+                               
+                               
+                               
+                             &bull;   <b>Mailing Address Accuracy:92%</b><br/>
+                           
+                            
+                               &bull;  <b>Phone Number Accuracy: 87%</b><br/>
+                           
+                           
+                               &bull;  <b>Contact Name Accuracy: 82%</b><br/>
+                           
+                            
+                                &bull; <b>Contact Title Accuracy: 91%</b><br/>
+                           
+                           
+                               &bull;  <b>Email Address hard bounce estimate: 12%</b> <br/> <br/>
+                               
+                         
+                             </li>
+                           <li>
+                                <b>EXCLUSIVE LIMITED WARRANTY: BTOB Global</b>compiles its databases from various sources and where appropriate verifies the information. <b>BTOB Global</b> cannot and does not assume any liability for the correctness or comprehensiveness of the information. You will have 90 days after purchasing the information to inspect and notify<b> BTOB Global </b>of any operational problems or material mistakes with regards to the information. If <b>BTOB Global</b> is notified of an operational problem or material mistake within 90 days from the date of delivery of file then<b> BTOB Global </b>will correct the problem or, in its sole discretion, provide additional records if needed relating to the materially mistaken information. This warranty is a limited warranty and <b>BTOB Global</b> makes no other warranties, express or implied, including without limitation, any express or implied warranties of merchantability or fitness for a particular purpose. In no event shall<b> BTOB Global </b>be liable for lost profits, consequential, incidental, or special damages, or other claims of a similar nature. If this limited warranty should fail of its essential purpose, and in all other cases, <b>BTOB Global</b> entire liability shall be limited to the amount actually received by <b>BTOB Global</b> on account of your purchase.<br/><br/>
+                            </li>
+                            <li>
+                                <b>LIMITATION OF LIABILITY:</b> In no event shall <b>BTOB Global</b> be liable for direct, indirect, special, exemplary, consequential, incidental, or punitive damage or loss for any claim or cause of action related to or arising out of this Agreement or the services performed hereunder. Our liability at all times will be limited to the purchase price paid by the client minus any delivery expenses incurred by us.<br/><br/>
+                            </li><li>
+                                <b>ENTIRE AGREEMENT:</b>This is the entire agreement between the parties and hereby supercedes all other agreements, negotiations, discussions or promotional material related to the subject matter hereof.<br/><br/>
+                            </li></ol></p>
+                                </td>
+                            </tr>
+                            
+                        </table> 
+                    <table width="100%" cellpadding="0"  cellspacing="0" border="0" style="border-top: none">
+                  <tr><td align="center" >
+                   <apex:image width="350px" value="{!$Resource.B2BGlobal1}" rendered="{!Opportunity.Brand_Name__c == 'B2B Global'}"/><br/><br/>
+                  <apex:image width="300px" value="{!$Resource.Data}"/>
+       
+ </td>
+ </tr>
+ </table>                   
+  </td>
+      </tr>
+                 </table>
+              </td></tr></table>
+         </body>
+         </apex:form>
+</apex:page>

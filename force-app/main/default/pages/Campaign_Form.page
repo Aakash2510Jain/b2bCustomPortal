@@ -1,0 +1,132 @@
+<apex:page showHeader="false" docType="HTML-5.0" standardController="Campaign_Form__c" extensions="campaignform">
+<html>
+  <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"/>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+  <head>
+   <style type="text/css">
+   
+    body .bPageBlock .pbBody .red .pbSubheader{
+                background-color:#87CEEB;
+            }
+            
+   body{
+   background-color:#c8cbc9;
+   }
+   .main{
+   display: flex;
+position: relative;
+   margin:0 auto;
+   background-color:#E4E5E4  ;
+   width:1230px;
+   min-height:745px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   }
+   .header{
+ 
+   background-color:#FFFAF0;
+   width:1600px;
+   height:90px;
+   margin: 0 auto; 
+   
+   }
+   
+.jobdes{
+ background-color:light-gray ;
+  width:1150px;
+ height:650px;
+ position: absolute;
+    left: 40px;
+    top: 40px;
+  font-size: 25px;
+text-align:center;
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.button {
+    /*basic styles*/
+    background-color:#1b70f7;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+border-radius: 3px; 
+}
+
+  </style>
+  </head>
+<apex:form >
+<div class="header">
+      <br/><font size="6" color="Black"><p>&nbsp;&nbsp;&nbsp;<b><font>Email</font>&nbsp;<font>Marketing</font>&nbsp;Team</b></p></font></div>
+<apex:pageBlock >
+
+<!-- <apex:pageBlockSection title="Project Information">
+<apex:inputText label="Project Id"/>
+<apex:inputText label="Project Number"/> 
+</apex:pageBlockSection>
+<apex:pageBlockSection title="Sender's Information">
+<apex:inputText label="First Name"/>
+<apex:inputText label="Last Name"/>
+<apex:inputText label="Email"/>
+<apex:inputTextarea label="Product/Service Description"/>
+</apex:pageBlockSection> -->
+<apex:outputPanel styleClass="red" layout="block">
+<apex:pageBlockSection title="Project Information">
+<apex:inputField value="{!cam.Project_ID__c}"/>
+<apex:inputField value="{!cam.Project_Value__c}"/>
+</apex:pageBlockSection>
+<apex:pageBlockSection title="Sender's Information">
+<apex:inputField value="{!cam.Sender_First_Name__c}"/>
+<apex:inputField value="{!cam.Sender_Last_Name__c}"/>
+<apex:inputField value="{!cam.Sender_Email__c}"/>
+<apex:inputField value="{!cam.Product_Service_Description__c}"/>
+<apex:inputField value="{!cam.Campaign_Expectations__c}"/>
+<apex:inputField value="{!cam.Subject_Line__c}"/>
+</apex:pageBlockSection>
+<apex:pageBlockSection title="Test Email List">
+<b>Test Email List</b><apex:inputfile value="{!objAttachment.body}" filename="{!objAttachment.name}" title="Test Email List"/>
+</apex:pageBlockSection>
+<apex:pageBlockSection title="Campaign Requirement's">
+<apex:inputField value="{!cam.Content_Development_del__c}"/>
+<apex:inputField value="{!cam.Content_Assessment_del__c}"/>
+<apex:inputField value="{!cam.Template_Design_and_Development_del__c}"/>
+<apex:inputField value="{!cam.Landing_Page__c}"/>
+<apex:inputField value="{!cam.Follow_Up_Mails_del__c}"/>
+<apex:inputField value="{!cam.Campaign_Schedule_del__c}"/>
+<apex:inputField value="{!cam.Day_Time__c}"/>
+</apex:pageBlockSection>
+<apex:pageBlockSection title="Upload Files">
+<b>Raw Content</b><apex:inputfile value="{!objAttachment1.body}" filename="{!objAttachment1.name}"   />
+<b>Basic Template</b><apex:inputfile value="{!objAttachment2.body}" filename="{!objAttachment2.name}"   />
+<b>Designed Contwnt(if you have)</b><apex:inputfile value="{!objAttachment3.body}" filename="{!objAttachment3.name}"   />
+<b>Designed Template(if you have)</b><apex:inputfile value="{!objAttachment4.body}" filename="{!objAttachment4.name}"   />
+</apex:pageBlockSection>
+<apex:pageBlockSection title="Client's Information">
+<apex:inputField value="{!cam.Client_First_Name__c}"/>
+<apex:inputField value="{!cam.Client_Last_Name__c}"/>
+<apex:inputField value="{!cam.Address__c}"/>
+<apex:inputField value="{!cam.Phone_Number__c}"/>
+<apex:inputField value="{!cam.Website__c}"/>
+
+</apex:pageBlockSection>
+<apex:pageBlockSection title="Signature">
+<b>Signature</b><apex:inputfile value="{!objAttachment5.body}" filename="{!objAttachment5.name}"   />
+</apex:pageBlockSection>
+<apex:pageBlockSection title="Message">
+<apex:inputField value="{!cam.Message_for_us__c}"/>
+</apex:pageBlockSection>
+
+ <center><apex:commandButton action="{!savecam}" styleClass="button" value="Submit"/></center> 
+</apex:outputPanel>
+
+</apex:pageBlock>
+</apex:form> 
+</html>
+</apex:page>

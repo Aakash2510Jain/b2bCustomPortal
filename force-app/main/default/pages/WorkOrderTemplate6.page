@@ -1,0 +1,357 @@
+<apex:page showHeader="false" standardController="opportunity" extensions="AttachmentController">
+<apex:form >
+  <head>
+<style>
+table{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+font-weight:bold;
+}
+p{
+    color:#aaa;
+}
+font{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:1em;
+font-weight:Normal;
+}
+.cke_contents {
+    height: 200px !important;
+  }
+ 
+</style>
+<script>
+function preview(){
+pwindow=window.open("/apex/PdfAttachment?id={!Opportunity.Id}", "Preview", "width=500", height="500");
+pwindow.focus(); 
+}
+</script>
+ </head>
+ <body>
+ <br></br>
+ <apex:pageMessages id="errorMessage" ></apex:pageMessages>
+    <table width="100%" cellpadding="0"  cellspacing="0" border="0" style="border-top: none"><tr><td align="center" >
+<apex:commandButton value="Create PDF & Attach" action="{!Attach}"/>&nbsp;<input type="button" value="Preview PDF" onclick="preview()"/></td>
+</tr></table>
+<br> </br>
+
+ <table width="60%"><tr><td valign="top" width="50%" align="center">
+  <apex:image value="{!$Resource.B2BDataPartners}" rendered="{!Opportunity.Brand_Name__c == 'B2B Data Partners'}"/>
+  <apex:image value="{!$Resource.LakeGroupMedia}" rendered="{!Opportunity.Brand_Name__c == 'Lake Group Media'}"/>
+   <apex:image value="{!$Resource.InfoDataHouse}" rendered="{!Opportunity.Brand_Name__c == 'Info Data House'}"/>
+   <apex:image value="{!$Resource.Lake_Group}" rendered="{!Opportunity.Brand_Name__c == 'Lake Group'}"/>
+     <apex:image value="{!$Resource.HealthCareDatagroup}" rendered="{!Opportunity.Brand_Name__c == 'Health Care Data Group'}"/>
+      <apex:image value="{!$Resource.ITDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'IT Data Group'}"/>
+      <apex:image value="{!$Resource.StrategicOutSourcingServices}" rendered="{!Opportunity.Brand_Name__c == 'Strategic OutSourcing Services'}"/>
+     <apex:image value="{!$Resource.B2BListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B Lists'}"/>
+     <apex:image value="{!$Resource.B2BListWeb}" rendered="{!Opportunity.Brand_Name__c == 'B2B List'}"/>
+     <apex:image value="{!$Resource.BrigadeBig}" rendered="{!Opportunity.Brand_Name__c == 'Brigade Big'}"/>
+     <apex:image value="{!$Resource.Data2Directory}" rendered="{!Opportunity.Brand_Name__c == 'Data 2 Directory'}"/>
+     <apex:image value="{!$Resource.DirectHealthcareLeads}" rendered="{!Opportunity.Brand_Name__c == 'Direct Healthcare Leads'}"/>
+     <apex:image value="{!$Resource.EuropeanLists}" rendered="{!Opportunity.Brand_Name__c == 'European Lists'}"/>
+     <apex:image value="{!$Resource.EmailDataGroup}" rendered="{!Opportunity.Brand_Name__c == 'Email Data Group'}"/>
+     <apex:image value="{!$Resource.GlobalHealthCare}" rendered="{!Opportunity.Brand_Name__c == 'Global Health Care'}"/>
+     <apex:image value="{!$Resource.GlobalBusinessArchives}" rendered="{!Opportunity.Brand_Name__c == 'Global Business Archives'}"/>
+     <apex:image value="{!$Resource.GlobalITUsersInc}" rendered="{!Opportunity.Brand_Name__c == 'Global IT Users Inc'}"/>
+     <apex:image value="{!$Resource.MarketingBase}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Base'}"/>
+     <apex:image value="{!$Resource.MarketingColors}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Colors'}"/>
+     <apex:image value="{!$Resource.MarketingDrips}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Drips'}"/>
+     <apex:image value="{!$Resource.MarketingForces}" rendered="{!Opportunity.Brand_Name__c == 'Marketing Forces'}"/>
+     <apex:image value="{!$Resource.MediaSellersOnline}" rendered="{!Opportunity.Brand_Name__c == 'Media Sellers Online'}"/>
+     <apex:image value="{!$Resource.OnlineLeadsInc}" rendered="{!Opportunity.Brand_Name__c == 'Online Leads Inc'}"/>
+     <apex:image value="{!$Resource.PioneerMarketers}" rendered="{!Opportunity.Brand_Name__c == 'Pioneer Marketers'}"/>
+     <apex:image value="{!$Resource.PrepackagedLists}" rendered="{!Opportunity.Brand_Name__c == 'Prepackaged Lists'}"/>
+     <apex:image value="{!$Resource.ProcureDataInc}" rendered="{!Opportunity.Brand_Name__c == 'Procure Data Inc'}"/>
+     <apex:image value="{!$Resource.PublishingForces}" rendered="{!Opportunity.Brand_Name__c == 'Publishing Forces'}"/>
+     <apex:image value="{!$Resource.ROIMarketingCenter}" rendered="{!Opportunity.Brand_Name__c == 'ROI Marketing Center'}"/>
+     <apex:image value="{!$Resource.TechnologyUserLists}" rendered="{!Opportunity.Brand_Name__c == 'Technology User Lists'}"/>
+     <apex:image value="{!$Resource.WebmailingLists}" rendered="{!Opportunity.Brand_Name__c == 'Webmailing Lists'}"/>
+     <apex:image value="{!$Resource.XpressListsWeb}" rendered="{!Opportunity.Brand_Name__c == 'Xpress Lists Web'}"/>
+     <apex:image value="{!$Resource.EZonemarketers}" rendered="{!Opportunity.Brand_Name__c == 'EZonemarketers'}"/>
+ </td></tr></table> 
+   <table width="700px" cellpadding="0" align="center"   cellspacing="0" border="0" style="border-top: none">
+   <tr><td color="#00CCFF" align="center" height="50px">
+       <b style="font-size:30px;color:#00CCFF">Work Order</b></td>
+        </tr>
+       <tr>
+       <td>
+
+    <table width="100px" cellpadding="0" align="center"   cellspacing="0" border="0" style="border-top: none">
+    <tr height="50px">
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+    </td></tr>
+      <tr>
+        <td><!--- 01-->
+             <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+<TR>
+    <TD width="10%" height="10px" align="center" ><b>Company Name</b></td>
+    <TD width="10%" height="10px" align="center"><apex:inputField value="{!Opportunity.Account.Name}"/></TD>
+    <TD width="10%" height="10px" align="center"><b>Date of Order</b></TD>
+    <TD width="20%" height="10px" align="center"><apex:inputField value="{!Opportunity.CloseDate}"/></TD>
+</TR>
+<TR>
+    <TD width="10%" height="10px" align="center"><b>Contact Person</b></TD>
+    <TD width="10%" height="10px" align="center"><apex:inputField value="{!Opportunity.Client_Name__c}"/></TD>
+    <TD width="10%" height="10px" align="center"><b>Title</b></TD>
+    <TD width="10%" height="10px" align="center"><apex:inputText value="{!Opportunity.Client_Title__c}"/></td>
+    </TR>
+    <TR>
+        <TD  width="10%" height="10px" align="center"><b>Phone Number</b></TD>
+        <TD  width="10%" height="10px" align="center"><apex:inputText value="{!Opportunity.Client_Phone__c}"/></TD>
+        <TD  width="10%" height="10px" align="center"><b>Email Address</b></TD>
+        <TD  width="10%" height="10px" align="center"><apex:inputText value="{!Opportunity.Client_Email__c}"/></TD>
+    </TR>
+    <TR>
+        <TD  width="10%" height="10px" align="center"><b>Reference Number</b></TD>
+        <TD  width="10%" height="10px" align="center"><apex:inputText value="{!Opportunity.Mobile_No__c}"/></TD>
+        <TD  width="10%" height="10px" align="center"><b>Project Start Date</b></TD>
+        <TD  width="10%" height="10px" align="center"><apex:inputField value="{!Opportunity.Project_Start_Date__c}"/></TD>
+    </TR>
+    
+
+</TABLE>
+        </td>
+      </tr>
+     
+      <tr>
+        <td><!--- 02-->
+            <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+<TR>
+    <TD  height="50px" align="center" bgcolor="#00CCFF"><U>PROJECT DETAILS</U></TD>
+    <TD  height="50px" align="center" bgcolor="#00CCFF"><U>INVESTMENT</U></TD>
+</TR>
+<TR>
+    <TD  height="10px" align="center"><apex:inputField value="{!Opportunity.Service_Details1__c}"/></TD>
+    <TD   height="10px" align="center"><apex:inputField value="{!Opportunity.Investment1__c}"/></TD>
+</TR>
+<TR>
+    <TD   height="10px" align="center"><apex:inputField value="{!Opportunity.Service_Details_2__c}"/></TD>
+    <TD   height="10px" align="center"><apex:inputField value="{!Opportunity.Investment2__c}"/></TD>
+</TR>
+<TR>
+    <TD   height="10px" align="center"><apex:inputField value="{!Opportunity.Service_Details_3__c}"/></TD>
+    <TD  height="10px" align="center"><apex:inputField value="{!Opportunity.Investment3__c}"/></TD>
+</TR>
+<TR>
+    <TD   height="10px" align="center"><apex:inputField value="{!Opportunity.Service_Details_4__c}"/></TD>
+    <TD  height="10px" align="center"><apex:inputField value="{!Opportunity.Investment4__c}"/></TD>
+</TR>
+</TABLE>
+    </td>
+      </tr>
+      
+      <tr><!--- 03-->
+        <td>
+        <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+            <tr>
+            <TD width="40%" height="10px" align="center" bgcolor="#00CCFF">ACCEPTANCE</TD>
+</TR>
+</TABLE>
+ <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+<TR>
+  <TD  height="10px" width="90px" align="center">For:&nbsp;<apex:outputField value="{!Opportunity.Account.Name}"/></TD>
+  <TD  height="10px" width="50px" align="center">For: &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}"/></TD>
+  
+  
+</TR>
+</TABLE>
+ <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+<TR>
+<TD width="10px" height="10px"><b>Contact Person</b></TD>
+    <TD width="50px" height="10px"><apex:inputField value="{!Opportunity.Client_Name__c}"/></TD>
+    <TD width="10px" height="10px" ><b>Contact Person</b></TD>
+    <TD width="50px" height="10px"><apex:inputField value="{!Opportunity.Vendor_Name__c}"/></TD>
+    
+</TR>
+<TR>
+  <TD width="10px" height="10px"><b>Title</b></TD>
+    <TD width="50px" height="10px" ><apex:inputText value="{!Opportunity.Client_Title__c}"/></TD>
+    <TD width="10px" height="10px" ><b>Title</b></TD>
+    <TD  width="50px" height="10px" ><apex:inputField value="{!Opportunity.Title_Authorization__c}"/></TD>
+  
+</TR>
+<TR>
+<TD width="10px" height="10px" ><b>Phone  </b></TD>
+    <TD width="50px" height="10px"><apex:inputText value="{!Opportunity.Client_Phone__c}"/></TD>
+    <TD width="10px" height="10px"><b>Phone</b>  </TD>
+    <TD width="50px"  height="10px"><apex:inputField value="{!Opportunity.Owner.Phone}"/></TD>
+    
+</TR>
+<TR>
+ <TD width="10px" height="10px"><b>Email Address </b> </TD>
+    <TD width="50px" height="10px" color="blue"><apex:inputText value="{!Opportunity.Client_Email__c}"/></TD>
+    <TD width="10px" height="10px"><b>Email Address</b></TD>
+    <TD width="50px" height="10px"><apex:inputField value="{!Opportunity.Owner.Email}"/></TD>
+   
+</TR>
+<TR>
+ 
+ <TD width="10px" height="10px"><b>Date</b></TD>
+    <TD width="50px" height="10px"><apex:inputField value="{!Opportunity.Deal_Approved_Date__c}"/></TD>
+   <TD width="10px" height="10px"><b>Date</b></TD>
+    <TD width="50px" height="10px"><apex:outputText value="{0,date, dd'/'MM'/'yyyy}"><apex:param value="{!opportunity.current_date__c}"/></apex:outputText> </TD>
+   
+</TR>
+<TR>
+<TD width="10px" height="10px"><b>Signature</b></TD>
+    <TD width="40px" height="10px"><apex:inputField value="{!Opportunity.Signature__c}" styleClass="cke_contents"/></TD>
+  <TD width="10px" height="50px"> <b>Signature</b></TD>
+    <TD width="50px" height="10px"><apex:inputField value="{!Opportunity.Name__r.Signature__c}" styleClass="cke_contents"/></TD>
+
+  
+    
+        </tr>
+</table>
+          
+        </td>
+      </tr>
+      <tr>
+      <td>
+        <table width="100%"  cellpadding="0" cellspacing="0" border="0" ><tr><td color="#00CCFF" align="center" height="50px">
+      <b style="color:#00CCFF"> <u>Data Service Agreement</u></b></td>
+        </tr>
+        </table>
+         <table width="100%"  cellpadding="0" cellspacing="0" border="0" ><tr><td color="#00CCFF" height="50px">
+         This Data Agreement (“Agreement”) is entered into by and between <b><apex:outputField value="{!Opportunity.Brand_Name__c}"/></b>, and <font style="color:red">(CLIENT)</font>. The terms and conditions of this Agreement shall be deemed incorporated by reference into any schedule hereto or order for data referring to this Agreement (each a "Data /Work Order") identifying the target data and such other additional terms and conditions as the parties may agree, including pricing. All Work Orders together with this Data Service Agreement shall be collectively known as the "Agreement." <br/><br/> 
+         Whereas, <apex:outputField value="{!Opportunity.Brand_Name__c}"/> is engaged in the publishing, writing, manufacture, distribution, reselling and licensing of proprietary databases and providing related marketing services, and has the rights to do so, and whereas, CLIENT desires to use such services to add data to its house file on the terms and conditions set forth herein.  Now, therefore, in consideration of the premises set forth above and the mutual promises, agreements and conditions stated herein, the parties agree as follows:<br/><br/>
+         <ol>
+         <li><b>DESCRIPTION OF SERVICE: </b> <apex:outputField value="{!Opportunity.Brand_Name__c}"/> will provide to CLIENT data records consisting of all of the following data attributes such as Company Name, Web Address, Contact Name, Title, Mailing Address, Phone Number, Fax Number, Employee Size, Revenue Size ($ Mil), SIC Code(S), Industry Details and Email Address</li>
+         <li><b>    DATA DELIVERY AND FORMAT:</b><apex:outputField value="{!Opportunity.Brand_Name__c}"/> will provide data to the CLIENT via email (Excel format) or FTP without charging any shipping costs. Data can be provided on a CD or other format at an extra cost </li>
+         <li><b>    PAYMENT: </b>CLIENT will pay&nbsp; <apex:outputField value="{!Opportunity.Brand_Name__c}"/> before data delivery.</li>
+         <li><b>    DATA USAGE: </b>The data will be delivered for CLIENT’s Unlimited Usage </li>
+         <li><b>    LIMITED LICENSE: </b>Upon purchase CLIENT will have a limited license to use the information delivered to you subject to these terms and conditions. You agree not to sell, sublicense, transfer or otherwise make available any portion of the information to anyone outside of your business organization, unless otherwise agreed prior to purchase.</li>
+         <li><b>CUSTOMER RESPONSIBILITIES:</b> CLIENT agrees that it is CLIENT’S responsibility to understand and comply with all federal, state, and local laws, rules, and regulations including do not call and do not fax regulations. CLIENT agrees to indemnify and hold&nbsp; <apex:outputField value="{!Opportunity.Brand_Name__c}"/> and its subsidiaries harmless against all claims related, in whole or in part, to your failure to comply with such laws, rules, and regulations.  For the purpose of resolving any dispute in any way related to your use of the information, or these terms and conditions, the state and federal courts located in California shall have exclusive jurisdiction. CLIENT agrees that such courts represent “convenient and appropriate” forums for this purpose. </li>
+         <li><b>GUARANTEE: </b><apex:outputField value="{!Opportunity.Brand_Name__c}"/> guarantee’s 85% accuracy on email deliverability and 95% accuracy on Company Name, Contact Name, Title, Mailing Address, Phone Number, Employee Size of the company, SIC Code(S), Website URL. If the CLIENT fails to achieve the said percentage of accuracy then &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}"/> will replace 1 to 1 contact or provide a credit for the same.</li>
+         <li><b>    LIMITATION OF LIABILITY:</b> In no event shall &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}"/> be liable for direct, indirect, special, exemplary, consequential, incidental, or punitive damage or loss for any claim or cause of action related to or arising out of this Agreement or the services performed hereunder. Our liability at all times will be limited to the purchase price paid by the CLIENT minus any delivery expenses incurred by&nbsp; <apex:outputField value="{!Opportunity.Brand_Name__c}"/>.</li>
+         <li><b>    ENTIRE AGREEMENT:</b> This is the entire agreement between &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}"/> and the CLIENT and hereby supercedes all other agreements, negotiations, discussions or promotional material related to the subject matter here of.</li>
+         </ol>
+        </td></tr></table> </td></tr>
+      
+      <tr ><!--- 04-->
+        <td>
+        <table width="100%"  cellpadding="0" cellspacing="0" border="0" ><tr><td color="#00CCFF" align="center" height="50px">
+            <b style="color:#00CCFF"> <u>PAYMENT DETAILS</u></b></td></tr>
+        </table>
+      </td>
+      </tr>
+       <tr><!--- 05-->
+        <td>
+        <table width="100%" cellpadding="4" cellspacing="0" border="1" >
+               <TR>
+    <TD  width="40%" height="30px" align="center" bgcolor="#00CCFF">    Wire transfer</TD>
+    <TD  width="40%" height="30px" align="center" bgcolor="#00CCFF">    Overnight Payment</TD>
+</TR>
+<TR>
+    <TD  width="40%" height="50px">
+   <b>Bank Name: </b>
+   JP Morgan Chase <br/>
+   <b> Account Name: </b>
+   B2B <br/>
+   <b> Account# :</b> 
+   9400811249 <br/>
+   <b> Wire ROUTING#:</b>
+    021000021 <br/>
+   <b> ABA#/US ACH Routing#:</b> 
+   322271627 <br/>
+   <b> Intl SWIFT CODE: </b>
+   CHASUS33 <br/>
+   <b> Bank Address :</b>
+   1415 India Street, San Diego, CA 92101                              
+</TD>
+    <TD  width="40%" height="50px" align="center">
+    <u><b>Payable To:</b></u><br/><br/>
+      <apex:panelGroup rendered="{!Opportunity.Vendor_Contact_Detail__c==''}">         
+        <apex:inputField value="{!Opportunity.Owner.Street}"/><br/>
+        <apex:inputField value="{!Opportunity.Owner.City}"/><br/>
+        <apex:inputField value="{!Opportunity.Owner.State}"/><br/>
+        <apex:inputField value="{!Opportunity.Owner.Country}"/><br/>
+        <apex:inputField value="{!Opportunity.Owner.Postalcode}"/><br/>
+        </apex:panelGroup>
+         <apex:panelGroup rendered="{!Opportunity.Vendor_Contact_Detail__c!=''}">
+         <apex:inputField value="{!Opportunity.Vendor_Name__c}"/><br/>
+         <apex:inputField value="{!Opportunity.Vendor_Contact_Detail__c}"/></apex:panelGroup></td>
+</TR>
+        </table>
+       
+     
+  <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+   <TR>
+    <TD width="40%" height="10px" align="center" bgcolor="#00CCFF">AUTHORIZATION</TD>
+</TR>
+</TABLE>
+<table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+<TR>
+  <TD  height="10px" width="90px" align="center">For:&nbsp;<apex:outputField value="{!Opportunity.Account.Name}"/></TD>
+  <TD  height="10px" width="50px" align="center">For: &nbsp;<apex:outputField value="{!Opportunity.Brand_Name__c}"/></TD>
+  
+  
+</TR>
+</TABLE>
+ <table width="100%"  cellpadding="0" cellspacing="0" border="1" style="border-top: none"> 
+<TR>
+<TD width="10px" height="10px"><b>Contact Person</b></TD>
+    <TD width="50px" height="10px"><apex:inputField value="{!Opportunity.Client_Name__c}"/></TD>
+    <TD width="10px" height="10px" ><b>Contact Person</b></TD>
+    <TD width="50px" height="10px"><apex:inputField value="{!Opportunity.Vendor_Name__c}"/></TD>
+    
+</TR>
+<TR>
+  <TD width="10px" height="10px"><b>Title</b></TD>
+    <TD width="50px" height="10px" ><apex:inputText value="{!Opportunity.Client_Title__c}"/></TD>
+    <TD width="10px" height="10px" ><b>Title</b></TD>
+    <TD  width="50px" height="10px" ><apex:inputField value="{!Opportunity.Title_Authorization__c}"/></TD>
+  
+</TR>
+<TR>
+<TD width="10px" height="10px" ><b>Phone  </b></TD>
+    <TD width="50px" height="10px"><apex:inputText value="{!Opportunity.Client_Phone__c}"/></TD>
+    <TD width="10px" height="10px"><b>Phone</b>  </TD>
+    <TD width="50px"  height="10px"><apex:inputField value="{!Opportunity.Owner.Phone}"/></TD>
+    
+</TR>
+<TR>
+ <TD width="10px" height="10px"><b>Email Address </b> </TD>
+    <TD width="50px" height="10px" color="blue"><apex:inputText value="{!Opportunity.Client_Email__c}"/></TD>
+    <TD width="10px" height="10px"><b>Email Address</b></TD>
+    <TD width="50px" height="10px"><apex:inputField value="{!Opportunity.Owner.Email}"/></TD>
+   
+</TR>
+<TR>
+ 
+ <TD width="10px" height="10px"><b>Date</b></TD>
+    <TD width="50px" height="10px"><apex:inputField value="{!Opportunity.Deal_Approved_Date__c}"/></TD>
+   <TD width="10px" height="10px"><b>Date</b></TD>
+    <TD width="50px" height="10px"><apex:outputText value="{0,date, dd'/'MM'/'yyyy}"><apex:param value="{!opportunity.current_date__c}"/></apex:outputText> </TD>
+   
+</TR>
+<TR>
+<TD width="10px" height="10px"><b>Signature</b></TD>
+    <TD width="40px" height="10px"><apex:inputField value="{!Opportunity.Signature__c}" styleClass="cke_contents"/></TD>
+  <TD width="10px" height="50px"> <b>Signature</b></TD>
+    <TD width="50px" height="10px"><apex:inputField value="{!Opportunity.Name__r.Signature__c}" styleClass="cke_contents"/></TD>
+
+  
+    
+        </tr>
+</table>
+ </td>
+      </tr> 
+<table width="100%" height="50px" cellpadding="0" cellspacing="0" border="0" style="border-top: none">
+<tr><td align="center" height="50px">
+<b style="color:#00CCFF">
+Please sign this agreement and fax to  &nbsp;<apex:outputField value="{!Opportunity.Fax__c}"/></b></td></tr></table>
+<table width="100%" height="30px" cellpadding="0" cellspacing="0" border="0" style="border-top: none">
+<tr><td align="center" height="30px"><b style="color:#00CCFF">
+Or</b></td></tr></table>
+<table width="100%" height="30px" cellpadding="0" cellspacing="0" border="0" style="border-top: none">
+<tr><td align="center" height="30px"><b style="color:#00CCFF">
+Please send this agreement to me via email post signature</b></td></tr></table>
+   
+</table>
+        
+ </body>
+ </apex:form>
+</apex:page>

@@ -1,0 +1,1119 @@
+<apex:page standardController="opportunity" showHeader="false" sidebar="false" extensions="GenerateOrdersController" renderAs="{!valueToSet}">
+  <body lang="EN-US" link="blue" vlink="purple" style="tab-interval:.5in">
+ 
+<div class="WordSection1">
+<apex:image value="{!$Resource.BrigadeProposal}" /><br/><br/>
+ <p><b style="mso-bidi-font-weight:normal"><span lang="EN-GB"
+ style="font-size:26.0pt;line-height:115%;font-family:Century Gothic,sans-serif;
+ color:#1F497D;mso-themecolor:text2">DATA LICENSING &amp; DEMAND GENERATION
+ PROGRAM 2.0</span></b></p>
+ <p><span
+ style="mso-ansi-language:EN-US;mso-no-proof:yes">
+ <apex:image value="{!$Resource.LeadGenP01}"/>
+ </span></p>
+
+<br></br><br></br><br></br><br></br><br></br><br></br>
+<br></br><br></br>
+
+<apex:image value="{!$Resource.BrigadeProposal}" />
+<p>
+<center><b>PROJECT/ DATA
+PROVIDER -BRIEF</b></center>
+<apex:image value="{!$Resource.Border}"/>
+</p>
+
+
+<b style="mso-bidi-font-weight:
+normal">DATA PROVIDER </b>
+
+<p align="left">We are one of the leading
+organizations specializing in database marketing. We aid organizations in
+customer acquisition &amp; retention through accurate, updated &amp; complete
+quality lead generating databases.Our
+company is&nbsp; been working with all kind of industries in terms of expanding
+their market and getting their target market close with email list acquisition
+and data management services. What we provide as database is something unique
+and reliable &amp; which can be generated as per your business model. We are a
+major player in the database generating business. We had not only involved in
+business with some of the reputed organizations in different industries but
+have also assisted these organizations in developing new business. In today"s
+present world businesses are done through authenticated information and we
+provide our clients with the same.</p>
+
+<p align="left"><span
+style="mso-spacerun:yes"> </span>We have appending service which works by
+taking customer"s database and matching it with our pool of business/consumer
+email addresses and giving you back fully opted–in, deliverable customer"s
+email addresses. Email Appending has been developed in conjunction with CACI,
+one of the UK’s leading data intelligence companies. Our data specialists
+cleanse and update your data regularly to maintain optimum productivity. We will
+segment your data to facilitate targeted marketing and append any missing
+information to your existing customer database. We are one of the fastest
+growing database&nbsp;marketing companies with a database of&nbsp; 27 Million
+business contacts across the Globe.</p>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<apex:image value="{!$Resource.ProposalFooter}"/>
+
+ <p align="left"><apex:image value="{!$Resource.BrigadeProposal}" /></p>
+<div align="center">
+
+<table  border="0" cellspacing="0" cellpadding="0" width="100%" style="border:solid #4F81BD 4.0pt; ">
+ <tr >
+  <td width="970" style="width:727.7pt;border:none;background:white;padding:0in 0in 0in 0in;
+  height:375.05pt;  text-align:left">
+  <span lang="EN-GB" style="font-size:18.0pt;font-family:Arial;color:black;">ANNEXURE ASERVICE LINE 1.</span><span lang="EN-GB" style="font-size:14.0pt;
+  font-family:Arial;">email broadcasting
+  with tracking platform.</span>
+  
+  <p><span lang="EN-GB" style="font-size:12.0pt;line-height:115%;
+  font-family:Century Gothic,sans-serif;mso-fareast-font-family:Perpetua;
+  mso-bidi-font-family:Tahoma;letter-spacing:1.0pt">Lead Generation/ Brand
+  awareness/ promotion (e-campaign) is the best way to reach out to the target
+  audiences, personalise the reach. Based on industry standard below &amp; in
+  order to deliver 7% of response rate- Brigade will do a minimum of 8
+  campaigns over a period of 3 months TEXT/ HTML CAMPAIGNS [ex list purchase ]</span></p>
+  
+  <div align="center">
+  <table  border="0" cellspacing="0" cellpadding="0" >
+   <tr style="mso-yfti-irow:-1;mso-yfti-firstrow:yes;height:2.55pt">
+    <td width="205" valign="top" style="width:153.75pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:2.55pt">
+    
+    <b><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US">NUMBER OF CAMPAIGNS</span></b>
+    </td>
+    <td width="221" valign="top" style="width:165.45pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:2.55pt">
+    
+    <b><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US">AUDIENCES IN EACH CAMPAIGNS</span></b>
+    </td>
+    <td width="177" valign="top" style="width:132.85pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:2.55pt">
+    
+    <b><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US">COST OF PER CAMPAIGNS</span></b>
+    </td>
+    <td width="121" valign="top" style="width:91.1pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:2.55pt">
+    
+    <b><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US">LIST RENTAL </span></b>
+    </td>
+    <td width="121" valign="top" style="width:91.1pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:2.55pt">
+    
+    <b><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US">COST OF PER CAMPAIGNS</span></b>
+    </td>
+   </tr>
+   <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes;height:2.55pt">
+    <td width="205" valign="top" style="width:153.75pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:2.55pt">
+    
+    <span style="font-family:Arial,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:
+    accent1;mso-themeshade:191;mso-ansi-language:EN-US;mso-bidi-font-weight:
+    bold">8</span>
+    </td>
+    <td width="221" valign="top" style="width:165.45pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:2.55pt">
+    
+    <span style="font-family:Arial,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:
+    accent1;mso-themeshade:191;mso-ansi-language:EN-US;mso-bidi-font-weight:
+    bold">50,000</span>
+    </td>
+    <td width="177" valign="top" style="width:132.85pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:2.55pt">
+    
+    <span style="font-family:Arial,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:
+    accent1;mso-themeshade:191;mso-ansi-language:EN-US;mso-bidi-font-weight:
+    bold">$750.00</span>
+    </td>
+    <td width="121" valign="top" style="width:91.1pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:2.55pt">
+    
+    <span style="font-family:Arial,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:
+    accent1;mso-themeshade:191;mso-ansi-language:EN-US;mso-bidi-font-weight:
+    bold">$7000.00</span>
+    </td>
+    <td width="121" valign="top" style="width:91.1pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:2.55pt">
+    
+    <span style="font-family:Arial,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:
+    accent1;mso-themeshade:191;mso-ansi-language:EN-US;mso-bidi-font-weight:
+    bold">$13,000.00</span>
+    </td>
+   </tr>
+  </table>
+  </div>
+  
+  <span
+  style="font-size:9.0pt;font-family:Arial,sans-serif;mso-fareast-font-family:
+  Calibri;mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:accent1;
+  mso-themeshade:191;mso-ansi-language:EN-US;mso-bidi-font-weight:bold">PS
+  Note: pricing is volume based and can differ based on the numbers of
+  Campaigns </span>
+  
+  <p  align="left"><span lang="EN-GB"
+  style="font-size:14.0pt;mso-bidi-font-size:16.0pt;font-family:Century Gothic,sans-serif;
+  mso-fareast-font-family:Perpetua;mso-bidi-font-family:Tahoma;letter-spacing:
+  1.0pt">TEXT/ HTML CAMPAIGNS with list purchase</span></p>
+  
+  <div align="center">
+  <table  border="1" cellspacing="0" cellpadding="0" >
+   <tr style="mso-yfti-irow:-1;mso-yfti-firstrow:yes;height:2.5pt">
+    <td width="204" valign="top" style="width:152.75pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:2.5pt">
+    
+    <b><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US">NUMBER OF CAMPAIGNS</span></b>
+    </td>
+    <td width="219" valign="top" style="width:164.35pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:2.5pt">
+    
+    <b><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US">AUDIENCES IN EACH CAMPAIGNS</span></b>
+    </td>
+    <td width="176" valign="top" style="width:132.0pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:2.5pt">
+    
+    <b><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US">COST OF PER CAMPAIGNS</span></b>
+    </td>
+    <td width="121" valign="top" style="width:90.5pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:2.5pt">
+    
+    <b><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US">LIST RENTAL </span></b>
+    </td>
+    <td width="121" valign="top" style="width:90.5pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:2.5pt">
+    
+    <b><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US">COST OF PER CAMPAIGNS</span></b>
+    </td>
+   </tr>
+   <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes;height:2.5pt">
+    <td width="204" valign="top" style="width:152.75pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:2.5pt">
+    
+    <span style="font-family:Arial,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:
+    accent1;mso-themeshade:191;mso-ansi-language:EN-US;mso-bidi-font-weight:
+    bold">8</span>
+    </td>
+    <td width="219" valign="top" style="width:164.35pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:2.5pt">
+    
+    <span style="font-family:Arial,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:
+    accent1;mso-themeshade:191;mso-ansi-language:EN-US;mso-bidi-font-weight:
+    bold">50,000</span>
+    </td>
+    <td width="176" valign="top" style="width:132.0pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:2.5pt">
+    
+    <span style="font-family:Arial,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:
+    accent1;mso-themeshade:191;mso-ansi-language:EN-US;mso-bidi-font-weight:
+    bold">$750.00</span>
+    </td>
+    <td width="121" valign="top" style="width:90.5pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:2.5pt">
+    
+    <span style="font-family:Arial,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:
+    accent1;mso-themeshade:191;mso-ansi-language:EN-US;mso-bidi-font-weight:
+    bold">00.00</span>
+    </td>
+    <td width="121" valign="top" style="width:90.5pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:2.5pt">
+    <span style="font-family:Arial,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:
+    accent1;mso-themeshade:191;mso-ansi-language:EN-US;mso-bidi-font-weight:
+    bold">$6000.00</span>
+    </td>
+   </tr>
+  </table>
+  </div>
+  
+  <p  align="center" style="text-align:center;line-height:15.0pt"><b
+  style="mso-bidi-font-weight:normal"><u><span lang="EN-GB" style="font-size:
+  14.0pt;mso-bidi-font-size:16.0pt;font-family:Century Gothic,sans-serif;
+  mso-fareast-font-family:Perpetua;mso-bidi-font-family:Tahoma;letter-spacing:
+  1.0pt">Third party analytics</span></u></b></p>
+  <p class="MsoListParagraph" align="center" style="margin-bottom:0in;margin-bottom:
+  .0001pt;text-align:center;text-indent:-.25in;line-height:normal;mso-list:
+  l13 level1 lfo13"><span lang="EN-GB" style="mso-bidi-font-family:
+  Calibri;color:#558ED5"><span style="mso-list:Ignore">1.<span
+  style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span
+  lang="EN-GB" style="mso-bidi-font-family:Calibri;color:#558ED5">Click troughs[
+  people clicking on the links ]</span></p>
+  <p class="MsoListParagraph" align="center" style="margin-bottom:0in;margin-bottom:
+  .0001pt;text-align:center;text-indent:-.25in;line-height:normal;mso-list:
+  l13 level1 lfo13"><span lang="EN-GB" style="mso-bidi-font-family:
+  Calibri;color:#558ED5"><span style="mso-list:Ignore">2.<span
+  style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span
+  lang="EN-GB" style="mso-bidi-font-family:Calibri;color:#558ED5">Email response[
+  people responding back directly]</span></p>
+  <p class="MsoListParagraph" align="center" style="margin-bottom:0in;margin-bottom:
+  .0001pt;text-align:center;text-indent:-.25in;line-height:normal;mso-list:
+  l13 level1 lfo13"><span lang="EN-GB" style="mso-bidi-font-family:
+  Calibri;color:#558ED5"><span style="mso-list:Ignore">3.<span
+  style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span
+  lang="EN-GB" style="mso-bidi-font-family:Calibri;color:#558ED5">Leads [
+  immediate response / calls]</span></p>
+  <p class="MsoListParagraph" align="center" style="margin-bottom:0in;margin-bottom:
+  .0001pt;text-align:center;text-indent:-.25in;line-height:normal;mso-list:
+  l13 level1 lfo13"><span lang="EN-GB" style="mso-bidi-font-family:
+  Calibri;color:#558ED5"><span style="mso-list:Ignore">4.<span
+  style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span
+  lang="EN-GB" style="mso-bidi-font-family:Calibri;color:#558ED5">Reviews[ people
+  opening your email for at least 60 seconds ]</span></p>
+  <p class="MsoListParagraph" align="center" style="margin-bottom:0in;margin-bottom:
+  .0001pt;text-align:center;text-indent:-.25in;line-height:normal;mso-list:
+  l13 level1 lfo13"><span lang="EN-GB" style="mso-bidi-font-family:
+  Calibri;color:#558ED5"><span style="mso-list:Ignore">5.<span
+  style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span
+  lang="EN-GB" style="mso-bidi-font-family:Calibri;color:#558ED5">Subscribers [
+  registering themselves for future mailing ]</span></p>
+  <p class="MsoListParagraph" align="center" style="margin-bottom:0in;margin-bottom:
+  .0001pt;text-align:center;text-indent:-.25in;line-height:normal;mso-list:
+  l13 level1 lfo13"><span lang="EN-GB" style="mso-bidi-font-family:
+  Calibri;color:#558ED5"><span style="mso-list:Ignore">6.<span
+  style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span
+  lang="EN-GB" style="mso-bidi-font-family:Calibri;color:#558ED5">Unsubscribes</span></p>
+  <p  align="center" style="text-align:center;line-height:15.0pt"><b
+  style="mso-bidi-font-weight:normal"><u><span lang="EN-GB" style="font-size:
+  14.0pt;mso-bidi-font-size:16.0pt;font-family:Century Gothic,sans-serif;
+  mso-fareast-font-family:Perpetua;mso-bidi-font-family:Tahoma;letter-spacing:
+  1.0pt"><span style="text-decoration:none"></span></span></u></b></p>
+  </td></tr></table>
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <p  style="margin-right:-1.25in;"><apex:image value="{!$Resource.ProposalFooter}"/></p>
+  
+  <p align="left"><apex:image value="{!$Resource.BrigadeProposal}" /></p>
+<table  border="0" cellspacing="0" cellpadding="0" width="100%"
+ style="mso-cellspacing:.7pt;border:solid #336699 4.5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 0in 0in 0in">
+ <tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:375.05pt">
+  <td width="970" style="width:727.7pt;background:white;padding:0in 0in 0in 0in;
+  height:375.05pt">
+
+   <table  border="0" cellspacing="0"
+   cellpadding="0" style=" margin-left:.05pt;
+   mso-border-top-alt:solid #4F81BD 1.0pt;mso-border-top-themecolor:accent1;
+   mso-border-bottom-alt:solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;
+   mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt">
+   
+   <tr  style="mso-yfti-irow:-1;mso-yfti-firstrow:yes;height:2.15pt">
+    <td width="469" valign="top" style="width:351.65pt;
+    mso-border-top-themecolor:accent1;
+    mso-border-bottom-themecolor:accent1;padding:0in 5.4pt 0in 5.4pt;
+    height:2.15pt">
+  <p  align="center" style="text-align:center;line-height:15.0pt"><b
+  style="mso-bidi-font-weight:normal"><u><span lang="EN-GB" style="font-size:
+  14.0pt;mso-bidi-font-size:16.0pt;font-family:Century Gothic,sans-serif;
+  mso-fareast-font-family:Perpetua;mso-bidi-font-family:Tahoma;letter-spacing:
+  1.0pt">Expected Response Rate</span></u></b></p></td></tr>
+  
+   <tr style="mso-yfti-irow:-1;mso-yfti-firstrow:yes;height:2.15pt">
+  <td width="481" valign="top" style="width:360.7pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:2.15pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:5"><b><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US">FIRST, SECOND, THIRD &amp; FOURTH <span
+    style="mso-spacerun:yes"> </span>CAMPAIGNS</span></b></p>
+    </td>
+    <td width="481" valign="top" style="width:360.7pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:2.15pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:1"><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US;mso-bidi-font-weight:bold">Company Introduction / what we do / Brand
+    awareness [1 to 2.5%]</span></p>
+    </td>
+   </tr>
+   <tr style="mso-yfti-irow:0;height:3.75pt">
+    <td width="469" valign="top" style="width:351.65pt;border:none;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:3.75pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:68"><b><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US">FIFTH &amp; SIXTH CAMPIAGN</span></b></p>
+    </td>
+    <td width="481" valign="top" style="width:360.7pt;border:none;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:3.75pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:64"><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US">Follow up on last sent outs with different pitch / call for Action
+    [3 to5%]</span></p>
+    </td>
+   </tr>
+   <tr style="mso-yfti-irow:1;height:2.15pt">
+    <td width="469" valign="top" style="width:351.65pt;border:none;padding:0in 5.4pt 0in 5.4pt;
+    height:2.15pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:4"><b><span style="font-size:9.0pt;font-family:Arial,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US">SEVEN &amp; EIGTH CAMPIAGN</span></b></p>
+    </td>
+    <td width="481" valign="top" style="width:360.7pt;border:none;padding:0in 5.4pt 0in 5.4pt;
+    height:2.15pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt"><span
+    style="font-size:9.0pt;font-family:Arial,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:
+    accent1;mso-themeshade:191;mso-ansi-language:EN-US">Call or action with
+    different pitch [5 to 7%]</span></p>
+    </td>
+   </tr>
+   <tr style="mso-yfti-irow:2;mso-yfti-lastrow:yes;height:2.15pt">
+    <td width="950" colspan="2" valign="top" style="width:712.35pt;border:none;
+    border-bottom:solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;
+    background:#D3DFEE;mso-background-themecolor:accent1;mso-background-themetint:
+    63;padding:0in 5.4pt 0in 5.4pt;height:2.15pt">
+    <p class="MsoListParagraph" align="center" style="text-align:center;
+    text-indent:-.25in;line-height:15.0pt;mso-list:l2 level1 lfo12;mso-yfti-cnfc:
+    68"><span style="font-size:9.0pt;font-family:Symbol;
+    mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;color:#365F91;
+    mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:EN-US;
+    mso-bidi-font-weight:bold"><span style="mso-list:Ignore">·<span
+    style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span></span></span><i style="mso-bidi-font-style:normal"><span
+    style="font-size:9.0pt;font-family:Arial,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:
+    accent1;mso-themeshade:191;mso-ansi-language:EN-US;mso-bidi-font-weight:
+    bold">Please note there will be additional $500.00 charge for Set up cost
+    &amp; multiple template design.</span></i></p>
+    <p class="MsoListParagraph" align="center" style="text-align:center;
+    text-indent:-.25in;line-height:15.0pt;mso-list:l2 level1 lfo12;mso-yfti-cnfc:
+    68"><span style="font-size:9.0pt;font-family:Symbol;
+    mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;color:#365F91;
+    mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:EN-US;
+    mso-bidi-font-weight:bold"><span style="mso-list:Ignore">·<span
+    style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span></span></span><i style="mso-bidi-font-style:normal"><span
+    style="font-size:9.0pt;font-family:Arial,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:
+    accent1;mso-themeshade:191;mso-ansi-language:EN-US;mso-bidi-font-weight:
+    bold">Response rate is just on a minimum assumption which can be more or
+    less based on the industry behavior. You will always have results coming in
+    even after the campaign is over.</span></i><b><span style="font-size:9.0pt;
+    font-family:Arial,sans-serif;mso-fareast-font-family:Calibri;
+    mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:accent1;
+    mso-themeshade:191;mso-ansi-language:EN-US"></span></b></p>
+    </td>
+   </tr>
+  </table>
+  <p  align="center" style="text-align:center;line-height:15.0pt"><span
+  lang="EN-GB">
+  <apex:image value="{!$Resource.LeadGenP02}"/>
+  </span><b style="mso-bidi-font-weight:normal"><u><span
+  lang="EN-GB" style="font-size:14.0pt;mso-bidi-font-size:16.0pt;font-family:
+  Century Gothic,sans-serif;mso-fareast-font-family:Perpetua;mso-bidi-font-family:
+  Tahoma;letter-spacing:1.0pt"></span></u></b></p>
+  
+  <p  align="center" style="text-align:center"><i
+  style="mso-bidi-font-style:normal"><span style="font-size:9.0pt;line-height:
+  115%;font-family:Arial,sans-serif;mso-fareast-font-family:Calibri;
+  mso-fareast-theme-font:minor-latin;color:#365F91;mso-themecolor:accent1;
+  mso-themeshade:191;mso-ansi-language:EN-US;mso-bidi-font-weight:bold">Above
+  benchmark is set on 12 campaigns</span></i></p>
+  <p style="text-align:justify;tab-stops:list 0in .25in"><span
+  style="font-size:10.0pt;mso-bidi-font-size:9.0pt;font-family:Century Gothic,sans-serif;
+  mso-fareast-font-family:Arial;color:#365F91">DATA PROTECTION: Brigade
+  warranties that any personal data included in the Confidential Information
+  has been collected in accordance to data protection laws applicable in the
+  USA, UK, Netherlands, Germany and France respectively. Brigade further
+  warranties that it has obtained all necessary authorizations from the data
+  subject in accordance to the law applicable in the data subject"s country of
+  residence. </span></p></td></tr></table>
+ 
+  <p  style="margin-right:-1.25in;"><apex:image value="{!$Resource.ProposalFooter}"/></p>
+  
+  
+  
+  
+   <p align="left"><apex:image value="{!$Resource.BrigadeProposal}" /></p>
+  <table  border="0" cellspacing="0" cellpadding="0" width="100%"
+ style="mso-cellspacing:.7pt;border:solid #336699 4.5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 0in 0in 0in; margin-right:-1.25in;">
+ <tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:375.05pt">
+  <td width="970" style="width:727.7pt;background:white;padding:0in 0in 0in 0in;
+  height:375.05pt">
+  <p class="MsoListParagraph" align="left" style="mso-list:l8 level1 lfo15;"><span style="font-size:10.0pt;
+  mso-bidi-font-size:9.0pt;line-height:115%;font-family:Symbol;mso-fareast-font-family:
+  Symbol;mso-bidi-font-family:Symbol;color:#365F91;mso-ansi-language:EN-US"><span
+  style="mso-list:Ignore">·<span style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><span style="font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;line-height:115%;font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+  Arial;color:#365F91;mso-ansi-language:EN-US">Above pricing is
+  inclusive of List rental and other related services</span></p>
+   <p class="MsoListParagraph" align="left" style="mso-list:l8 level1 lfo15;"><span style="font-size:10.0pt;
+  mso-bidi-font-size:9.0pt;line-height:115%;font-family:Symbol;mso-fareast-font-family:
+  Symbol;mso-bidi-font-family:Symbol;color:#365F91;mso-ansi-language:EN-US"><span
+  style="mso-list:Ignore">·<span style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><span style="font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;line-height:115%;font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+  Arial;color:#365F91;mso-ansi-language:EN-US">Response rate is
+  just on a minimum assumption it can also be more. You will always have the
+  result coming in even after the campaign is over.</span></p>
+  <p class="MsoListParagraph" align="left" style="mso-list:l8 level1 lfo15;"><span style="font-size:10.0pt;
+  mso-bidi-font-size:9.0pt;line-height:115%;font-family:Symbol;mso-fareast-font-family:
+  Symbol;mso-bidi-font-family:Symbol;color:#365F91;mso-ansi-language:EN-US"><span
+  style="mso-list:Ignore">·<span style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><span style="font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;line-height:115%;font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+  Arial;color:#365F91;mso-ansi-language:EN-US">Our e mail
+  broadcasting will also help you in brand promotion, online advertisement and
+  search engine optimization</span></p>
+   <p class="MsoListParagraph" align="left" style="mso-list:l8 level1 lfo15;"><span style="font-size:10.0pt;
+  mso-bidi-font-size:9.0pt;line-height:115%;font-family:Symbol;mso-fareast-font-family:
+  Symbol;mso-bidi-font-family:Symbol;color:#365F91;mso-ansi-language:EN-US"><span
+  style="mso-list:Ignore">·<span style="font:7.0pt Arial">&nbsp;&nbsp;
+  </span></span></span><span style="font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;line-height:115%;font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+  Arial;color:#365F91;mso-ansi-language:EN-US"><span
+  style="mso-spacerun:yes">  </span>We manage several level of tacking &amp;
+  response rate is the mix of 1) leads 2) click through 3) email response and
+  4) reviews 5) single open 6) multiple opens 7) unsubscribe</span></p>
+   <p class="MsoListParagraph" align="left" style="mso-list:l8 level1 lfo15;"><span style="font-size:10.0pt;
+  mso-bidi-font-size:9.0pt;line-height:115%;font-family:Symbol;mso-fareast-font-family:
+  Symbol;mso-bidi-font-family:Symbol;color:#365F91;mso-ansi-language:EN-US"><span
+  style="mso-list:Ignore">·<span style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><span style="font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;line-height:115%;font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+  Arial;color:#365F91;mso-ansi-language:EN-US">These tracking will
+  be done through an online platform and access will be provided to the client</span></p>
+  <p class="MsoListParagraph" align="left" style="mso-list:l8 level1 lfo15;"><span style="font-size:10.0pt;
+  mso-bidi-font-size:9.0pt;line-height:115%;font-family:Symbol;mso-fareast-font-family:
+  Symbol;mso-bidi-font-family:Symbol;color:#365F91;mso-ansi-language:EN-US"><span
+  style="mso-list:Ignore">·<span style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><span style="font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;line-height:115%;font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+  Arial;color:#365F91;mso-ansi-language:EN-US">Extra email credits
+  can be used to send out follow up emails.</span></p>
+   <p class="MsoListParagraph" align="left" style="mso-list:l8 level1 lfo15;"><span style="font-size:10.0pt;
+  mso-bidi-font-size:9.0pt;line-height:115%;font-family:Symbol;mso-fareast-font-family:
+  Symbol;mso-bidi-font-family:Symbol;color:#365F91;mso-ansi-language:EN-US"><span
+  style="mso-list:Ignore">·<span style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><span style="font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;line-height:115%;font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+  Arial;color:#365F91;mso-ansi-language:EN-US">Assigned campaign
+  manager for the complete duration</span></p>
+  <p class="MsoListParagraph"  align="left" style="mso-list:l8 level1 lfo15;"><span style="font-size:10.0pt;
+  mso-bidi-font-size:9.0pt;line-height:115%;font-family:Symbol;mso-fareast-font-family:
+  Symbol;mso-bidi-font-family:Symbol;color:#365F91;mso-ansi-language:EN-US"><span
+  style="mso-list:Ignore">·<span style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><span style="font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;line-height:115%;font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+  Arial;color:#365F91;mso-ansi-language:EN-US">Whit listed servers
+  and IP address</span></p>
+   <p class="MsoListParagraph" align="left" style="mso-list:l8 level1 lfo15;"><span style="font-size:10.0pt;
+  mso-bidi-font-size:9.0pt;line-height:115%;font-family:Symbol;mso-fareast-font-family:
+  Symbol;mso-bidi-font-family:Symbol;color:#365F91;mso-ansi-language:EN-US"><span
+  style="mso-list:Ignore">·<span style="font:7.0pt Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><span style="font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;line-height:115%;font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+  Arial;color:#365F91;mso-ansi-language:EN-US">Campaign will be
+  executed after the re verification of data as well as 4 days from the receipt
+  of payment<span style="mso-spacerun:yes">  </span></span></p>
+  <p  style="tab-stops:.75in"><span lang="EN-GB">
+  <apex:image value="{!$Resource.LeadGenP03}"/>
+ <!-- <apex:image value="{!$Resource.BrigadeProposal}" />-->
+  </span><span style="font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;line-height:115%;font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+  Arial;color:#365F91;mso-ansi-language:EN-US"></span></p>
+
+   </td>
+   </tr>
+  </table>
+  
+  <br/><br/><br/><br/><br/><br/><br/>
+  <p  style="margin-right:-1.25in;"><apex:image value="{!$Resource.ProposalFooter}"/></p>
+
+ <p align="left"><apex:image value="{!$Resource.BrigadeProposal}" /></p>  
+  <table  border="0" cellspacing="0" cellpadding="0" width="100%"
+ style="mso-cellspacing:.7pt;border:solid #336699 4.5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 0in 0in 0in">
+ <tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:375.05pt">
+  <td width="970" style="width:727.7pt;background:white;padding:0in 0in 0in 0in;
+  height:375.05pt">
+ 
+  <p ><span lang="EN-GB" style="font-size:22.0pt;line-height:115%;
+  font-family:Century Gothic,sans-serif;mso-fareast-font-family:Perpetua;
+  color:black">ANNEXURE ASERVICE LINE 2<b style="mso-bidi-font-weight:normal"> </b></span><span
+  lang="EN-GB" style="font-size:14.0pt;mso-bidi-font-size:16.0pt;line-height:
+  115%;font-family:Century Gothic,sans-serif;mso-fareast-font-family:Perpetua;
+  mso-bidi-font-family:Tahoma;letter-spacing:1.0pt">Tele Marketing/ Appointment
+  setting </span></p>
+  <p ><b style="mso-bidi-font-weight:normal"><u><span
+  lang="EN-GB" style="font-size:14.0pt;mso-bidi-font-size:16.0pt;line-height:
+  115%;font-family:Tahoma,sans-serif;mso-fareast-font-family:Perpetua;
+  letter-spacing:1.0pt"><span style="text-decoration:none">&nbsp;</span></span></u></b></p>
+  <div align="center">
+  <table  border="1" cellspacing="0"
+   cellpadding="0" style="margin-left:.15pt;border-collapse:collapse;border:none;
+   mso-border-top-alt:solid #4F81BD 1.0pt;mso-border-top-themecolor:accent1;
+   mso-border-bottom-alt:solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;
+   mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt">
+   <tr style="mso-yfti-irow:-1;mso-yfti-firstrow:yes;height:12.1pt">
+    <td width="206" valign="top" style="width:154.75pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:5"><b><span style="font-size:9.0pt;font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US">Number of Qualifying Questions </span></b></p>
+    </td>
+    <td width="185" valign="top" style="width:139.1pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:1"><b><span style="font-size:9.0pt;font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US">Dialing hrs. </span></b></p>
+    </td>
+    <td width="206" valign="top" style="width:154.65pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:1"><b><span style="font-size:9.0pt;font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US">COST / Appointment </span></b></p>
+    </td>
+    <td width="131" valign="top" style="width:98.3pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:1"><b><span style="font-size:9.0pt;font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US">Number of committed leads </span></b></p>
+    </td>
+    <td width="122" valign="top" style="width:91.65pt;border-top:solid #4F81BD 1.0pt;
+    mso-border-top-themecolor:accent1;border-left:none;border-bottom:solid #4F81BD 1.0pt;
+    mso-border-bottom-themecolor:accent1;border-right:none;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:1"><b><span style="font-size:9.0pt;font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US">TOTAL COST</span></b></p>
+    </td>
+   </tr>
+   <tr style="mso-yfti-irow:0;height:12.1pt">
+    <td width="206" valign="top" style="width:154.75pt;border:none;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:68"><span style="font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US;mso-bidi-font-weight:bold">2</span></p>
+    </td>
+    <td width="185" valign="top" style="width:139.1pt;border:none;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:64"><span style="font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US;mso-bidi-font-weight:bold">6 hrs. / day </span></p>
+    </td>
+    <td width="206" valign="top" style="width:154.65pt;border:none;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:64"><span style="font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US;mso-bidi-font-weight:bold">$400/
+    Appointment<span style="mso-spacerun:yes">  </span></span></p>
+    </td>
+    <td width="131" valign="top" style="width:98.3pt;border:none;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:64"><span style="font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US;mso-bidi-font-weight:bold"><span
+    style="mso-spacerun:yes"> </span>20/ month </span></p>
+    </td>
+    <td width="122" valign="top" style="width:91.65pt;border:none;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:64"><span style="font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US;mso-bidi-font-weight:bold">$8,000.00</span></p>
+    </td>
+   </tr>
+   <tr style="mso-yfti-irow:1;height:12.1pt">
+    <td width="206" valign="top" style="width:154.75pt;border:none;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:4"><span style="font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US;mso-bidi-font-weight:bold">4<b></b></span></p>
+    </td>
+    <td width="185" valign="top" style="width:139.1pt;border:none;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt"><span
+    style="font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;mso-bidi-font-family:Arial;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US;mso-bidi-font-weight:bold">6 hrs. / day </span></p>
+    </td>
+    <td width="206" valign="top" style="width:154.65pt;border:none;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt"><span
+    style="font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;mso-bidi-font-family:Arial;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US;mso-bidi-font-weight:bold">$650/ Appointment<span
+    style="mso-spacerun:yes">  </span></span></p>
+    </td>
+    <td width="131" valign="top" style="width:98.3pt;border:none;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt"><span
+    style="font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;mso-bidi-font-family:Arial;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US;mso-bidi-font-weight:bold">20/ month </span></p>
+    </td>
+    <td width="122" valign="top" style="width:91.65pt;border:none;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt"><span
+    style="font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+    Calibri;mso-fareast-theme-font:minor-latin;mso-bidi-font-family:Arial;
+    color:#365F91;mso-themecolor:accent1;mso-themeshade:191;mso-ansi-language:
+    EN-US;mso-bidi-font-weight:bold">$13,000.00</span></p>
+    </td>
+   </tr>
+   <tr style="mso-yfti-irow:2;mso-yfti-lastrow:yes;height:12.1pt">
+    <td width="206" valign="top" style="width:154.75pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:68"><b><span style="font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US">&nbsp;</span></b></p>
+    </td>
+    <td width="185" valign="top" style="width:139.1pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:64"><span style="font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US;mso-bidi-font-weight:bold">&nbsp;</span></p>
+    </td>
+    <td width="206" valign="top" style="width:154.65pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:64"><span style="font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US;mso-bidi-font-weight:bold">&nbsp;</span></p>
+    </td>
+    <td width="131" valign="top" style="width:98.3pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:64"><span style="font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US;mso-bidi-font-weight:bold">&nbsp;</span></p>
+    </td>
+    <td width="122" valign="top" style="width:91.65pt;border:none;border-bottom:
+    solid #4F81BD 1.0pt;mso-border-bottom-themecolor:accent1;background:#D3DFEE;
+    mso-background-themecolor:accent1;mso-background-themetint:63;padding:0in 5.4pt 0in 5.4pt;
+    height:12.1pt">
+    <p  align="center" style="text-align:center;line-height:15.0pt;
+    mso-yfti-cnfc:64"><span style="font-family:Century Gothic,sans-serif;
+    mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+    mso-bidi-font-family:Arial;color:#365F91;mso-themecolor:accent1;mso-themeshade:
+    191;mso-ansi-language:EN-US;mso-bidi-font-weight:bold">&nbsp;</span></p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  
+ 
+  <p class="MsoListParagraph" align="left" style="mso-list:l16 level1 lfo17">
+  <span lang="EN-GB" style="font-size:10.0pt;
+  line-height:115%;font-family:Century Gothic,sans-serif;color:#1F497D">&nbsp;&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;&nbsp;&nbsp; Above
+  pricing is excluding list rental or list purchase <br/>
+  &nbsp;&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
+  Investment is purely for appointment setting program <br/>
+  &nbsp;&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
+  Voice file / email confirmation will be offered to the client to support the
+  billing <br/>
+  &nbsp;&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
+  Client will provide us with set of qualifying question<br/>
+   &nbsp;&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;Dedicated
+  tele marketing campaign manager for the complete duration<br/>
+   &nbsp;&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
+   Lead flow can be daily or weekly <br/>
+   &nbsp;&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
+ Brigade can increase/ decrease the work flow
+  based on the result or outcome from the daily calling <br/>
+  &nbsp;&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
+ Brigade will not be responsible or guarantee
+  for sales out of these appointment <br/>
+  &nbsp;&nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;
+ Client can disqualify any appointment supporting with a substantial reason<br/></span></p>
+  <p class="MsoListParagraph" align="left" style="line-height:15.0pt"><span
+  lang="EN-GB" style="font-size:14.0pt;mso-bidi-font-size:16.0pt;font-family:
+  Century Gothic,sans-serif;mso-fareast-font-family:Perpetua;mso-bidi-font-family:
+  Tahoma;letter-spacing:1.0pt">&nbsp;</span></p>
+   <p align="left" style="mso-line-height-alt:15.0pt"><span lang="EN-GB"
+  style="font-size:22.0pt;font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+  Perpetua;color:black">Case Studies </span></p>
+  </td></tr></table>
+  <br/><br/><br/><br/>
+  <p  style="margin-right:-1.25in;"><apex:image value="{!$Resource.ProposalFooter}"/></p>
+  
+   
+   <p align="left"><apex:image value="{!$Resource.BrigadeProposal}" /></p>  
+   <table  border="0" cellspacing="0" cellpadding="0" width="100%"
+ style="mso-cellspacing:.7pt;border:solid #336699 4.5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 0in 0in 0in">
+ <tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:375.05pt">
+  <td width="970" style="width:727.7pt;background:white;padding:0in 0in 0in 0in;
+  height:375.05pt">
+  <p style="line-height:15.0pt">
+  <span lang="EN-GB" style="font-size:22.0pt;font-family:Century Gothic,sans-serif;
+  mso-fareast-font-family:Perpetua;color:black">Client : Accounting Global </span><span
+  lang="EN-GB"><span style="mso-spacerun:yes"> </span></span><span lang="EN-GB"
+  style="font-size:9.0pt;font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+  Perpetua;color:black">http://www.accountingglobal.com/</span></p>
+  
+  <p align="left" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt"><span lang="EN-GB"
+  style="font-size:10.0pt;font-family:Century Gothic,sans-serif;color:#1F497D">Accounting
+  Global is a leading Business Process Outsourcing firm specializing in finance
+  and accounting services. With a diverse customer base, Accounting Global aims
+  to provide world-class solutions that are integrated, efficient and cost
+  effective to various organizations from across USA. </span></p>
+ 
+  <p align="left" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt">
+  <span lang="EN-GB" style="font-size:10.0pt;font-family:Century Gothic,sans-serif;
+  color:#1F497D"><b>The Client Challenge</b><br/>
+  Since incorporation in 1994 Accounting Global has generally relied on referrals
+  from new clients. It has tried in-house sales on a couple of occasions and
+  the most recent attempt met with very limited results. Despite the downturn
+  in the economy, the decision makers of Accounting Global felt that continued
+  inactivity in the area of new sales could mean they miss out on opportunities
+  with companies looking to outsource their finance and accounting services. It
+  would also increase their reliance on their existing customer base, which may
+  or may not yield desired results. </span></p>
+  <p align="left" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt">
+  <span lang="EN-GB" style="font-size:10.0pt;font-family:Century Gothic,sans-serif;
+  color:#1F497D"><b>The Business Solution</b><br/>
+ Brigade Big was engaged by Accounting Global on a two day per-week project to profile
+  and prospect specifically targeted clients in United States. Brigade Big
+  Intelligence was given access to an Accounting Global email address and the
+  team member responsible for the telemarketing call-outs were given Product
+  Knowledge by the Accounting Global Support Services Director on how to
+  position Accounting Global, Accounting Global"s USPs to help narrow down the
+  specific opportunities which would be of most interest.</span></p>
+  <p align="left" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt">
+  <span lang="EN-GB" style="font-size:10.0pt;font-family:Century Gothic,sans-serif;
+  color:#1F497D"><b>The Business Benefits</b><br/>
+  Within the first 2 months of campaigning Brigade Big Intelligence scheduled more
+  meetings and created more opportunity than the AG in-house team had in the
+  previous 12 months. Such was the high level of activity created on behalf of
+  AG that the program was put on hold to allow AG to catch up with the
+  prospects. Upon resumption, within the first 24 hours, Brigade Big
+  International delivered another opportunity thanks to picking up on the
+  prospect list previously created. AG has been able to secure new Support
+  Clients introduced to them as a direct result of the Brigade Big Intelligence
+  activity.</span></p>
+  <p align="left" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt"><span lang="EN-GB" style="font-size:10.0pt;font-family:Century Gothic,sans-serif;
+  color:#1F497D"><b>On-going Relationship</b><br/>
+  AG has high-growth expectations but with a small customer facing team it fully
+  expects to use Brigade Big Intelligence as its outsourced lead generation
+  company so that staff recruitment can be focused on accounting teams to help
+  their service delivery. By using Brigade Big on a longer term basis AG knows
+  that the telemarketing activity will build a pipeline of business which will
+  give AG opportunity to quote and win businesses on a regular basis.</span></p>
+  <p align="left" style="line-height:15.0pt" ><span style="font-size:10pt;width:4in;
+  font-family:Tahoma,sans-serif;color:#E32031;mso-ansi-language:EN-US;
+  mso-no-proof:yes">
+  <apex:image value="{!$Resource.LeadsBerry}" height="60" width="100"/>
+  </span><span style="mso-spacerun:yes"> </span><span lang="EN-GB"><a
+  href="http://leadsberry.com/"><span style="font-size:9.0pt;color:black;
+  text-decoration:none;text-underline:none">http://leadsberry.com/</span></a></span><span
+  lang="EN-GB" style="font-size:22.0pt;font-family:Century Gothic,sans-serif;
+  mso-fareast-font-family:Perpetua;color:black"> </span></p>
+    </td></tr></table>
+  <p  style="margin-right:-1.25in;"><apex:image value="{!$Resource.ProposalFooter}"/></p>
+  
+ <p align="left"><apex:image value="{!$Resource.BrigadeProposal}" /></p>  
+  <table  border="0" cellspacing="0" cellpadding="0" width="100%"
+ style="mso-cellspacing:.7pt;border:solid #336699 4.5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 0in 0in 0in">
+ <tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:375.05pt">
+  <td width="970" style="width:727.7pt;background:white;padding:0in 0in 0in 0in;
+  height:375.05pt">
+ 
+  <p align="left" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt"><span lang="EN-GB"
+  style="font-size:10.0pt;font-family:Century Gothic,sans-serif;color:#1F497D">Leadsberry’s
+  marketing automation tool offers businesses with concise and focused lead
+  management strategies that will help them boost their lead quality, prospect
+  response and of course, lead : deal ratio. This cutting-edge lead management
+  platform will simply kick-start the lead nurturing process and funnels the
+  sales process for better tracking and analysis.</span></p>
+ 
+  <p align="left" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt"><b style="mso-bidi-font-weight:
+  normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Century Gothic,sans-serif;
+  color:#1F497D">The Client Challenge</span></b></p>
+  <p align="left" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt"><span lang="EN-GB"
+  style="font-size:10.0pt;font-family:Century Gothic,sans-serif;color:#1F497D">The
+  client is a leading marketing automation solutions provider.&nbsp;The
+  objective was to generate qualified leads for the field sales team within
+  both the UK and US markets.</span></p>
+ 
+  <p  align="left" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt"><b style="mso-bidi-font-weight:
+  normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Century Gothic,sans-serif;
+  color:#1F497D">The Business Solution</span></b></p>
+  <p  align="left" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt"><span lang="EN-GB"
+  style="font-size:10.0pt;font-family:Century Gothic,sans-serif;color:#1F497D"><span
+  style="mso-spacerun:yes"> </span>The client supplied information on their
+  target technology criteria (CRM) with four qualifying questions. The target
+  criteria comprised of Sales force CRM users across all industries like
+  Manufacturing, Retail, Technology, and Healthcare etc. </span></p>
+ 
+  <p  align="left" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt"><b style="mso-bidi-font-weight:
+  normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Century Gothic,sans-serif;
+  color:#1F497D">The Business Benefits</span></b></p>
+  <p  align="left" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt"><span lang="EN-GB"
+  style="font-size:10.0pt;font-family:Century Gothic,sans-serif;color:#1F497D">Following
+  a thorough project briefing, Brigade Big Intelligence’s telemarketing team
+  got to work on generating qualified opportunities for the client.&nbsp;The
+  telemarketing campaign was conducted over a period of six months and
+  comprised of a telemarketing team of five experienced telemarketers. <span
+  style="mso-spacerun:yes"> </span>Results: An incredible 31% response rate was
+  achieved for this client.</span></p>
+  
+  <p align="left" style="padding:0in 5.4pt 0in 5.4pt"><b style="mso-bidi-font-weight:normal"><span  lang="EN-GB" style="font-size:
+  10.0pt;font-family:Century Gothic,sans-serif;mso-fareast-font-family:
+  Calibri;color:#1F497D;mso-ansi-language:EN-GB">What the customer says:</span></b></p>
+  <p align="left" style="padding:0in 5.4pt 0in 5.4pt"><span  align="left" lang="EN-GB" style="font-size:10.0pt;font-family:Century Gothic,sans-serif;
+  mso-fareast-font-family:Calibri;color:#1F497D;mso-ansi-language:EN-GB">“The
+  campaign was well planned and professionally conducted by the Brigade Big
+  Intelligence Sales and Marketing team. We are not only happy with the results
+  but also the way, our qualifying questions were given priority. Before
+  Brigade Big Intelligence, we spent our marketing budget on advertising and PR
+  to generate leads. The enquiries were of poor quality. This certainly changed
+  with tele marketing&quot; </span></p>
+  <p  style="tab-stops:.75in"><span lang="EN-GB">&nbsp;</span></p>
+
+  </td>
+ </tr>
+</table>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+  <p  style="margin-right:-1.25in;"><apex:image value="{!$Resource.ProposalFooter}"/></p>
+</div>
+
+ <p align="left"><apex:image value="{!$Resource.BrigadeProposal}" /></p>  
+   <table  border="0" cellspacing="0" cellpadding="0" width="100%"
+ style="mso-cellspacing:.7pt;border:solid #336699 4.5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 0in 0in 0in">
+ <tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:375.05pt">
+  <td width="970" style="width:727.7pt;background:white;padding:0in 0in 0in 0in;
+  height:375.05pt">
+
+
+  <p class="BodyContent"><span style="font-size:22.0pt;line-height:115%;font-family:Century Gothic,sans-serif;padding:0in 5.4pt 0in 5.4pt">ANNEXURE
+  existing clients-</span></p>
+  <table cellpadding="0" cellspacing="0" width="100%" border="0">
+  <tr>
+  <td width="70%">
+  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  left;line-height:normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt"><span
+  lang="EN-GB" style="font-size:10.0pt;font-family:Century Gothic,sans-serif;
+  color:#1F497D">1.Keith Miller<br/>
+  Marketing Director | Accounting Global<br/>
+  T: 408-907-2283 | Keith.Miller@AccountingGlobal.com<br/>
+  www.AccountingGlobal.com</span></p></td>
+  <td width="30%" align="left"><apex:image value="{!$Resource.Standard}"/></td>
+  </tr>
+  
+  <tr>
+  <td width="70%">
+  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  left;line-height:normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt"><span
+  lang="EN-GB" style="font-size:10.0pt;font-family:Century Gothic,sans-serif;
+  color:#1F497D">2.Bill McBeath | Chief Research Officer |<br/>
+  ChainLink Research <br/>
+  719 Washington Street, Suite 144<br/>
+  Newton, MA 02458Phone: 617-762-4040 extension 414<br/>
+  Fax: 617-762-4041 bill.mcbeath@clresearch.com | www.chainlinkresearch.com</span></p>
+  </td>
+  <td width="30%" align="left" ><br/><apex:image value="{!$Resource.Avaya}"/><br/>
+  <apex:image value="{!$Resource.Sage}"/>
+  </td>
+  </tr>
+  
+  <tr>
+  <td width="70%">
+  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  left;line-height:normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt"><span
+  lang="EN-GB" style="font-size:10.0pt;font-family:Century Gothic,sans-serif;
+  color:#1F497D">
+  3.Pamela Velentzas<br/>
+  Marketing Manager - North America<br/> 
+  Imation Mobile Security<br/>
+  T: 514-333-5010 ext. 377 <br/>
+  M: 514-206-4190<br/>
+  pvelentzas@imation.com<br/>
+  www.imation.com/mobilesecurity</span></p></td>
+  <td width="30%" align="left"><apex:image value="{!$Resource.ChainLink}"/></td></tr>
+  
+  <tr>
+  <td width="70%">
+  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  left;line-height:normal;mso-layout-grid-align:none;text-autospace:none;padding:0in 5.4pt 0in 5.4pt"><span
+  lang="EN-GB" style="font-size:10.0pt;font-family:Century Gothic,sans-serif;
+  color:#1F497D">
+  4.Marquis Green 
+ Marketing Specialist<br/>
+  S&amp;P Capital IQ| 55 Water St., 34th Fl., NY, NY 10041<br/>
+ Phone: 212.438.3659|Fax: 212.438.3959<br/>
+  marquis_green@spcapitaliq.com</span></p></td>
+  <td width="30%" align="left"><apex:image value="{!$Resource.IDG}"/><br/>
+  <apex:image value="{!$Resource.Kofax}"/>
+  </td></tr></table>
+  <p class="BodyContent" style="text-align:left;padding:0in 5.4pt 0in 5.4pt"><b style="mso-bidi-font-weight:
+  normal">THANK YOU!</b><b style="mso-bidi-font-weight:normal"><span
+  style="font-size:18.0pt;line-height:115%;font-family:Arial,sans-serif"> </span></b><span
+  style="font-size:10.0pt;line-height:115%;font-family:Arial,sans-serif;
+  mso-no-proof:yes"><span
+  style="mso-spacerun:yes"></span></span><b
+  style="mso-bidi-font-weight:normal"><span style="font-size:18.0pt;line-height:
+  115%;font-family:Arial,sans-serif"></span></b></p>
+  <br/><br/><br/><br/><br/>
+  </td></tr></table>
+<br/><br/>
+  <p  style="margin-right:-1.25in;"><apex:image value="{!$Resource.ProposalFooter}"/></p>
+
+
+</div>
+</body>
+
+</apex:page>

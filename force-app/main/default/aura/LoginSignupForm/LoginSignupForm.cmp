@@ -1,0 +1,405 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" controller="LoginSignupForm">
+    <aura:handler name="init" value="{!this }" action="{!c.doInit }"/> 
+    <aura:attribute name="username" type="String" />
+    <aura:attribute name="usernameForOTP" type="String" />
+    <aura:attribute name="password" type="String" /> 
+    <aura:attribute name="hashcode" type="String" /> 
+    <aura:attribute name="showLoginPage" type="Boolean" default="true" />
+    <aura:attribute name="showSignPage" type="Boolean" default="false" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    <aura:attribute name="ResndOTP" type="Boolean" default="false" />
+    <aura:attribute name="changePassword" type="Boolean" default="false" />
+    <aura:attribute name="showChangePasswordPage" type="Boolean" default="false" />
+    <aura:attribute name="UserPortalRec" type="User_Portal__c" default="{}" /> 
+    <aura:attribute name="isButtonDisabled" type="Boolean" default="false" />
+    <aura:attribute name="isLoginDisabled" type="Boolean" default="true"/>
+    <aura:attribute name="signupSuccess" type="Boolean" default="false"/>
+    <aura:attribute name="showPassword" type="Boolean" default="false" />
+    
+    
+    <!-- ////////eamil Validation for signin page/////////////// -->
+    <aura:attribute name="email2" type="String" default=""/>
+    <aura:attribute name="emailErrorMessageForUserName" type="String" default=""/>
+    <aura:attribute name="isEmailValidForUserName" type="Boolean" default="true"/>
+    
+    <!-- ////////eamil Validation for signup page/////////////// -->
+    <aura:attribute name="email" type="String" default=""/>
+    <aura:attribute name="emailErrorMessage" type="String" default=""/>
+    <aura:attribute name="isEmailValid" type="Boolean" default="true"/>
+    
+    <!-- ////////eamil Validation for username otp/////////////// -->
+    <aura:attribute name="email1" type="String" default=""/>
+    <aura:attribute name="emailErrorMessageforOTP" type="String" default=""/>
+    <aura:attribute name="isEmailforCreateOTPValid" type="Boolean" default="true"/>
+    
+    <!-- ////////eamil Validation for username otp/////////////// -->
+    <!--   <aura:attribute name="email1" type="String" default=""/>
+    <aura:attribute name="email" type="String" default=""/>
+    <aura:attribute name="isEmailforCreateOTPValid" type="Boolean" default="true"/>-->
+    
+    <!-- ////////////////////LoginPage/////////////////////////////// -->
+    <aura:if isTrue="{!v.showLoginPage}">
+        <lightning:layout horizontalAlign="center">
+            <lightning:layoutItem  class="e" size="12"   padding="around-small" >
+                <lightning:layout>
+                    <lightning:layoutItem padding="around-small" size="6">
+                        <!--  <div   class="slds-p-around_x-small">
+                            <div class="slds-align_absolute-left slds-m-top_small  slds-p-around_small">
+                                <img src="{!$Resource.LeadhubLogo}" style="margin-left:26%;" />
+                            </div>
+                            <div class="slds-align_absolute-center slds-m-top_small slds-text-heading_large" style="margin-top:20%;" >
+                                <span><b style="color:#6592FD;   font-size:80%;">WELCOME BACK!</b></span>
+                            </div> <br/>
+                             <div class="slds-align_absolute-center" >
+                                 <lightning:input  name="username" class="no-border-input" placeholder="Ex:heelo@gmail.com"  label="Email" value="{!v.username}" onchange="{!c.validateEmailforlogiUser}" style="width: 280px;" />
+                            </div>
+                            <span class="error-message slds-align_absolute-center" aura:id="emailError">{!v.emailErrorMessageForUserName}</span>
+                            <div>
+                                <aura:if isTrue="{!not(v.isEmailValidForUserName)}">
+                                    <p class="error-message slds-align_absolute-center">Please enter a valid email address.</p>
+                                </aura:if> 
+                            </div><br/>
+                            <div class="slds-align_absolute-center">
+                                <lightning:input   type="password" name="password" class="no-border-input" placeholder="Minimum 8 characters"  label="password" value="{!v.password}" style="width: 280px;" />
+                            </div> 
+                            <P style="color:#8C61FF; margin-left:55%;" class="slds-align_absolute-right"><a class="text-muted" href="#!" style="  font-size:15px;"  onclick="{!c.forgotPassword}"><P style="color:#8C61FF;font-size:15px;">  <b>Forgot password?</b></P></a></P>  <br/>
+                            <div class="slds-align_absolute-center"  style="width: 255px;">
+                                <lightning:button  variant="success" label="Login"  class="custom-button" onclick="{!c.userLogin}"/>
+                            </div><br/>
+                            
+                            <div class="slds-align_absolute-center" style="height:4rem">
+                                Don't Have an account?<a class="text-muted" href="#!"  onclick="{!c.userSignUp}"> <P style="color:#8C61FF;font-size:15px;"><b>Sign Up</b></P></a>
+                            </div>
+                        </div>-->
+                        
+                         <div class="slds-grid slds-grid_vertical slds-p-top_xx-large" style="height:200px">
+                            <aura:if isTrue="{!v.showSpinner}">
+                                <div class="demo-only" style="height:6rem">
+                                    <div class="slds-spinner_container">
+                                        <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                                            <span class="slds-assistive-text">Loading</span>
+                                            <div class="slds-spinner__dot-a"></div>
+                                            <div class="slds-spinner__dot-b"></div>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </aura:if>
+                             
+                            <div class="slds-col slds-align_absolute-center  slds-m-left_xx-small" style="margin-left:27%;" >
+                                <span>
+                                    <img src="{!$Resource.LeadhubLogo}"  />
+                                </span>
+                            </div>
+                            <div class="slds-col slds-align_absolute-center slds-p-top_xx-large">
+                                <span>
+                                    <b style="color:#8C61FF;   font-size:20px;">WELCOME BACK!</b>
+                                </span>
+                            </div>
+                            <div class="slds-col slds-align_absolute-center slds-p-top_xx-large">
+                                <span>
+                                    <lightning:input  name="username" class="no-border-input" placeholder="Ex:heelo@gmail.com"  label="Email" value="{!v.username}" onchange="{!c.validateEmailforlogiUser}" style="width: 280px;" />
+                                    
+                                    <aura:if isTrue="{!not(v.isEmailValidForUserName)}">
+                                        <p class="error-message slds-align_absolute-center">Please enter a valid email address.</p>
+                                    </aura:if> 
+                                </span>
+                            </div>
+                            <div class="slds-col slds-align_absolute-center slds-p-top_small">
+                                <span>
+                                    <label class="slds-form-element__label" for="passwordField">Password</label>
+                                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+                                        <lightning:input type="{!v.showPassword ? 'text' : 'password'}" name="password" class="no-border-input" aura:id="passwordField" placeholder="Minimum 8 characters" onchange="{!c.validatePasswordforlogiUser}"   value="{!v.password}" style="width: 280px;" />  
+                                        <lightning:buttonIcon class="slds-button slds-input__icon slds-text-color--default slds-m-vertical_x-small" 
+                                                                          iconName="{!v.showpassword ? 'utility:hide':'utility:preview'}" 
+                                                                           onclick="{!c.myFunction}"/>
+                                    </div>
+                                    
+                                   
+                                </span>
+                            </div>
+                            <div>
+                                <span class="error-message slds-align_absolute-center" aura:id="emailError">{!v.emailErrorMessageForUserName}</span>
+                                
+                            </div>
+                            <a class="slds-align_absolute-right slds-float_right" href="#!" onclick="{!c.forgotPassword}"><P  style="color:#8C61FF;font-size:15px;margin-left: 51%;"><b >Forgot password?</b></P></a><br/>
+                            
+                            <div class="slds-align_absolute-center" style="width: 255px;">
+                                
+                                <lightning:button  variant="success" label="Login"  disabled="{!v.isLoginDisabled}"   class="custom-button" onclick="{!c.userLogin}"/>
+                            </div>
+                            <div class="slds-col slds-align_absolute-center slds-p-top_x-large">
+                                <span>
+                                    Don't Have an account?<a class="text-muted" href="#!"   onclick="{!c.userSignUp}"> <b style="color:#8C61FF;font-size:15px;"> Sign Up </b></a>
+                                </span>
+                            </div>
+                        </div> 
+                    </lightning:layoutItem>
+                    <lightning:layoutItem  size="6"  padding="around-small">
+                        <div  class="container">
+                            <div class="slds-align_absolute-center" >
+                                <div class="  slds-text-align_center  "    >
+                                    <img src="{!$Resource.loginpageSideview}" style="max-height:90vh !important;"  />
+                                </div>
+                            </div>
+                        </div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </aura:if>
+    <!-- ////////////////////// affter click of forgot button insert UserName send Otp/////////////////// -->       
+    <aura:if isTrue="{!v.changePassword}">
+        <lightning:layout horizontalAlign="center">
+            <lightning:layoutItem  class="e" size="12"   padding="around-small" >
+                <lightning:layout class="abc"  >
+                    <lightning:layoutItem class="e" size="6"  >
+                        <!--  <form>
+                    <div class="slds-align_absolute-left slds-m-top_small slds-text-heading_large"  style="margin-bottom:5%;"  >
+                        <img src="{!$Resource.LeadhubLogo}"  style="margin-left:26%;" />
+                    </div>
+                    <div class="slds-align_absolute-left slds-m-top_small slds-text-heading_large"  style="margin-top:5%;  margin-left:26%;"  >
+                        <lightning:button   iconName="utility:back"  onclick="{!c.backtologinform}"/>
+                    </div>
+                    <div class="slds-align_absolute-center slds-m-top_small slds-text-heading_large" style=" ">
+                        <span><b style="color:#6592FD;font-size:60%;">FORGOT PASSWORD</b></span>
+                    </div>
+                    <div class="slds-align_absolute-center" >
+                        <h1 style="font-size:10px;">To reset your password ,enter your registered email id </h1> 
+                    </div>
+                    <div  class="slds-align_absolute-center">
+                        <lightning:input  type="text"   value="{!v.usernameForOTP}" label="Email" onchange="{!c.validateEmailforOTP}" style="width: 255px;   " />
+                    </div>
+                    <span class="error-message slds-align_absolute-center" aura:id="emailError">{!v.emailErrorMessageforOTP}</span>
+                    <div>
+                        <aura:if isTrue="{!not(v.isEmailforCreateOTPValid)}">
+                            <p class="error-message slds-align_absolute-center">Please enter a valid email address.</p>
+                        </aura:if> 
+                    </div><br/>
+                    <div class="slds-align_absolute-center">
+                        <lightning:button variant="success" class="custom-button2" label="Change Password" onclick="{!c.generateOTPforPassword}"   />
+                    </div> 
+                </form>-->
+                        
+                        <div class="slds-grid slds-grid_vertical slds-p-top_xx-large " style="height:200px; margin-top:0%;">
+                            
+                            <div class="slds-col slds-align_absolute-center	slds-p-left_x-large  " style="margin-left:27%;" >
+                                <span>
+                                    <img src="{!$Resource.LeadhubLogo}"  />
+                                </span>
+                            </div>
+                            <div class="slds-col   slds-p-top_xx-large slds-align_absolute-center slds-p-right_xx-large" style="margin-left:25%;">
+                                 
+                                    <lightning:button class="  "  iconName="utility:back"  onclick="{!c.backtologinform}"/>
+                                
+                            </div>
+                            <div class="slds-col slds-align_absolute-center slds-p-top_x-small">
+                                <span>
+                                    <b style="color:#8C61FF;font-size:20px;">FORGOT PASSWORD</b>
+                                </span>
+                            </div>
+                            <div class="slds-col slds-align_absolute-center slds-p-top_x-large">
+                                <span>
+                                    <h1 style="font-size:10px;">To reset your password ,enter your registered email id </h1> 
+                                </span>
+                            </div>
+                            <div class="slds-col slds-align_absolute-center slds-p-top_x-large">
+                                <span>
+                                    <lightning:input  type="text" class="no-border-input"  placeholder="Ex:heelo@gmail.com" value="{!v.usernameForOTP}" label="Email" onchange="{!c.validateEmailforOTP}" style="width: 255px;   " />
+                                    <span class="error-message slds-align_absolute-center" aura:id="emailError">{!v.emailErrorMessageforOTP}</span>
+                                    <aura:if isTrue="{!not(v.isEmailforCreateOTPValid)}">
+                                        <p class="error-message slds-align_absolute-center">Please enter a valid email address.</p>
+                                    </aura:if> 
+                                </span>
+                            </div>
+                            <div class="slds-col slds-align_absolute-center slds-m-top_small" style="width: 255px;">
+                                <lightning:button variant="success" class="custom-button" label="Change Password" onclick="{!c.generateOTPforPassword}"   />
+                            </div>
+                        </div>
+                        
+                    </lightning:layoutItem>
+                    <lightning:layoutItem class="e" size="6" padding="around-large">
+                        <div class="slds-align_absolute-left">
+                            <div class="  slds-text-align_center  " size="6" style="max-height:100vh !important;">
+                                <img src="{!$Resource.forgotePassword}" />
+                            </div>
+                        </div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </aura:if>
+    <!-- //////////////////////After submission of Otp////////////////////// -->
+    <aura:if isTrue="{!v.ResndOTP}">
+        <lightning:layout class="abc" verticalAlign="center">
+            <lightning:layoutItem class="e" size="6" padding="around-large">
+                <form>
+                    <div class="slds-align_absolute-left slds-m-top_small slds-text-heading_large"  style="margin-top:5%;"  >
+                        <img src="{!$Resource.LeadhubLogo}"  style="margin-left:26%;"/>
+                    </div>
+                    <div class="slds-align_absolute-center slds-m-top_small slds-text-heading_large" style="margin-top:20%;">
+                        <span><b style="color:#6592FD; font-size:60%;">Check Your Email</b></span>
+                    </div> 
+                    <div class="slds-align_absolute-center" style="height:4rem" >
+                        <h1 style="font-size:15px;">we've sent an email to you with a link to reset your<br/> password <br/>
+                            can't find the email? Try Checking your spam folder <br/>if you still can't find id,haveus resend the email </h1> 
+                    </div>
+                    <div class="slds-align_absolute-center"  style="height:4rem; float:center;">
+                        <lightning:button    class="slds-button slds-button_outline-brand" label="Resend OTP" onclick="{!c.resendOTP}"/>
+                        <lightning:button variant="Brand" class="Custom1" onclick="{!c.handleClick}" disabled="{!v.isButtonDisabled}" label="Check Email"/>
+                    </div>
+                </form>
+            </lightning:layoutItem>
+            <lightning:layoutItem class="e" size="6" padding="around-large">
+                <div class="slds-align_absolute-left">
+                    <div class="  slds-text-align_center  " size="6"  >
+                        <img src="{!$Resource.forgotePassword}" style="max-height:100vh !important; " />
+                    </div>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </aura:if>
+    <!-- //////////////ChangePasswordPage////////////// -->   
+    <aura:if isTrue="{!v.showChangePasswordPage}">
+    </aura:if> 
+    <!-- ///////////////////After click on SignUp button this page  is open Page///////////////////////////////// -->        
+    <aura:if isTrue="{!v.showSignPage}">
+        <lightning:layout horizontalAlign="center">
+            <lightning:layoutItem  class="e" size="12"   padding="around-small" >
+                <lightning:layout class="abc"  >
+                    <lightning:layoutItem class="e" size="6"  >
+                        <form>
+                            <!--  <div class="slds-align_absolute-left slds-m-top_small slds-text-heading_large"   style="margin-top:15px;" >
+                                <img src="{!$Resource.LeadhubLogo}" style="margin-left:26%;" />
+                            </div>
+                            <div class="slds-align_absolute-left slds-m-top_small slds-text-heading_large"  style="margin-top:5%;margin-left:26%;"  >
+                                <lightning:button   iconName="utility:back"  onclick="{!c.backSinguptologinform}"/>
+                            </div>
+                            <div class="slds-align_absolute-center slds-m-top_small slds-text-heading_large " style="paddin-bottom:30%;">
+                                <span><b style="color:#6592FD;font-size:60%;">CREATE YOUR ACCOUNT</b></span>
+                            </div> 
+                            <div class="slds-align_absolute-center" >
+                                
+                                <lightning:input   type="text"   value="{!v.UserPortalRec.First_Name__c}" label="First Name"  style="width: 255px;" />
+                            </div>
+                            <div class="slds-align_absolute-center">
+                                
+                                <lightning:input   type="text"    value="{!v.UserPortalRec.Last_Name__c}" label="Last Name"  style="width: 255px;" />
+                            </div>
+                            <div class="slds-align_absolute-center">
+                                
+                                <lightning:input   type="phone"   value="{!v.UserPortalRec.Phone__c}" label="Phone" style="width: 255px;" />
+                            </div>
+                            <div class="slds-align_absolute-center">
+                                <lightning:input   type="Email"   value="{!v.UserPortalRec.User_Name__c}" label="Email" onchange="{!c.validateEmail}" style="width: 255px;" />
+                            </div>
+                            <span class="error-message slds-align_absolute-center" aura:id="emailError">{!v.emailErrorMessage}</span>
+                            <div>
+                                <aura:if isTrue="{!not(v.isEmailValid)}">
+                                    <p class="error-message slds-align_absolute-center">Please enter a valid email address.</p>
+                                </aura:if>
+                            </div>
+                            <br/>
+                            <div class="slds-align_absolute-center"  >
+                                <lightning:button   label="Signup"   class="custom-button1" onclick="{!c.CreateUser}">SignUp</lightning:button>
+                            </div><br/>
+                            <div class="slds-align_absolute-center" style="height:4rem">
+                                Already have an account?<a class="text-muted" href="#!"  onclick="{!c.existingUserSignin}"> <P style="color:#6592FD;margin-top:20%;">Login</P></a>
+                            </div>-->
+                            <div class="slds-grid slds-grid_vertical slds-p-top_xx-large " style="height:200px;">
+                                
+                                <div class="slds-col slds-align_absolute-center slds-p-right_xx-large"  style="margin-left:30%;">
+                                    <span>
+                                        <img src="{!$Resource.LeadhubLogo}"  />
+                                    </span>
+                                </div>
+                            <div class="slds-col   slds-p-top_xx-large slds-align_absolute-center slds-p-right_xx-large" style="margin-left:25%;">
+                                    
+                                        <lightning:button class="slds-m-left_xx-large"  iconName="utility:back"  onclick="{!c.backSinguptologinform}"/>
+                                        <!--  <lightning:button   iconName="utility:back"  onclick="{!c.backSinguptologinform}"/>-->
+                                    
+                                </div>
+                                <div class="slds-col slds-align_absolute-center slds-p-top_x-large">
+                                    <span>
+                                        <b style="color:#8C61FF;font-size:20px;">CREATE YOUR ACCOUNT</b>
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-align_absolute-center  ">
+                                    <span>
+                                        <lightning:input  class="no-border-input"  type="text"   value="{!v.UserPortalRec.First_Name__c}" label="First Name"  required="true"  style="width: 255px;" />
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-align_absolute-center  ">
+                                    <span>
+                                        <lightning:input class="no-border-input"  type="text"    value="{!v.UserPortalRec.Last_Name__c}" label="Last Name"  required="true"  style="width: 255px;" />
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-align_absolute-center  ">
+                                    <span>
+                                        <lightning:input class="no-border-input"  type="phone"   value="{!v.UserPortalRec.Phone__c}" label="Phone"  required="true" style="width: 255px;" />
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-align_absolute-center ">
+                                    <span>
+                                        <lightning:input class="no-border-input"  type="Email"   value="{!v.UserPortalRec.User_Name__c}" label="Email"  required="true" onchange="{!c.validateEmail}" style="width: 255px;" />
+                                        <aura:if isTrue="{!not(v.isEmailValid)}">
+                                            <p class="error-message slds-align_absolute-center">Please enter a valid email address.</p>
+                                        </aura:if>
+                                    </span>
+                                </div>
+                                <span class="error-message slds-align_absolute-center" aura:id="emailError">{!v.emailErrorMessage}</span>
+                                
+                                <div class="slds-col slds-align_absolute-center slds-m-top_small" style="width: 255px;">
+                                    <lightning:button class="custom-button" variant="success"  label="Signup"  disabled="{!v.isLoginDisabled}"    onclick="{!c.CreateUser}">SignUp</lightning:button>
+                                </div>
+                                <div class="slds-col slds-align_absolute-center slds-m-top_small">
+                                    Already have an account?<a class="text-muted" href="#!"  onclick="{!c.existingUserSignin}"> <P style="color:#8C61FF;font-size:15px;" class="slds-p-left_x-smal"><b>Login</b></P></a>
+                                </div>
+                            </div>
+                        </form>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem class="e" size="6"  >
+                        <div class="slds-align_absolute-left">
+                            <div class=" slds-text-align_center" size="6" >
+                                <img src="{!$Resource.loginpageSideview}" style="max-height:90vh !important;margin-top:20px;" />
+                            </div>
+                        </div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </aura:if> 
+    <aura:if isTrue="{!v.signupSuccess}">
+        <lightning:layout class="abc" verticalAlign="center">
+            <lightning:layoutItem class="e" size="6" padding="around-large">
+                <form>
+                    <div class="slds-align_absolute-left   slds-text-heading_large"  style=" "  >
+                        <img src="{!$Resource.LeadhubLogo}"  style="margin-left:26%;"/>
+                    </div>
+                    <div class="slds-align_absolute-center slds-m-top_small slds-text-heading_large" style="">
+                        <span><b style="color:#6592FD; font-size:60%;">Your Account has been created </b></span>
+                    </div> 
+                    <br/>
+                    
+                    <div class="slds-align_absolute-center" style="height:4rem" >
+                        <h1 style="font-size:15px;">Please check your Email we have sent username and password<br/>
+                            If you are not finding the email in Inbox try checking spam folder<br/>
+                            Click below to reach Login page<br/> </h1> 
+                    </div>
+                    <div class="slds-align_absolute-center "  style="height:4rem; float:center;">
+                        <lightning:button    class="custom-button123 slds-button slds-button_outline-brand" label="Go To Login" onclick="{!c.loginAfterCreateAccount}"/>
+                        <!--lightning:button variant="Brand" class="Custom1" onclick="{!c.handleClick}" disabled="{!v.isButtonDisabled}" label="Check Email"/-->
+                    </div>
+                </form>
+            </lightning:layoutItem>
+            <lightning:layoutItem class="e" size="6" padding="around-large">
+                <div class="slds-align_absolute-left">
+                    <div class="  slds-text-align_center  " size="6"  >
+                        <img src="{!$Resource.forgotePassword}" style="max-height:100vh !important; " />
+                    </div>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </aura:if>
+    
+</aura:component>

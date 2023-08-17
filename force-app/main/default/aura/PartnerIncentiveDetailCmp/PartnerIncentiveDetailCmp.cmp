@@ -1,0 +1,68 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" >
+    <aura:handler name="init" value="{!this }" action="{!c.doInit }"/> 
+     <aura:attribute name="dashboardUrl" type="string"/>
+    <aura:attribute name="partnerId" type="string"/>
+    
+      <lightning:layout class="abc" multipleRows="true" >
+          
+         <lightning:layoutItem class="e" size="12" padding="around-large" >
+            <div class="slds-align_absolute-center slds-m-top_small slds-text-heading_large" style="border-style: hidden;  ">
+                <iframe aura:id="vfFrame" src="{!v.dashboardUrl}" width="200%" height="200px" background="transparent"  frameborder="0"></iframe>
+            </div>
+             
+          </lightning:layoutItem>
+        
+           <lightning:layoutItem class="e" size="12" padding="around-large" >
+            <div class="slds-grid slds-gutters" style=" ">
+                <div class="slds-col slds-m-right_x-large slds-m-left_x-large"  style="background-color:#A0D6B4 ;padding:25px; text-align:center;border-radius: 10px;">
+                    <b>This Year Total Incentive<br/> Earned</b>  
+                    <div class="slds-align_absolute-center"  style="background-color:#4E8975;padding:10px;  color:white; text-align:center; border-radius: 5px; height:10%;width:50%; margin-top:5px;  float:center;">&#8377;12,500</div>
+                </div>
+                <div class="slds-col slds-m-right_x-large slds-m-left_x-large"  style="background-color:#CFECEC ;padding:25px; text-align:center;border-radius: 10px;">
+                    <b>Last Quarter Incentive<br/> Earned</b> 
+                    <div class="slds-align_absolute-center"  style="background-color:#736AFF; padding:10px;  color:white; text-align:center; border-radius: 5px; height:10%;width:50%; margin-top:5px;  float:center;">&#8377;6500</div>
+                </div>
+                <div class="slds-col slds-m-right_x-large slds-m-left_x-large"  style="background-color:#BDEDFF ;padding:25px; text-align:center;border-radius: 10px;">
+                    <b>This Month Incentive<br/>Earned</b> 
+                    <div class="slds-align_absolute-center"  style="background-color:#1589FF;padding:10px;  color:white; text-align:center; border-radius: 5px; height:10%;width:50%; margin-top:5px;  float:center;">&#8377;2000</div>
+                </div>
+             </div>
+           </lightning:layoutItem>
+           <lightning:layoutItem class="e" size="12" padding="around-large" >
+               <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                        <thead>
+                            <tr class="slds-text-title_caps" style="background-color:#9E7BFF;">
+                                <th class="slds-text-align_center" style="width: 3rem; background-color:#CCCCFF;"></th>
+                                <th scope="col" style="background-color:#CCCCFF;">
+                                    <strong><div class="slds-truncate" title="Name">Start Date- End Date</div></strong>
+                                </th>
+                                <th scope="col" style="background-color:#CCCCFF;">
+                                    <strong><div class="slds-truncate" title="Name">IP</div></strong>
+                                </th>
+                                <th scope="col" style="background-color:#CCCCFF;">
+                                    <strong><div class="slds-truncate" title="Phone">Total Incentive</div></strong>
+                                </th>
+                                <th scope="col" style="background-color:#CCCCFF;">
+                                    <strong><div class="slds-truncate" title="Email">Action</div></strong>
+                                </th>
+                                <th scope="col" style="background-color:#CCCCFF;">
+                                    <strong><div class="slds-truncate" title="LeadSource">Status</div></strong>
+                                </th>
+                                <th scope="col" style="background-color:#CCCCFF;">
+                                    <strong><div class="slds-truncate" title="Status">LeadSource</div></strong>
+                                </th>
+                            </tr>
+                        </thead>
+               </table>
+          </lightning:layoutItem>
+          
+           </lightning:layout>
+          
+          
+           
+          
+         
+     
+	
+</aura:component>
